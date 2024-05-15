@@ -14,6 +14,8 @@ def fm_lister(central_dir, fm_dir, write_dir):
 
     path_to_make = Path.cwd() / write_dir
     path_to_make.mkdir(exist_ok=True, parents=True)
+    path_to_make = Path.cwd() / fm_dir
+    path_to_make.mkdir(exist_ok=True, parents=True)
 
     with open(fmwritepath, 'w') as fm_plane_names_piston:
         list_fm_plane_names_piston = []
@@ -39,6 +41,8 @@ def central_fm_jsoner(central_dir, write_dir, image_dir):
     central_fmwritepath = os.path.join(write_dir, "central-fm_plane_names_piston.json")
 
     path_to_make = Path.cwd() / write_dir
+    path_to_make.mkdir(exist_ok=True, parents=True)
+    path_to_make = Path.cwd() / central_dir
     path_to_make.mkdir(exist_ok=True, parents=True)
 
     with open(central_fmwritepath, "w") as central_fm_json, open(fmwritepath, "r") as prop_fm_file:
@@ -90,6 +94,8 @@ def ingame_central_names_lister(read_dir, write_dir):
     central_ingamefilewritepath = os.path.join(write_dir, "central-ingame_plane_names_piston.json")
 
     path_to_make = Path.cwd() / write_dir
+    path_to_make.mkdir(exist_ok=True, parents=True)
+    path_to_make = Path.cwd() / read_dir
     path_to_make.mkdir(exist_ok=True, parents=True)
 
     dict_ingame_infiles = {}

@@ -1,3 +1,4 @@
+import os
 import json
 import shutil
 from blkx_parsers import fm_parser, central_parser
@@ -17,28 +18,34 @@ def main():
     central_dir = "input_files/central_files/"
     gun_dir = "input_files/weapon_files/"
     name_read_dir = "input_files/vehicle_name_files/"
+    image_write_dir = "input_files/plane_images/"
+    
     central_fm_read_dir = "output_files/plane_name_files/central-fm_plane_names_piston.json"
     name_write_dir = "output_files/plane_name_files/"
     mass_write_dir = "output_files/plane_mass_files/"
     power_write_dir = "output_files/plane_power_files/"
-    image_write_dir = "input_files/plane_images/"
     image_names_dir = "output_files/plane_name_files/vehicle_image_names.json"
 
     # Section for downloading datamine Starts
-    answer1 = input("Welcome at the batch runner. Do you want to delete datamine files from 'input files/' directory? \nThey take ~30min to download in the next step. \n(yes/no) ")
+    # answer0 = input("Welcome at the batch runner. First of, make sure your working directory ends with '..../wt-aircraft-performance-pre-calculator'(click anything).")
+    answer1 = input("Do you want to delete datamine files from 'input files/' directory? \nThey take ~30min to download in the next step. \n(yes/no) ")
     if answer1 == 'yes':
-        shutil.rmtree("input_files/central_files/")
-        shutil.rmtree("input_files/fm_files/")
-        shutil.rmtree("input_files/weapon_files/")
-        shutil.rmtree("input_files/plane_images/")
+        if os.path.exists(central_dir):
+            shutil.rmtree(central_dir)
+        if os.path.exists(fm_dir):
+            shutil.rmtree(fm_dir)
+        if os.path.exists(gun_dir):
+            shutil.rmtree(gun_dir)
+        if os.path.exists(image_write_dir):
+            shutil.rmtree(image_write_dir)
 
         
     answer2 = input("Do you want to download newest datamine files into 'input files/' directory? \n(yes/no) ")
     if answer2 == 'yes':
         print('Started fetching datamine files! Might take an hour!')
-        # datamine_folder_fetcher("input_files/fm_files", "aces.vromfs.bin_u/gamedata/flightmodels/fm/", "")
-        # datamine_folder_fetcher("input_files/central_files", "aces.vromfs.bin_u/gamedata/flightmodels/", "")
-        # datamine_folder_fetcher("input_files/weapon_files", "aces.vromfs.bin_u/gamedata/weapons/", "")
+        datamine_folder_fetcher("input_files/fm_files", "aces.vromfs.bin_u/gamedata/flightmodels/fm/", "")
+        datamine_folder_fetcher("input_files/central_files", "aces.vromfs.bin_u/gamedata/flightmodels/", "")
+        datamine_folder_fetcher("input_files/weapon_files", "aces.vromfs.bin_u/gamedata/weapons/", "")
         datamine_file_fetcher("input_files/vehicle_name_files", "lang.vromfs.bin_u/lang/units.csv", "")
         fm_lister(central_dir,fm_dir, name_write_dir)
         central_fm_jsoner(central_dir, name_write_dir, image_names_dir)
@@ -85,17 +92,10 @@ def main():
 
         print('Finished the calcualtions! Raaahhh!')
 
+    print("This is the end of the script. UUuuuu")
 
-    # Section for calcualting everything ends
-    #########################################
-    #Optional removal of FM files after the were used for calcualting everything
-    # answer6 = input("This is the end of the script. Do you want to delete datamine files now? \n(yes/no) ")
-    # if answer6 == 'yes':
-    #     shutil.rmtree("input_files/central_files/")
-    #     shutil.rmtree("input_files/fm_files/")
-    #     shutil.rmtree("input_files/weapon_files/")
-    # those file are removed cause they're heavy, and are copies of Gszabi's datamine. 
-    # plane images and names aren't removed because they're needed by WTAPC.org
+
+
     
 if __name__ == "__main__":
     main()
