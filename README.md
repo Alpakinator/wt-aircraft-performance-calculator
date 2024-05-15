@@ -72,13 +72,13 @@ For propeller efficiency and prop thrust, there's `prop_efficiency_calculator.py
 ### Thanks:
 
 * [gszabi99][6] and Oshida - Providing a reliable up to date [datamine][2] of WT flight-model files, essential for the project to even exist. 
-<br>
+
 * [\_avb\_][7] - Making [WTRTI][4], a tool necessary to make ingame engine power/altitude graphs. I used them as a comparison to calculated engine power during development. Without WTRTI, the project would take many more years to get to this stage.
-<br>
+
 * [Xelph][12] - Helping to set up repo and GitHub Pages of wtapc.org. Advice on website-making and propeller efficiency.
-<br>
+
 * [dogeness][8] Explaining how aero piston engines works IRL and in WT (a good read [here][9]), which helped figure out how to calculate engine power. Advice on graphs layout.
-<br>
+
 * [AdamTheEnginerd][10] - A very big inspiration to start visualizing aircraft performance.
 
 
