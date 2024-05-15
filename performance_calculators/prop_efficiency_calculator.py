@@ -94,7 +94,7 @@ def main():
                         speed_str = '[{}]'.format(speed)
                         alt_RAM = (rameffect_er(alt, air_temp, speed, speed_type, speed_multiplier))
                         try:
-                            power_RAM = power_dict['power_at_alt'][int(round(((alt_RAM + 4000)/100),0))] 
+                            power_RAM = power_dict['power_at_alt'][int(round(((alt_RAM + 4000)/10),0))] 
                         except KeyError:
                             continue #If engine power is 0, the dictionary ends, so you can't apply RAM effect.
                         thrust_100propeff = ((power_RAM*745.7) / (speed/3.6))/9.80665
