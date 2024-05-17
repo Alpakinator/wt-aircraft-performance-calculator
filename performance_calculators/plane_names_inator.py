@@ -71,7 +71,7 @@ def central_fm_jsoner(central_dir, write_dir, image_dir):
                 elif type(central_dict["fmFile"]) == list:
                     fm_file = central_dict["fmFile"][0][3:] + "x"
                 #   deleting quotes and adding "x" to "blk"
-                print(central_file, fm_file)
+                # print(central_file, fm_file)
             elif central_dict:
                 fm_file = central_file
             else:

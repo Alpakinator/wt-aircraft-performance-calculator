@@ -18,11 +18,19 @@ The goal is to calculate most important performance metrics like 1. climb rate a
 
 ### Guide on using scripts:
 
+Install pipx, with:
 1. First - install newest [Python][3] if you don't have it.<br>
-2. This repo uses [Poetry][11] for virtual environment, so in an empty project install it with `pip install poetry` in the terminal.<br>
-3. Then clone this repository into your empty project.<br>
-4. Then run `poetry install` in the terminal so that a new virtual environment will be set up for this project and all packages listed in `pyproject.toml` will be installed into the v-env.
+2. Then clone this repository into your empty project.<br>
+3. This repo uses [Poetry][11] for virtual environment, so to install it, follow these annoying steps:<br>
+3.1 Install pipx cause Poery recommends that `py -m pip install --user pipx`<br>
+3.2 Add pipx installation directoryto Path variable if it's not there.<br>
+3.3 Install poetry using pipx, not pip! `pipx install poetry`<br>
+3.4 Make poetry path to Path variable with `python3 -m pipx ensurepath`<br>
+3.5 update poetry.lock file just to be sure `poetry lock --no-update`<br>
+3.6 *If you use Visual Studio Code: run `poetry config virtualenvs.in-project true` so that virtual environments are noticed by VS<br>
+3.7 Finally create v-env with the needed packages via `poetry install`.<br>
 
+Done, everything should work good.
 Scripts are in `performance_calculators`.<br>
 
 If you want to recalculate engine power, mass etc. files based of the newest WT datamine version:
