@@ -36,7 +36,7 @@ def inputter():
     octane = True
     power_to_weight = False
     engine_modes = [
-        # "military",
+        "100%",
         "WEP"
         ]
     max_altm = 15000

@@ -13,20 +13,20 @@ def dict_dataframer(named_power_curves_merged, alt_unit):
 
         if len(plane_name) >= 30:
             plane_name = plane_name[:50]
-        if "military" in power_curves_merged:
-            MODEL_military_dataf = pd.DataFrame(power_curves_merged["military"].items(),
+        if "100%" in power_curves_merged:
+            MODEL_military_dataf = pd.DataFrame(power_curves_merged["100%"].items(),
                                                 columns=["Altitude [" + alt_unit + "]", plane_name + ' (mil)' ])
             joined_plots_dataf = MODEL_military_dataf
         if "WEP" in power_curves_merged:
             MODEL_WEP_dataf = pd.DataFrame(power_curves_merged["WEP"].items(),
                                            columns=["Altitude [" + alt_unit + "]", plane_name + ' (WEP)' ])
             joined_plots_dataf = MODEL_WEP_dataf
-        if "military" in power_curves_merged and "WEP" in power_curves_merged:
+        if "100%" in power_curves_merged and "WEP" in power_curves_merged:
             joined_plots_dataf = MODEL_military_dataf.merge(MODEL_WEP_dataf, on=("Altitude [" + alt_unit + "]"))  # pass column name as a tuple
 
         if "Altitude [" + alt_unit + "]" not in MODEL_dataf_all:
             MODEL_dataf_all = MODEL_dataf_all.assign(altitude=pd.to_numeric(joined_plots_dataf["Altitude [" + alt_unit + "]"]))
-        if "military" in power_curves_merged:
+        if "100%" in power_curves_merged:
             MODEL_dataf_all = MODEL_dataf_all.assign(power_mil=joined_plots_dataf[plane_name + ' (mil)' ])
 
         if "WEP" in power_curves_merged:
