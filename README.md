@@ -5,7 +5,7 @@
 
 Pre-calculated aircraft performance files of aircraft in War Thunder. They will be visualized as graphs at [**wtapc.org**][1]. Currently those are files with:
 
-* Engine power of all piston engine aircraft in War Thunder from -4km to 20km altitude(100% and WEP).
+* Engine power of all piston engine aircraft in War Thunder from -4km to 20km altitude(military power and WEP).
 * Empty mass, fuel mass and armament mass of all piston engine aircraft.
 * Names of flight-model files and ingame names of all piston engine aircraft.
 
@@ -53,11 +53,13 @@ If you want to compare performace of different planes, better wait and once comp
 
 ### Pre-made files:
 Pre-made .json files are in `output_files`.
-Engine power files have long arrays of numbers, which are engine power values at 0 forward speed (no ram air effect). Altitude is **implicit** - first value is at -3990m, second at 3980m, then at 3970m etc.... up to the last value in each array with engine power at 20000m.
+In engine power files 'military' refers to 100% throttle power setting in game, while WEP (War Emergency Power) is 110%.
+They contain long arrays of numbers, which are engine power values at 0 forward speed (no ram air effect). Altitude is **implicit** - first value is at -3990m, second at 3980m, then at 3970m etc.... up to the last value in each array with engine power at 20000m.
 
 The reason engine power starts at -4km is to account for ram air effect. When a plane is flying very fast at sea level, air is rammed at high pressure into the engine air intake so it's **effectively** at -1 <-> -3km depending on the air intake ram efficiency. If those values weren't calculated it'd not be possible to plot WT engine power at low altitude and high speed.
 
 `speed_mult` in those .json files is the efficiency of the air intake at transferring dynamic pressure of air into the super/turbocharger - efficiency of the air ram effect. it's an important variable used by `rameffect_er` function, needed by the website to apply the air ram effect to the values from .json.
+
 
 ### Known issues - contribution appreciated:
 P-63 A-10, A-5 and C5 engine power graphs don't match ingame engine power very well. These 3 are calculated in a unique way; engine power above critical altitude doesn't drop proportionally to air pressure drop (concave), but in a convex way, and that's difficult to model. (look for `ConstRPM_bends_above_crit_alt` function in `plane_power_calculator`, it's made to distinguish these 2). 

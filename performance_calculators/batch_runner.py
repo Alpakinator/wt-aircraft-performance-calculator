@@ -86,7 +86,7 @@ def main():
                                                                                         named_central_dict, speed=0,
                                                                                         speed_type='TAS', air_temp=15,
                                                                                         octane=True,
-                                                                                        engine_modes=["100%", "WEP"],
+                                                                                        engine_modes=["military", "WEP"],
                                                                                         alt_tick=10)
         engine_power_to_json(power_write_dir, named_power_curves_merged, plane_speed_multipliers, plane_engine_count)
 
