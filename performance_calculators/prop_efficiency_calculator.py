@@ -32,7 +32,7 @@ fm_files = [
 
 ]
 modes = [
-    # 'military', 
+    # "100%", 
     'WEP'
     ]
 plot_all_planes = False
@@ -64,7 +64,7 @@ def main():
         elif 'Transmission0' in fm_dict:
             reduction_ratio = fm_dict['Transmission0']["PropellerReductor0"]
         if not Afterburner:
-            final_engine_modes = ["military"]
+            final_engine_modes = ["100%"]
         else:
             final_engine_modes = modes
         speed_propspeed_dict = {}

@@ -580,7 +580,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
     """
 
     curvature = 1
-    if mode == "military" and alt_RAM <= Compressor["Altitude" + str(i)]:
+    if mode == "100%" and alt_RAM <= Compressor["Altitude" + str(i)]:
         if ConstRPM_is(Compressor, i) and ConstRPM_is_below_deck(Compressor, i) and alt_RAM < Compressor["AltitudeConstRPM" + str(i)]:
             # print(getframeinfo(currentframe()).lineno)
             higher = Compressor["AltitudeConstRPM" + str(i)]
@@ -614,7 +614,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
             higher_power = Compressor["PowerAtCeiling" + str(i)]
             lower = Compressor["Altitude" + str(i)]
             lower_power = Compressor["Power" + str(i)]
-    if mode == "military" and Compressor["Altitude" + str(i)] < alt_RAM <= Compressor["Old_Altitude" + str(i)]:
+    if mode == "100%" and Compressor["Altitude" + str(i)] < alt_RAM <= Compressor["Old_Altitude" + str(i)]:
         # print(getframeinfo(currentframe()).lineno)
         lower = Compressor["Altitude" + str(i)]
         lower_power = Compressor["Power" + str(i)]
@@ -653,7 +653,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
             else:
                 higher = Compressor["Ceiling" + str(i)]
                 higher_power = Compressor["PowerAtCeiling" + str(i)]
-    if mode == "military" and Compressor["Old_Altitude" + str(i)] < alt_RAM:  # TO be chANGED
+    if mode == "100%" and Compressor["Old_Altitude" + str(i)] < alt_RAM:  # TO be chANGED
         # print(getframeinfo(currentframe()).lineno)
         if not Ceiling_is_useful(Compressor, i):
             lower = Compressor["Old_Altitude" + str(i)]
@@ -955,7 +955,7 @@ def power_curve_culator(named_fm_dict, named_central_dict, speed, speed_type, ai
                 compr_stages_count = compr_stage + 1
         # print(compr_stages_count, "compr_stg")
         if not Afterburner:
-            final_engine_modes = ["military"]
+            final_engine_modes = ["100%"]
         else:
             final_engine_modes = engine_modes
         power_curves = optimal_dict_initializer(final_engine_modes, compr_stages_count)
