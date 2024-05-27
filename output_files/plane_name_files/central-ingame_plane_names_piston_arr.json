@@ -1,27 +1,27 @@
 [
   {
     "id": "a-20g",
-    "name": "A\u201120G\u201125 Havoc"
+    "name": "A-20G-25 Havoc"
   },
   {
     "id": "a-26b",
-    "name": "A\u201126B\u201150"
+    "name": "A-26B-50"
   },
   {
     "id": "a-26b_10",
-    "name": "A\u201126B\u201110"
+    "name": "A-26B-10"
   },
   {
     "id": "a-26c-45-dt",
-    "name": "A\u201126C\u201145DT"
+    "name": "A-26C-45DT"
   },
   {
     "id": "a-26c",
-    "name": "A\u201126C\u201145 Invader"
+    "name": "A-26C-45 Invader"
   },
   {
     "id": "a-35b",
-    "name": "\u2584A\u201135B"
+    "name": "\u2584A-35B"
   },
   {
     "id": "a5m4",
@@ -37,7 +37,7 @@
   },
   {
     "id": "a6m2_n_zero",
-    "name": "A6M2\u2011N"
+    "name": "A6M2-N"
   },
   {
     "id": "a6m2_zero",
@@ -93,19 +93,19 @@
   },
   {
     "id": "am_1_mauler",
-    "name": "AM\u20111 Mauler"
+    "name": "AM-1 Mauler"
   },
   {
     "id": "arado-196a-3",
-    "name": "Ar 196 A\u20113"
+    "name": "Ar 196 A-3"
   },
   {
     "id": "arado-196a-5",
-    "name": "\u2584Ar 196 A\u20115"
+    "name": "\u2584Ar 196 A-5"
   },
   {
     "id": "ar_2",
-    "name": "Ar\u20112"
+    "name": "Ar-2"
   },
   {
     "id": "avenger_mk1",
@@ -113,35 +113,35 @@
   },
   {
     "id": "a_20g_30_ussr",
-    "name": "\u2582A\u201120G\u201130 Havoc"
+    "name": "\u2582A-20G-30 Havoc"
   },
   {
     "id": "a_29_hudson",
-    "name": "A\u201129"
+    "name": "A-29"
   },
   {
     "id": "b-17e",
-    "name": "B\u201117E Flying Fortress"
+    "name": "B-17E Flying Fortress"
   },
   {
     "id": "b-17e_japan",
-    "name": "\u2585B\u201117E Flying Fortress"
+    "name": "\u2585B-17E Flying Fortress"
   },
   {
     "id": "b-17e_late",
-    "name": "B\u201117E Flying Fortress /Late"
+    "name": "B-17E Flying Fortress /Late"
   },
   {
     "id": "b-17g",
-    "name": "B\u201117G\u201160\u2011VE Flying Fortress"
+    "name": "B-17G-60-VE Flying Fortress"
   },
   {
     "id": "b-17g_iaf",
-    "name": "\uf059B\u201117G Flying Fortress"
+    "name": "\uf059B-17G Flying Fortress"
   },
   {
     "id": "b-29",
-    "name": "B\u201129A\u2011BN Superfortress"
+    "name": "B-29A-BN Superfortress"
   },
   {
     "id": "b5n2",
@@ -173,11 +173,11 @@
   },
   {
     "id": "bb-1",
-    "name": "BB\u20111"
+    "name": "BB-1"
   },
   {
     "id": "beaufighter_mk1_40mm",
-    "name": "Beaufighter Mk I Prototype (40\u2011mm)"
+    "name": "Beaufighter Mk I Prototype (40-mm)"
   },
   {
     "id": "beaufighter_mk21",
@@ -197,7 +197,7 @@
   },
   {
     "id": "be_6",
-    "name": "Be\u20116"
+    "name": "Be-6"
   },
   {
     "id": "bf-109a_1",
@@ -205,131 +205,131 @@
   },
   {
     "id": "bf-109b_2",
-    "name": "Bf 109 B\u20111 Late"
+    "name": "Bf 109 B-1 Late"
   },
   {
     "id": "bf-109c_1",
-    "name": "Bf 109 C\u20111"
+    "name": "Bf 109 C-1"
   },
   {
     "id": "bf-109e-1",
-    "name": "Bf 109 E\u20111"
+    "name": "Bf 109 E-1"
   },
   {
     "id": "bf-109e-3",
-    "name": "Bf 109 E\u20113"
+    "name": "Bf 109 E-3"
   },
   {
     "id": "bf-109e-3_japan",
-    "name": "\u2585Bf 109 E\u20117"
+    "name": "\u2585Bf 109 E-7"
   },
   {
     "id": "bf-109e-4",
-    "name": "Bf 109 E\u20114"
+    "name": "Bf 109 E-4"
   },
   {
     "id": "bf-109e-7",
-    "name": "Bf 109 E\u20117/U2"
+    "name": "Bf 109 E-7/U2"
   },
   {
     "id": "bf-109f-1",
-    "name": "Bf 109 F\u20111"
+    "name": "Bf 109 F-1"
   },
   {
     "id": "bf-109f-2",
-    "name": "Bf 109 F\u20112"
+    "name": "Bf 109 F-2"
   },
   {
     "id": "bf-109f-4",
-    "name": "Bf 109 F\u20114"
+    "name": "Bf 109 F-4"
   },
   {
     "id": "bf-109f-4_hungary",
-    "name": "\u25d0Bf 109 F\u20114"
+    "name": "\u25d0Bf 109 F-4"
   },
   {
     "id": "bf-109f-4_trop",
-    "name": "Bf 109 F\u20114/trop"
+    "name": "Bf 109 F-4/trop"
   },
   {
     "id": "bf-109f-4_usa",
-    "name": "\u2583Bf 109 F\u20114"
+    "name": "\u2583Bf 109 F-4"
   },
   {
     "id": "bf-109g-10",
-    "name": "Bf 109 G\u201110"
+    "name": "Bf 109 G-10"
   },
   {
     "id": "bf-109g-14",
-    "name": "Bf 109 G\u201114"
+    "name": "Bf 109 G-14"
   },
   {
     "id": "bf-109g-14as",
-    "name": "\u2584Bf 109 G\u201114/AS"
+    "name": "\u2584Bf 109 G-14/AS"
   },
   {
     "id": "bf-109g-2",
-    "name": "Bf 109 G\u20112/trop"
+    "name": "Bf 109 G-2/trop"
   },
   {
     "id": "bf-109g-2_finland",
-    "name": "\u2584Bf 109 G\u20112"
+    "name": "\u2584Bf 109 G-2"
   },
   {
     "id": "bf-109g-2_hungary",
-    "name": "\u25d0Bf 109 G\u20112"
+    "name": "\u25d0Bf 109 G-2"
   },
   {
     "id": "bf-109g-2_romania",
-    "name": "Bf 109 G\u20112"
+    "name": "Bf 109 G-2"
   },
   {
     "id": "bf-109g-6",
-    "name": "Bf 109 G\u20116"
+    "name": "Bf 109 G-6"
   },
   {
     "id": "bf-109g-6_erla_finland",
-    "name": "\u2584Bf 109 G\u20116 Erla"
+    "name": "\u2584Bf 109 G-6 Erla"
   },
   {
     "id": "bf-109g-6_finland",
-    "name": "\u2584Bf 109 G\u20116"
+    "name": "\u2584Bf 109 G-6"
   },
   {
     "id": "bf-109k-4",
-    "name": "Bf 109 K\u20114"
+    "name": "Bf 109 K-4"
   },
   {
     "id": "bf-109z",
-    "name": "Bf 109 Z\u20111"
+    "name": "Bf 109 Z-1"
   },
   {
     "id": "bf-110c-4",
-    "name": "Bf 110 C\u20117"
+    "name": "Bf 110 C-7"
   },
   {
     "id": "bf-110c-6",
-    "name": "Bf 110 C\u20116"
+    "name": "Bf 110 C-6"
   },
   {
     "id": "bf-110f-2",
-    "name": "Bf 110 F\u20112"
+    "name": "Bf 110 F-2"
   },
   {
     "id": "bf-110g-2",
-    "name": "Bf 110 G\u20112"
+    "name": "Bf 110 G-2"
   },
   {
     "id": "bf2c_1",
-    "name": "BF2C\u20111 Goshawk"
+    "name": "BF2C-1 Goshawk"
   },
   {
     "id": "bf_110g_4",
-    "name": "Bf 110 G\u20114"
+    "name": "Bf 110 G-4"
   },
   {
     "id": "bf_110g_4_hungary",
-    "name": "\u25d0Bf 110 G\u20114"
+    "name": "\u25d0Bf 110 G-4"
   },
   {
     "id": "blenheim_mkiv",
@@ -369,15 +369,15 @@
   },
   {
     "id": "btd-1",
-    "name": "BTD\u20111 Destroyer"
+    "name": "BTD-1 Destroyer"
   },
   {
     "id": "bv-138c-1",
-    "name": "BV 138 C\u20111"
+    "name": "BV 138 C-1"
   },
   {
     "id": "bv-155b-1",
-    "name": "BV 155 B\u20111"
+    "name": "BV 155 B-1"
   },
   {
     "id": "bv-238",
@@ -385,11 +385,11 @@
   },
   {
     "id": "b_10b",
-    "name": "B\u201110B"
+    "name": "B-10B"
   },
   {
     "id": "b_18a",
-    "name": "B\u201118A"
+    "name": "B-18A"
   },
   {
     "id": "b_239_finland",
@@ -397,35 +397,35 @@
   },
   {
     "id": "b_24d",
-    "name": "B\u201124D\u201125\u2011CO Liberator"
+    "name": "B-24D-25-CO Liberator"
   },
   {
     "id": "b_25j_1",
-    "name": "B\u201125J\u20111 Mitchell"
+    "name": "B-25J-1 Mitchell"
   },
   {
     "id": "b_25j_20",
-    "name": "B\u201125J\u201120 Mitchell"
+    "name": "B-25J-20 Mitchell"
   },
   {
     "id": "b_25j_30_china",
-    "name": "\u2417B\u201125J\u201130 Mitchell"
+    "name": "\u2417B-25J-30 Mitchell"
   },
   {
     "id": "b_25j_30_vvs_ussr",
-    "name": "\u2582B\u201125J\u201130 Mitchell"
+    "name": "\u2582B-25J-30 Mitchell"
   },
   {
     "id": "b_26b_c",
-    "name": "B\u201126B Marauder"
+    "name": "B-26B Marauder"
   },
   {
     "id": "b_26c_france",
-    "name": "B\u201126C Marauder"
+    "name": "B-26C Marauder"
   },
   {
     "id": "b_34",
-    "name": "B\u201134"
+    "name": "B-34"
   },
   {
     "id": "b_48_firecrest",
@@ -453,7 +453,7 @@
   },
   {
     "id": "cw_21",
-    "name": "CW\u201121"
+    "name": "CW-21"
   },
   {
     "id": "d3a1",
@@ -473,91 +473,91 @@
   },
   {
     "id": "db_3a_china",
-    "name": "\u2417DB\u20113A"
+    "name": "\u2417DB-3A"
   },
   {
     "id": "db_3b",
-    "name": "DB\u20113B"
+    "name": "DB-3B"
   },
   {
     "id": "db_7",
-    "name": "\u2584DB\u20117"
+    "name": "\u2584DB-7"
   },
   {
     "id": "douglas_ad_2",
-    "name": "AD\u20112 Skyraider"
+    "name": "AD-2 Skyraider"
   },
   {
     "id": "douglas_ad_4",
-    "name": "AD\u20114 Skyraider"
+    "name": "AD-4 Skyraider"
   },
   {
     "id": "douglas_ad_4na_france",
-    "name": "\u2584AD\u20114NA Skyraider"
+    "name": "\u2584AD-4NA Skyraider"
   },
   {
     "id": "douglas_ad_4_france",
-    "name": "\u2584AD\u20114 Skyraider"
+    "name": "\u2584AD-4 Skyraider"
   },
   {
     "id": "douglas_a_1h",
-    "name": "A\u20111H Skyraider"
+    "name": "A-1H Skyraider"
   },
   {
     "id": "do_17e_1",
-    "name": "Do 17 E\u20111"
+    "name": "Do 17 E-1"
   },
   {
     "id": "do_17z_2",
-    "name": "Do 17 Z\u20112"
+    "name": "Do 17 Z-2"
   },
   {
     "id": "do_17z_7",
-    "name": "Do 17 Z\u20117"
+    "name": "Do 17 Z-7"
   },
   {
     "id": "do_217e_2",
-    "name": "Do 217 E\u20112"
+    "name": "Do 217 E-2"
   },
   {
     "id": "do_217e_4",
-    "name": "Do 217 E\u20114"
+    "name": "Do 217 E-4"
   },
   {
     "id": "do_217j_1",
-    "name": "Do 217 J\u20111"
+    "name": "Do 217 J-1"
   },
   {
     "id": "do_217j_2",
-    "name": "Do 217 J\u20112"
+    "name": "Do 217 J-2"
   },
   {
     "id": "do_217k_1",
-    "name": "Do 217 K\u20111"
+    "name": "Do 217 K-1"
   },
   {
     "id": "do_217m_1",
-    "name": "Do 217 M\u20111"
+    "name": "Do 217 M-1"
   },
   {
     "id": "do_217n_1",
-    "name": "Do 217 N\u20111"
+    "name": "Do 217 N-1"
   },
   {
     "id": "do_217n_2",
-    "name": "Do 217 N\u20112"
+    "name": "Do 217 N-2"
   },
   {
     "id": "do_335a_0",
-    "name": "Do 335 A\u20110"
+    "name": "Do 335 A-0"
   },
   {
     "id": "do_335a_1",
-    "name": "Do 335 A\u20111"
+    "name": "Do 335 A-1"
   },
   {
     "id": "do_335b_2",
-    "name": "Do 335 B\u20112"
+    "name": "Do 335 B-2"
   },
   {
     "id": "d_371",
@@ -609,31 +609,31 @@
   },
   {
     "id": "er-2_ach30b_early",
-    "name": "Yer\u20112 (ACh\u201130B) Early"
+    "name": "Yer-2 (ACh-30B) Early"
   },
   {
     "id": "er-2_ach30b_late",
-    "name": "Yer\u20112 (ACh\u201130B) Late"
+    "name": "Yer-2 (ACh-30B) Late"
   },
   {
     "id": "er-2_m105r_lu2b",
-    "name": "Yer\u20112 (M\u2011105R) LU\u2011MV\u20112B"
+    "name": "Yer-2 (M-105R) LU-MV-2B"
   },
   {
     "id": "er-2_m105r_tat",
-    "name": "Yer\u20112 (M\u2011105R) TAT\u2011BT"
+    "name": "Yer-2 (M-105R) TAT-BT"
   },
   {
     "id": "er-2_m105_mv3",
-    "name": "Yer\u20112 (M\u2011105)"
+    "name": "Yer-2 (M-105)"
   },
   {
     "id": "er-2_m105_tat",
-    "name": "Yer\u20112 (M\u2011105) TAT\u2011BT"
+    "name": "Yer-2 (M-105) TAT-BT"
   },
   {
     "id": "f-82e",
-    "name": "F\u201182E Twin Mustang"
+    "name": "F-82E Twin Mustang"
   },
   {
     "id": "f1m2",
@@ -641,35 +641,35 @@
   },
   {
     "id": "f2a-1",
-    "name": "F2A\u20111 Buffalo"
+    "name": "F2A-1 Buffalo"
   },
   {
     "id": "f2a-1_thach",
-    "name": "John Thach's F2A\u20111 Buffalo"
+    "name": "John Thach's F2A-1 Buffalo"
   },
   {
     "id": "f2a-3",
-    "name": "F2A\u20113 Buffalo"
+    "name": "F2A-3 Buffalo"
   },
   {
     "id": "f2g-1",
-    "name": "F2G\u20111"
+    "name": "F2G-1"
   },
   {
     "id": "f3f-2",
-    "name": "F3F\u20112"
+    "name": "F3F-2"
   },
   {
     "id": "f3f-2_galer",
-    "name": "Galer's F3F\u20112"
+    "name": "Galer's F3F-2"
   },
   {
     "id": "f4f-3",
-    "name": "F4F\u20113 Wildcat"
+    "name": "F4F-3 Wildcat"
   },
   {
     "id": "f4f-4",
-    "name": "F4F\u20114 Wildcat"
+    "name": "F4F-4 Wildcat"
   },
   {
     "id": "f4f-4_martlet_mk4",
@@ -677,79 +677,79 @@
   },
   {
     "id": "f4u-1a",
-    "name": "F4U\u20111A Corsair"
+    "name": "F4U-1A Corsair"
   },
   {
     "id": "f4u-1a_japan",
-    "name": "\u2585F4U\u20111A Corsair"
+    "name": "\u2585F4U-1A Corsair"
   },
   {
     "id": "f4u-1a_usmc",
-    "name": "F4U\u20111A (USMC) Corsair"
+    "name": "F4U-1A (USMC) Corsair"
   },
   {
     "id": "f4u-1c",
-    "name": "F4U\u20111C Corsair"
+    "name": "F4U-1C Corsair"
   },
   {
     "id": "f4u-1d",
-    "name": "F4U\u20111D Corsair"
+    "name": "F4U-1D Corsair"
   },
   {
     "id": "f4u-4",
-    "name": "F4U\u20114 Corsair"
+    "name": "F4U-4 Corsair"
   },
   {
     "id": "f4u-4b",
-    "name": "F4U\u20114B Corsair"
+    "name": "F4U-4B Corsair"
   },
   {
     "id": "f4u-4b_vmf_214",
-    "name": "F4U\u20114B VMF\u2011214"
+    "name": "F4U-4B VMF-214"
   },
   {
     "id": "f4u-6_au-1",
-    "name": "AU\u20111 Corsair"
+    "name": "AU-1 Corsair"
   },
   {
     "id": "f4u-7",
-    "name": "F4U\u20117 Corsair"
+    "name": "F4U-7 Corsair"
   },
   {
     "id": "f6f-3",
-    "name": "F6F\u20115 Hellcat"
+    "name": "F6F-5 Hellcat"
   },
   {
     "id": "f6f-5n",
-    "name": "F6F\u20115N Hellcat"
+    "name": "F6F-5N Hellcat"
   },
   {
     "id": "f6f-5n_france",
-    "name": "\u2584F6F\u20115N Hellcat"
+    "name": "\u2584F6F-5N Hellcat"
   },
   {
     "id": "f6f-5_france",
-    "name": "\u2584F6F\u20115 Hellcat"
+    "name": "\u2584F6F-5 Hellcat"
   },
   {
     "id": "f7f1",
-    "name": "F7F\u20111 Tigercat"
+    "name": "F7F-1 Tigercat"
   },
   {
     "id": "f7f3",
-    "name": "F7F\u20113 Tigercat"
+    "name": "F7F-3 Tigercat"
   },
   {
     "id": "f8f1",
-    "name": "F8F\u20111 Bearcat"
+    "name": "F8F-1 Bearcat"
   },
   {
     "id": "f8f1b",
-    "name": "F8F\u20111B Bearcat"
+    "name": "F8F-1B Bearcat"
   },
   {
     "id": "f8f1b_france",
-    "name": "\u2584F8F\u20111B Bearcat"
+    "name": "\u2584F8F-1B Bearcat"
   },
   {
     "id": "fairey_3f_mk3b",
@@ -761,11 +761,11 @@
   },
   {
     "id": "ffvs_j22_a",
-    "name": "J22\u2011A"
+    "name": "J22-A"
   },
   {
     "id": "ffvs_j22_b",
-    "name": "J22\u2011B"
+    "name": "J22-B"
   },
   {
     "id": "fiat_cr42",
@@ -833,35 +833,35 @@
   },
   {
     "id": "fw-189a-1",
-    "name": "Fw 189 A\u20111"
+    "name": "Fw 189 A-1"
   },
   {
     "id": "fw-190a-1",
-    "name": "Fw 190 A\u20111"
+    "name": "Fw 190 A-1"
   },
   {
     "id": "fw-190a-4",
-    "name": "Fw 190 A\u20114"
+    "name": "Fw 190 A-4"
   },
   {
     "id": "fw-190a-5",
-    "name": "Fw 190 A\u20115/U12"
+    "name": "Fw 190 A-5/U12"
   },
   {
     "id": "fw-190a-5_cannons",
-    "name": "Fw 190 A\u20115"
+    "name": "Fw 190 A-5"
   },
   {
     "id": "fw-190a-5_japan",
-    "name": "\u2585Fw 190 A\u20115"
+    "name": "\u2585Fw 190 A-5"
   },
   {
     "id": "fw-190a-5_u2",
-    "name": "Fw 190 A\u20115/U2"
+    "name": "Fw 190 A-5/U2"
   },
   {
     "id": "fw-190a-8",
-    "name": "Fw 190 A\u20118"
+    "name": "Fw 190 A-8"
   },
   {
     "id": "fw-190a-8_france",
@@ -869,7 +869,7 @@
   },
   {
     "id": "fw-190a-8_usa",
-    "name": "\u2583Fw 190 A\u20118"
+    "name": "\u2583Fw 190 A-8"
   },
   {
     "id": "fw-190c",
@@ -877,31 +877,31 @@
   },
   {
     "id": "fw-190d-12",
-    "name": "Fw 190 D\u201112"
+    "name": "Fw 190 D-12"
   },
   {
     "id": "fw-190d-13",
-    "name": "Fw 190 D\u201113"
+    "name": "Fw 190 D-13"
   },
   {
     "id": "fw-190d-9",
-    "name": "Fw 190 D\u20119"
+    "name": "Fw 190 D-9"
   },
   {
     "id": "fw-190d-9_ussr",
-    "name": "\u2582Fw 190 D\u20119"
+    "name": "\u2582Fw 190 D-9"
   },
   {
     "id": "fw-190f-8",
-    "name": "Fw 190 F\u20118"
+    "name": "Fw 190 F-8"
   },
   {
     "id": "fw_190a_5_u14",
-    "name": "Fw 190 A\u20115/U14"
+    "name": "Fw 190 A-5/U14"
   },
   {
     "id": "fw_200c_1",
-    "name": "Fw 200 C\u20111"
+    "name": "Fw 200 C-1"
   },
   {
     "id": "f_222_2",
@@ -973,15 +973,15 @@
   },
   {
     "id": "h-75a-1_france",
-    "name": "H\u201175A\u20111"
+    "name": "H-75A-1"
   },
   {
     "id": "h-75a-2_finland",
-    "name": "\u2580Hawk H\u201175A\u20112"
+    "name": "\u2580Hawk H-75A-2"
   },
   {
     "id": "h-75a-4_france",
-    "name": "H\u201175A\u20114"
+    "name": "H-75A-4"
   },
   {
     "id": "h6k4",
@@ -1005,39 +1005,39 @@
   },
   {
     "id": "he-111h-16_winter",
-    "name": "He 111 H\u201116"
+    "name": "He 111 H-16"
   },
   {
     "id": "he-111h-2",
-    "name": "He 111 H\u20113"
+    "name": "He 111 H-3"
   },
   {
     "id": "he-111h-6",
-    "name": "He 111 H\u20116"
+    "name": "He 111 H-6"
   },
   {
     "id": "he-177a-5",
-    "name": "He 177 A\u20115"
+    "name": "He 177 A-5"
   },
   {
     "id": "he51a1",
-    "name": "He 51 A\u20111"
+    "name": "He 51 A-1"
   },
   {
     "id": "he51b1",
-    "name": "He 51 B\u20111"
+    "name": "He 51 B-1"
   },
   {
     "id": "he51b_2w",
-    "name": "He 51 B\u20112 /Hydroplane"
+    "name": "He 51 B-2 /Hydroplane"
   },
   {
     "id": "he51c1",
-    "name": "He 51 C\u20111"
+    "name": "He 51 C-1"
   },
   {
     "id": "he51c1_late",
-    "name": "He 51 C\u20111 /Late"
+    "name": "He 51 C-1 /Late"
   },
   {
     "id": "hellcat_fmk1",
@@ -1045,31 +1045,31 @@
   },
   {
     "id": "he_100d_1",
-    "name": "He 100 D\u20111"
+    "name": "He 100 D-1"
   },
   {
     "id": "he_112a_0",
-    "name": "He 112 A\u20110"
+    "name": "He 112 A-0"
   },
   {
     "id": "he_112b_0",
-    "name": "He 112 B\u20110"
+    "name": "He 112 B-0"
   },
   {
     "id": "he_112b_1",
-    "name": "He 112 B\u20111/U2"
+    "name": "He 112 B-1/U2"
   },
   {
     "id": "he_112b_1_italy",
-    "name": "He 112 B\u20111/U2"
+    "name": "He 112 B-1/U2"
   },
   {
     "id": "he_112b_2",
-    "name": "He 112 B\u20112/U2"
+    "name": "He 112 B-2/U2"
   },
   {
     "id": "he_112v_5",
-    "name": "He 112 V\u20115"
+    "name": "He 112 V-5"
   },
   {
     "id": "he_115a_2_sweden",
@@ -1077,11 +1077,11 @@
   },
   {
     "id": "he_115c_1",
-    "name": "He 115 C\u20111"
+    "name": "He 115 C-1"
   },
   {
     "id": "he_219a_7",
-    "name": "He 219 A\u20117"
+    "name": "He 219 A-7"
   },
   {
     "id": "hornet_mk1",
@@ -1101,31 +1101,31 @@
   },
   {
     "id": "hp52_hampden_tbmk1_ussr_utk1",
-    "name": "\u2582Hampden TB Mk I UTK\u20111"
+    "name": "\u2582Hampden TB Mk I UTK-1"
   },
   {
     "id": "hs-123a-1",
-    "name": "Hs 123 A\u20111"
+    "name": "Hs 123 A-1"
   },
   {
     "id": "hs-123a-1_china",
-    "name": "\u2417Hs 123 A\u20111"
+    "name": "\u2417Hs 123 A-1"
   },
   {
     "id": "hs-129b-2",
-    "name": "Hs 129 B\u20112"
+    "name": "Hs 129 B-2"
   },
   {
     "id": "hs-129b-2_romania",
-    "name": "Hs 129 B\u20112 (Romanian Air Force)"
+    "name": "Hs 129 B-2 (Romanian Air Force)"
   },
   {
     "id": "hs-129b-2_romania_italy",
-    "name": "Hs 129 B\u20112 (Romanian Air Force)"
+    "name": "Hs 129 B-2 (Romanian Air Force)"
   },
   {
     "id": "hs-129b-3",
-    "name": "Hs 129 B\u20113"
+    "name": "Hs 129 B-3"
   },
   {
     "id": "hudson_mk_v",
@@ -1169,151 +1169,151 @@
   },
   {
     "id": "h_34",
-    "name": "H\u201134"
+    "name": "H-34"
   },
   {
     "id": "h_34_france",
-    "name": "\u2584H\u201134"
+    "name": "\u2584H-34"
   },
   {
     "id": "i-153p",
-    "name": "I\u2011153P Chaika"
+    "name": "I-153P Chaika"
   },
   {
     "id": "i-153_m62",
-    "name": "I\u2011153 M\u201162 Chaika"
+    "name": "I-153 M-62 Chaika"
   },
   {
     "id": "i-153_m62_china",
-    "name": "\u2417I\u2011153 M\u201162"
+    "name": "\u2417I-153 M-62"
   },
   {
     "id": "i-153_m62_zhukovskiy",
-    "name": "Zhukovsky's I\u2011153\u2011M62"
+    "name": "Zhukovsky's I-153-M62"
   },
   {
     "id": "i-15bis",
-    "name": "I\u201115bis"
+    "name": "I-15bis"
   },
   {
     "id": "i-15bis_china",
-    "name": "\u2417I\u201115bis"
+    "name": "\u2417I-15bis"
   },
   {
     "id": "i-15bis_krasnolutsky",
-    "name": "Krasnolutsky's I\u201115bis"
+    "name": "Krasnolutsky's I-15bis"
   },
   {
     "id": "i-15_1934",
-    "name": "I\u201115 WR"
+    "name": "I-15 WR"
   },
   {
     "id": "i-15_1935",
-    "name": "I\u201115 M\u201122"
+    "name": "I-15 M-22"
   },
   {
     "id": "i-15_1935_moscow",
-    "name": "I\u201115 M\u201125"
+    "name": "I-15 M-25"
   },
   {
     "id": "i-16_chung_28",
-    "name": "\u2417I\u201116 Chung 28"
+    "name": "\u2417I-16 Chung 28"
   },
   {
     "id": "i-16_type10",
-    "name": "I\u201116 type 10 Ishak"
+    "name": "I-16 type 10 Ishak"
   },
   {
     "id": "i-16_type10_china",
-    "name": "\u2417I\u201116 type 10"
+    "name": "\u2417I-16 type 10"
   },
   {
     "id": "i-16_type17_china",
-    "name": "\u2417I\u201116 type 17"
+    "name": "\u2417I-16 type 17"
   },
   {
     "id": "i-16_type18",
-    "name": "I\u201116 type 18 Ishak"
+    "name": "I-16 type 18 Ishak"
   },
   {
     "id": "i-16_type24",
-    "name": "I\u201116 type 24 Ishak"
+    "name": "I-16 type 24 Ishak"
   },
   {
     "id": "i-16_type27",
-    "name": "I\u201116 type 27 Ishak"
+    "name": "I-16 type 27 Ishak"
   },
   {
     "id": "i-16_type28",
-    "name": "I\u201116 type 28 Ishak"
+    "name": "I-16 type 28 Ishak"
   },
   {
     "id": "i-16_type5",
-    "name": "I\u201116 type 5 Ishak"
+    "name": "I-16 type 5 Ishak"
   },
   {
     "id": "i-16_type5_1935_china",
-    "name": "\u2417I\u201116 type 5"
+    "name": "\u2417I-16 type 5"
   },
   {
     "id": "iar_81c",
-    "name": "IAR\u201181C"
+    "name": "IAR-81C"
   },
   {
     "id": "il-10",
-    "name": "IL\u201110"
+    "name": "IL-10"
   },
   {
     "id": "il-10_1946",
-    "name": "IL\u201110 (1946)"
+    "name": "IL-10 (1946)"
   },
   {
     "id": "il-10_1946_china",
-    "name": "\u2417IL\u201110 (1946)"
+    "name": "\u2417IL-10 (1946)"
   },
   {
     "id": "il-10_1946_hungary",
-    "name": "\u25d4IL\u201110 P\u00e1rduc"
+    "name": "\u25d4IL-10 P\u00e1rduc"
   },
   {
     "id": "il-2i",
-    "name": "IL\u20112 (1942)"
+    "name": "IL-2 (1942)"
   },
   {
     "id": "il-2m",
-    "name": "IL\u20112M type 3"
+    "name": "IL-2M type 3"
   },
   {
     "id": "il-2m_mstitel",
-    "name": "IL\u20112M \"Avenger\""
+    "name": "IL-2M \"Avenger\""
   },
   {
     "id": "il-4",
-    "name": "IL\u20114"
+    "name": "IL-4"
   },
   {
     "id": "il_2m_1943",
-    "name": "IL\u20112M (1943)"
+    "name": "IL-2M (1943)"
   },
   {
     "id": "il_2_1941",
-    "name": "IL\u20112 (1941)"
+    "name": "IL-2 (1941)"
   },
   {
     "id": "il_2_1942_luftwaffe",
-    "name": "\u2580IL\u20112 (1942)"
+    "name": "\u2580IL-2 (1942)"
   },
   {
     "id": "il_2_37_1943",
-    "name": "IL\u20112\u201137"
+    "name": "IL-2-37"
   },
   {
     "id": "il_2_m82",
-    "name": "IL\u20112 M\u201182"
+    "name": "IL-2 M-82"
   },
   {
     "id": "il_8_1944",
-    "name": "IL\u20118 (1944)"
+    "name": "IL-8 (1944)"
   },
   {
     "id": "intruder_mk_1",
@@ -1321,27 +1321,27 @@
   },
   {
     "id": "itp_m1",
-    "name": "ITP (M\u20111)"
+    "name": "ITP (M-1)"
   },
   {
     "id": "i_180",
-    "name": "I\u2011180S"
+    "name": "I-180S"
   },
   {
     "id": "i_185_m71_standard",
-    "name": "I\u2011185 (M\u201171)"
+    "name": "I-185 (M-71)"
   },
   {
     "id": "i_185_m82",
-    "name": "I\u2011185 (M\u201182)"
+    "name": "I-185 (M-82)"
   },
   {
     "id": "i_225",
-    "name": "I\u2011225"
+    "name": "I-225"
   },
   {
     "id": "i_29",
-    "name": "I\u201129"
+    "name": "I-29"
   },
   {
     "id": "j1n1_mod11_early",
@@ -1389,7 +1389,7 @@
   },
   {
     "id": "ju-188a-2",
-    "name": "Ju 188 A\u20112"
+    "name": "Ju 188 A-2"
   },
   {
     "id": "ju-288c",
@@ -1401,347 +1401,347 @@
   },
   {
     "id": "ju-87b-2",
-    "name": "Ju 87 B\u20112"
+    "name": "Ju 87 B-2"
   },
   {
     "id": "ju-87d-3",
-    "name": "Ju 87 D\u20113"
+    "name": "Ju 87 D-3"
   },
   {
     "id": "ju-87d-3_italy",
-    "name": "\u2584Ju 87 D\u20113"
+    "name": "\u2584Ju 87 D-3"
   },
   {
     "id": "ju-87d-5",
-    "name": "Ju 87 D\u20115"
+    "name": "Ju 87 D-5"
   },
   {
     "id": "ju-87g_1",
-    "name": "Ju 87 G\u20111"
+    "name": "Ju 87 G-1"
   },
   {
     "id": "ju-87g_2",
-    "name": "Ju 87 G\u20112"
+    "name": "Ju 87 G-2"
   },
   {
     "id": "ju-87r-2",
-    "name": "Ju 87 R\u20112"
+    "name": "Ju 87 R-2"
   },
   {
     "id": "ju-87r-2_italy",
-    "name": "\u2584Ju 87 R\u20112"
+    "name": "\u2584Ju 87 R-2"
   },
   {
     "id": "ju-87r-2_snake",
-    "name": "Ju 87 R\u20112 Libya"
+    "name": "Ju 87 R-2 Libya"
   },
   {
     "id": "ju-88a-1",
-    "name": "Ju 88 A\u20111"
+    "name": "Ju 88 A-1"
   },
   {
     "id": "ju-88a-4",
-    "name": "Ju 88 A\u20114"
+    "name": "Ju 88 A-4"
   },
   {
     "id": "ju-88a-4_finland",
-    "name": "\u2584Ju 88 A\u20114"
+    "name": "\u2584Ju 88 A-4"
   },
   {
     "id": "ju-88c-6",
-    "name": "Ju 88 C\u20116"
+    "name": "Ju 88 C-6"
   },
   {
     "id": "ki-27_otsu",
-    "name": "Ki\u201127 otsu"
+    "name": "Ki-27 otsu"
   },
   {
     "id": "ki-27_otsu_china",
-    "name": "\u2417Ki\u201127 otsu"
+    "name": "\u2417Ki-27 otsu"
   },
   {
     "id": "ki-27_otsu_ep",
-    "name": "Ki\u201127 otsu Tachiarai"
+    "name": "Ki-27 otsu Tachiarai"
   },
   {
     "id": "ki-45_hei",
-    "name": "Ki\u201145 hei Toryu"
+    "name": "Ki-45 hei Toryu"
   },
   {
     "id": "ki-45_hei_tei_china",
-    "name": "\u2417Ki\u201145 hei/tei Toryu"
+    "name": "\u2417Ki-45 hei/tei Toryu"
   },
   {
     "id": "ki-45_ko",
-    "name": "Ki\u201145 ko Toryu"
+    "name": "Ki-45 ko Toryu"
   },
   {
     "id": "ki-45_otsu",
-    "name": "Ki\u201145 otsu Toryu"
+    "name": "Ki-45 otsu Toryu"
   },
   {
     "id": "ki-45_tei",
-    "name": "Ki\u201145 tei Toryu"
+    "name": "Ki-45 tei Toryu"
   },
   {
     "id": "ki-49_1",
-    "name": "Ki\u201149\u2011I Donryu"
+    "name": "Ki-49-I Donryu"
   },
   {
     "id": "ki-49_2a",
-    "name": "Ki\u201149\u2011IIa Donryu"
+    "name": "Ki-49-IIa Donryu"
   },
   {
     "id": "ki-49_2b",
-    "name": "Ki\u201149\u2011IIb Donryu"
+    "name": "Ki-49-IIb Donryu"
   },
   {
     "id": "ki-49_2b_late",
-    "name": "Ki\u201149\u2011IIb Donryu /Late"
+    "name": "Ki-49-IIb Donryu /Late"
   },
   {
     "id": "ki-83",
-    "name": "Ki\u201183"
+    "name": "Ki-83"
   },
   {
     "id": "ki-96",
-    "name": "Ki\u201196"
+    "name": "Ki-96"
   },
   {
     "id": "ki_100_2",
-    "name": "Ki\u2011100\u2011II"
+    "name": "Ki-100-II"
   },
   {
     "id": "ki_100_early",
-    "name": "Ki\u2011100"
+    "name": "Ki-100"
   },
   {
     "id": "ki_102_otsu",
-    "name": "Ki\u2011102 otsu"
+    "name": "Ki-102 otsu"
   },
   {
     "id": "ki_108",
-    "name": "Ki\u2011108 Kai"
+    "name": "Ki-108 Kai"
   },
   {
     "id": "ki_109",
-    "name": "Ki\u2011109"
+    "name": "Ki-109"
   },
   {
     "id": "ki_10_1",
-    "name": "Ki\u201110\u2011I"
+    "name": "Ki-10-I"
   },
   {
     "id": "ki_10_1_commander",
-    "name": "Ki\u201110\u2011I C"
+    "name": "Ki-10-I C"
   },
   {
     "id": "ki_10_2",
-    "name": "Ki\u201110\u2011II"
+    "name": "Ki-10-II"
   },
   {
     "id": "ki_10_2_commander",
-    "name": "Ki\u201110\u2011II C"
+    "name": "Ki-10-II C"
   },
   {
     "id": "ki_21_1hei",
-    "name": "Ki\u201121\u2011I hei"
+    "name": "Ki-21-I hei"
   },
   {
     "id": "ki_21_1ko",
-    "name": "Ki\u201121\u2011Ia"
+    "name": "Ki-21-Ia"
   },
   {
     "id": "ki_32",
-    "name": "Ki\u201132"
+    "name": "Ki-32"
   },
   {
     "id": "ki_43_1",
-    "name": "Ki\u201143\u2011I Hayabusa"
+    "name": "Ki-43-I Hayabusa"
   },
   {
     "id": "ki_43_2",
-    "name": "Ki\u201143\u2011II Hayabusa"
+    "name": "Ki-43-II Hayabusa"
   },
   {
     "id": "ki_43_2_late",
-    "name": "\u2583Ki\u201143\u2011II Hayabusa"
+    "name": "\u2583Ki-43-II Hayabusa"
   },
   {
     "id": "ki_43_3_ko",
-    "name": "\u2417Ki\u201143\u2011III ko Hayabusa"
+    "name": "\u2417Ki-43-III ko Hayabusa"
   },
   {
     "id": "ki_43_3_otsu",
-    "name": "Ki\u201143\u2011III otsu Hayabusa"
+    "name": "Ki-43-III otsu Hayabusa"
   },
   {
     "id": "ki_44_1",
-    "name": "Ki\u201144\u2011I Shoki"
+    "name": "Ki-44-I Shoki"
   },
   {
     "id": "ki_44_1_ep",
-    "name": "Ki\u201144\u2011I 34 Shoki"
+    "name": "Ki-44-I 34 Shoki"
   },
   {
     "id": "ki_44_2_hei",
-    "name": "Ki\u201144\u2011II hei Shoki"
+    "name": "Ki-44-II hei Shoki"
   },
   {
     "id": "ki_44_2_hei_china",
-    "name": "\u2417Ki\u201144\u2011II hei Shoki"
+    "name": "\u2417Ki-44-II hei Shoki"
   },
   {
     "id": "ki_44_2_otsu",
-    "name": "Ki\u201144\u2011II otsu Shoki"
+    "name": "Ki-44-II otsu Shoki"
   },
   {
     "id": "ki_48_2_otsu",
-    "name": "Ki\u201148\u2011II otsu"
+    "name": "Ki-48-II otsu"
   },
   {
     "id": "ki_61_1a_hei",
-    "name": "Ki\u201161\u2011I hei Hien"
+    "name": "Ki-61-I hei Hien"
   },
   {
     "id": "ki_61_1a_hei_ep",
-    "name": "Tada's Ki\u201161\u2011I hei Hien"
+    "name": "Tada's Ki-61-I hei Hien"
   },
   {
     "id": "ki_61_1a_ko",
-    "name": "Ki\u201161\u2011I ko Hien"
+    "name": "Ki-61-I ko Hien"
   },
   {
     "id": "ki_61_1a_otsu",
-    "name": "Ki\u201161\u2011I otsu Hien"
+    "name": "Ki-61-I otsu Hien"
   },
   {
     "id": "ki_61_1a_otsu_china",
-    "name": "\u2417Ki\u201161\u2011I otsu Hien"
+    "name": "\u2417Ki-61-I otsu Hien"
   },
   {
     "id": "ki_61_1a_otsu_usa",
-    "name": "\u2583Ki\u201161\u2011Ib Hien"
+    "name": "\u2583Ki-61-Ib Hien"
   },
   {
     "id": "ki_61_1a_tei",
-    "name": "Ki\u201161\u2011I tei Hien"
+    "name": "Ki-61-I tei Hien"
   },
   {
     "id": "ki_61_2_early",
-    "name": "Ki\u201161\u2011II Otsu Kai"
+    "name": "Ki-61-II Otsu Kai"
   },
   {
     "id": "ki_67_1_ko",
-    "name": "Ki\u201167\u2011I Ko"
+    "name": "Ki-67-I Ko"
   },
   {
     "id": "ki_67_1_otsu",
-    "name": "Ki\u201167\u2011I otsu"
+    "name": "Ki-67-I otsu"
   },
   {
     "id": "ki_84_hei",
-    "name": "Ki\u201184 hei Hayate"
+    "name": "Ki-84 hei Hayate"
   },
   {
     "id": "ki_84_ko",
-    "name": "Ki\u201184 ko Hayate"
+    "name": "Ki-84 ko Hayate"
   },
   {
     "id": "ki_84_ko_china",
-    "name": "\u2417Ki\u201184 ko Hayate"
+    "name": "\u2417Ki-84 ko Hayate"
   },
   {
     "id": "ki_84_otsu",
-    "name": "Ki\u201184 otsu Hayate"
+    "name": "Ki-84 otsu Hayate"
   },
   {
     "id": "ki_87",
-    "name": "Ki\u201187"
+    "name": "Ki-87"
   },
   {
     "id": "ki_94_2",
-    "name": "Ki\u201194\u2011II"
+    "name": "Ki-94-II"
   },
   {
     "id": "kor_1",
-    "name": "KOR\u20111"
+    "name": "KOR-1"
   },
   {
     "id": "la-11",
-    "name": "La\u201111"
+    "name": "La-11"
   },
   {
     "id": "la-11_china",
-    "name": "\u2417La\u201111"
+    "name": "\u2417La-11"
   },
   {
     "id": "la-5fn",
-    "name": "La\u20115FN"
+    "name": "La-5FN"
   },
   {
     "id": "la-5fn_luftwaffe",
-    "name": "\u2580La\u20115FN"
+    "name": "\u2580La-5FN"
   },
   {
     "id": "la-5_type37_early",
-    "name": "La\u20115"
+    "name": "La-5"
   },
   {
     "id": "la-5_type39",
-    "name": "La\u20115F"
+    "name": "La-5F"
   },
   {
     "id": "la-7",
-    "name": "La\u20117"
+    "name": "La-7"
   },
   {
     "id": "la-7b-20",
-    "name": "La\u20117B\u201120"
+    "name": "La-7B-20"
   },
   {
     "id": "la-7_dolgushin",
-    "name": "Dolgushin's La\u20117"
+    "name": "Dolgushin's La-7"
   },
   {
     "id": "la-9",
-    "name": "La\u20119"
+    "name": "La-9"
   },
   {
     "id": "la-9_china",
-    "name": "\u2417La\u20119"
+    "name": "\u2417La-9"
   },
   {
     "id": "lagg-3-11",
-    "name": "LaGG\u20113\u201111"
+    "name": "LaGG-3-11"
   },
   {
     "id": "lagg-3-23",
-    "name": "LaGG\u20113\u201123"
+    "name": "LaGG-3-23"
   },
   {
     "id": "lagg-3-34",
-    "name": "LaGG\u20113\u201134"
+    "name": "LaGG-3-34"
   },
   {
     "id": "lagg-3-35",
-    "name": "LaGG\u20113\u201135"
+    "name": "LaGG-3-35"
   },
   {
     "id": "lagg-3-4",
-    "name": "LaGG\u20113\u20114"
+    "name": "LaGG-3-4"
   },
   {
     "id": "lagg-3-66",
-    "name": "LaGG\u20113\u201166"
+    "name": "LaGG-3-66"
   },
   {
     "id": "lagg-3-8",
-    "name": "LaGG\u20113\u20118"
+    "name": "LaGG-3-8"
   },
   {
     "id": "lagg-i-301",
-    "name": "I\u2011301"
+    "name": "I-301"
   },
   {
     "id": "lancaster_mk1",
@@ -1781,11 +1781,11 @@
   },
   {
     "id": "maryland_mk1_france",
-    "name": "Martin 167\u2011A3"
+    "name": "Martin 167-A3"
   },
   {
     "id": "mbr-2",
-    "name": "MBR\u20112\u2011M\u201134"
+    "name": "MBR-2-M-34"
   },
   {
     "id": "mb_152c1",
@@ -1801,7 +1801,7 @@
   },
   {
     "id": "mb_174_a3",
-    "name": "M.B.174A\u20113"
+    "name": "M.B.174A-3"
   },
   {
     "id": "mb_175t",
@@ -1857,31 +1857,31 @@
   },
   {
     "id": "me-410a-1",
-    "name": "Me 410 A\u20111"
+    "name": "Me 410 A-1"
   },
   {
     "id": "me-410a-1_u2",
-    "name": "Me 410 A\u20111/U2"
+    "name": "Me 410 A-1/U2"
   },
   {
     "id": "me-410a-1_u4",
-    "name": "Me 410 A\u20111/U4"
+    "name": "Me 410 A-1/U4"
   },
   {
     "id": "me-410b-1",
-    "name": "Me 410 B\u20111"
+    "name": "Me 410 B-1"
   },
   {
     "id": "me-410b-1_u2",
-    "name": "Me 410 B\u20111/U2"
+    "name": "Me 410 B-1/U2"
   },
   {
     "id": "me-410b-2_u4",
-    "name": "Me 410 B\u20112/U4"
+    "name": "Me 410 B-2/U4"
   },
   {
     "id": "me-410b-6_r3",
-    "name": "Me 410 B\u20116/R3"
+    "name": "Me 410 B-6/R3"
   },
   {
     "id": "me_264",
@@ -1889,23 +1889,23 @@
   },
   {
     "id": "mig_3_series_1_15",
-    "name": "MiG\u20113\u201115"
+    "name": "MiG-3-15"
   },
   {
     "id": "mig_3_series_1_15_bk_pod",
-    "name": "MiG\u20113\u201115 (BK)"
+    "name": "MiG-3-15 (BK)"
   },
   {
     "id": "mig_3_series_34",
-    "name": "MiG\u20113\u201134"
+    "name": "MiG-3-34"
   },
   {
     "id": "mi_4av",
-    "name": "Mi\u20114AV"
+    "name": "Mi-4AV"
   },
   {
     "id": "morko_morane",
-    "name": "M\u00f6rk\u00f6\u2011Morane"
+    "name": "M\u00f6rk\u00f6-Morane"
   },
   {
     "id": "mosquito_fb_mk18",
@@ -1933,7 +1933,7 @@
   },
   {
     "id": "n1k1_ja",
-    "name": "N1K1\u2011Ja"
+    "name": "N1K1-Ja"
   },
   {
     "id": "n1k1_kyuofu",
@@ -1941,11 +1941,11 @@
   },
   {
     "id": "n1k2_j",
-    "name": "N1K2\u2011J Shiden\u2011Kai"
+    "name": "N1K2-J Shiden-Kai"
   },
   {
     "id": "n1k2_jko",
-    "name": "N1K2\u2011Ja Shiden\u2011Kai"
+    "name": "N1K2-Ja Shiden-Kai"
   },
   {
     "id": "nc_223_3",
@@ -1961,15 +1961,15 @@
   },
   {
     "id": "o3u_1",
-    "name": "OS3U\u20111 Corsair"
+    "name": "OS3U-1 Corsair"
   },
   {
     "id": "os2u_1",
-    "name": "OS2U\u20111 Kingfisher"
+    "name": "OS2U-1 Kingfisher"
   },
   {
     "id": "os2u_3",
-    "name": "OS2U\u20113 Kingfisher"
+    "name": "OS2U-3 Kingfisher"
   },
   {
     "id": "osprey_mk4",
@@ -1977,195 +1977,195 @@
   },
   {
     "id": "p-26a_33",
-    "name": "P\u201126A\u201133 Peashooter"
+    "name": "P-26A-33 Peashooter"
   },
   {
     "id": "p-26a_34",
-    "name": "P\u201126A\u201134 Peashooter"
+    "name": "P-26A-34 Peashooter"
   },
   {
     "id": "p-26a_34_m2",
-    "name": "P\u201126A\u201134 M2 Peashooter"
+    "name": "P-26A-34 M2 Peashooter"
   },
   {
     "id": "p-26b_35",
-    "name": "P\u201126B\u201135 Peashooter"
+    "name": "P-26B-35 Peashooter"
   },
   {
     "id": "p-36a",
-    "name": "P\u201136A Hawk"
+    "name": "P-36A Hawk"
   },
   {
     "id": "p-36a_rasmussen",
-    "name": "Rasmussen's P\u201136A Hawk"
+    "name": "Rasmussen's P-36A Hawk"
   },
   {
     "id": "p-36c",
-    "name": "P\u201136C Hawk"
+    "name": "P-36C Hawk"
   },
   {
     "id": "p-36c_rb",
-    "name": "\u25cbP\u201136C Hawk"
+    "name": "\u25cbP-36C Hawk"
   },
   {
     "id": "p-36g",
-    "name": "P\u201136G Hawk"
+    "name": "P-36G Hawk"
   },
   {
     "id": "p-38e",
-    "name": "P\u201138E Lightning"
+    "name": "P-38E Lightning"
   },
   {
     "id": "p-38g",
-    "name": "P\u201138G\u20111 Lightning"
+    "name": "P-38G-1 Lightning"
   },
   {
     "id": "p-38g_metal",
-    "name": "XP\u201138G"
+    "name": "XP-38G"
   },
   {
     "id": "p-38j",
-    "name": "P\u201138J\u201115 Lightning"
+    "name": "P-38J-15 Lightning"
   },
   {
     "id": "p-38j_marge",
-    "name": "Richard Bong's P\u201138J\u201115 Lightning"
+    "name": "Richard Bong's P-38J-15 Lightning"
   },
   {
     "id": "p-38k",
-    "name": "P\u201138K Lightning"
+    "name": "P-38K Lightning"
   },
   {
     "id": "p-38l",
-    "name": "P\u201138L\u20115\u2011LO Lightning"
+    "name": "P-38L-5-LO Lightning"
   },
   {
     "id": "p-38l_1_china_rocaf",
-    "name": "\u2417P\u201138L\u20111 Lightning"
+    "name": "\u2417P-38L-1 Lightning"
   },
   {
     "id": "p-39k_1",
-    "name": "\u2582P\u201139K\u20111 Airacobra"
+    "name": "\u2582P-39K-1 Airacobra"
   },
   {
     "id": "p-39n",
-    "name": "P\u201139N\u20110 Airacobra"
+    "name": "P-39N-0 Airacobra"
   },
   {
     "id": "p-39n_su",
-    "name": "\u2582Pokryshkin's P\u201139N\u20110 Airacobra"
+    "name": "\u2582Pokryshkin's P-39N-0 Airacobra"
   },
   {
     "id": "p-39q_15",
-    "name": "\u2582P\u201139Q\u201115 Airacobra"
+    "name": "\u2582P-39Q-15 Airacobra"
   },
   {
     "id": "p-39q_25_france",
-    "name": "\u2584P\u201139Q\u201125 Airacobra"
+    "name": "\u2584P-39Q-25 Airacobra"
   },
   {
     "id": "p-39q_5",
-    "name": "P\u201139Q\u20115 Airacobra"
+    "name": "P-39Q-5 Airacobra"
   },
   {
     "id": "p-400",
-    "name": "P\u2011400"
+    "name": "P-400"
   },
   {
     "id": "p-40c",
-    "name": "P\u201140C Warhawk"
+    "name": "P-40C Warhawk"
   },
   {
     "id": "p-40c_china",
-    "name": "H\u201181A\u20112"
+    "name": "H-81A-2"
   },
   {
     "id": "p-40e",
-    "name": "P\u201140E\u20111 Warhawk"
+    "name": "P-40E-1 Warhawk"
   },
   {
     "id": "p-40e_china",
-    "name": "\u2417P\u201140E\u20111 Kittyhawk"
+    "name": "\u2417P-40E-1 Kittyhawk"
   },
   {
     "id": "p-40e_td",
-    "name": "P\u201140E\u20111 TD"
+    "name": "P-40E-1 TD"
   },
   {
     "id": "p-40e_ussr",
-    "name": "\u2582P\u201140E\u20111 Kittyhawk"
+    "name": "\u2582P-40E-1 Kittyhawk"
   },
   {
     "id": "p-40f-5_france_ep",
-    "name": "\u2584P\u201140F\u20115 Lafayette"
+    "name": "\u2584P-40F-5 Lafayette"
   },
   {
     "id": "p-40f_10",
-    "name": "P\u201140F\u201110 Warhawk"
+    "name": "P-40F-10 Warhawk"
   },
   {
     "id": "p-43a-1",
-    "name": "P\u201143A\u20111"
+    "name": "P-43A-1"
   },
   {
     "id": "p-43a-1_china",
-    "name": "\u2417P\u201143A\u20111"
+    "name": "\u2417P-43A-1"
   },
   {
     "id": "p-47d-28",
-    "name": "P\u201147D\u201128 Thunderbolt"
+    "name": "P-47D-28 Thunderbolt"
   },
   {
     "id": "p-47d",
-    "name": "P\u201147D\u201125 Thunderbolt"
+    "name": "P-47D-25 Thunderbolt"
   },
   {
     "id": "p-47d_16_re_germany",
-    "name": "\u2580P\u201147D\u201116\u2011RE Thunderbolt"
+    "name": "\u2580P-47D-16-RE Thunderbolt"
   },
   {
     "id": "p-47d_22_re",
-    "name": "P\u201147D\u201122\u2011RE Thunderbolt"
+    "name": "P-47D-22-RE Thunderbolt"
   },
   {
     "id": "p-47d_22_re_france",
-    "name": "\u2584P\u201147D\u201122\u2011RE Thunderbolt"
+    "name": "\u2584P-47D-22-RE Thunderbolt"
   },
   {
     "id": "p-47d_23_ra_china_rocaf",
-    "name": "\u2417P\u201147D\u201123\u2011RA Thunderbolt"
+    "name": "\u2417P-47D-23-RA Thunderbolt"
   },
   {
     "id": "p-47d_30_china",
-    "name": "\u2417P\u201147D\u201130 Thunderbolt"
+    "name": "\u2417P-47D-30 Thunderbolt"
   },
   {
     "id": "p-47d_30_italy",
-    "name": "\u2584P\u201147D\u201130 Thunderbolt"
+    "name": "\u2584P-47D-30 Thunderbolt"
   },
   {
     "id": "p-47d_luftwaffe",
-    "name": "\u2580P\u201147D Thunderbolt"
+    "name": "\u2580P-47D Thunderbolt"
   },
   {
     "id": "p-47d_ussr",
-    "name": "\u2582P\u201147D\u201127 Thunderbolt"
+    "name": "\u2582P-47D-27 Thunderbolt"
   },
   {
     "id": "p-47m-1-re",
-    "name": "Bostwick's P\u201147M\u20111\u2011RE Thunderbolt"
+    "name": "Bostwick's P-47M-1-RE Thunderbolt"
   },
   {
     "id": "p-47m-1-re_boxted",
-    "name": "\u22e0Lanovski's P\u201147M\u20111\u2011RE Thunderbolt"
+    "name": "\u22e0Lanovski's P-47M-1-RE Thunderbolt"
   },
   {
     "id": "p-47n-15",
-    "name": "P\u201147N\u201115 Thunderbolt"
+    "name": "P-47N-15 Thunderbolt"
   },
   {
     "id": "p-51a_tl",
-    "name": "P\u201151A Mustang"
+    "name": "P-51A Mustang"
   },
   {
     "id": "p-51b",
@@ -2177,31 +2177,31 @@
   },
   {
     "id": "p-51c-10-nt",
-    "name": "P\u201151C\u201110 Mustang"
+    "name": "P-51C-10 Mustang"
   },
   {
     "id": "p-51c-10_france",
-    "name": "F\u20116C\u201110\u2011NA"
+    "name": "F-6C-10-NA"
   },
   {
     "id": "p-51c-11-nt_china",
-    "name": "\u2417P\u201151C\u201111\u2011NT"
+    "name": "\u2417P-51C-11-NT"
   },
   {
     "id": "p-51c-11-nt_japan",
-    "name": "\u2585P\u201151C\u201111\u2011NT"
+    "name": "\u2585P-51C-11-NT"
   },
   {
     "id": "p-51d-10",
-    "name": "Wetmore's P\u201151D\u201110 Mustang"
+    "name": "Wetmore's P-51D-10 Mustang"
   },
   {
     "id": "p-51d-20-na",
-    "name": "P\u201151D\u201120\u2011NA Mustang"
+    "name": "P-51D-20-NA Mustang"
   },
   {
     "id": "p-51d-20-na_iaf",
-    "name": "\uf059P\u201151D\u201120\u2011NA Mustang"
+    "name": "\uf059P-51D-20-NA Mustang"
   },
   {
     "id": "p-51d-20-na_j26",
@@ -2209,63 +2209,63 @@
   },
   {
     "id": "p-51d-20_china",
-    "name": "\u2417P\u201151D\u201120 Mustang"
+    "name": "\u2417P-51D-20 Mustang"
   },
   {
     "id": "p-51d-30_usaaf_korea",
-    "name": "P\u201151D\u201130 Mustang"
+    "name": "P-51D-30 Mustang"
   },
   {
     "id": "p-51d-5",
-    "name": "P\u201151D\u20115 Mustang"
+    "name": "P-51D-5 Mustang"
   },
   {
     "id": "p-51h-5_na",
-    "name": "P\u201151H\u20115\u2011NA"
+    "name": "P-51H-5-NA"
   },
   {
     "id": "p-51k",
-    "name": "\u2417P\u201151K Mustang"
+    "name": "\u2417P-51K Mustang"
   },
   {
     "id": "p-51_a-36",
-    "name": "A\u201136 Apache"
+    "name": "A-36 Apache"
   },
   {
     "id": "p-51_mk1a_usaaf",
-    "name": "P\u201151 Mustang"
+    "name": "P-51 Mustang"
   },
   {
     "id": "p-61a_1",
-    "name": "P\u201161A\u201111"
+    "name": "P-61A-11"
   },
   {
     "id": "p-61c_1",
-    "name": "P\u201161C\u20111"
+    "name": "P-61C-1"
   },
   {
     "id": "p-63a-10",
-    "name": "P\u201163A\u201110 Kingcobra"
+    "name": "P-63A-10 Kingcobra"
   },
   {
     "id": "p-63a-10_ussr",
-    "name": "\u2582P\u201163A\u201110 Kingcobra"
+    "name": "\u2582P-63A-10 Kingcobra"
   },
   {
     "id": "p-63a-5",
-    "name": "P\u201163A\u20115 Kingcobra"
+    "name": "P-63A-5 Kingcobra"
   },
   {
     "id": "p-63a-5_ussr",
-    "name": "\u2582P\u201163A\u20115 Kingcobra"
+    "name": "\u2582P-63A-5 Kingcobra"
   },
   {
     "id": "p-63c-5",
-    "name": "P\u201163C\u20115 Kingcobra"
+    "name": "P-63C-5 Kingcobra"
   },
   {
     "id": "p-63c-5_france",
-    "name": "\u2584P\u201163C\u20115 Kingcobra"
+    "name": "\u2584P-63C-5 Kingcobra"
   },
   {
     "id": "p-63c-5_kingcobra_animal_version",
@@ -2273,11 +2273,11 @@
   },
   {
     "id": "p-63c-5_ussr",
-    "name": "\u2582P\u201163C\u20115 Kingcobra"
+    "name": "\u2582P-63C-5 Kingcobra"
   },
   {
     "id": "p-66",
-    "name": "P\u201166"
+    "name": "P-66"
   },
   {
     "id": "p1y1_mod11",
@@ -2289,43 +2289,43 @@
   },
   {
     "id": "pb4y-2",
-    "name": "PB4Y\u20112 Privateer"
+    "name": "PB4Y-2 Privateer"
   },
   {
     "id": "pb4y-2_china",
-    "name": "\u2417PB4Y\u20112 Privateer"
+    "name": "\u2417PB4Y-2 Privateer"
   },
   {
     "id": "pb4y-2_france",
-    "name": "\u2584PB4Y\u20112 Privateer"
+    "name": "\u2584PB4Y-2 Privateer"
   },
   {
     "id": "pbj_1h",
-    "name": "PBJ\u20111H"
+    "name": "PBJ-1H"
   },
   {
     "id": "pbj_1j",
-    "name": "PBJ\u20111J"
+    "name": "PBJ-1J"
   },
   {
     "id": "pbm_1",
-    "name": "PBM\u20111 \"Mariner\""
+    "name": "PBM-1 \"Mariner\""
   },
   {
     "id": "pbm_3",
-    "name": "PBM\u20113 \"Mariner\""
+    "name": "PBM-3 \"Mariner\""
   },
   {
     "id": "pby-5",
-    "name": "PBY\u20115 Catalina"
+    "name": "PBY-5 Catalina"
   },
   {
     "id": "pby-5a",
-    "name": "PBY\u20115A Catalina"
+    "name": "PBY-5A Catalina"
   },
   {
     "id": "pby-5a_late_france",
-    "name": "\u2584PBY\u20115A Catalina (Late)"
+    "name": "\u2584PBY-5A Catalina (Late)"
   },
   {
     "id": "pby-5a_raf",
@@ -2333,63 +2333,63 @@
   },
   {
     "id": "pby-5a_ussr",
-    "name": "\u2582PBY\u20115A Catalina"
+    "name": "\u2582PBY-5A Catalina"
   },
   {
     "id": "pe-2-1",
-    "name": "Pe\u20112\u20111 Peshka "
+    "name": "Pe-2-1 Peshka "
   },
   {
     "id": "pe-2-110",
-    "name": "Pe\u20112\u2011110 Peshka"
+    "name": "Pe-2-110 Peshka"
   },
   {
     "id": "pe-2-205",
-    "name": "Pe\u20112\u2011205 Peshka"
+    "name": "Pe-2-205 Peshka"
   },
   {
     "id": "pe-2-31",
-    "name": "Pe\u20112\u201131 Peshka"
+    "name": "Pe-2-31 Peshka"
   },
   {
     "id": "pe-2-359",
-    "name": "Pe\u20112\u2011359 Peshka"
+    "name": "Pe-2-359 Peshka"
   },
   {
     "id": "pe-2-359_china",
-    "name": "Pe\u20112\u2011359 Peshka"
+    "name": "Pe-2-359 Peshka"
   },
   {
     "id": "pe-2-83",
-    "name": "Pe\u20112\u201183 Peshka"
+    "name": "Pe-2-83 Peshka"
   },
   {
     "id": "pe-3",
-    "name": "Pe\u20113"
+    "name": "Pe-3"
   },
   {
     "id": "pe-3_bis",
-    "name": "Pe\u20113bis"
+    "name": "Pe-3bis"
   },
   {
     "id": "pe-3_early",
-    "name": "Pe\u20113 Early"
+    "name": "Pe-3 Early"
   },
   {
     "id": "pe-8_m82",
-    "name": "Pe\u20118"
+    "name": "Pe-8"
   },
   {
     "id": "po-2",
-    "name": "Po\u20112"
+    "name": "Po-2"
   },
   {
     "id": "po-2m",
-    "name": "Po\u20112M"
+    "name": "Po-2M"
   },
   {
     "id": "po-2_nw",
-    "name": "Po\u20112 Night Witch"
+    "name": "Po-2 Night Witch"
   },
   {
     "id": "potez_630",
@@ -2405,7 +2405,7 @@
   },
   {
     "id": "pv_2d",
-    "name": "PV\u20112D Harpoon"
+    "name": "PV-2D Harpoon"
   },
   {
     "id": "pyorremyrsky",
@@ -2477,7 +2477,7 @@
   },
   {
     "id": "saab_a21a_3",
-    "name": "A21A\u20113"
+    "name": "A21A-3"
   },
   {
     "id": "saab_b17a",
@@ -2505,11 +2505,11 @@
   },
   {
     "id": "saab_j21a_1",
-    "name": "J21A\u20111"
+    "name": "J21A-1"
   },
   {
     "id": "saab_j21a_2",
-    "name": "J21A\u20112"
+    "name": "J21A-2"
   },
   {
     "id": "saab_t18b_1",
@@ -2521,55 +2521,55 @@
   },
   {
     "id": "sb2c_1c",
-    "name": "SB2C\u20111C Helldiver"
+    "name": "SB2C-1C Helldiver"
   },
   {
     "id": "sb2c_4",
-    "name": "SB2C\u20114 Helldiver"
+    "name": "SB2C-4 Helldiver"
   },
   {
     "id": "sb2c_5_france",
-    "name": "\u2584SB2C\u20115 Helldiver"
+    "name": "\u2584SB2C-5 Helldiver"
   },
   {
     "id": "sb2u-2",
-    "name": "SB2U\u20112"
+    "name": "SB2U-2"
   },
   {
     "id": "sb2u-3",
-    "name": "SB2U\u20113"
+    "name": "SB2U-3"
   },
   {
     "id": "sbd-3",
-    "name": "SBD\u20113 Dauntless"
+    "name": "SBD-3 Dauntless"
   },
   {
     "id": "sb_2m_100",
-    "name": "SB 2M\u2011100"
+    "name": "SB 2M-100"
   },
   {
     "id": "sb_2m_103c",
-    "name": "SB 2M\u2011103"
+    "name": "SB 2M-103"
   },
   {
     "id": "sb_2m_103u",
-    "name": "SB 2M\u2011103U"
+    "name": "SB 2M-103U"
   },
   {
     "id": "sb_2m_103u_china",
-    "name": "\u2417SB 2M\u2011103U"
+    "name": "\u2417SB 2M-103U"
   },
   {
     "id": "sb_2m_103u_mv3",
-    "name": "SB 2M\u2011103U MV\u20113"
+    "name": "SB 2M-103U MV-3"
   },
   {
     "id": "sb_2m_103_mv3",
-    "name": "SB 2M\u2011103 MV\u20113"
+    "name": "SB 2M-103 MV-3"
   },
   {
     "id": "sb_2m_105",
-    "name": "SB 2M\u2011105"
+    "name": "SB 2M-105"
   },
   {
     "id": "seafire_fr47",
@@ -2653,7 +2653,7 @@
   },
   {
     "id": "soc_1",
-    "name": "SOC\u20111 Seagull"
+    "name": "SOC-1 Seagull"
   },
   {
     "id": "so_8000_narval",
@@ -2769,27 +2769,27 @@
   },
   {
     "id": "su-2_m82",
-    "name": "Su\u20112 (M\u201182)"
+    "name": "Su-2 (M-82)"
   },
   {
     "id": "su-2_mv5",
-    "name": "Su\u20112 MV\u20115"
+    "name": "Su-2 MV-5"
   },
   {
     "id": "su-2_tss1",
-    "name": "Su\u20112 TSS\u20111"
+    "name": "Su-2 TSS-1"
   },
   {
     "id": "su-6_am42",
-    "name": "Su\u20116 (AM\u201142)"
+    "name": "Su-6 (AM-42)"
   },
   {
     "id": "su-6_m71",
-    "name": "Su\u20116 (M\u201171F)"
+    "name": "Su-6 (M-71F)"
   },
   {
     "id": "su-8",
-    "name": "Su\u20118"
+    "name": "Su-8"
   },
   {
     "id": "sunderland_mk3a",
@@ -2801,7 +2801,7 @@
   },
   {
     "id": "su_6_single",
-    "name": "Su\u20116"
+    "name": "Su-6"
   },
   {
     "id": "swordfish_mk1",
@@ -2813,7 +2813,7 @@
   },
   {
     "id": "s_199",
-    "name": "S\u2011199 (Sakeen)"
+    "name": "S-199 (Sakeen)"
   },
   {
     "id": "s_81_ar125",
@@ -2821,11 +2821,11 @@
   },
   {
     "id": "ta-152c",
-    "name": "Ta 152 C\u20113"
+    "name": "Ta 152 C-3"
   },
   {
     "id": "ta-152h-1",
-    "name": "Ta 152 H\u20111"
+    "name": "Ta 152 H-1"
   },
   {
     "id": "tandem_mai",
@@ -2833,19 +2833,19 @@
   },
   {
     "id": "ta_154a_1",
-    "name": "Ta 154 A\u20111"
+    "name": "Ta 154 A-1"
   },
   {
     "id": "tbd-1_1938",
-    "name": "TBD\u20111 Devastator"
+    "name": "TBD-1 Devastator"
   },
   {
     "id": "tbf-1c",
-    "name": "TBF\u20111C Avenger"
+    "name": "TBF-1C Avenger"
   },
   {
     "id": "tb_3_m17_32",
-    "name": "TB\u20113M\u201117\u201132"
+    "name": "TB-3M-17-32"
   },
   {
     "id": "tempest_mk2",
@@ -2873,39 +2873,39 @@
   },
   {
     "id": "tu-1",
-    "name": "Tu\u20111"
+    "name": "Tu-1"
   },
   {
     "id": "tu-2",
-    "name": "Tu\u20112S"
+    "name": "Tu-2S"
   },
   {
     "id": "tu-2_early",
-    "name": "Tu\u20112"
+    "name": "Tu-2"
   },
   {
     "id": "tu-2_postwar",
-    "name": "Tu\u20112S\u201144"
+    "name": "Tu-2S-44"
   },
   {
     "id": "tu-2_postwar_china",
-    "name": "\u2417Tu\u20112S\u201144"
+    "name": "\u2417Tu-2S-44"
   },
   {
     "id": "tu-2_postwar_late",
-    "name": "Tu\u20112S\u201159"
+    "name": "Tu-2S-59"
   },
   {
     "id": "tu-2_postwar_late_hungary",
-    "name": "\u25d4Tu\u20112S\u201159"
+    "name": "\u25d4Tu-2S-59"
   },
   {
     "id": "tu_4",
-    "name": "Tu\u20114"
+    "name": "Tu-4"
   },
   {
     "id": "tu_4_china",
-    "name": "\u2417Tu\u20114"
+    "name": "\u2417Tu-4"
   },
   {
     "id": "typhoon_mk1a",
@@ -2921,7 +2921,7 @@
   },
   {
     "id": "ucav_mq_1_predator",
-    "name": "MQ\u20111"
+    "name": "MQ-1"
   },
   {
     "id": "ucav_orion",
@@ -2937,15 +2937,15 @@
   },
   {
     "id": "vb_10c1",
-    "name": "VB.10C\u20111"
+    "name": "VB.10C-1"
   },
   {
     "id": "vb_10_02",
-    "name": "VB.10\u201102"
+    "name": "VB.10-02"
   },
   {
     "id": "vg_33",
-    "name": "V.G.33C\u20111"
+    "name": "V.G.33C-1"
   },
   {
     "id": "vl_myrsky_2_late",
@@ -2953,19 +2953,19 @@
   },
   {
     "id": "v_11g",
-    "name": "V\u201111"
+    "name": "V-11"
   },
   {
     "id": "v_12d",
-    "name": "V\u201112D"
+    "name": "V-12D"
   },
   {
     "id": "v_156_b1",
-    "name": "V\u2011156\u2011B1"
+    "name": "V-156-B1"
   },
   {
     "id": "v_156_f",
-    "name": "V\u2011156\u2011F"
+    "name": "V-156-F"
   },
   {
     "id": "walrus_mk1",
@@ -3005,7 +3005,7 @@
   },
   {
     "id": "xa_38",
-    "name": "XA\u201138 Grizzly"
+    "name": "XA-38 Grizzly"
   },
   {
     "id": "xf5f",
@@ -3013,107 +3013,107 @@
   },
   {
     "id": "xp-50",
-    "name": "XP\u201150"
+    "name": "XP-50"
   },
   {
     "id": "xp-55",
-    "name": "XP\u201155 Ascender"
+    "name": "XP-55 Ascender"
   },
   {
     "id": "yak-1b",
-    "name": "Yak\u20111B"
+    "name": "Yak-1B"
   },
   {
     "id": "yak-1b_luftwaffe",
-    "name": "\u2580Yak\u20111B"
+    "name": "\u2580Yak-1B"
   },
   {
     "id": "yak-1_early",
-    "name": "Yak\u20111"
+    "name": "Yak-1"
   },
   {
     "id": "yak-3",
-    "name": "Yak\u20113"
+    "name": "Yak-3"
   },
   {
     "id": "yak-3p",
-    "name": "Yak\u20113P"
+    "name": "Yak-3P"
   },
   {
     "id": "yak-3t",
-    "name": "Yak\u20113T"
+    "name": "Yak-3T"
   },
   {
     "id": "yak-3u",
-    "name": "Yak\u20113U"
+    "name": "Yak-3U"
   },
   {
     "id": "yak-3_eremin",
-    "name": "Eremin's Yak\u20113(e)"
+    "name": "Eremin's Yak-3(e)"
   },
   {
     "id": "yak-3_france",
-    "name": "\u2584Yak\u20113"
+    "name": "\u2584Yak-3"
   },
   {
     "id": "yak-3_vk107",
-    "name": "Yak\u20113 (VK\u2011107)"
+    "name": "Yak-3 (VK-107)"
   },
   {
     "id": "yak-4",
-    "name": "Yak\u20114"
+    "name": "Yak-4"
   },
   {
     "id": "yak-7b",
-    "name": "Yak\u20117B"
+    "name": "Yak-7B"
   },
   {
     "id": "yak-9",
-    "name": "Yak\u20119"
+    "name": "Yak-9"
   },
   {
     "id": "yak-9b",
-    "name": "Yak\u20119B"
+    "name": "Yak-9B"
   },
   {
     "id": "yak-9k",
-    "name": "Yak\u20119K"
+    "name": "Yak-9K"
   },
   {
     "id": "yak-9m",
-    "name": "Golovachev's Yak\u20119M"
+    "name": "Golovachev's Yak-9M"
   },
   {
     "id": "yak-9p",
-    "name": "Yak\u20119P"
+    "name": "Yak-9P"
   },
   {
     "id": "yak-9p_hungary",
-    "name": "\u25d4Yak\u20119P"
+    "name": "\u25d4Yak-9P"
   },
   {
     "id": "yak-9t",
-    "name": "Yak\u20119T"
+    "name": "Yak-9T"
   },
   {
     "id": "yak-9t_france",
-    "name": "Challe's \u2584Yak\u20119T"
+    "name": "Challe's \u2584Yak-9T"
   },
   {
     "id": "yak-9u",
-    "name": "Yak\u20119U"
+    "name": "Yak-9U"
   },
   {
     "id": "yak-9ut",
-    "name": "Yak\u20119UT"
+    "name": "Yak-9UT"
   },
   {
     "id": "yak_2_kabb",
-    "name": "Yak\u20112 KABB"
+    "name": "Yak-2 KABB"
   },
   {
     "id": "yp-38",
-    "name": "YP\u201138"
+    "name": "YP-38"
   },
   {
     "id": "z_1007_bis_serie3",

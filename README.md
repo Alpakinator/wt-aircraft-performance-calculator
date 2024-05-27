@@ -1,9 +1,11 @@
 <div align="center">
-<img width="128px" height="128px" src="readme_assets/WTAPPC_logo.png">
-<h1>War Thunder Aircraft<br>Performance <span style="color: #008ADA">Pre</span>-Calculator</h1>
+<img width="128px" height="128px" src="readme_assets/WTAPC_1280.png">
+<h1>War Thunder Aircraft<br>Performance Calculator</h1>
 </div>
 
-Pre-calculated aircraft performance files of aircraft in War Thunder. They will be visualized as graphs at [**wtapc.org**][1]. Currently those are files with:
+Performance files of aircraft in War Thunder calculated based on datamine. They will be visualized as graphs at [**wtapc.org**][1]. <br>
+
+Currently those are files with:
 
 * Engine power of all piston engine aircraft in War Thunder from -4km to 20km altitude(military power and WEP).
 * Empty mass, fuel mass and armament mass of all piston engine aircraft.
@@ -14,10 +16,14 @@ Accuracy vs ingame engine power is within 99.5%-100.5% for almost all planes.
 Importantly, this repository contains all the scripts used to calculate them, based on War Thunder flight-model files from
 [the public datamine][2]. 
 
-The goal is to calculate most important performance metrics like 1. climb rate at different speeds and altitidues and 2. top speeds.
+The goal is to calculate most important performance metrics like 
+1. climb rate at different speeds and altitudes
+2. top speeds.
+
+### Related:
+[**GitHub repository of wtapc.org**][5]
 
 ### Guide on using scripts:
-
 Install pipx, with:
 1. First - install newest [Python][3] if you don't have it.<br>
 2. Then clone this repository into your empty project.<br>
@@ -62,8 +68,11 @@ The reason engine power starts at -4km is to account for ram air effect. When a 
 
 
 ### Known issues - contribution appreciated:
-P-63 A-10, A-5 and C5 engine power graphs don't match ingame engine power very well. These 3 are calculated in a unique way; engine power above critical altitude doesn't drop proportionally to air pressure drop (concave), but in a convex way, and that's difficult to model. (look for `ConstRPM_bends_above_crit_alt` function in `plane_power_calculator`, it's made to distinguish these 2). 
-Tu-1 power is almost precise but also not exact.
+1. P-63 A-10, A-5 and C5 engine power graphs don't match ingame engine power very well. These 3 are calculated in a unique way; engine power above critical altitude doesn't drop proportionally to air pressure drop (concave), but in a convex way, and that's difficult to model. (look for `ConstRPM_bends_above_crit_alt` function in `plane_power_calculator`, it's made to distinguish them). 
+
+2. Tu-1 power is almost precise but also not exact. 
+
+3. Planes with constant pitch propeller have differnt RPMs at different speeds, and these scripts don't account for that. As a result, at low speeds those planes have more power on the graphs than in game. To resolve that propeller torque needs to be calculated and prop governor simulated.
 
 ### Future additions - contribution appreciated:
 <ol>
@@ -75,9 +84,6 @@ Tu-1 power is almost precise but also not exact.
 For propeller efficiency and prop thrust, there's `prop_efficiency_calculator.py`, which doesn't work yet.
 
 ---
-
-### Related Links:
-[**wtapc.org GitHub repository**][5]
 
 ### Thanks:
 
@@ -92,12 +98,11 @@ For propeller efficiency and prop thrust, there's `prop_efficiency_calculator.py
 * [AdamTheEnginerd][10] - A very big inspiration to start visualizing aircraft performance.
 
 
-
 [1]: https://www.wtapc.org
 [2]: https://github.com/gszabi99/War-Thunder-Datamine
 [3]: https://www.python.org/downloads/
 [4]: https://mesofthorny.github.io/WTRTI/
-[5]: https://github.com/Alpakinator/wt-aircraft-performance-calculator
+[5]: https://github.com/Alpakinator/wt-aircraft-performance-calculator.org
 [6]: https://github.com/gszabi99
 [7]: https://github.com/MeSoftHorny
 [8]: https://www.youtube.com/@dogeness/videos

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "wt-aircraft-performance-pre-calculator"
+name = "wt-aircraft-performance-calculator"
 version = "1.1"
 description = ""
 authors = ["Alpakinator"]

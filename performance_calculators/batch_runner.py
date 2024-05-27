@@ -27,7 +27,7 @@ def main():
     image_names_dir = "output_files/plane_name_files/vehicle_image_names.json"
 
     # Section for downloading datamine Starts
-    # answer0 = input("Welcome at the batch runner. First of, make sure your working directory ends with '..../wt-aircraft-performance-pre-calculator'(click anything).")
+    # answer0 = input("Welcome at the batch runner. First of, make sure your working directory ends with '..../wt-aircraft-performance-calculator'(click anything).")
     answer1 = input("Do you want to delete datamine files from 'input files/' directory? \nThey take ~30min to download in the next step. \n(yes/no) ")
     if answer1 == 'yes':
         if os.path.exists(central_dir):

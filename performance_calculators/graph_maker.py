@@ -47,12 +47,29 @@ def plotter(MODEL_TEST_dataf, highest_alt, alt_unit, speed, speed_type, speed_un
     # power_columns = MODEL_TEST_dataf.columns.values.tolist()[1:] # fastest, doesn't work with premade files
     power_columns = [col for col in MODEL_TEST_dataf.columns if any(x in col for x in ('(mil)', '(WEP)'))]
     # Find the highest power + 100, to use for x-axis
-    colour_set = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)', 
-                  'rgb(255,255,51)', 'rgb(166,86,40)', 'rgb(247,129,191)', 'rgb(153,153,153)', 'rgb(27,158,119)', 
-                  'rgb(217,95,2)', 'rgb(117,112,179)', 'rgb(231,41,138)', 'rgb(102,166,30)', 'rgb(230,171,2)', 
-                  'rgb(166,118,29)', 'rgb(102,102,102)', 'rgb(254,0,206)', 'rgb(34,255,167)']
-        
-    WTAPPC_Logo = Image.open("readme_assets/WTAPPC_logo.png")
+    colour_set = [
+		'#E41A1C',
+		'#006fa1',
+		'#4DAF4A',
+		'#984EA3',
+		'#E6CF1A',
+		'#FF5A00',
+		'#A65628',
+		'#2EACD4',
+		'#999999',
+		'#1B9E77',
+		'#D95F02',
+		'#7570B3',
+		'#E7298A',
+		'#82C935',
+		'#E6AB02',
+		'#A6761D',
+		'#379100',
+		'#FE5ACE',
+		'#FF0064'
+	]
+       
+    WTAPC_Logo = Image.open("readme_assets/WTAPC_nograph_text.png")
 
     if speed == 69:
         speed = "69 (nice)"
@@ -109,20 +126,17 @@ def plotter(MODEL_TEST_dataf, highest_alt, alt_unit, speed, speed_type, speed_un
                
     final_plot.add_annotation(text=air_temperature, showarrow=False, font=dict(size=14), xref="paper",  x=0, yref="paper",  y=-0.06)
     final_plot.add_annotation(text="Do not use in War Thunder bug reports, because it's not <br>a valid source. Otherwise Gaijin can ban datamining forever!", 
-                              opacity= 0.12, showarrow= False, font=dict(size= 20, color='white'), 
+                              opacity= 0.12, showarrow= False, font=dict(size= 18, color='white'), 
                               x= 1, y= 0, xref= "paper", yref= "paper", xanchor= 'right', yanchor= 'bottom', 
                                 textangle=0),
 
 
-    final_plot.add_layout_image(dict(x= 0, y= 0.0015,  sizex= 0.12, sizey= 0.12, source= WTAPPC_Logo, opacity= 0.5, xanchor= "left", xref= "paper", yanchor= "bottom", yref= "paper"
+    final_plot.add_layout_image(dict(x= 0, y= 0.0015,  sizex= 0.12, sizey= 0.12, source= WTAPC_Logo, opacity= 0.5, xanchor= "left", xref= "paper", yanchor= "bottom", yref= "paper"
     ))
     final_plot.update_layout(template="plotly_dark", paper_bgcolor='#111111',plot_bgcolor='#111111',
                              autosize=True, title=dict(font=dict(size=22), x=0.5),
-                             legend=dict(yanchor="top",y=1,xanchor="right", x=1,font=dict(size=14)), legend_title=None,
+                             legend=dict(yanchor="top",y=1,xanchor="right", x=1,font=dict(size=18)), legend_title=None,
                              hoverlabel_font_color='#F2F5FA', font_family=("Inter, Segoe UI"),
                              margin=dict(l=100,r=25,b=5,t=50,pad=5), modebar_orientation= 'h')
     final_plot.show(config={'modeBarButtonsToAdd': ["hoverclosest","hovercompare"]})
     return final_plot
-
-
-# "https://raw.githubusercontent.com/Alpakinator/wt-aircraft-performance-pre-calculator/main/WTAPPC_logo.png"

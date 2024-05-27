@@ -112,7 +112,7 @@ def ingame_central_names_lister(read_dir, write_dir):
                     if ingame == "":
                         central_ingame_dict[central_name] = central_name
                     else:
-                        central_ingame_dict[central_name] = ingame.replace(u"\u00A0", " ").replace(u"-", "‑")
+                        central_ingame_dict[central_name] = ingame.replace(u"\u00A0", " ") #.replace(u"-", "‑")
         for central_name in central_fm_filedict:
             if central_name not in central_ingame_dict:
                 central_ingame_dict[central_name] = central_name
@@ -156,18 +156,18 @@ def vehicle_image_name_jsoner(source_file, destination_dir):
 #        u"\u2582": "[SU]",
 #        u"\u2584": "[FR]",
 #        u"\u2580": "[DE]",
-#        u"": "[]",
-#        u"": "[]",
-#        u"": "[]",
-#        u"": "[]",
-#        u"": "[]",
-#        u"": "[]",
-#        u"": "[]",
+#        u"\u2583": "[US]",
+#        u"\u2585": "[JP]",
+#        u"\u2584": "[FIN]",
+#        u"\u25d0": "[HUN]",
+#        u"\u2584Corsair F Mk II": "[UK]Corsair F Mk II",
+#        u"\u2584AD-4NA Skyraider": "[FR]AD-4NA Skyraider",
+#        u"\u2584AD-4 Skyraider": "[FR]AD-4 Skyraider",
 #        u"": "[]",
 #         u"": "[]",
 #         u"": "[]",
 #         u"": "[]",
-#
+
 #        }
 # rep = dict((re.escape(k), v) for k, v in rep.iteritems())
 # #Python 3 renamed dict.iteritems to dict.items so use rep.items() for latest versions
