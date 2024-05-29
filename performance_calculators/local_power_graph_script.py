@@ -28,9 +28,9 @@ def inputter():
     Returns:
         tuple: a tuple of all the necessary parameters passed to main.
         """
-    plot_all_planes = False
-    speed = 280
-    speed_type = "IAS"
+    plot_all_planes = True
+    speed = 700
+    speed_type = "TAS"
     air_temp = 15
     air_temp_unit= '°C'
     octane = True
@@ -39,7 +39,7 @@ def inputter():
         # "military",
         "WEP"
         ]
-    max_altm = 15000
+    max_altm = 10000
     alt_unit = 'm'
     speed_unit = 'kph'
 
@@ -63,6 +63,10 @@ def inputter():
     # "ingame_power_log_files/p-63c-5-2023_05_WEP_280IAS.csv",
     # "ingame_power_log_files/tu-1-2023_10_WEP_700tas_12k.csv",
     # "ingame_power_log_files/tu-1-2023_10_100%_700tas_8k.csv",
+    # "ingame_power_log_files/mosquito_fb_mk6-2024_05_29_14_52_32.csv",
+    # "ingame_power_log_files/mosquito_fb_mk6-2024_05_29_14_55_30.csv",
+    # "ingame_power_log_files/n1k1_kyuofu-2024_05_29_20_50_43.csv",
+    "ingame_power_log_files/hornet_mk3-2023_08_22_20_43_38_WEP_700TAS_7.5K.csv",
     # put your new test flight climb logs to compare with the calculator here
     ]
 
@@ -72,9 +76,17 @@ def inputter():
     # "p-63c-5",
     # "p-63a-5",
     # "tu-1",
+    #these have a bit wrong throttling losses below "AltitudeConstRPM1"
+    # "mosquito_fb_mk6",
+    # "n1k1_kyuofu",
+    # "he_112b_1",
+    # "b_18a",
+    # "a-20g",
+    # "mb_157",
     #####Afaik, all other planes are accurately calculated
 
     ### GERMANY
+
     # "bf-109E-4",
     # "bf-109f-1",
     # "bf-109f-4_trop",
@@ -167,10 +179,12 @@ def inputter():
     # "p-47m-1-re",
     # "b_26b_c",
     # "b-17e",
+    # 'f6f-5n',
+    # 'douglas_ad_2'
 
     ###  GREAT BRITAIN
     # "sea_fury_fb11",
-    # "hornet_mk3",
+    "hornet_mk3",
     # "shackleton_mr_mk_2",
     # "tempest_mk2",
     # "tempest_mkv",
@@ -326,7 +340,7 @@ def main():
                                                                                 speed_type, air_temp,
                                                                                 octane,
                                                                                 engine_modes,
-                                                                                1) 
+                                                                                10) 
     #above alt_tick = 1 because otherwise the power_curves_merged[user_alt] = power_curves_merged_unrammed[(alt_RAM + 4000)] will fail
     #it's because power_curves_merged_unrammed indexes are treated as meters, but is alt tick = 10, then each index is 10m.
     # otherwise of you want this alt_tick to be 10, then use 'int(round(((alt_RAM + 4000)/10),0))' istead of (alt_RAM + 4000)! 
@@ -337,7 +351,7 @@ def main():
             for user_alt in range(0, max_altm, alt_tick):
                 alt_RAM = (rameffect_er(user_alt, air_temp, speed, speed_type, speed_multiplier_float))
                 try:
-                    power_curves_merged[user_alt] = power_curves_merged_unrammed[(alt_RAM + 4000)] 
+                    power_curves_merged[user_alt] = power_curves_merged_unrammed[int(round(((alt_RAM + 4000)/10),0))] 
                 except KeyError:
                     continue #If engine power is 0, the dictionary ends, so you can't apply RAM effect.
             named_power_curves_merged[plane_name][mode] = power_curves_merged
