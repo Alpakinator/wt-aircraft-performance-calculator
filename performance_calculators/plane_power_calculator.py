@@ -866,7 +866,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
                 higher_power = equationer(Compressor["PowerAtCeiling" + str(i)] * Main["WEP_power_mult"],
                                           altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
                                                   air_pressurer(Main["WEP_crit_altitude"]) / air_pressurer(
-                                              (Compressor["Old_Altitude" + str(i)])))),
+                                              (Compressor["Altitude" + str(i)])))),
                                           Compressor["Old_Power_new_RPM" + str(i)] * Main["WEP_power_mult"], Main["WEP_crit_altitude"],
                                           Compressor["Old_Altitude" + str(i)], curvature)
             else:
@@ -880,7 +880,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
                 higher_power = equationer(Compressor["PowerAtCeiling" + str(i)] * Main["WEP_power_mult"],
                                           altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
                                                   air_pressurer(Main["WEP_crit_altitude"]) / air_pressurer(
-                                              (Compressor["Old_Altitude" + str(i)])))),
+                                              (Compressor["Altitude" + str(i)])))),
                                           Compressor["Old_Power_new_RPM" + str(i)] * Main["WEP_power_mult"], Main["WEP_crit_altitude"],
                                           Compressor["Old_Altitude" + str(i)], curvature)
             else:
@@ -903,7 +903,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
                 lower_power = equationer(Compressor["PowerAtCeiling" + str(i)] * Main["WEP_power_mult"],
                                          altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
                                                      air_pressurer(Main["WEP_crit_altitude"]) / air_pressurer(
-                                                 (Compressor["Old_Altitude" + str(i)])))),
+                                                 (Compressor["Altitude" + str(i)])))),
                                          Compressor["Old_Power_new_RPM" + str(i)] * Main["WEP_power_mult"],
                                          Main["WEP_crit_altitude"],
                                          lower,
@@ -940,6 +940,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
             else:
                 higher = Compressor["Ceiling" + str(i)]
                 higher_power = Compressor["PowerAtCeiling" + str(i)]
+
         if Ceiling_is_useful(Compressor, i) and ConstRPM_bends_above_crit_alt(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
             curvature = Compressor["PowerConstRPMCurvature" + str(i)] # for P-63s bulging power above crit alt. Work in progress
@@ -950,6 +951,10 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
             else:
                 higher = Compressor["Ceiling" + str(i)]
                 higher_power = Compressor["PowerAtCeiling" + str(i)]
+        if (higher < lower) and (higher_power > lower_power):
+            lower, higher = higher, lower
+            lower_power, higher_power = higher_power, lower_power
+
     # print(alt_RAM, '[',higher_power, higher, lower_power, lower, curvature,']', Compressor["Power" + str(i)] , 'old_altitude: ', Compressor["Old_Altitude" + str(i)], 'new_altitude: ', Compressor["Altitude" + str(i)], Compressor["Old_Power" + str(i)] , Compressor["Old_Altitude" + str(i)], Main["WEP_crit_altitude"], )
     return higher_power, higher, lower_power, lower, curvature
 

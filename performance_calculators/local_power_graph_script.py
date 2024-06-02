@@ -29,17 +29,17 @@ def inputter():
         tuple: a tuple of all the necessary parameters passed to main.
         """
     plot_all_planes = False
-    speed = 700
-    speed_type = "TAS"
+    speed = 300
+    speed_type = "IAS"
     air_temp = 15
     air_temp_unit= '°C'
     octane = True
     power_to_weight = False
     engine_modes = [
         "military",
-        # "WEP"
+        "WEP"
         ]
-    max_altm = 20000
+    max_altm = 10000
     alt_unit = 'm'
     speed_unit = 'kph'
 
@@ -204,13 +204,14 @@ def inputter():
     # "typhoon_mk1b_late",
     # "typhoon_mk1b",
     # "typhoon_mk1a",
+    'hurricane_mk1b',
     
     # "spitfire_mk1",
     # "spitfiremkiia",
     # "seafire_mk3",
     # "spitfire_mk5b_notrop",
     # "spitfire_mk5c",
-    "spitfire_ix_early",
+    # "spitfire_ix_early",
     # "spitfire_ix",
     # "spitfire_ix_cw",
     # "spitfire_xvi",
