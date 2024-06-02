@@ -212,25 +212,26 @@ def wep_rpm_ratioer(Main, Compressor):
                         ** (1 + Compressor["CompressorOmegaFactorSq"])
     return
 
-def definition_alt_power_adjuster(Main, Compressor, i):
+def definition_alt_power_adjuster(Main, Compressor, Propeller, i):
     """
     If engine power and crit alts in FM file are defined for engine running at WEP RPM, not mil RPM, this function adjusts them to mil RPM.
     """
     Compressor["Old_Power" + str(i)] = Compressor["Power" + str(i)]
+    Compressor["Old_Power_new_RPM" + str(i)] = Compressor["Old_Power" + str(i)]
     Compressor["Old_Altitude" + str(i)] = Compressor["Altitude" + str(i)]
     if Ceiling_is(Compressor, i):
         Compressor["Old_Ceiling" + str(i)] = Compressor["Ceiling" + str(i)]
     if ConstRPM_is(Compressor, i):
         Compressor["Old_PowerConstRPM" + str(i)] = Compressor["PowerConstRPM" + str(i)]
     if (("ShaftRPMMax" in Main and Main["ShaftRPMMax"] - Main["military_RPM"] > 5 and Main["ShaftRPMMax"] - Main["WEP_RPM"] < 5) or
-            ("RPMNom" in Main and Main["RPMNom"] - Main["military_RPM"] > 5)):  # If fm power and crit alt is for WEP RPM
-
+            ("RPMNom" in Main and Main["RPMNom"] - Main["military_RPM"] > 5) or ("GovernorMaxParam" in Propeller and ((Propeller["GovernorMaxParam"] - Main["military_RPM"]) > 5) )):  # If fm power and crit alt is for WEP RPM
         if ConstRPM_is(Compressor, i):
             Compressor["Old_PowerConstRPM" + str(i)] = Compressor["PowerConstRPM" + str(i)]
             Compressor["PowerConstRPM" + str(i)] = Compressor["PowerConstRPM" + str(i)] / (
                 torquer(Main))
         # Useful for marking the wep_crit_alt <-> mil_crit alt area
         Compressor["Old_Power" + str(i)] = Compressor["Power" + str(i)]
+        Compressor["Old_Power_new_RPM" + str(i)] = Compressor["Old_Power" + str(i)]/torquer(Main)
         Compressor["Old_Altitude" + str(i)] = Compressor["Altitude" + str(i)]
 
         fake_mil_crit_supercharger_strength = Main["Military_MP"] / air_pressurer(Compressor["Altitude" + str(i)])
@@ -268,7 +269,7 @@ def deck_power_maker(Main, Compressor, i):
     """
     Creates engine power values for supercharger speeds/stages above first, just like Main["Power"] by default defined for first. 
     As a result it determines the rate at which power drops(throttling losses) or increases (some variable speed superchargers) below critical altitude.
-    Very complicated and not perfect. Why Gaijin, why?
+    Very complicated and not perfect. The biggest flaw of these engine power calculations. Why Gaijin, why?
     """
     if not "Power" + str(0) in Main:
         Main["Power" + str(0)] = Main["Power"]
@@ -277,7 +278,7 @@ def deck_power_maker(Main, Compressor, i):
     if "Power" + str(i) in Main: # to not overwrite hard coded Main[Power] from exception fixer
         return
     elif not ConstRPM_is(Compressor, i) and ConstRPM_bends_below_critalt_0(Compressor) and i != 0:
-        print('throttling_1st method')
+        # print('throttling_1st method')
         # if 1st stage was variable speed, which meant that: main[power] is bigger than compressor[power], do-335.
         if Ceiling_is_useful(Compressor, i) == Ceiling_is_useful(Compressor, 0):
             Main["Power" + str(i)] = Compressor["Old_Power"+ str(i)] - (
@@ -290,20 +291,20 @@ def deck_power_maker(Main, Compressor, i):
                         Compressor["Old_Altitude" + str(i)])
             
     elif Power_is_deck_power(Main, Compressor, i): 
-        print('throttling_2nd method')
+        # print('throttling_2nd method')
         Main["Power" + str(i)] = Compressor["Power" + str(i)]
 
     elif not ConstRPM_is(Compressor, i):
-        print('throttling_3rd method')
+        # print('throttling_3rd method')
         Main["Power" + str(i)] = Compressor["Power" + str(i)] * (air_pressurer(0) - (0.23*(air_pressurer(0) - air_pressurer(Compressor["Altitude" + str(i)]))))
     # probably isn't correct, but it works well enough IN FIXING POWER BELOW CONSTRPM THAT IS LOWER THAN 0
     
     elif ConstRPM_is_deck_power(Main, Compressor, i):
-        print('throttling_4th method')
+        # print('throttling_4th method')
         Main["Power" + str(i)] = Compressor["PowerConstRPM" + str(i)]
     
     elif (ConstRPM_bends_below_critalt(Compressor, i) and ConstRPM_bends_below_critalt_0(Compressor)):
-        print('throttling_5th method')
+        # print('throttling_5th method')
         # For Ki 83, so that line below 2nd variable speed stage is identical to 1st
         Main["Power" + str(i)] = Compressor["PowerConstRPM" + str(i)] * (1 - (((Compressor["PowerConstRPM" + str(0)] - Main["Power" + str(0)])
                                 / Compressor["PowerConstRPM" + str(0)])
@@ -311,7 +312,7 @@ def deck_power_maker(Main, Compressor, i):
                                 Compressor["AltitudeConstRPM" + str(i)])
         
     elif (ConstRPM_bends_below_critalt(Compressor, i) and ConstRPM_is_power(Compressor, 0)):
-        print('throttling_6th method')
+        # print('throttling_6th method')
         # so that power below constrpm goes down. Works well for moquito and ok, for J6K1. seems like a not universal solution
         # Main["Power" + str(i)] = Compressor["Power" + str(i)] * (air_pressurer(0) - (0.43*(air_pressurer(0) - air_pressurer(Compressor["Altitude" + str(i)]))))
         # Previous version - works well for J6K1 but not for mosquito!!!!!
@@ -321,7 +322,7 @@ def deck_power_maker(Main, Compressor, i):
                                 Compressor["AltitudeConstRPM" + str(i)]) 
 
     elif ConstRPM_is_high_bends_below_critalt(Compressor, i):
-        print('throttling_7th method')
+        # print('throttling_7th method')
         power_defined_by_constRPM = equationer(Compressor["PowerConstRPM" + str(i)],
                                             Compressor["Ceiling" + str(i)], Compressor["Power" + str(i)],
                                             Compressor["Altitude" + str(i)], Main["Deck_Altitude" + str(i)],
@@ -338,7 +339,7 @@ def deck_power_maker(Main, Compressor, i):
             Main["Power" + str(i)] = power_defined_by_stage_0
     
     elif ConstRPM_is_high_but_useless(Compressor, 0):
-        print('throttling_8th method')
+        # print('throttling_8th method')
         Main["Power" + str(i)] = equationer(Compressor["Power" + str(i)],
                                             Compressor["Altitude" + str(i)],
                                             Compressor["Power" + str(i)]-(Compressor["Power" + str(0)] - Main["Power"]) ,
@@ -346,7 +347,7 @@ def deck_power_maker(Main, Compressor, i):
                                             Main["Deck_Altitude" + str(i)],Compressor["PowerConstRPMCurvature0"])
     
     else:
-        print('throttling_9th method')
+        # print('throttling_9th method')
         Main["Power" + str(i)] = Compressor["Old_Power" + str(i)] * (1 - (((Compressor["Old_Power" + str(0)] - Main["Power"])
                                 / Compressor["Old_Power" + str(0)])
                                 / Compressor["Old_Altitude" + str(0)]) 
@@ -642,39 +643,51 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
             higher = Compressor["Old_Altitude" + str(i)]
             higher_power = ((equationer(Compressor["Power" + str(i)], Compressor["Altitude" + str(i)],
                                         Main["Power" + str(i)], Main["Deck_Altitude" + str(i)],
-                                        Compressor["Old_Altitude" + str(i)], curvature))
+                                        Compressor["Altitude" + str(i)], curvature))
                             * (air_pressurer(Compressor["Old_Altitude" + str(i)]) / air_pressurer(
                         Compressor["Altitude" + str(i)])))
         if Ceiling_is_useful(Compressor, i) and not ConstRPM_bends_above_crit_alt(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
             if Compressor["ExactAltitudes"]:
+                # print(getframeinfo(currentframe()).lineno)
                 higher = Compressor["Old_Altitude" + str(i)]
                 higher_power = equationer(Compressor["PowerAtCeiling" + str(i)],
                                           altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
                                                   air_pressurer(Compressor["Altitude" + str(i)]) / air_pressurer(
                                               (Compressor["Altitude" + str(i)])))),
-                                          Compressor["Power" + str(i)], Compressor["Altitude" + str(i)],
+                                          Compressor["Old_Power_new_RPM" + str(i)], Compressor["Altitude" + str(i)],
                                           Compressor["Old_Altitude" + str(i)], curvature)
+                # old_version
+                # higher_power = equationer(Compressor["PowerAtCeiling" + str(i)],
+                #                           altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
+                #                                   air_pressurer(Compressor["Altitude" + str(i)]) / air_pressurer(
+                #                               (Compressor["Altitude" + str(i)])))),
+                #                           Compressor["Power" + str(i)], Compressor["Altitude" + str(i)],
+                #                           Compressor["Old_Altitude" + str(i)], curvature)
             else:
+                # print(getframeinfo(currentframe()).lineno)
                 higher = Compressor["Ceiling" + str(i)]
                 higher_power = Compressor["PowerAtCeiling" + str(i)]
         if Ceiling_is_useful(Compressor, i) and ConstRPM_bends_above_crit_alt(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
             curvature = Compressor["PowerConstRPMCurvature" + str(i)]
             if Compressor["ExactAltitudes"]:
+                # print(getframeinfo(currentframe()).lineno)
                 higher = Compressor["Old_Altitude" + str(i)]
                 higher_power = equationer(Compressor["PowerAtCeiling" + str(i)],
                                           altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
                                                   air_pressurer(Compressor["Altitude" + str(i)]) / air_pressurer(
                                               (Compressor["Altitude" + str(i)])))),
-                                          Compressor["Power" + str(i)], Compressor["Altitude" + str(i)],
+                                          Compressor["Old_Power_new_RPM" + str(i)], Compressor["Altitude" + str(i)],
                                           Compressor["Old_Altitude" + str(i)], curvature)
             else:
+                # print(getframeinfo(currentframe()).lineno)
                 higher = Compressor["Ceiling" + str(i)]
                 higher_power = Compressor["PowerAtCeiling" + str(i)]
     if mode == "military" and Compressor["Old_Altitude" + str(i)] < alt_RAM:  # TO be chANGED
         # print(getframeinfo(currentframe()).lineno)
         if not Ceiling_is_useful(Compressor, i):
+            # print(getframeinfo(currentframe()).lineno)
             lower = Compressor["Old_Altitude" + str(i)]
             lower_power = ((equationer(Compressor["Power" + str(i)], Compressor["Altitude" + str(i)],
                                        Main["Power" + str(i)], Main["Deck_Altitude" + str(i)],
@@ -685,34 +698,40 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
             higher_power = lower_power * (air_pressurer(alt_RAM) / air_pressurer(lower))
 
         elif Ceiling_is_useful(Compressor, i) and not ConstRPM_bends_above_crit_alt(Compressor, i):
+            # print(getframeinfo(currentframe()).lineno)
             if Compressor["ExactAltitudes"]:
+                # print(getframeinfo(currentframe()).lineno)
                 lower = Compressor["Old_Altitude" + str(i)]
                 lower_power = equationer(Compressor["PowerAtCeiling" + str(i)],
-                                         altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
-                                                 air_pressurer(Compressor["Altitude" + str(i)]) / air_pressurer(
-                                             (Compressor["Altitude" + str(i)])))),
-                                         Compressor["Power" + str(i)], Compressor["Altitude" + str(i)],
-                                         Compressor["Old_Altitude" + str(i)], curvature)
+                                          altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
+                                                  air_pressurer(Compressor["Altitude" + str(i)]) / air_pressurer(
+                                              (Compressor["Altitude" + str(i)])))),
+                                          Compressor["Old_Power_new_RPM" + str(i)], Compressor["Altitude" + str(i)],
+                                          Compressor["Old_Altitude" + str(i)], curvature)
                 higher = Compressor["Ceiling" + str(i)]
                 higher_power = Compressor["PowerAtCeiling" + str(i)]
             else:
+                # print(getframeinfo(currentframe()).lineno)
                 lower = Compressor["Altitude" + str(i)]
                 lower_power = Compressor["Power" + str(i)]
                 higher = Compressor["Ceiling" + str(i)]
                 higher_power = Compressor["PowerAtCeiling" + str(i)]
         elif Ceiling_is_useful(Compressor, i) and ConstRPM_bends_above_crit_alt(Compressor, i):
+            # print(getframeinfo(currentframe()).lineno)
             curvature = Compressor["PowerConstRPMCurvature" + str(i)]
             if Compressor["ExactAltitudes"]:
+                # print(getframeinfo(currentframe()).lineno)
                 higher = Compressor["Ceiling" + str(i)]
                 higher_power = Compressor["PowerAtCeiling" + str(i)]
                 lower = Compressor["Old_Altitude" + str(i)]
                 lower_power = equationer(Compressor["PowerAtCeiling" + str(i)],
-                                         altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
-                                                 air_pressurer(Compressor["Altitude" + str(i)]) / air_pressurer(
-                                             (Compressor["Altitude" + str(i)])))),
-                                         Compressor["Power" + str(i)], Compressor["Altitude" + str(i)],
-                                         Compressor["Old_Altitude" + str(i)], curvature)
+                                          altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
+                                                  air_pressurer(Compressor["Altitude" + str(i)]) / air_pressurer(
+                                              (Compressor["Altitude" + str(i)])))),
+                                          Compressor["Old_Power_new_RPM" + str(i)], Compressor["Altitude" + str(i)],
+                                          Compressor["Old_Altitude" + str(i)], curvature)
             else:
+                # print(getframeinfo(currentframe()).lineno)
                 higher = Compressor["Ceiling" + str(i)]
                 higher_power = Compressor["PowerAtCeiling" + str(i)]
                 lower = Compressor["Old_Altitude" + str(i)]
@@ -812,6 +831,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
         lower_power = higher_power
     if mode == "WEP" and round(Main["WEP_crit_altitude"]) < alt_RAM <= round(Compressor["Old_Altitude" + str(i)]):
         # print(getframeinfo(currentframe()).lineno)
+        
         if not ConstRPM_bends_below_WEP_critalt(Main, Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
             lower = Main["WEP_crit_altitude"]
@@ -841,12 +861,13 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
         if Ceiling_is_useful(Compressor, i) and not ConstRPM_bends_above_crit_alt(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
             if Compressor["ExactAltitudes"]:
+                
                 higher = Compressor["Old_Altitude" + str(i)]
                 higher_power = equationer(Compressor["PowerAtCeiling" + str(i)] * Main["WEP_power_mult"],
                                           altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
                                                   air_pressurer(Main["WEP_crit_altitude"]) / air_pressurer(
-                                              (Compressor["Altitude" + str(i)])))),
-                                          Compressor["Power" + str(i)] * Main["WEP_power_mult"], Main["WEP_crit_altitude"],
+                                              (Compressor["Old_Altitude" + str(i)])))),
+                                          Compressor["Old_Power_new_RPM" + str(i)] * Main["WEP_power_mult"], Main["WEP_crit_altitude"],
                                           Compressor["Old_Altitude" + str(i)], curvature)
             else:
                 higher = Compressor["Ceiling" + str(i)]
@@ -859,8 +880,8 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
                 higher_power = equationer(Compressor["PowerAtCeiling" + str(i)] * Main["WEP_power_mult"],
                                           altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
                                                   air_pressurer(Main["WEP_crit_altitude"]) / air_pressurer(
-                                              (Compressor["Altitude" + str(i)])))),
-                                          Compressor["Power" + str(i)] * Main["WEP_power_mult"], Main["WEP_crit_altitude"],
+                                              (Compressor["Old_Altitude" + str(i)])))),
+                                          Compressor["Old_Power_new_RPM" + str(i)] * Main["WEP_power_mult"], Main["WEP_crit_altitude"],
                                           Compressor["Old_Altitude" + str(i)], curvature)
             else:
                 higher = Compressor["Ceiling" + str(i)]
@@ -868,26 +889,26 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
     if mode == "WEP" and alt_RAM > Compressor["Old_Altitude" + str(i)] and alt_RAM > Main["WEP_crit_altitude"]:
         if Main["WEP_crit_altitude"] < Compressor["Altitude" + str(i)]:
             # print(getframeinfo(currentframe()).lineno)
-            lower = Main["WEP_crit_altitude"]
+            lower = Compressor["Old_Altitude" + str(i)]
             if not Ceiling_is_useful(Compressor, i):
                 # print(getframeinfo(currentframe()).lineno)
-                lower = Compressor["Old_Altitude" + str(i)]
                 lower_power = ((equationer(Compressor["Power" + str(i)] * Main["WEP_power_mult"],
                                             Compressor["Altitude" + str(i)],
                                             Main["Power" + str(i)] * Main["WEP_power_mult"],
                                             Main["Deck_Altitude" + str(i)],
-                                            Compressor["Old_Altitude" + str(i)], curvature))
+                                            lower, curvature))
                                * (air_pressurer(Compressor["Old_Altitude" + str(i)]) / air_pressurer(Main["WEP_crit_altitude"])))
             else:
                 # print(getframeinfo(currentframe()).lineno)
                 lower_power = equationer(Compressor["PowerAtCeiling" + str(i)] * Main["WEP_power_mult"],
                                          altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
                                                      air_pressurer(Main["WEP_crit_altitude"]) / air_pressurer(
-                                                 (Compressor["Altitude" + str(i)])))),
-                                         Compressor["Power" + str(i)] * Main["WEP_power_mult"],
+                                                 (Compressor["Old_Altitude" + str(i)])))),
+                                         Compressor["Old_Power_new_RPM" + str(i)] * Main["WEP_power_mult"],
                                          Main["WEP_crit_altitude"],
                                          lower,
                                          curvature)
+                
         elif not ConstRPM_bends_below_critalt(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
             lower = Main["WEP_crit_altitude"]
@@ -929,7 +950,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
             else:
                 higher = Compressor["Ceiling" + str(i)]
                 higher_power = Compressor["PowerAtCeiling" + str(i)]
-    # print(alt_RAM, '[',higher_power, higher, lower_power, lower, curvature,']', Compressor["Power" + str(i)] , Compressor["Altitude" + str(i)], Compressor["Old_Power" + str(i)] , Compressor["Old_Altitude" + str(i)], Main["WEP_crit_altitude"], )
+    # print(alt_RAM, '[',higher_power, higher, lower_power, lower, curvature,']', Compressor["Power" + str(i)] , 'old_altitude: ', Compressor["Old_Altitude" + str(i)], 'new_altitude: ', Compressor["Altitude" + str(i)], Compressor["Old_Power" + str(i)] , Compressor["Old_Altitude" + str(i)], Main["WEP_crit_altitude"], )
     return higher_power, higher, lower_power, lower, curvature
 
 
@@ -959,7 +980,6 @@ def power_curve_culator(named_fm_dict, named_central_dict, speed, speed_type, ai
     named_power_curves = {}
     compr_stages_count = 1
     for plane_name, central_dict in named_central_dict.items():
-        print(plane_name)
         fm_dict = named_fm_dict[plane_name]
         Engine, Compressor, Main, Afterburner, Propeller = engine_shortcuter(fm_dict)
         "Prepping parameters in fm_dict for calculation"
@@ -982,8 +1002,12 @@ def power_curve_culator(named_fm_dict, named_central_dict, speed, speed_type, ai
         for g in range(0, compr_stages_count):
                 soviet_octane_adder(central_dict, Compressor, Main, g, octane)
         for h in range(0, compr_stages_count):
-            definition_alt_power_adjuster(Main, Compressor, h)
+            definition_alt_power_adjuster(Main, Compressor, Propeller, h)
             deck_power_maker(Main, Compressor, h)
+        print(plane_name)
+        # if "GovernorMaxParam" in Propeller.keys():
+        #     print('mil_RPM: ',Main["military_RPM"], 'WEP_RPM: ', Main["WEP_RPM"], 'governor_mil_RPM: ', Propeller["GovernorMaxParam"], 'governor_WEP_RPM: ', Propeller["GovernorAfterburnerParam"])
+        
         'Calculations begin'
         for i in range(0, compr_stages_count):
             for mode in final_engine_modes:

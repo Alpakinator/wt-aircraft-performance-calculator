@@ -43,7 +43,7 @@ def plotter(MODEL_TEST_dataf, highest_alt, alt_unit, speed, speed_type, speed_un
     """
     Plots scatter-plots of modelled power curves and tested ones with plotly, and adjusts the plot to look pleasing.
     """
-    print(MODEL_TEST_dataf)
+    # print(MODEL_TEST_dataf)
     # power_columns = MODEL_TEST_dataf.columns.values.tolist()[1:] # fastest, doesn't work with premade files
     power_columns = [col for col in MODEL_TEST_dataf.columns if any(x in col for x in ('(mil)', '(WEP)'))]
     # Find the highest power + 100, to use for x-axis

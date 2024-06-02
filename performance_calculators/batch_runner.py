@@ -70,7 +70,7 @@ def main():
 
     answer5 = input("Do you want to calculate aircraft engine power and weight? \n(yes/no) ")
     if answer5 == 'yes':
-        print('Started the calcualtions! Raaahhh!')
+        print('Started the calculations! Raaahhh!')
         with open(central_fm_read_dir, "r") as central_to_FM_json:
             central_to_FM_dict = json.load(central_to_FM_json)
             named_central_dict = central_parser(central_dir, central_to_FM_dict, central_fm_read_dir, ".blkx")
@@ -90,7 +90,7 @@ def main():
                                                                                         alt_tick=10)
         engine_power_to_json(power_write_dir, named_power_curves_merged, plane_speed_multipliers, plane_engine_count)
 
-        print('Finished the calcualtions! Raaahhh!')
+        print('Finished the calculations! Raaahhh!')
 
     print("This is the end of the script. UUuuuu")
 

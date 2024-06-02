@@ -28,7 +28,7 @@ def inputter():
     Returns:
         tuple: a tuple of all the necessary parameters passed to main.
         """
-    plot_all_planes = True
+    plot_all_planes = False
     speed = 700
     speed_type = "TAS"
     air_temp = 15
@@ -36,10 +36,10 @@ def inputter():
     octane = True
     power_to_weight = False
     engine_modes = [
-        # "military",
-        "WEP"
+        "military",
+        # "WEP"
         ]
-    max_altm = 10000
+    max_altm = 20000
     alt_unit = 'm'
     speed_unit = 'kph'
 
@@ -53,7 +53,7 @@ def inputter():
     TEST_file_dir = [
     # "ingame_power_log_files/Bf-109G-2_1.91_climb_to_8k_270IAS.csv",
     # "ingame_power_log_files/saab_b18b-2023_04_280IAS.csv",
-    "ingame_power_log_files/ta-152h-1-2021_03_climb_to_14k_GM1_265IAS.csv",
+    # "ingame_power_log_files/ta-152h-1-2021_03_climb_to_14k_GM1_280IAS.csv",
     # "ingame_power_log_files/ki-83-2023_04_285IAS.csv",
     # "ingame_power_log_files/tempest_mk2-2022_11_280IAS.csv",
     # "ingame_power_log_files/p-63a-5-2023_05_500TAS.csv",
@@ -66,7 +66,14 @@ def inputter():
     # "ingame_power_log_files/mosquito_fb_mk6-2024_05_29_14_52_32.csv",
     # "ingame_power_log_files/mosquito_fb_mk6-2024_05_29_14_55_30.csv",
     # "ingame_power_log_files/n1k1_kyuofu-2024_05_29_20_50_43.csv",
-    "ingame_power_log_files/hornet_mk3-2023_08_22_20_43_38_WEP_700TAS_7.5K.csv",
+    # "ingame_power_log_files/hornet_mk3-2023_08_22_20_43_38_WEP_700TAS_7.5K.csv",
+    # "ingame_power_log_files/spitfire_ix-2023_10_11_08_54_22_WEP_9k_700TAS.csv",
+    # "ingame_power_log_files/spitfire_ix-2023_10_11_08_56_16_100%_9k_700TAS.csv",
+    # "ingame_power_log_files/spitfire_ix-2023_12_11_16_47_22_100%_700TAS_5-11k_3000rpm.csv",
+    # "ingame_power_log_files/spitfire_ix-2023_10_11_08_58_38_WEP_no_OCT_9k_700TAS.csv",
+    # "ingame_power_log_files/spitfire_ix_early-2024_06_02_16_24_14.csv",
+    # "ingame_power_log_files/spitfire_ix_early-2024_06_02_16_27_04.csv",
+    # "ingame_power_log_files/bv-238-2024_06_02_19_42_58.csv",
     # put your new test flight climb logs to compare with the calculator here
     ]
 
@@ -87,7 +94,7 @@ def inputter():
 
     ### GERMANY
 
-    # "bf-109E-4",
+    # "bf-109e-4",
     # "bf-109f-1",
     # "bf-109f-4_trop",
     # "bf-109f-4",
@@ -99,7 +106,7 @@ def inputter():
     # "bf-109k-4",
     # "me_264",
     # "ta_152c",
-    "ta-152h-1",
+    # "ta-152h-1",
     # "fw-190d-12",
     # "fw-190f-8",
     # "fw-190a-5",
@@ -108,9 +115,11 @@ def inputter():
     # "me-410a-1",
     # "ju-388j",
     # "do_335a_0",
+    # "do_335a_1",
     # "bv-155b-1",
     # "bf-109z",
     # "pyorremyrsky",
+    # 'bv-238',
 
     ## JAPAN
     # "b7a2_homare_23",
@@ -144,6 +153,7 @@ def inputter():
 
     ###  USA
     # "f4u-4b",
+    # "f8f1",
     # "f8f1b",
     # "f2g-1",
     # "corsair_fmk2",
@@ -181,10 +191,11 @@ def inputter():
     # "b-17e",
     # 'f6f-5n',
     # 'douglas_ad_2'
+    # 'yp-38',
 
     ###  GREAT BRITAIN
     # "sea_fury_fb11",
-    "hornet_mk3",
+    # "hornet_mk3",
     # "shackleton_mr_mk_2",
     # "tempest_mk2",
     # "tempest_mkv",
@@ -199,7 +210,7 @@ def inputter():
     # "seafire_mk3",
     # "spitfire_mk5b_notrop",
     # "spitfire_mk5c",
-    # "spitfire_ix_early",
+    "spitfire_ix_early",
     # "spitfire_ix",
     # "spitfire_ix_cw",
     # "spitfire_xvi",
@@ -224,7 +235,9 @@ def inputter():
     # "saab_j21a_1",
     
     #  ### USSR
+    # 'tis_ma',
     # "i_185_m82",
+    # "i_185_m71_standard",
     # "i-153_m62",
     # "itp-m1",
     # "la-5_type37_early",
