@@ -11,7 +11,7 @@ Currently those are files with:
 * Empty mass, fuel mass and armament mass of all piston engine aircraft.
 * Names of flight-model files and ingame names of all piston engine aircraft.
 
-Accuracy vs ingame engine power is within 99.5%-100.5% for almost all planes.
+Accuracy vs ingame engine power is within 99%-101% for vast majority of planes and 95%-105% for the rest.
 
 Importantly, this repository contains all the scripts used to calculate them, based on War Thunder flight-model files from
 [the public datamine][2]. 
@@ -73,6 +73,8 @@ The reason engine power starts at -4km is to account for ram air effect. When a 
 2. Tu-1 power is almost precise but also not exact. 
 
 3. Planes with constant pitch propeller have differnt RPMs at different speeds, and these scripts don't account for that. As a result, at low speeds those planes have more power on the graphs than in game. To resolve that propeller torque needs to be calculated and prop governor simulated.
+
+4. Trottling losses below "AltitudeConstRPM" of 2nd and 3rd supercharger gear of some planes are imprecise (eg. Mosquitos).
 
 ### Future additions - contribution appreciated:
 <ol>
