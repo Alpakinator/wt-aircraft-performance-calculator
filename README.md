@@ -3,7 +3,7 @@
 <h1>War Thunder Aircraft<br>Performance Calculator</h1>
 </div>
 
-Performance files of aircraft in War Thunder calculated based on datamine. They will are visualized as graphs at [**wtapc.org**][1]. <br>
+Performance files of aircraft in War Thunder calculated based on datamine. They are visualized as graphs at [**wtapc.org**][1]. <br>
 
 Currently those are files with:
 
