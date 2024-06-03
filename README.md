@@ -3,7 +3,7 @@
 <h1>War Thunder Aircraft<br>Performance Calculator</h1>
 </div>
 
-Performance files of aircraft in War Thunder calculated based on datamine. They will be visualized as graphs at [**wtapc.org**][1]. <br>
+Performance files of aircraft in War Thunder calculated based on datamine. They will are visualized as graphs at [**wtapc.org**][1]. <br>
 
 Currently those are files with:
 
@@ -21,6 +21,7 @@ The goal is to calculate most important performance metrics like
 2. top speeds.
 
 ### Related:
+[**Discord of WTAPC**][13]<br>
 [**GitHub repository of wtapc.org**][5]
 
 ### Guide on using scripts:
@@ -112,3 +113,4 @@ For propeller efficiency and prop thrust, there's `prop_efficiency_calculator.py
 [10]: https://www.youtube.com/@AdamTheEnginerd
 [11]: https://python-poetry.org/docs/
 [12]: https://github.com/HypheX
+[13]: https://discord.gg/6F7ZRk3zJG

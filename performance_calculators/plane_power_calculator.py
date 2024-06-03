@@ -100,6 +100,8 @@ def engine_shortcuter(fm_dict):
             Afterburner = fm_dict["EngineType0"]["Afterburner"]["IsControllable"]
     if "Propellor" in Engine:
         Propeller = Engine["Propellor"]
+    # elif "PropellerType0" in fm_dict:
+    #     Propeller = fm_dict["PropellerType0"]["Governor"]
     else:
         Propeller = Main
     return Engine, Compressor, Main, Afterburner, Propeller
@@ -137,14 +139,13 @@ def old_type_fm_detector(Compressor, Main):
         return
 ########################################################################################################################
     
-def rpm_er(Main, RPM):
+def rpm_er(fm_dict, Main, Propeller):
     """
     Extracts RPM values from flightmodel files for military and WEP mode
     """
     Main["WEP_RPM"] = 666
     Main["military_RPM"] = 666
-    for key, value in RPM.items():
-
+    for key, value in Propeller.items():
         if key[:-1] != "ThrottleRPMAuto":
             continue
         if type(value[0]) is list:
@@ -159,6 +160,12 @@ def rpm_er(Main, RPM):
             Main["WEP_RPM"] = float(value[1])
         elif float(value[0]) == 1.1:
             Main["WEP_RPM"] = float(value[1])
+    
+    #FOR REFINEMENT. B7A2 hOMARE 2900 RPM
+    # if "PropellerType0" in fm_dict:
+    #     Main["WEP_RPM"] = fm_dict["PropellerType0"]["Governor"]["GovernorAfterburnerParam"]
+    #     if Main["military_RPM"] >= Main["WEP_RPM"]:
+    #         Main["military_RPM"] == Main["WEP_RPM"]
     return
 
 def wep_mp_er(Engine, Compressor, Main, Afterburner):
@@ -990,7 +997,7 @@ def power_curve_culator(named_fm_dict, named_central_dict, speed, speed_type, ai
         "Prepping parameters in fm_dict for calculation"
         old_type_fm_detector(Compressor, Main)
         exception_fixer(plane_name, Compressor, Main)
-        rpm_er(Main, Propeller)
+        rpm_er(fm_dict, Main, Propeller)
         wep_rpm_ratioer(Main, Compressor)
         wep_mp_er(Engine, Compressor, Main, Afterburner)
         brrritish_octane_adder(central_dict, Main, octane)
@@ -1010,6 +1017,7 @@ def power_curve_culator(named_fm_dict, named_central_dict, speed, speed_type, ai
             definition_alt_power_adjuster(Main, Compressor, Propeller, h)
             deck_power_maker(Main, Compressor, h)
         print(plane_name)
+        print( Main["military_RPM"], Main["WEP_RPM"])
         # if "GovernorMaxParam" in Propeller.keys():
         #     print('mil_RPM: ',Main["military_RPM"], 'WEP_RPM: ', Main["WEP_RPM"], 'governor_mil_RPM: ', Propeller["GovernorMaxParam"], 'governor_WEP_RPM: ', Propeller["GovernorAfterburnerParam"])
         
