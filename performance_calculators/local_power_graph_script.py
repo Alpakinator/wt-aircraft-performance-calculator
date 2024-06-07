@@ -75,9 +75,9 @@ def inputter():
     # "ingame_power_log_files/spitfire_ix_early-2024_06_02_16_27_04.csv",
     # "ingame_power_log_files/bv-238-2024_06_02_19_42_58.csv",
     # put your new test flight climb logs to compare with the calculator here
-    "ingame_power_log_files/f8f_alpha_strike_100%_300kphIAS.csv",
-    # "ingame_power_log_files/f8f_alpha_strike_WEP_300kphIAS.csv",
-    # "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv"
+    # "ingame_power_log_files/f8f_alpha_strike_100%_300kphIAS.csv",
+    "ingame_power_log_files/f8f_alpha_strike_WEP_300kphIAS.csv",
+    "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv"
     ]
 
     fm_files = [
@@ -159,7 +159,7 @@ def inputter():
     ###  USA
     # "f4u-4b",
     "f8f1",
-    "f8f1b",
+    # "f8f1b",
     # "f2g-1",
     # "corsair_fmk2",
     # "f4u-4",
