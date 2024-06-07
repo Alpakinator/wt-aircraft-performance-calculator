@@ -1559,7 +1559,23 @@
     "pilot_mass": 90,
     "all_ammo_mass": 169
   },
+  "f7f1_235": {
+    "empty_mass": 8106,
+    "max_fuel_mass": 1143,
+    "nitro_mass": 121,
+    "oil_mass": 95,
+    "pilot_mass": 90,
+    "all_ammo_mass": 169
+  },
   "f7f3": {
+    "empty_mass": 8266,
+    "max_fuel_mass": 1236,
+    "nitro_mass": 121,
+    "oil_mass": 95,
+    "pilot_mass": 90,
+    "all_ammo_mass": 169
+  },
+  "f7f3_235": {
     "empty_mass": 8266,
     "max_fuel_mass": 1236,
     "nitro_mass": 121,
@@ -1590,6 +1606,14 @@
     "oil_mass": 57,
     "pilot_mass": 90,
     "all_ammo_mass": 109
+  },
+  "f8f1_235": {
+    "empty_mass": 3640,
+    "max_fuel_mass": 505,
+    "nitro_mass": 54,
+    "oil_mass": 58,
+    "pilot_mass": 90,
+    "all_ammo_mass": 49
   },
   "fairey_3f_mk3b": {
     "empty_mass": 1749,
@@ -4807,6 +4831,14 @@
     "pilot_mass": 90,
     "all_ammo_mass": 134
   },
+  "p-47m-1-re_235": {
+    "empty_mass": 4855,
+    "max_fuel_mass": 1050,
+    "nitro_mass": 113,
+    "oil_mass": 97,
+    "pilot_mass": 90,
+    "all_ammo_mass": 134
+  },
   "p-47m-1-re_boxted": {
     "empty_mass": 4855,
     "max_fuel_mass": 1050,
@@ -4816,6 +4848,14 @@
     "all_ammo_mass": 134
   },
   "p-47n-15": {
+    "empty_mass": 5810,
+    "max_fuel_mass": 1516,
+    "nitro_mass": 113,
+    "oil_mass": 136,
+    "pilot_mass": 90,
+    "all_ammo_mass": 158
+  },
+  "p-47n-15_235": {
     "empty_mass": 5810,
     "max_fuel_mass": 1516,
     "nitro_mass": 113,

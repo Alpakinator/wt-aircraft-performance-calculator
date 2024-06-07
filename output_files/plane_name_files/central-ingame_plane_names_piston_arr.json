@@ -752,8 +752,16 @@
     "name": "F7F-1 Tigercat"
   },
   {
+    "id": "f7f1_235",
+    "name": "F7F-1 Tigercat 2.35"
+  },
+  {
     "id": "f7f3",
     "name": "F7F-3 Tigercat"
+  },
+  {
+    "id": "f7f3_235",
+    "name": "F7F-3 Tigercat 2.35"
   },
   {
     "id": "f8f1",
@@ -766,6 +774,10 @@
   {
     "id": "f8f1b_france",
     "name": "\u2584F8F-1B Bearcat"
+  },
+  {
+    "id": "f8f1_235",
+    "name": "F8F-1 Bearcat 2.35"
   },
   {
     "id": "fairey_3f_mk3b",
@@ -2316,12 +2328,20 @@
     "name": "Bostwick's P-47M-1-RE Thunderbolt"
   },
   {
+    "id": "p-47m-1-re_235",
+    "name": "Bostwick's P-47M-1-RE Thunderbolt 2.35"
+  },
+  {
     "id": "p-47m-1-re_boxted",
     "name": "\u22e0Lanovski's P-47M-1-RE Thunderbolt"
   },
   {
     "id": "p-47n-15",
     "name": "P-47N-15 Thunderbolt"
+  },
+  {
+    "id": "p-47n-15_235",
+    "name": "P-47N-15 Thunderbolt 2.35"
   },
   {
     "id": "p-51a_tl",
