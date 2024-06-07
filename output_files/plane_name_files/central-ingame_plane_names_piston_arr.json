@@ -408,8 +408,16 @@
     "name": "B-25J-20 Mitchell"
   },
   {
+    "id": "b_25j_30",
+    "name": "B-25J-30 Mitchell"
+  },
+  {
     "id": "b_25j_30_china",
     "name": "\u2417B-25J-30 Mitchell"
+  },
+  {
+    "id": "b_25j_30_france",
+    "name": "B-25J-30 Mitchell"
   },
   {
     "id": "b_25j_30_vvs_ussr",
@@ -430,6 +438,10 @@
   {
     "id": "b_48_firecrest",
     "name": "Firecrest"
+  },
+  {
+    "id": "c-47",
+    "name": "C-47"
   },
   {
     "id": "caudron_cr714",
@@ -558,6 +570,10 @@
   {
     "id": "do_335b_2",
     "name": "Do 335 B-2"
+  },
+  {
+    "id": "dummy_plane",
+    "name": "..."
   },
   {
     "id": "d_371",
@@ -812,6 +828,10 @@
     "name": "Firefly F Mk I"
   },
   {
+    "id": "firefly_mk4_netherlands",
+    "name": "\u25d8Firefly F.Mk.IV"
+  },
+  {
     "id": "firefly_mk5",
     "name": "Firefly FR Mk V"
   },
@@ -822,6 +842,10 @@
   {
     "id": "fokker_d21_serie3_finland",
     "name": "\u2584Fokker D.XXI Series 3"
+  },
+  {
+    "id": "fokker_g1a",
+    "name": "\u25d7Fokker G.I Mercury"
   },
   {
     "id": "fury_mk1",
@@ -849,6 +873,10 @@
   },
   {
     "id": "fw-190a-5_cannons",
+    "name": "Fw 190 A-5"
+  },
+  {
+    "id": "fw-190a-5_cannons_tutorial",
     "name": "Fw 190 A-5"
   },
   {
@@ -908,6 +936,10 @@
     "name": "F.222.2"
   },
   {
+    "id": "f_47n_25_re_china",
+    "name": "\u2417F-47N-25-RE Thunderbolt"
+  },
+  {
     "id": "g4m1",
     "name": "G4M1"
   },
@@ -916,8 +948,16 @@
     "name": "G5N1 Shinzan"
   },
   {
+    "id": "g5n2",
+    "name": "G5N2 Shinzan"
+  },
+  {
     "id": "g8n1",
     "name": "G8N1 Renzan"
+  },
+  {
+    "id": "g8n2",
+    "name": "G8N2 Renzan"
   },
   {
     "id": "gladiator_j8a",
@@ -926,6 +966,10 @@
   {
     "id": "gladiator_j8a_iacobi",
     "name": "Iacobi's J8A"
+  },
+  {
+    "id": "gladiator_mk1_belgium",
+    "name": "\u2584Gladiator Mk I"
   },
   {
     "id": "gladiator_mk1_china",
@@ -972,16 +1016,76 @@
     "name": "G.56"
   },
   {
+    "id": "h-75a-1_finland",
+    "name": "Hawk H-75A-1"
+  },
+  {
     "id": "h-75a-1_france",
     "name": "H-75A-1"
+  },
+  {
+    "id": "h-75a-1_france39",
+    "name": "Curtiss H75-C1-39"
   },
   {
     "id": "h-75a-2_finland",
     "name": "\u2580Hawk H-75A-2"
   },
   {
+    "id": "h-75a-2_france",
+    "name": "Curtiss H75-C1-2"
+  },
+  {
+    "id": "h-75a-2_luftwaffe",
+    "name": "Hawk H-75A-2"
+  },
+  {
+    "id": "h-75a-3_finland",
+    "name": "Hawk H-75A-3"
+  },
+  {
+    "id": "h-75a-3_france",
+    "name": "Curtiss H75-C1-3"
+  },
+  {
+    "id": "h-75a-3_france_vishy",
+    "name": "Curtiss H75-C1-V"
+  },
+  {
+    "id": "h-75a-4_finland",
+    "name": "Hawk H-75A-4"
+  },
+  {
     "id": "h-75a-4_france",
     "name": "H-75A-4"
+  },
+  {
+    "id": "h-75a-4_luftwaffe",
+    "name": "Hawk H-75A-4"
+  },
+  {
+    "id": "h-75a-4_raf",
+    "name": "Mohawk Mk IV"
+  },
+  {
+    "id": "h-75a-5",
+    "name": "Hawk H-75A-5"
+  },
+  {
+    "id": "h-75a-6",
+    "name": "Hawk H-75A-6"
+  },
+  {
+    "id": "h-75a-7",
+    "name": "Hawk H-75A-7"
+  },
+  {
+    "id": "h-75m",
+    "name": "Hawk H-75M"
+  },
+  {
+    "id": "h-75n",
+    "name": "Hawk H-75N"
   },
   {
     "id": "h6k4",
@@ -1328,6 +1432,18 @@
     "name": "I-180S"
   },
   {
+    "id": "i_180_event01",
+    "name": "I-180S (defective)"
+  },
+  {
+    "id": "i_180_event02",
+    "name": "I-180S (defective)"
+  },
+  {
+    "id": "i_180_event04",
+    "name": "I-180S (defective)"
+  },
+  {
     "id": "i_185_m71_standard",
     "name": "I-185 (M-71)"
   },
@@ -1400,6 +1516,10 @@
     "name": "Ju 388 J"
   },
   {
+    "id": "ju-52",
+    "name": "Ju 52"
+  },
+  {
     "id": "ju-87b-2",
     "name": "Ju 87 B-2"
   },
@@ -1468,12 +1588,20 @@
     "name": "Ki-45 hei Toryu"
   },
   {
+    "id": "ki-45_hei_tei",
+    "name": "Ki-45 hei/tei Toryu"
+  },
+  {
     "id": "ki-45_hei_tei_china",
     "name": "\u2417Ki-45 hei/tei Toryu"
   },
   {
     "id": "ki-45_ko",
     "name": "Ki-45 ko Toryu"
+  },
+  {
+    "id": "ki-45_ko_tei",
+    "name": "Ki-45 ko/tei Toryu"
   },
   {
     "id": "ki-45_otsu",
@@ -1600,6 +1728,10 @@
     "name": "Ki-48-II otsu"
   },
   {
+    "id": "ki_48_2_otsu_event",
+    "name": "Ki-48-II otsu"
+  },
+  {
     "id": "ki_61_1a_hei",
     "name": "Ki-61-I hei Hien"
   },
@@ -1712,12 +1844,20 @@
     "name": "\u2417La-9"
   },
   {
+    "id": "lagg-3-1",
+    "name": "LaGG-3-1"
+  },
+  {
     "id": "lagg-3-11",
     "name": "LaGG-3-11"
   },
   {
     "id": "lagg-3-23",
     "name": "LaGG-3-23"
+  },
+  {
+    "id": "lagg-3-29",
+    "name": "LaGG-3-29"
   },
   {
     "id": "lagg-3-34",
@@ -1766,6 +1906,10 @@
   {
     "id": "leo_451_late",
     "name": "LeO 451 late"
+  },
+  {
+    "id": "li-2",
+    "name": "Li-2"
   },
   {
     "id": "lincoln_b2",
@@ -1968,6 +2112,10 @@
     "name": "OS2U-1 Kingfisher"
   },
   {
+    "id": "os2u_1_naval",
+    "name": "OS2U-1 Kingfisher"
+  },
+  {
     "id": "os2u_3",
     "name": "OS2U-3 Kingfisher"
   },
@@ -1988,12 +2136,20 @@
     "name": "P-26A-34 M2 Peashooter"
   },
   {
+    "id": "p-26a_35",
+    "name": "P-26A-35 Peashooter"
+  },
+  {
     "id": "p-26b_35",
     "name": "P-26B-35 Peashooter"
   },
   {
     "id": "p-36a",
     "name": "P-36A Hawk"
+  },
+  {
+    "id": "p-36a_brown",
+    "name": "Brown's P-36A Hawk"
   },
   {
     "id": "p-36a_rasmussen",
@@ -2136,6 +2292,10 @@
     "name": "\u2417P-47D-23-RA Thunderbolt"
   },
   {
+    "id": "p-47d_23_re",
+    "name": "\u2584P-47D-23 RE Thunderbolt"
+  },
+  {
     "id": "p-47d_30_china",
     "name": "\u2417P-47D-30 Thunderbolt"
   },
@@ -2232,6 +2392,10 @@
     "name": "A-36 Apache"
   },
   {
+    "id": "p-51_mk1",
+    "name": "P-51 Mustang"
+  },
+  {
     "id": "p-51_mk1a_usaaf",
     "name": "P-51 Mustang"
   },
@@ -2306,6 +2470,10 @@
   {
     "id": "pbj_1j",
     "name": "PBJ-1J"
+  },
+  {
+    "id": "pbj_1j_1",
+    "name": "PBJ-1J Mitchell"
   },
   {
     "id": "pbm_1",
@@ -2402,6 +2570,10 @@
   {
     "id": "potez_633",
     "name": "Potez 633"
+  },
+  {
+    "id": "po_2op_event",
+    "name": "Po-2OP"
   },
   {
     "id": "pv_2d",
@@ -2548,6 +2720,14 @@
     "name": "SB 2M-100"
   },
   {
+    "id": "sb_2m_100a",
+    "name": "SB 2M-100A"
+  },
+  {
+    "id": "sb_2m_100a_spain",
+    "name": "SB 2M-100A /Spanish"
+  },
+  {
     "id": "sb_2m_103c",
     "name": "SB 2M-103"
   },
@@ -2608,6 +2788,10 @@
     "name": "\u2580S.M.79 Sparviero serie 4 (1937)"
   },
   {
+    "id": "sm_79_1937_italy",
+    "name": "S.M.79 Sparviero serie 4 (1937)"
+  },
+  {
     "id": "sm_79_1939",
     "name": "\u2580S.M.79 Sparviero serie 8 (1939)"
   },
@@ -2626,6 +2810,10 @@
   {
     "id": "sm_79_1942",
     "name": "\u2580S.M.79 Sparviero bis/N (1942)"
+  },
+  {
+    "id": "sm_79_1942_italy",
+    "name": "S.M.79 Sparviero bis/N (1942)"
   },
   {
     "id": "sm_79_1943",
@@ -2684,6 +2872,10 @@
     "name": "Prendergast's Spitfire FR Mk XIVe"
   },
   {
+    "id": "spitfire_fr_mk14e_belgium",
+    "name": "\u2584Spitfire FR Mk XIVe"
+  },
+  {
     "id": "spitfire_ix",
     "name": "Spitfire LF Mk IX"
   },
@@ -2694,6 +2886,10 @@
   {
     "id": "spitfire_ix_plagis",
     "name": "Plagis' Spitfire LF Mk IXc"
+  },
+  {
+    "id": "spitfire_ix_tutorial",
+    "name": "Spitfire LF Mk IX"
   },
   {
     "id": "spitfire_ix_usa",
@@ -2746,6 +2942,10 @@
   {
     "id": "spitfire_mk5c_notrop",
     "name": "Spitfire Mk Vc"
+  },
+  {
+    "id": "spitfire_mk9b",
+    "name": "Spitfire Mk IXb"
   },
   {
     "id": "spitfire_mk9c_4cannons",
@@ -2929,6 +3129,10 @@
   },
   {
     "id": "ucav_recon_micro",
+    "name": "Recon Micro"
+  },
+  {
+    "id": "ucav_recon_micro_flir",
     "name": "Recon Micro"
   },
   {
@@ -3122,5 +3326,133 @@
   {
     "id": "z_1007_bis_serie5",
     "name": "Z.1007 bis serie 5"
+  },
+  {
+    "id": "b-17g_china_rocaf",
+    "name": "b-17g_china_rocaf"
+  },
+  {
+    "id": "b-17g_luftwaffe",
+    "name": "b-17g_luftwaffe"
+  },
+  {
+    "id": "b_18a_skeleton_turrets",
+    "name": "b_18a_skeleton_turrets"
+  },
+  {
+    "id": "b_18a_test",
+    "name": "b_18a_test"
+  },
+  {
+    "id": "b_24d_luftwaffe",
+    "name": "b_24d_luftwaffe"
+  },
+  {
+    "id": "b_24m_china_plaaf",
+    "name": "b_24m_china_plaaf"
+  },
+  {
+    "id": "db_3a",
+    "name": "db_3a"
+  },
+  {
+    "id": "hudson_mk_v_gear_test",
+    "name": "hudson_mk_v_gear_test"
+  },
+  {
+    "id": "i-16_type17",
+    "name": "i-16_type17"
+  },
+  {
+    "id": "il_2_1942",
+    "name": "il_2_1942"
+  },
+  {
+    "id": "i_185_m71",
+    "name": "i_185_m71"
+  },
+  {
+    "id": "la-7_3_china_plaaf",
+    "name": "la-7_3_china_plaaf"
+  },
+  {
+    "id": "lagg_gu-37",
+    "name": "lagg_gu-37"
+  },
+  {
+    "id": "lincoln_b1",
+    "name": "lincoln_b1"
+  },
+  {
+    "id": "li_2_1938",
+    "name": "li_2_1938"
+  },
+  {
+    "id": "maryland_mk1",
+    "name": "maryland_mk1"
+  },
+  {
+    "id": "mig_3u",
+    "name": "mig_3u"
+  },
+  {
+    "id": "mig_3_series_1_15_no_radio",
+    "name": "mig_3_series_1_15_no_radio"
+  },
+  {
+    "id": "mig_3_series_1_15_romania",
+    "name": "mig_3_series_1_15_romania"
+  },
+  {
+    "id": "night_fighter_mk_2",
+    "name": "night_fighter_mk_2"
+  },
+  {
+    "id": "p-39q_25",
+    "name": "p-39q_25"
+  },
+  {
+    "id": "p-47d_16_re",
+    "name": "p-47d_16_re"
+  },
+  {
+    "id": "pandora_mk_1",
+    "name": "pandora_mk_1"
+  },
+  {
+    "id": "po-2_test",
+    "name": "po-2_test"
+  },
+  {
+    "id": "pv_2",
+    "name": "pv_2"
+  },
+  {
+    "id": "sb2c_5",
+    "name": "sb2c_5"
+  },
+  {
+    "id": "spitfire_f22_test",
+    "name": "spitfire_f22_test"
+  },
+  {
+    "id": "spitfire_mk9c",
+    "name": "spitfire_mk9c"
+  },
+  {
+    "id": "su-6_am42_23",
+    "name": "su-6_am42_23"
+  },
+  {
+    "id": "tbd-1_1937",
+    "name": "tbd-1_1937"
+  },
+  {
+    "id": "ucav_recon_micro_360",
+    "name": "ucav_recon_micro_360"
+  },
+  {
+    "id": "yak-3_test",
+    "name": "yak-3_test"
   }
 ]

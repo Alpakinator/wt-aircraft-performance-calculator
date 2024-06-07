@@ -285,7 +285,7 @@ def deck_power_maker(Main, Compressor, i):
     if "Power" + str(i) in Main: # to not overwrite hard coded Main[Power] from exception fixer
         return
     elif not ConstRPM_is(Compressor, i) and ConstRPM_bends_below_critalt_0(Compressor) and i != 0:
-        # print('throttling_1st method')
+        print('throttling_1st method')
         # if 1st stage was variable speed, which meant that: main[power] is bigger than compressor[power], do-335.
         if Ceiling_is_useful(Compressor, i) == Ceiling_is_useful(Compressor, 0):
             Main["Power" + str(i)] = Compressor["Old_Power"+ str(i)] - (
@@ -298,20 +298,20 @@ def deck_power_maker(Main, Compressor, i):
                         Compressor["Old_Altitude" + str(i)])
             
     elif Power_is_deck_power(Main, Compressor, i): 
-        # print('throttling_2nd method')
+        print('throttling_2nd method')
         Main["Power" + str(i)] = Compressor["Power" + str(i)]
 
     elif not ConstRPM_is(Compressor, i):
-        # print('throttling_3rd method')
+        print('throttling_3rd method')
         Main["Power" + str(i)] = Compressor["Power" + str(i)] * (air_pressurer(0) - (0.23*(air_pressurer(0) - air_pressurer(Compressor["Altitude" + str(i)]))))
     # probably isn't correct, but it works well enough IN FIXING POWER BELOW CONSTRPM THAT IS LOWER THAN 0
     
     elif ConstRPM_is_deck_power(Main, Compressor, i):
-        # print('throttling_4th method')
+        print('throttling_4th method')
         Main["Power" + str(i)] = Compressor["PowerConstRPM" + str(i)]
     
     elif (ConstRPM_bends_below_critalt(Compressor, i) and ConstRPM_bends_below_critalt_0(Compressor)):
-        # print('throttling_5th method')
+        print('throttling_5th method')
         # For Ki 83, so that line below 2nd variable speed stage is identical to 1st
         Main["Power" + str(i)] = Compressor["PowerConstRPM" + str(i)] * (1 - (((Compressor["PowerConstRPM" + str(0)] - Main["Power" + str(0)])
                                 / Compressor["PowerConstRPM" + str(0)])
@@ -319,7 +319,7 @@ def deck_power_maker(Main, Compressor, i):
                                 Compressor["AltitudeConstRPM" + str(i)])
         
     elif (ConstRPM_bends_below_critalt(Compressor, i) and ConstRPM_is_power(Compressor, 0)):
-        # print('throttling_6th method')
+        print('throttling_6th method')
         # so that power below constrpm goes down. Works well for moquito and ok, for J6K1. seems like a not universal solution
         # Main["Power" + str(i)] = Compressor["Power" + str(i)] * (air_pressurer(0) - (0.43*(air_pressurer(0) - air_pressurer(Compressor["Altitude" + str(i)]))))
         # Previous version - works well for J6K1 but not for mosquito!!!!!
@@ -329,7 +329,7 @@ def deck_power_maker(Main, Compressor, i):
                                 Compressor["AltitudeConstRPM" + str(i)]) 
 
     elif ConstRPM_is_high_bends_below_critalt(Compressor, i):
-        # print('throttling_7th method')
+        print('throttling_7th method')
         power_defined_by_constRPM = equationer(Compressor["PowerConstRPM" + str(i)],
                                             Compressor["Ceiling" + str(i)], Compressor["Power" + str(i)],
                                             Compressor["Altitude" + str(i)], Main["Deck_Altitude" + str(i)],
@@ -346,7 +346,7 @@ def deck_power_maker(Main, Compressor, i):
             Main["Power" + str(i)] = power_defined_by_stage_0
     
     elif ConstRPM_is_high_but_useless(Compressor, 0):
-        # print('throttling_8th method')
+        print('throttling_8th method')
         Main["Power" + str(i)] = equationer(Compressor["Power" + str(i)],
                                             Compressor["Altitude" + str(i)],
                                             Compressor["Power" + str(i)]-(Compressor["Power" + str(0)] - Main["Power"]) ,
@@ -354,7 +354,7 @@ def deck_power_maker(Main, Compressor, i):
                                             Main["Deck_Altitude" + str(i)],Compressor["PowerConstRPMCurvature0"])
     
     else:
-        # print('throttling_9th method')
+        print('throttling_9th method')
         Main["Power" + str(i)] = Compressor["Old_Power" + str(i)] * (1 - (((Compressor["Old_Power" + str(0)] - Main["Power"])
                                 / Compressor["Old_Power" + str(0)])
                                 / Compressor["Old_Altitude" + str(0)]) 
@@ -424,10 +424,12 @@ def wep_mulitiplierer(octane, Main, Compressor, i, mode):
     """
     Calcualtes critical altitues in WEP mode
     """
+    if not 'AfterburnerPressureBoost' + str(i) in Compressor:
+        Compressor['AfterburnerPressureBoost' + str(i)] = 1
     Main["deck_supercharger_strength" + str(i)] = Main["Military_MP"] / air_pressurer(Main["Deck_Altitude" + str(i)])
-    Main["WEP_deck_supercharger_strength"] = Main["deck_supercharger_strength" + str(i)] * Main["WEP-mil_RPM_EffectOnSupercharger"]
+    Main["WEP_deck_supercharger_strength"] = Main["deck_supercharger_strength" + str(i)] * Main["WEP-mil_RPM_EffectOnSupercharger"] * Compressor['AfterburnerPressureBoost' + str(i)]
     Main["crit_supercharger_strength" + str(i)] = Main["Military_MP"] / air_pressurer(Compressor["Altitude" + str(i)])
-    Main["WEP_crit_supercharger_strength"] = Main["crit_supercharger_strength" + str(i)] * Main["WEP-mil_RPM_EffectOnSupercharger"]
+    Main["WEP_crit_supercharger_strength"] = Main["crit_supercharger_strength" + str(i)] * Main["WEP-mil_RPM_EffectOnSupercharger"] * Compressor['AfterburnerPressureBoost' + str(i)]
     ########################################################################################################################
     if all(k in Compressor for k in ("Ceiling" + str(i), "PowerAtCeiling" + str(i))):
         # ceil_supercharger_strength = Main["Military_MP"] / air_pressurer(Compressor["Ceiling" + str(i)])
@@ -459,18 +461,15 @@ def wep_mulitiplierer(octane, Main, Compressor, i, mode):
                 Main["WEP_MP"] / Main["WEP_constRPM_supercharger_strength"])
 
     if mode == "WEP":
-        if "AfterburnerBoostMul" + str(i) in Compressor:
-            boost_mul = Compressor["AfterburnerBoostMul" + str(i)]
-        else:
-            boost_mul = 1
-        # if octane == True:
+        if not ("AfterburnerBoostMul" + str(i)) in Compressor:
+            Compressor["AfterburnerBoostMul" + str(i)] = 1
         Main["WEP_power_mult"] = ((1 + ((Main["AfterburnerBoost"] - 1) * Main["OctaneAfterburnerMult"])) *
-                              Main["ThrottleBoost"] * boost_mul) * (torquer(Main))
+                              Main["ThrottleBoost"] * Compressor["AfterburnerBoostMul" + str(i)]) * (torquer(Main))
                             # Adding effect of 150 oct fuel upgrade
         # else:
         #     Main["WEP_power_mult"] = (Main["AfterburnerBoost"] * Main["ThrottleBoost"] * boost_mul) * (
         #         torquer(Main))
-        if boost_mul == 0:
+        if Compressor["AfterburnerBoostMul" + str(i)] == 0:
             Main["WEP_deck_altitude"] = 0
             Main["WEP_crit_altitude"] = Compressor["Altitude" + str(i)]
             Main["WEP_power_mult"] = 1

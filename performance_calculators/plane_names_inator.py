@@ -53,9 +53,10 @@ def central_fm_jsoner(central_dir, write_dir, image_dir):
             # checking if it is a file
             with open(image_dir) as vehicle_img_json:
                 vehicle_img_list = json.load(vehicle_img_json)
-                if vehicle_img_list:
-                    if central_file[:-4]+"png" not in vehicle_img_list:
-                        continue
+                # if vehicle_img_list:
+                #     if central_file[:-4]+"png" not in vehicle_img_list: # This excludes all hidden planes in War Thunder!!! 
+                # print(central_file + " has no picture so it's not in the game")
+                #         continue
             if not os.path.isfile(centralfilepath):
                 print(central_file + " is not a central_file")
                 continue

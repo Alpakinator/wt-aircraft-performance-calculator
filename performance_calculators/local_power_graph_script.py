@@ -36,10 +36,10 @@ def inputter():
     octane = True
     power_to_weight = False
     engine_modes = [
-        "military",
+        # "military",
         "WEP"
         ]
-    max_altm = 10000
+    max_altm = 12000
     alt_unit = 'm'
     speed_unit = 'kph'
 
@@ -75,6 +75,9 @@ def inputter():
     # "ingame_power_log_files/spitfire_ix_early-2024_06_02_16_27_04.csv",
     # "ingame_power_log_files/bv-238-2024_06_02_19_42_58.csv",
     # put your new test flight climb logs to compare with the calculator here
+    "ingame_power_log_files/f8f_alpha_strike_100%_300kphIAS.csv",
+    # "ingame_power_log_files/f8f_alpha_strike_WEP_300kphIAS.csv",
+    # "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv"
     ]
 
     fm_files = [
@@ -90,6 +93,8 @@ def inputter():
     # "b_18a",
     # "a-20g",
     # "mb_157",
+    # "f_47n_25_re_china",
+    # "p-47n-15",
     #####Afaik, all other planes are accurately calculated
 
     ### GERMANY
@@ -153,8 +158,8 @@ def inputter():
 
     ###  USA
     # "f4u-4b",
-    # "f8f1",
-    # "f8f1b",
+    "f8f1",
+    "f8f1b",
     # "f2g-1",
     # "corsair_fmk2",
     # "f4u-4",
@@ -192,6 +197,8 @@ def inputter():
     # 'f6f-5n',
     # 'douglas_ad_2'
     # 'yp-38',
+    # 'f7f3',
+    # 'f7f1',
 
     ###  GREAT BRITAIN
     # "sea_fury_fb11",
@@ -204,7 +211,7 @@ def inputter():
     # "typhoon_mk1b_late",
     # "typhoon_mk1b",
     # "typhoon_mk1a",
-    'hurricane_mk1b',
+    # 'hurricane_mk1b',
     
     # "spitfire_mk1",
     # "spitfiremkiia",
