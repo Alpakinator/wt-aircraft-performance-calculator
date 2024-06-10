@@ -51,12 +51,13 @@ def central_fm_jsoner(central_dir, write_dir, image_dir):
             centralfilepath = os.path.join(central_dir, central_file)
             imagefilepath = os.path.join(image_dir, central_file[:-4]+"png")
             # checking if it is a file
-            with open(image_dir) as vehicle_img_json:
-                vehicle_img_list = json.load(vehicle_img_json)
-                # if vehicle_img_list:
-                #     if central_file[:-4]+"png" not in vehicle_img_list: # This excludes all hidden planes in War Thunder!!! 
-                # print(central_file + " has no picture so it's not in the game")
-                #         continue
+            # if os.path.isdir(image_dir):
+            #     with open(image_dir) as vehicle_img_json:
+            #         vehicle_img_list = json.load(vehicle_img_json)
+            #         if vehicle_img_list:
+            #             if central_file[:-4]+"png" not in vehicle_img_list: # This excludes all hidden planes in War Thunder!!! 
+            #                 print(central_file + " has no picture so it's not in the game")
+            #                 continue
             if not os.path.isfile(centralfilepath):
                 print(central_file + " is not a central_file")
                 continue
@@ -78,7 +79,7 @@ def central_fm_jsoner(central_dir, write_dir, image_dir):
             else:
                 print(central_file + "has no assigned flight model file and is skipped")
                 continue
-            if fm_file in prop_fm_filelist:
+            if fm_file.lower() in prop_fm_filelist:
                 central_fm_dict[central_file[:-5]] = fm_file
             # else: #that part works for jets and turboprops. Disabled for now, because props are the focus of this project (for now)
             #     central_fm_dict[central_file] = "fm_file"

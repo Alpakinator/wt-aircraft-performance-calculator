@@ -64,6 +64,18 @@
     "name": "A6M3 Reisen"
   },
   {
+    "id": "a6m5hei",
+    "name": "A6M5 Hei"
+  },
+  {
+    "id": "a6m5ko",
+    "name": "A6M5 Ko Reisen"
+  },
+  {
+    "id": "a6m5otsu",
+    "name": "A6M5 otsu"
+  },
+  {
     "id": "a6m5_zero",
     "name": "A6M5 Reisen"
   },
@@ -752,16 +764,8 @@
     "name": "F7F-1 Tigercat"
   },
   {
-    "id": "f7f1_235",
-    "name": "F7F-1 Tigercat 2.35"
-  },
-  {
     "id": "f7f3",
     "name": "F7F-3 Tigercat"
-  },
-  {
-    "id": "f7f3_235",
-    "name": "F7F-3 Tigercat 2.35"
   },
   {
     "id": "f8f1",
@@ -774,10 +778,6 @@
   {
     "id": "f8f1b_france",
     "name": "\u2584F8F-1B Bearcat"
-  },
-  {
-    "id": "f8f1_235",
-    "name": "F8F-1 Bearcat 2.35"
   },
   {
     "id": "fairey_3f_mk3b",
@@ -2328,20 +2328,12 @@
     "name": "Bostwick's P-47M-1-RE Thunderbolt"
   },
   {
-    "id": "p-47m-1-re_235",
-    "name": "Bostwick's P-47M-1-RE Thunderbolt 2.35"
-  },
-  {
     "id": "p-47m-1-re_boxted",
     "name": "\u22e0Lanovski's P-47M-1-RE Thunderbolt"
   },
   {
     "id": "p-47n-15",
     "name": "P-47N-15 Thunderbolt"
-  },
-  {
-    "id": "p-47n-15_235",
-    "name": "P-47N-15 Thunderbolt 2.35"
   },
   {
     "id": "p-51a_tl",
@@ -3376,6 +3368,18 @@
     "name": "db_3a"
   },
   {
+    "id": "f7f1_235",
+    "name": "f7f1_235"
+  },
+  {
+    "id": "f7f3_235",
+    "name": "f7f3_235"
+  },
+  {
+    "id": "f8f1_235",
+    "name": "f8f1_235"
+  },
+  {
     "id": "hudson_mk_v_gear_test",
     "name": "hudson_mk_v_gear_test"
   },
@@ -3434,6 +3438,14 @@
   {
     "id": "p-47d_16_re",
     "name": "p-47d_16_re"
+  },
+  {
+    "id": "p-47m-1-re_235",
+    "name": "p-47m-1-re_235"
+  },
+  {
+    "id": "p-47n-15_235",
+    "name": "p-47n-15_235"
   },
   {
     "id": "pandora_mk_1",

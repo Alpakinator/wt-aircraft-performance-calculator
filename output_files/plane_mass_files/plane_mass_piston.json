@@ -127,6 +127,30 @@
     "pilot_mass": 90,
     "all_ammo_mass": 39
   },
+  "a6m5hei": {
+    "empty_mass": 2478,
+    "max_fuel_mass": 475,
+    "nitro_mass": 0,
+    "oil_mass": 46,
+    "pilot_mass": 90,
+    "all_ammo_mass": 62
+  },
+  "a6m5ko": {
+    "empty_mass": 2088,
+    "max_fuel_mass": 417,
+    "nitro_mass": 0,
+    "oil_mass": 46,
+    "pilot_mass": 90,
+    "all_ammo_mass": 46
+  },
+  "a6m5otsu": {
+    "empty_mass": 2088,
+    "max_fuel_mass": 417,
+    "nitro_mass": 0,
+    "oil_mass": 46,
+    "pilot_mass": 90,
+    "all_ammo_mass": 49
+  },
   "a6m5_zero": {
     "empty_mass": 2094,
     "max_fuel_mass": 417,
@@ -1952,7 +1976,7 @@
     "all_ammo_mass": 23
   },
   "f_47n_25_re_china": {
-    "empty_mass": 5470,
+    "empty_mass": 5810,
     "max_fuel_mass": 1516,
     "nitro_mass": 113,
     "oil_mass": 136,
@@ -4848,7 +4872,7 @@
     "all_ammo_mass": 134
   },
   "p-47n-15": {
-    "empty_mass": 5470,
+    "empty_mass": 5810,
     "max_fuel_mass": 1516,
     "nitro_mass": 113,
     "oil_mass": 136,
