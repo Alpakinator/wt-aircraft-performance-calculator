@@ -36,15 +36,15 @@ def inputter():
     octane = True
     power_to_weight = False
     engine_modes = [
-        # "military",
+        "military",
         "WEP"
         ]
-    max_altm = 12000
+    max_altm = 15000
     alt_unit = 'm'
     speed_unit = 'kph'
 
     axis_layout= False
-    alt_tick = 10
+    alt_tick = 1
     fm_dir = "input_files/fm_files/"
     central_dir = "input_files/central_files/"
     central_fm_read_dir = "output_files/plane_name_files/central-fm_plane_names_piston.json"
@@ -66,7 +66,9 @@ def inputter():
     # "ingame_power_log_files/mosquito_fb_mk6-2024_05_29_14_52_32.csv",
     # "ingame_power_log_files/mosquito_fb_mk6-2024_05_29_14_55_30.csv",
     # "ingame_power_log_files/n1k1_kyuofu-2024_05_29_20_50_43.csv",
+    # "ingame_power_log_files/hornet_mk3-2023_08_22_20_46_16_100%_700TAS_9K.csv",
     # "ingame_power_log_files/hornet_mk3-2023_08_22_20_43_38_WEP_700TAS_7.5K.csv",
+    # "ingame_power_log_files/hornet_mk3-2024_06_10_700TAS_3000RPM_100%.csv",
     # "ingame_power_log_files/spitfire_ix-2023_10_11_08_54_22_WEP_9k_700TAS.csv",
     # "ingame_power_log_files/spitfire_ix-2023_10_11_08_56_16_100%_9k_700TAS.csv",
     # "ingame_power_log_files/spitfire_ix-2023_12_11_16_47_22_100%_700TAS_5-11k_3000rpm.csv",
@@ -75,9 +77,11 @@ def inputter():
     # "ingame_power_log_files/spitfire_ix_early-2024_06_02_16_27_04.csv",
     # "ingame_power_log_files/bv-238-2024_06_02_19_42_58.csv",
     # put your new test flight climb logs to compare with the calculator here
-    # "ingame_power_log_files/f8f_alpha_strike_100%_300kphIAS.csv",
+    "ingame_power_log_files/f8f_alpha_strike_100%_300kphIAS.csv",
     "ingame_power_log_files/f8f_alpha_strike_WEP_300kphIAS.csv",
-    "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv"
+    "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv",
+    # "ingame_power_log_files/fw-190a-5_u2-2023_08_24_16_13_29_100%_700TAS_10K_climb.csv",
+    # "ingame_power_log_files/p-51d-30_usaaf_korea-2023_08_25_14_55_41_100%_700tas_12k.csv",
     ]
 
     fm_files = [
@@ -127,6 +131,7 @@ def inputter():
     # 'bv-238',
 
     ## JAPAN
+    # 'b6n2',
     # "b7a2_homare_23",
     # "b7a2",
     # 'j2m2',
@@ -159,6 +164,9 @@ def inputter():
     ###  USA
     # "f4u-4b",
     "f8f1",
+    # "f8f1_235",
+    # 'f7f1',
+    # 'f7f1_235',
     # "f8f1b",
     # "f2g-1",
     # "corsair_fmk2",
@@ -198,7 +206,7 @@ def inputter():
     # 'douglas_ad_2'
     # 'yp-38',
     # 'f7f3',
-    # 'f7f1',
+
 
     ###  GREAT BRITAIN
     # "sea_fury_fb11",

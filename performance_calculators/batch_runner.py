@@ -47,10 +47,10 @@ def main():
     answer2 = input("Do you want to download newest datamine files into 'input files/' directory? \n(yes/no) ")
     if answer2 == 'yes':
         print('Started fetching datamine files! Might take an hour!')
-        # datamine_folder_fetcher("input_files/fm_files", "aces.vromfs.bin_u/gamedata/flightmodels/fm/", "")
-        # datamine_folder_fetcher("input_files/central_files", "aces.vromfs.bin_u/gamedata/flightmodels/", "")
-        # datamine_folder_fetcher("input_files/weapon_files", "aces.vromfs.bin_u/gamedata/weapons/", "")
-        # datamine_file_fetcher("input_files/vehicle_name_files", "lang.vromfs.bin_u/lang/units.csv", "")
+        datamine_folder_fetcher("input_files/fm_files", "aces.vromfs.bin_u/gamedata/flightmodels/fm/", "")
+        datamine_folder_fetcher("input_files/central_files", "aces.vromfs.bin_u/gamedata/flightmodels/", "")
+        datamine_folder_fetcher("input_files/weapon_files", "aces.vromfs.bin_u/gamedata/weapons/", "")
+        datamine_file_fetcher("input_files/vehicle_name_files", "lang.vromfs.bin_u/lang/units.csv", "")
         if os.path.isdir("output_files/"):
             shutil.rmtree("output_files/")
         fm_lister(central_dir, fm_dir, name_write_dir)

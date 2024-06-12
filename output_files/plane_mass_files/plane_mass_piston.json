@@ -1976,7 +1976,7 @@
     "all_ammo_mass": 23
   },
   "f_47n_25_re_china": {
-    "empty_mass": 5810,
+    "empty_mass": 5426,
     "max_fuel_mass": 1516,
     "nitro_mass": 113,
     "oil_mass": 136,
@@ -4872,7 +4872,7 @@
     "all_ammo_mass": 134
   },
   "p-47n-15": {
-    "empty_mass": 5810,
+    "empty_mass": 5426,
     "max_fuel_mass": 1516,
     "nitro_mass": 113,
     "oil_mass": 136,
