@@ -77,16 +77,16 @@ def inputter():
     # "ingame_power_log_files/spitfire_ix_early-2024_06_02_16_27_04.csv",
     # "ingame_power_log_files/bv-238-2024_06_02_19_42_58.csv",
     # put your new test flight climb logs to compare with the calculator here
-    "ingame_power_log_files/f8f_alpha_strike_100%_300kphIAS.csv",
-    "ingame_power_log_files/f8f_alpha_strike_WEP_300kphIAS.csv",
-    "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv",
+    # "ingame_power_log_files/f8f_alpha_strike_100%_300kphIAS.csv",
+    # "ingame_power_log_files/f8f_alpha_strike_WEP_300kphIAS.csv",
+    # "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv",
     # "ingame_power_log_files/fw-190a-5_u2-2023_08_24_16_13_29_100%_700TAS_10K_climb.csv",
     # "ingame_power_log_files/p-51d-30_usaaf_korea-2023_08_25_14_55_41_100%_700tas_12k.csv",
     ]
 
     fm_files = [
     #####Those need improvement:
-    # "p-63a-10",
+    "p-63a-10",
     # "p-63c-5",
     # "p-63a-5",
     # "tu-1",
@@ -123,6 +123,8 @@ def inputter():
     # "fw-190c",
     # "me-410a-1",
     # "ju-388j",
+    # "do_217e_4",
+    # "do_217j_2",
     # "do_335a_0",
     # "do_335a_1",
     # "bv-155b-1",
@@ -163,7 +165,7 @@ def inputter():
 
     ###  USA
     # "f4u-4b",
-    "f8f1",
+    # "f8f1",
     # "f8f1_235",
     # 'f7f1',
     # 'f7f1_235',
@@ -251,6 +253,7 @@ def inputter():
     # "saab_j21a_1",
     
     #  ### USSR
+    "lagg-i-301",
     # 'tis_ma',
     # "i_185_m82",
     # "i_185_m71_standard",
