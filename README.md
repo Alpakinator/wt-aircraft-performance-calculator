@@ -51,10 +51,10 @@ If you want to compare those calculations with actual engine power data from War
 4. Choose the same plane in `fm_files`, same speed and speed type.
 5. Run the script and enjoy a graphs like this one!
 <div align="center">
-<img height="500px" src="readme_assets/calc_vs_test.png">
+<img width="80%" src="readme_assets/calc_vs_test.png">
 </div>
 
-If you want to learn how engine power is calculated in War Thunder, study `plane_power_calculator.py`, the most impoartant file in the repository. But it's very complicated (long and not coded very well). It took over a year to make via trial and error.
+If you want to learn how engine power is calculated in War Thunder, study `plane_power_calculator.py`, the most important file in the repository. But it's very complicated (long and not coded very well). It took over a year to make via trial and error.
 
 If you want to compare performace of different planes, better wait and once completed visit [**wtapc.org**][1], it's more user friendly.
 

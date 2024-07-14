@@ -118,6 +118,8 @@ def ingame_central_names_lister(read_dir, write_dir):
         for central_name in central_fm_filedict:
             if central_name not in central_ingame_dict:
                 central_ingame_dict[central_name] = central_name
+        if "j2m5_30mm" in central_ingame_dict.keys():
+            central_ingame_dict["j2m5_30mm"] = "J2M5 Raiden (30mm)"
         # here it ends
     with open (central_ingamefilewritepath, "w") as central_ingame_json:
         json.dump(central_ingame_dict, central_ingame_json, indent=2)

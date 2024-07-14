@@ -1493,7 +1493,7 @@
   },
   {
     "id": "j2m5_30mm",
-    "name": "J2M5 Raiden"
+    "name": "J2M5 Raiden (30mm)"
   },
   {
     "id": "j5n1",
@@ -3368,18 +3368,6 @@
     "name": "db_3a"
   },
   {
-    "id": "f7f1_235",
-    "name": "f7f1_235"
-  },
-  {
-    "id": "f7f3_235",
-    "name": "f7f3_235"
-  },
-  {
-    "id": "f8f1_235",
-    "name": "f8f1_235"
-  },
-  {
     "id": "hudson_mk_v_gear_test",
     "name": "hudson_mk_v_gear_test"
   },
@@ -3438,14 +3426,6 @@
   {
     "id": "p-47d_16_re",
     "name": "p-47d_16_re"
-  },
-  {
-    "id": "p-47m-1-re_235",
-    "name": "p-47m-1-re_235"
-  },
-  {
-    "id": "p-47n-15_235",
-    "name": "p-47n-15_235"
   },
   {
     "id": "pandora_mk_1",

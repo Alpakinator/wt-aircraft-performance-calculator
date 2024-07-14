@@ -29,14 +29,14 @@ def inputter():
         tuple: a tuple of all the necessary parameters passed to main.
         """
     plot_all_planes = False
-    speed = 300
+    speed = 270
     speed_type = "IAS"
     air_temp = 15
     air_temp_unit= '°C'
     octane = True
     power_to_weight = False
     engine_modes = [
-        "military",
+        # "military",
         "WEP"
         ]
     max_altm = 15000
@@ -51,8 +51,32 @@ def inputter():
     plot_t = "power"
     
     TEST_file_dir = [
+    # "ingame_power_log_files\sample_p63a10_2024_06_100%_default.csv",
+    # "ingame_power_log_files\sample_p63a10_2024_06_100%_1_curvature.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_14_20_06.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_1250.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_1325.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_1450.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_exact_true.csv",
+#     "ingame_power_log_files\sample_i_185_m82-2024_06_13_15_05_29.csv",
+#     "ingame_power_log_files\sample_i_185_m82-2024_06_13_15_02_23.csv",
+#     "ingame_power_log_files\sample_i_185_m82-2024_06_13_14_59_13.csv",
+#     "ingame_power_log_files\sample_i_185_m82-2024_06_13_14_57_34.csv",
+# "ingame_power_log_files\sample_i_185_m82-2024_1450deck.csv",
+#    "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_36_48.csv",
+#    "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_34_44.csv",
+#    "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_51_24.csv",
+# "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_49_30.csv",
+# "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_46_35.csv",
+# "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_57_48.csv",
+# "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_55_44.csv",
+# "ingame_power_log_files\sample_i_185_m82-2024_06_13_17_08_46.csv",
+# "ingame_power_log_files\sample_i_185_m82-2024_06_13_21_17_07.csv",
+# "ingame_power_log_files\sample_i_185_m82-2024_06_13_21_15_22.csv",
+# "ingame_power_log_files\sample_i_185_m82-2024_06_13_21_10_37.csv",
     # "ingame_power_log_files/Bf-109G-2_1.91_climb_to_8k_270IAS.csv",
     # "ingame_power_log_files/saab_b18b-2023_04_280IAS.csv",
+    # "ingame_power_log_files/b_26b_c-2024_06_19_08_10_46.csv",
     # "ingame_power_log_files/ta-152h-1-2021_03_climb_to_14k_GM1_280IAS.csv",
     # "ingame_power_log_files/ki-83-2023_04_285IAS.csv",
     # "ingame_power_log_files/tempest_mk2-2022_11_280IAS.csv",
@@ -82,11 +106,12 @@ def inputter():
     # "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv",
     # "ingame_power_log_files/fw-190a-5_u2-2023_08_24_16_13_29_100%_700TAS_10K_climb.csv",
     # "ingame_power_log_files/p-51d-30_usaaf_korea-2023_08_25_14_55_41_100%_700tas_12k.csv",
+    "ingame_power_log_files/j2m4 10k climb 270kph 1.101 glued together.csv",
     ]
 
     fm_files = [
     #####Those need improvement:
-    "p-63a-10",
+    # "p-63a-10",
     # "p-63c-5",
     # "p-63a-5",
     # "tu-1",
@@ -148,7 +173,8 @@ def inputter():
     # "ki_84_ko",
     # "j6k1",
     # "a7m2",
-    # "ki_44_2_hei",
+    "ki_44_2_hei",
+    "ki_44_2_otsu",
     # "ki_43_2",
     # "ki_43_1",
     # "ki_100_early",
@@ -164,6 +190,7 @@ def inputter():
     # "d4y1",
 
     ###  USA
+    # "b_26b_c",
     # "f4u-4b",
     # "f8f1",
     # "f8f1_235",
@@ -253,7 +280,7 @@ def inputter():
     # "saab_j21a_1",
     
     #  ### USSR
-    "lagg-i-301",
+    # "lagg-i-301",
     # 'tis_ma',
     # "i_185_m82",
     # "i_185_m71_standard",

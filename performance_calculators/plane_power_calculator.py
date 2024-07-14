@@ -1,7 +1,7 @@
 import math as ma
 import json
 from pathlib import Path
-from ram_pressure_density_calculator import air_pressurer, altitude_at_pressure, rameffect_er
+from ram_pressure_density_calculator import air_pressurer, altitude_at_pressure, rameffect_er, air_densitier
 from inspect import currentframe, getframeinfo
 
 """
@@ -604,6 +604,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
                                         Compressor["Altitude" + str(i)], curvature))
                             * (air_pressurer(Compressor["Old_Altitude" + str(i)]) / air_pressurer(
                         Compressor["Altitude" + str(i)])))
+            
         if Ceiling_is_useful(Compressor, i) and not ConstRPM_bends_above_crit_alt(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
             if Compressor["ExactAltitudes"]:
@@ -647,10 +648,10 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
         if not Ceiling_is_useful(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
             lower = Compressor["Old_Altitude" + str(i)]
-            lower_power = ((equationer(Compressor["Power" + str(i)], Compressor["Altitude" + str(i)],
-                                       Main["Power" + str(i)], Main["Deck_Altitude" + str(i)],
-                                       Compressor["Old_Altitude" + str(i)], curvature))
-                           * (air_pressurer(Compressor["Old_Altitude" + str(i)]) / air_pressurer(
+            lower_power = ((equationer(Compressor["Old_Power_new_RPM" + str(i)], Compressor["Altitude" + str(i)],
+                                        Main["Power" + str(i)], Main["Deck_Altitude" + str(i)],
+                                        Compressor["Altitude" + str(i)], curvature))
+                            * (air_pressurer(Compressor["Old_Altitude" + str(i)]) / air_pressurer(
                         Compressor["Altitude" + str(i)])))
             higher = alt_RAM
             higher_power = lower_power * (air_pressurer(alt_RAM) / air_pressurer(lower))
@@ -800,6 +801,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
             else:  # This means, that WEP crit alt power is calculated simply with no with recursion
                 lower_power = Compressor["Power" + str(i)] * Main["WEP_power_mult"]
         elif ConstRPM_bends_below_WEP_critalt(Main, Compressor, i):
+            
             # print(getframeinfo(currentframe()).lineno)
             lower = Main["WEP_crit_altitude"]
             if Compressor["ExactAltitudes"]:  # This means, that WEP crit alt power is calculated with recursion
@@ -811,11 +813,13 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
                 lower_power = Compressor["Power" + str(i)] * Main["WEP_power_mult"]
         if not Ceiling_is_useful(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
-            higher = Compressor["Old_Altitude" + str(i)]
-            higher_power = ((equationer(Compressor["Power" + str(i)] * Main["WEP_power_mult"], Compressor["Altitude" + str(i)],
-                                        Main["Power" + str(i)] * Main["WEP_power_mult"], Main["Deck_Altitude" + str(i)],
-                                        higher, curvature))
-                            * (air_pressurer(Compressor["Old_Altitude" + str(i)]) / air_pressurer(lower)))
+            # higher = Compressor["Old_Altitude" + str(i)]
+            # higher_power = ((equationer(Compressor["Power" + str(i)] * Main["WEP_power_mult"], Compressor["Altitude" + str(i)],
+            #                             Main["Power" + str(i)] * Main["WEP_power_mult"], Main["Deck_Altitude" + str(i)],
+            #                             higher, curvature))
+            #                 * (air_pressurer(Compressor["Old_Altitude" + str(i)]) / air_pressurer(lower)))
+            higher = alt_RAM
+            higher_power = lower_power * (air_pressurer(alt_RAM) / air_pressurer(lower))
         if Ceiling_is_useful(Compressor, i) and not ConstRPM_bends_above_crit_alt(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
             if Compressor["ExactAltitudes"]:
@@ -936,6 +940,7 @@ def equationer(higher_power, higher, lower_power, lower, alt_RAM, curvature):
 
     curve_equation = lower_power + power_difference * (abs((air_pressurer(alt_RAM) - air_pressurer(lower)) /
                                                            (air_pressurer(higher) - air_pressurer(lower)))) ** curvature
+    
     return curve_equation
 
 
