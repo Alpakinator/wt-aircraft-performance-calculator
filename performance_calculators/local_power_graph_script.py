@@ -29,7 +29,7 @@ def inputter():
         tuple: a tuple of all the necessary parameters passed to main.
         """
     plot_all_planes = False
-    speed = 270
+    speed = 0
     speed_type = "IAS"
     air_temp = 15
     air_temp_unit= '°C'
@@ -39,7 +39,7 @@ def inputter():
         # "military",
         "WEP"
         ]
-    max_altm = 15000
+    max_altm = 10000
     alt_unit = 'm'
     speed_unit = 'kph'
 
@@ -79,7 +79,7 @@ def inputter():
     # "ingame_power_log_files/b_26b_c-2024_06_19_08_10_46.csv",
     # "ingame_power_log_files/ta-152h-1-2021_03_climb_to_14k_GM1_280IAS.csv",
     # "ingame_power_log_files/ki-83-2023_04_285IAS.csv",
-    # "ingame_power_log_files/tempest_mk2-2022_11_280IAS.csv",
+    "ingame_power_log_files/tempest_mk2-2022_11_280IAS.csv",
     # "ingame_power_log_files/p-63a-5-2023_05_500TAS.csv",
     # "ingame_power_log_files/p-63a-10-2023_05_100%&WEP_280IAS.csv",
     # "ingame_power_log_files/p-63a-10-2023_05_500TAS.csv",
@@ -173,8 +173,9 @@ def inputter():
     # "ki_84_ko",
     # "j6k1",
     # "a7m2",
-    "ki_44_2_hei",
-    "ki_44_2_otsu",
+    # 'a6m5ko',
+    # "ki_44_2_hei",
+    # "ki_44_2_otsu",
     # "ki_43_2",
     # "ki_43_1",
     # "ki_100_early",

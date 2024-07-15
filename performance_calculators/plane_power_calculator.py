@@ -813,17 +813,16 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
                 lower_power = Compressor["Power" + str(i)] * Main["WEP_power_mult"]
         if not Ceiling_is_useful(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
-            # higher = Compressor["Old_Altitude" + str(i)]
-            # higher_power = ((equationer(Compressor["Power" + str(i)] * Main["WEP_power_mult"], Compressor["Altitude" + str(i)],
-            #                             Main["Power" + str(i)] * Main["WEP_power_mult"], Main["Deck_Altitude" + str(i)],
-            #                             higher, curvature))
-            #                 * (air_pressurer(Compressor["Old_Altitude" + str(i)]) / air_pressurer(lower)))
-            higher = alt_RAM
-            higher_power = lower_power * (air_pressurer(alt_RAM) / air_pressurer(lower))
+            higher = Compressor["Old_Altitude" + str(i)]
+            higher_power = ((equationer(Compressor["Power" + str(i)] * Main["WEP_power_mult"], Compressor["Altitude" + str(i)],
+                                        Main["Power" + str(i)] * Main["WEP_power_mult"], Main["Deck_Altitude" + str(i)],
+                                        higher, curvature))
+                            * (air_pressurer(Compressor["Old_Altitude" + str(i)]) / air_pressurer(lower)))
+            # higher = alt_RAM
+            # higher_power = lower_power * (air_pressurer(alt_RAM) / air_pressurer(lower)) #why did i do this option? for f8f weird curve?
         if Ceiling_is_useful(Compressor, i) and not ConstRPM_bends_above_crit_alt(Compressor, i):
             # print(getframeinfo(currentframe()).lineno)
             if Compressor["ExactAltitudes"]:
-                
                 higher = Compressor["Old_Altitude" + str(i)]
                 higher_power = equationer(Compressor["PowerAtCeiling" + str(i)] * Main["WEP_power_mult"],
                                           altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
