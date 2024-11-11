@@ -224,6 +224,10 @@
     "name": "Bf 109 C-1"
   },
   {
+    "id": "bf-109c_1_promo",
+    "name": "Bf 109 C-1"
+  },
+  {
     "id": "bf-109e-1",
     "name": "Bf 109 E-1"
   },
@@ -1130,6 +1134,10 @@
   {
     "id": "he-111h-6",
     "name": "He 111 H-6"
+  },
+  {
+    "id": "he-177a-3",
+    "name": "He 177 A-3/R3 Greif"
   },
   {
     "id": "he-177a-5",
@@ -2496,6 +2504,10 @@
     "name": "PBM-3 \"Mariner\""
   },
   {
+    "id": "pbm_5a",
+    "name": "PBM-5A \"Mariner\""
+  },
+  {
     "id": "pby-5",
     "name": "PBY-5 Catalina"
   },
@@ -2782,6 +2794,10 @@
   {
     "id": "sea_fury_fb11",
     "name": "Sea Fury FB 11"
+  },
+  {
+    "id": "sea_fury_fb51",
+    "name": "\u25d8Sea Fury FB 51"
   },
   {
     "id": "shackleton_mr_mk_2",

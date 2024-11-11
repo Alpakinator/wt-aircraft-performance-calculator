@@ -64,15 +64,15 @@ def torquer(Main, lower_RPM, higher_RPM):
 
 def torque_from_hp(power, reduct_RPM):
     """
-    Getting propeller hub torque in kgf based on engine power in hp.
+    Getting propeller hub torque in kgfm based on engine power in hp.
     Not confirmed if that's how it works in WT, but that's how it works IRL.
     https://binsfeld.com/power-torque-speed-conversion-calculator/
     https://www.mountztorque.com/torque-conversion-calculator
-    1 ft-lbs = 0.1382549544 kgf
+    1 ft-lbs = 0.1382549544 kgfm
     Power (Hp) = Torque (ft-lbs) * RPM / 5252
-    Power (Hp) = Torque (kgf) * RPM / 726.115
-    Torque (kgf) = 726.115 * Power (Hp) / RPM 
-    alternatively Torque (kgf) = (power * 75) / ((reduct_RPM * 2 * 3.14159265359)/60)
+    Power (Hp) = Torque (kgfm) * RPM / 726.115
+    Torque (kgfm) = 726.115 * Power (Hp) / RPM 
+    alternatively Torque (kgfm) = (power * 75) / ((reduct_RPM * 2 * 3.14159265359)/60)
     """
     torque = (power * 726.115) / (reduct_RPM)
     return torque

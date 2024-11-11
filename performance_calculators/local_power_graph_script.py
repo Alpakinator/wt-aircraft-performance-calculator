@@ -79,12 +79,12 @@ def inputter():
     # "ingame_power_log_files/b_26b_c-2024_06_19_08_10_46.csv",
     # "ingame_power_log_files/ta-152h-1-2021_03_climb_to_14k_GM1_280IAS.csv",
     # "ingame_power_log_files/ki-83-2023_04_285IAS.csv",
-    "ingame_power_log_files/tempest_mk2-2022_11_280IAS.csv",
+    # "ingame_power_log_files/tempest_mk2-2022_11_280IAS.csv",
     # "ingame_power_log_files/p-63a-5-2023_05_500TAS.csv",
     # "ingame_power_log_files/p-63a-10-2023_05_100%&WEP_280IAS.csv",
-    # "ingame_power_log_files/p-63a-10-2023_05_500TAS.csv",
+    "ingame_power_log_files/p-63a-10-2023_05_500TAS.csv",
     # "ingame_power_log_files/p-63c-5-2023_05_100%_280IAS.csv",
-    # "ingame_power_log_files/p-63c-5-2023_05_WEP_280IAS.csv",
+    "ingame_power_log_files/p-63c-5-2023_05_WEP_280IAS.csv",
     # "ingame_power_log_files/tu-1-2023_10_WEP_700tas_12k.csv",
     # "ingame_power_log_files/tu-1-2023_10_100%_700tas_8k.csv",
     # "ingame_power_log_files/mosquito_fb_mk6-2024_05_29_14_52_32.csv",
@@ -106,14 +106,15 @@ def inputter():
     # "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv",
     # "ingame_power_log_files/fw-190a-5_u2-2023_08_24_16_13_29_100%_700TAS_10K_climb.csv",
     # "ingame_power_log_files/p-51d-30_usaaf_korea-2023_08_25_14_55_41_100%_700tas_12k.csv",
-    "ingame_power_log_files/j2m4 10k climb 270kph 1.101 glued together.csv",
+    # "ingame_power_log_files/j2m4 10k climb 270kph 1.101 glued together.csv",
     ]
 
     fm_files = [
     #####Those need improvement:
     # "p-63a-10",
     # "p-63c-5",
-    # "p-63a-5",
+    "p-63a-5",
+    "p-61c_1",
     # "tu-1",
     #these have a bit wrong throttling losses below "AltitudeConstRPM1"
     # "mosquito_fb_mk6",
@@ -142,6 +143,7 @@ def inputter():
     # "ta_152c",
     # "ta-152h-1",
     # "fw-190d-12",
+    # "fw-190d-9",
     # "fw-190f-8",
     # "fw-190a-5",
     # "fw-190a-1",
