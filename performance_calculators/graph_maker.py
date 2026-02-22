@@ -5,38 +5,26 @@ from PIL import Image
 
 def dict_dataframer(named_power_curves_merged, alt_unit):
     """
-    Converts military and WEP power curve dictionaries into dataframes, joins them and then adds to a MODEL dataframe
+    Converts military and WEP power curves dictionaries into dataframes, joins them and then adds to a MODEL dataframe
     """
-    MODEL_dataf_all, MODEL_WEP_dataf, MODEL_military_dataf, joined_plots_dataf = \
-        (pd.DataFrame(), pd.DataFrame(), pd.DataFrame(), pd.DataFrame(),)
-    for plane_name, power_curves_merged in named_power_curves_merged.items():
-
+    MODEL_dataf_all = pd.DataFrame()
+    altitudes = named_power_curves_merged.pop('Altitudes')  # Remove and store altitudes
+    
+    # Initialize dataframe with altitudes column
+    MODEL_dataf_all["Altitude [" + alt_unit + "]"] = altitudes
+    
+    # Add power columns for each plane and mode
+    for plane_name, power_curves in named_power_curves_merged.items():
         if len(plane_name) >= 30:
             plane_name = plane_name[:50]
-        if "military" in power_curves_merged:
-            MODEL_military_dataf = pd.DataFrame(power_curves_merged["military"].items(),
-                                                columns=["Altitude [" + alt_unit + "]", plane_name + ' (mil)' ])
-            joined_plots_dataf = MODEL_military_dataf
-        if "WEP" in power_curves_merged:
-            MODEL_WEP_dataf = pd.DataFrame(power_curves_merged["WEP"].items(),
-                                           columns=["Altitude [" + alt_unit + "]", plane_name + ' (WEP)' ])
-            joined_plots_dataf = MODEL_WEP_dataf
-        if "military" in power_curves_merged and "WEP" in power_curves_merged:
-            joined_plots_dataf = MODEL_military_dataf.merge(MODEL_WEP_dataf, on=("Altitude [" + alt_unit + "]"))  # pass column name as a tuple
-
-        if "Altitude [" + alt_unit + "]" not in MODEL_dataf_all:
-            MODEL_dataf_all = MODEL_dataf_all.assign(altitude=pd.to_numeric(joined_plots_dataf["Altitude [" + alt_unit + "]"]))
-        if "military" in power_curves_merged:
-            MODEL_dataf_all = MODEL_dataf_all.assign(power_mil=joined_plots_dataf[plane_name + ' (mil)' ])
-
-        if "WEP" in power_curves_merged:
-            MODEL_dataf_all = MODEL_dataf_all.assign(power_WEP=joined_plots_dataf[plane_name + ' (WEP)' ])
-        MODEL_dataf_all = MODEL_dataf_all.rename(columns={"altitude": "Altitude [" + alt_unit + "]",
-                                                              "power_mil": plane_name + ' (mil)' })
-        MODEL_dataf_all = MODEL_dataf_all.rename(columns={"altitude": "Altitude [" + alt_unit + "]",
-                                                              "power_WEP": plane_name + ' (WEP)' })
-    return MODEL_dataf_all 
             
+        if "military" in power_curves:
+            MODEL_dataf_all[plane_name + ' (mil)'] = power_curves["military"]
+            
+        if "WEP" in power_curves:
+            MODEL_dataf_all[plane_name + ' (WEP)'] = power_curves["WEP"]
+            
+    return MODEL_dataf_all
 
 def plotter(MODEL_TEST_dataf, highest_alt, alt_unit, speed, speed_type, speed_unit, air_temp, air_temp_unit,
             axis_layout, plot_t):

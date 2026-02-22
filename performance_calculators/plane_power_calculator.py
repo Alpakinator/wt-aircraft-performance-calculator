@@ -1,9 +1,7 @@
 import math as ma
 import json
 from pathlib import Path
-from ram_pressure_density_calculator import air_pressurer, altitude_at_pressure, rameffect_er, air_densitier
-from inspect import currentframe, getframeinfo
-
+from ram_pressure_density_calculator import air_pressurer, altitude_at_pressure, rameffect_er
 """
 The most important file of the entire WTAPC.org project.
 File with all the functions needed to calculate engine power curves of all piston engine aircraft, and save them to .json. 
@@ -23,31 +21,35 @@ def optimal_dict_initializer(final_engine_modes, compr_stages_count):
             power_curves[engine_mode][stage] = []
     return power_curves
 
-def enginecounter(named_fm_dict):
+def enginecounter(fm_dict):
     """
-    Counts engines, needed to calculate power/weight
+    Analyzes engine configuration in flight model dictionary
+    
+    Returns:
+        tuple: (engine_count + 1, engines_are_same, engine_keys)
+            - engine_count + 1: total number of engines
+            - engine_keys: list of engine dictionary keys found
     """
-    plane_engine_count = {}
-    for plane_name, fm_dict in named_fm_dict.items():
-        engine_count = 0
-        number = 0
-        for key in fm_dict:
-            if "Engine" in key:
-                if type(fm_dict[key]) == dict and "Type" in fm_dict[key]:
-                    if fm_dict[key]["Type"] == 0:
-                        for char in key:
-                            if char.isdigit():
-                                number = int(char)
-                        if number > engine_count:
-                            engine_count = number
-                else:
-                    for char in key:
-                        if char.isdigit():
-                            number = int(char)
-                    if number > engine_count:
-                        engine_count = number
-        plane_engine_count[plane_name] = engine_count + 1 # +1 because engines are counted from 0 in fm files
-    return plane_engine_count
+    engine_key = "EngineType" if "EngineType0" in fm_dict else "Engine"
+    engine_keys = [k for k in fm_dict if k.startswith(engine_key) and k[len(engine_key):].isdigit()]
+    
+    if not engine_keys:
+        return 1, True, []
+        
+    engine_count = max(int(k[len(engine_key):]) for k in engine_keys)   
+    return engine_count + 1, engine_keys
+
+def same_engine_checker(fm_dict, engine_keys):
+        # Check if engines are identical by comparing first engine to others
+    engines_are_same = True
+    first_engine = fm_dict[engine_keys[0]]["Main"]
+    for key in engine_keys[1:]:
+        current_engine = fm_dict[key]["Main"]
+        if (first_engine["Power"] != current_engine["Power"] or 
+            first_engine["Thrust"] != current_engine["Thrust"]):
+            engines_are_same = False
+            break
+    return engines_are_same
 
 def torquer(Main, lower_RPM, higher_RPM):
     """
@@ -78,7 +80,7 @@ def torque_from_hp(power, reduct_RPM):
     return torque
 
 ########################################################################################################################
-def engine_shortcuter(fm_dict):
+def engine_shortcuter(fm_dict ,engine):
     """
     Defining paths to dictionaries inside dictionaries to have cleaner code
     """
@@ -86,18 +88,12 @@ def engine_shortcuter(fm_dict):
     Compressor = fm_dict
     Main = fm_dict
     Afterburner = fm_dict
-    if "Engine0" in fm_dict:  # Some planes have no engine section apparently
-        if "Compressor" in fm_dict["Engine0"]:
-            Engine = fm_dict["Engine0"]
-            Compressor = fm_dict["Engine0"]["Compressor"]
-            Main = fm_dict["Engine0"]["Main"]
-            Afterburner = fm_dict["Engine0"]["Afterburner"]["IsControllable"]
-    if "EngineType0" in fm_dict:
-        if "Compressor" in fm_dict["EngineType0"]:
-            Engine = fm_dict["EngineType0"]
-            Compressor = fm_dict["EngineType0"]["Compressor"]
-            Main = fm_dict["EngineType0"]["Main"]
-            Afterburner = fm_dict["EngineType0"]["Afterburner"]["IsControllable"]
+    if "Compressor" in fm_dict[engine]:
+        Engine = fm_dict[engine]
+        Compressor = fm_dict[engine]["Compressor"]
+        Main = fm_dict[engine]["Main"]
+        Afterburner = fm_dict[engine]["Afterburner"]["IsControllable"]
+
     if "Propellor" in Engine:
         Propeller = Engine["Propellor"]
     # elif "PropellerType0" in fm_dict:
@@ -107,7 +103,7 @@ def engine_shortcuter(fm_dict):
     return Engine, Compressor, Main, Afterburner, Propeller
 ########################################################################################################################
 
-def exception_fixer(central_file, Compressor, Main):
+def exception_fixer(Compressor):
     """
     Fixes minor quirks of flightmodel files
     """
@@ -125,7 +121,7 @@ def old_type_fm_detector(Compressor, Main):
         Compressor["CompressorOmegaFactorSq"] = 1.0
     if "Multiplier0" in Compressor:
         military_mp = 1
-        Main["Power"] = Main ["HorsePowers"]
+        Main["Power"] = Main["HorsePowers"]
         for e in range (0, 10):
             if "ATA" +str(e) in Compressor:
                 military_mp = Compressor["ATA" +str(e)]
@@ -139,7 +135,7 @@ def old_type_fm_detector(Compressor, Main):
         return
 ########################################################################################################################
     
-def rpm_er(fm_dict, Main, Propeller):
+def rpm_er(Main, Propeller):
     """
     Extracts RPM values from flightmodel files for military and WEP mode
     """
@@ -937,93 +933,86 @@ def equationer(higher_power, higher, lower_power, lower, alt_RAM, curvature):
     elif alt_RAM < lower:
         power_difference = (lower_power - higher_power)
 
-    curve_equation = lower_power + power_difference * (abs((air_pressurer(alt_RAM) - air_pressurer(lower)) /
+    power = lower_power + power_difference * (abs((air_pressurer(alt_RAM) - air_pressurer(lower)) /
                                                            (air_pressurer(higher) - air_pressurer(lower)))) ** curvature
     
-    return curve_equation
+    return power
 
 
-def power_curve_culator(named_fm_dict, named_central_dict, speed, speed_type, air_temp, octane, engine_modes, alt_tick):
+def power_curve_culator(central_name, fm_dict, central_dict, speed, speed_type, air_temp, octane, engine_modes, min_alt, max_alt, alt_tick): 
     """
     A bulk function running previous functions to make a list of engine power values from -4000m to 20000m for every superchrger gear.
     """
-    plane_speed_multipliers = {}
     named_power_curves = {}
     compr_stages_count = 1
-    for plane_name, central_dict in named_central_dict.items():
-        fm_dict = named_fm_dict[plane_name]
-        Engine, Compressor, Main, Afterburner, Propeller = engine_shortcuter(fm_dict)
-        "Prepping parameters in fm_dict for calculation"
-        old_type_fm_detector(Compressor, Main)
-        exception_fixer(plane_name, Compressor, Main)
-        rpm_er(fm_dict, Main, Propeller)
-        wep_rpm_ratioer(Main, Compressor, Propeller)
-        wep_mp_er(Engine, Compressor, Main, Afterburner)
-        brrritish_octane_adder(central_dict, Main, octane)
+    enginecount, engine_keys = enginecounter(fm_dict)
+    Engine, Compressor, Main, Afterburner, Propeller = engine_shortcuter(fm_dict ,engine_keys[0]) #will plot only the power of the 1st engine
+    "Prepping parameters in fm_dict for calculation"
+    old_type_fm_detector(Compressor, Main)
+    exception_fixer(Compressor)
+    rpm_er(Main, Propeller)
+    wep_rpm_ratioer(Main, Compressor, Propeller)
+    wep_mp_er(Engine, Compressor, Main, Afterburner)
+    brrritish_octane_adder(central_dict, Main, octane)
 
-        for compr_stage in range(0, 6):
-            if "Power" + str(compr_stage) in Compressor:
-                compr_stages_count = compr_stage + 1
-        # print(compr_stages_count, "compr_stg")
-        if not Afterburner:
-            final_engine_modes = ["military"]
-        else:
-            final_engine_modes = engine_modes
-        power_curves = optimal_dict_initializer(final_engine_modes, compr_stages_count)
-        for g in range(0, compr_stages_count):
-                soviet_octane_adder(central_dict, Compressor, Main, g, octane)
-        for h in range(0, compr_stages_count):
-            definition_alt_power_adjuster(Main, Compressor, Propeller, h)
-            deck_power_maker(Main, Compressor, h)
-        print(plane_name)
-        # print( Main["military_RPM"], Main["default_RPM"], Main["WEP_RPM"])
-        # if "GovernorMaxParam" in Propeller.keys():
-        #     print('mil_RPM: ',Main["military_RPM"], 'WEP_RPM: ', Main["WEP_RPM"], 'governor_mil_RPM: ', Propeller["GovernorMaxParam"], 'governor_WEP_RPM: ', Propeller["GovernorAfterburnerParam"])
-        
-        'Calculations begin'
-        for i in range(0, compr_stages_count):
-            for mode in final_engine_modes:
-                wep_mulitiplierer(octane, Main, Compressor, i, mode)
-                for alt in range(-4000, 20000, alt_tick):
+    for compr_stage in range(0, 6):
+        if "Power" + str(compr_stage) in Compressor:
+            compr_stages_count = compr_stage + 1
+    # print(compr_stages_count, "compr_stg")
+    if not Afterburner:
+        final_engine_modes = ["military"]
+    else:
+        final_engine_modes = engine_modes
+    power_curves = optimal_dict_initializer(final_engine_modes, compr_stages_count)
+    for g in range(0, compr_stages_count):
+            soviet_octane_adder(central_dict, Compressor, Main, g, octane)
+    for h in range(0, compr_stages_count):
+        definition_alt_power_adjuster(Main, Compressor, Propeller, h)
+        deck_power_maker(Main, Compressor, h)
+    # print( Main["military_RPM"], Main["default_RPM"], Main["WEP_RPM"])
+    # if "GovernorMaxParam" in Propeller.keys():
+    #     print('mil_RPM: ',Main["military_RPM"], 'WEP_RPM: ', Main["WEP_RPM"], 'governor_mil_RPM: ', Propeller["GovernorMaxParam"], 'governor_WEP_RPM: ', Propeller["GovernorAfterburnerParam"])
+    
+    'Calculations begin'
+    for i in range(0, compr_stages_count):
+        for mode in final_engine_modes:
+            wep_mulitiplierer(octane, Main, Compressor, i, mode)
+            for alt in range(min_alt, max_alt, alt_tick):
 
-                    if speed > 0:
-                        alt_RAM = rameffect_er(alt, air_temp, speed, speed_type, Compressor)
-                    else:
-                        alt_RAM = alt
-                    # print(alt_RAM)
-                    higher_power, higher, lower_power, lower, curvature = variabler(Compressor, Main, i, alt_RAM, mode)
-                    curve_equation = round(equationer(higher_power, higher, lower_power, lower, alt_RAM, curvature),1)
-                    # power_curves[mode][i].append(curve_equation)
-                    power_curves[mode][i].append(curve_equation)
-        plane_speed_multipliers[plane_name] = Compressor["SpeedManifoldMultiplier"]
-        named_power_curves[plane_name] = power_curves
-    named_power_curves_merged = plot_merger(named_power_curves)
-    return named_power_curves_merged, plane_speed_multipliers
+                if speed > 0:
+                    alt_RAM = rameffect_er(alt, air_temp, speed, speed_type, Compressor)
+                else:
+                    alt_RAM = alt
+                # print(alt_RAM)
+                higher_power, higher, lower_power, lower, curvature = variabler(Compressor, Main, i, alt_RAM, mode)
+                power = round(equationer(higher_power, higher, lower_power, lower, alt_RAM, curvature),1)
+                # power_curves[mode][i].append(power)
+                power_curves[mode][i].append(power)
+    power_curves_merged = plot_merger(power_curves)
+    return power_curves_merged, Compressor["SpeedManifoldMultiplier"]
 
 
-def plot_merger(named_power_curves):
+def plot_merger(power_curves):
     """
     Combines power curve dictionaries of every supercharger speed/stage into one optimal curve, both for military and WEP power
     """
-    named_power_curves_merged = {}
-    for plane_name, power_curves in named_power_curves.items():
-        MODEL_dict = {}
-        power_curves_merged = {}
-        for mode, lines in power_curves.items():
-            for i in lines:
-                if lines[i]:
-                    MODEL_dict = lines[i]
-            for i in lines:
-                for alt in range (len(lines[i])):
-                    if MODEL_dict[alt] < lines[i][alt]:
-                        MODEL_dict[alt] = lines[i][alt]
-                power_curves_merged[mode] = MODEL_dict
-        named_power_curves_merged[plane_name] = power_curves_merged
-    return named_power_curves_merged
+    power_curves_merged = {}
+    MODEL_dict = {}
+    power_curves_merged = {}
+    for mode, lines in power_curves.items():
+        for i in lines:
+            if lines[i]:
+                MODEL_dict = lines[i]
+        for i in lines:
+            for alt in range (len(lines[i])):
+                if MODEL_dict[alt] < lines[i][alt]:
+                    MODEL_dict[alt] = lines[i][alt]
+            power_curves_merged[mode] = MODEL_dict
+    return power_curves_merged
 
 ########################################################################################################################
 
-def engine_power_to_json(power_write_dir, named_power_curves_merged, plane_speed_multipliers,  plane_engine_count):
+def engine_power_to_json(power_write_dir, named_power_curves_merged, plane_speed_multipliers, enginecounts):
     """Saves calcualted engine power values into .json file for each plane
 
     Args:
@@ -1034,7 +1023,7 @@ def engine_power_to_json(power_write_dir, named_power_curves_merged, plane_speed
     """
     destination = Path.cwd() / power_write_dir
     destination.mkdir(exist_ok=True, parents=True)
-    for (planename, plane_power), (planename2, speed_mult), (planename3, engine_count) in zip(named_power_curves_merged.items(), plane_speed_multipliers.items(), plane_engine_count.items()):
+    for (planename, plane_power), (planename2, speed_mult), (planename3, engine_count) in zip(named_power_curves_merged.items(), plane_speed_multipliers.items(), enginecounts.items()):
         assert planename == planename2 == planename3 # To check if 3 dictionaries are in sync
         print(planename)
         for engine_mode, power_of_mode in plane_power.items():
@@ -1045,8 +1034,54 @@ def engine_power_to_json(power_write_dir, named_power_curves_merged, plane_speed
             powerwritepath = Path(power_write_dir) / (planename + "_" + engine_mode + ".json")
             with open(powerwritepath, 'w') as plane_power_piston_json:
                 json.dump(complete_power_dict, plane_power_piston_json)
+                
+def fileprepper(central_dict, fm_dict, plane_gun_ammo_mass_dict):
+    """
+    A bulk function running previous functions to make a list of engine power values from -4000m to 20000m for every superchrger gear.
+    """
+    compr_stages_count = 1
+    fm_dict["engine_count"], engine_keys = enginecounter(fm_dict)
+    for engine in engine_keys:
+        Engine, Compressor, Main, Afterburner, Propeller = engine_shortcuter(fm_dict, engine)
+        "Prepping parameters in fm_dict for calculation"
+        if Main["Type"] == "Inline" or Main["Type"] == "Radial":
+            old_type_fm_detector(Compressor, Main)
+            exception_fixer(Compressor)
+            rpm_er(Main, Propeller)
+            wep_rpm_ratioer(Main, Compressor, Propeller)
+            wep_mp_er(Engine, Compressor, Main, Afterburner)
+            for compr_stage in range(0, 6):
+                if "Power" + str(compr_stage) in Compressor:
+                    compr_stages_count = compr_stage + 1
+            for h in range(0, compr_stages_count):
+                definition_alt_power_adjuster(Main, Compressor, Propeller, h)
+                deck_power_maker(Main, Compressor, h)
+    if 'modifications' in central_dict.keys():
+        important_mods = {}
+        for key, value in central_dict['modifications'].items():
+            if value == []:
+                central_dict['modifications'][key] = ['u']
+            if key in ["new_radiator", "cd_98", "CdMin_Fuse", "new_cover", "structure_str",
+                       "hp_105",  "new_compressor", "new_engine_injection", "150_octan_fuel", 
+                        "100_octan_spitfire", "ussr_fuel_b-95", "ussr_fuel_b-100",
+                       "hp_105_jet", "f_4c_CdMin_Fuse", "new_compressor_jet", "hydravlic_power"
+                        ]:
+                important_mods[key] = value
+                
+        fm_dict['Modif'] = important_mods
+    else:
+        fm_dict['Modif'] = {}
+
+    if "MaxFuelMass0" in fm_dict["Mass"]:
+        fm_dict["Mass"]["MaxFuelMass"] = fm_dict["Mass"].pop("MaxFuelMass0")
+    fm_dict["Mass"]['pilots_mass']= 90 * fm_dict["Crew"]
+    fm_dict["Guns"] = plane_gun_ammo_mass_dict
+    fm_dict["engines_are_same"]  = same_engine_checker(fm_dict, engine_keys)
+    return fm_dict
 
 def main():
-    help(engine_power_to_json)        
+    help(fileprepper())     
+     
+
 if __name__ == "__main__":
     main()

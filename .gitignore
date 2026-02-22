@@ -1,13 +1,5 @@
 .venv
 __pycache__/
-lift_drag_WT_source
-input_files/central_files
-input_files/fm_files
-input_files/plane_images
-input_files/vehicle_name_files
-input_files/weapon_files
-performance_calculators/polares.cpp
-performance_calculators/discarded.py
-performance_calculators/blkutil.py
-performance_calculators/flightmodel.py
-performance_calculators/datablock.py
+input_files/
+performance_calculators/discarded
+ingame_prop_efficiency_log_files

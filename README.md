@@ -1,49 +1,38 @@
 <div align="center">
-<img width="128px" height="128px" src="readme_assets/WTAPC_1280.png">
-<h1>War Thunder Aircraft<br>Performance Calculator</h1>
+
+<img width="128px" height="128px" src="readme_assets/WTAPC_logo_1280_data.png">
+
+<h1>War Thunder Aircraft<br>Performance Calculator (data)</h1>
 </div>
 
-Performance files of aircraft in War Thunder calculated based on datamine. They are visualized as graphs at [**wtapc.org**][1]. <br>
+Flight model files of all aircraft in War Thunder used to calculate aircraft performance and make graphs of it, at [**wtapc.org**][1]. Files made based on [the public datamine][2], but in an unified format (`output_files/out_fm/`).<br>
 
-Currently those are files with:
-
-* Engine power of all piston engine aircraft in War Thunder from -4km to 20km altitude(military power and WEP).
-* Empty mass, fuel mass and armament mass of all piston engine aircraft.
-* Names of flight-model files and ingame names of all piston engine aircraft.
-
-Accuracy vs ingame engine power is within 99%-101% for vast majority of planes and 95%-105% for the rest.
-
-Importantly, this repository contains all the scripts used to calculate them, based on War Thunder flight-model files from
-[the public datamine][2]. 
-
-The goal is to calculate most important performance metrics like 
-1. climb rate at different speeds and altitudes
-2. top speeds.
 
 ### Related:
 [**Discord of WTAPC**][13]<br>
-[**GitHub repository of wtapc.org**][5]
+[**GitHub repository of WTAPC website**][5] It's the main part of the WTAPC project.
+
+
+Also:
+* [Legacy] pre-made engine power files of all piston engine aircraft in War Thunder from -4km to 20km altitude(military power and WEP) in `output_files/plane_power_files/`. wtapc.org used to use them.
+* [Legacy] Empty mass, fuel mass and armament mass file of all piston engine aircraft ()`output_files/plane_mass_files/`). wtapc.org used to use them.
+* Names of flight-model files and ingame names of all aircraft (`output_files/plane_name_files/`).
+* **All the scripts used to make these files (`performance_calculators/`).**
+
+Accuracy vs ingame engine power is within 99%-101% for vast majority of planes and 95%-105% for the rest.
 
 ### Guide on using scripts:
-Install pipx, with:
 1. First - install newest [Python][3] if you don't have it.<br>
 2. Then clone this repository into your empty project.<br>
-3. This repo uses [Poetry][11] for virtual environment, so to install it, follow these annoying steps:<br>
-3.1 Install pipx cause Poery recommends that `py -m pip install --user pipx`<br>
-3.2 Add pipx installation directoryto Path variable if it's not there.<br>
-3.3 Install poetry using pipx, not pip! `pipx install poetry`<br>
-3.4 Make poetry path to Path variable with `python3 -m pipx ensurepath`<br>
-3.5 update poetry.lock file just to be sure `poetry lock --no-update`<br>
-3.6 *If you use Visual Studio Code: run `poetry config virtualenvs.in-project true` so that virtual environments are noticed by VS<br>
-3.7 Finally create v-env with the needed packages via `poetry install`.<br>
+3. This repo uses [uv][11] for virtual environment and package management. Follow its [setup guide][14].
 
-Done, everything should work good.
-Scripts are in `performance_calculators`.<br>
+Done, everything should work good.<br>
 
-If you want to recalculate engine power, mass etc. files based of the newest WT datamine version:
-1. run `batch_runner.py`. It runs all the scripts of the repository and is interactive so you can choose what to run.
+If you want to recalculate engine power files, mass file, flight model files based of the newest WT datamine version:
+1. run `batch_runner.py`. It runs all the scripts of the repository and is interactive so you can choose what to run. Running each step deletes exisitng pre-made files. So remake unified flight model files only if you don't care about the existing ones from older War Thunder versions(on all those folders in `output_files/out_fm/`).
 
-If you want to compare those calculations with actual engine power data from War Thunder:
+
+If you want to compare calcuated engine power with actual engine power data from War Thunder:
 
 1. Climb in a plane of your choice in War Thunder test flight, at a constant IAS or TAS speed while logging engine power and altitude with [WTRTI][5].<br>
 2. Put the log .csv file in 'ingame_power_log_files' folder.<br>
@@ -56,10 +45,10 @@ If you want to compare those calculations with actual engine power data from War
 
 If you want to learn how engine power is calculated in War Thunder, study `plane_power_calculator.py`, the most important file in the repository. But it's very complicated (long and not coded very well). It took over a year to make via trial and error.
 
-If you want to compare performace of different planes, better wait and once completed visit [**wtapc.org**][1], it's more user friendly.
+If you want to compare performace of different planes visit [**wtapc.org**][1], it's more user friendly.
 
-### Pre-made files:
-Pre-made .json files are in `output_files`.
+### Legacy Pre-made files:
+They were used by [**wtapc.org**][1] to save on computation on the client.
 In engine power files 'military' refers to 100% throttle power setting in game, while WEP (War Emergency Power) is 110%.
 They contain long arrays of numbers, which are engine power values at 0 forward speed (no ram air effect). Altitude is **implicit** - first value is at -3990m, second at 3980m, then at 3970m etc.... up to the last value in each array with engine power at 20000m.
 
@@ -67,24 +56,6 @@ The reason engine power starts at -4km is to account for ram air effect. When a 
 
 `speed_mult` in those .json files is the efficiency of the air intake at transferring dynamic pressure of air into the super/turbocharger - efficiency of the air ram effect. it's an important variable used by `rameffect_er` function, needed by the website to apply the air ram effect to the values from .json.
 
-
-### Known issues - contribution appreciated:
-1. P-63 A-10, A-5 and C5 engine power graphs don't match ingame engine power very well. These 3 are calculated in a unique way; engine power above critical altitude doesn't drop proportionally to air pressure drop (concave), but in a convex way, and that's difficult to model. (look for `ConstRPM_bends_above_crit_alt` function in `plane_power_calculator`, it's made to distinguish them). 
-
-2. Tu-1 power is almost precise but also not exact. 
-
-3. Planes with constant pitch propeller have differnt RPMs at different speeds, and these scripts don't account for that. As a result, at low speeds those planes have more power on the graphs than in game. To resolve that propeller torque needs to be calculated and prop governor simulated.
-
-4. Trottling losses below "AltitudeConstRPM" of 2nd and 3rd supercharger gear of some planes are imprecise (eg. Mosquitos).
-
-### Future additions - contribution appreciated:
-<ol>
-<li>Propeller efficiency -> thrust -> thrust to weight of propeller aircraft</li>
-<li>Thrust and thrust to weight of jets</li>
-<li>The goal - climb rates and top speeds of all aircraft at all altitudes</li>
-</ol>
-
-For propeller efficiency and prop thrust, there's `prop_efficiency_calculator.py`, which doesn't work yet.
 
 ---
 
@@ -111,6 +82,7 @@ For propeller efficiency and prop thrust, there's `prop_efficiency_calculator.py
 [8]: https://www.youtube.com/@dogeness/videos
 [9]: https://docs.google.com/document/d/1fp7rpu-Bqh7uFjMg7sCQlMZgf6pIoJ_qfRzihc6iIB4/edit
 [10]: https://www.youtube.com/@AdamTheEnginerd
-[11]: https://python-poetry.org/docs/
+[11]: https://github.com/astral-sh/uv
 [12]: https://github.com/HypheX
 [13]: https://discord.gg/6F7ZRk3zJG
+[14]: https://docs.astral.sh/uv/getting-started/

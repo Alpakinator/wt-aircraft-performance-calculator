@@ -1,25 +1,25 @@
-[tool.poetry]
-name = "wt-aircraft-performance-calculator"
-version = "1.1"
+[project]
+authors = [
+    {name = "Alpakinator"},
+]
+license = {text = "Apache 2.0"}
+requires-python = "<4.0,>=3.12"
+dependencies = [
+    "pandas<3.0.0,>=2.2.2",
+    "pyarrow<17.0.0,>=16.1.0",
+    "plotly<6.0.0,>=5.22.0",
+    "regex<2025.0.0,>=2024.5.15",
+    "requests<3.0.0,>=2.31.0",
+    "fsspec<2025.0.0,>=2024.5.0",
+    "gitdb<5.0.0,>=4.0.11",
+    "GitPython<4.0.0,>=3.1.43",
+    "pillow<11.0.0,>=10.3.0",
+    "pyparsing<4.0.0,>=3.2.0",
+    "matplotlib<4.0.0,>=3.9.2",
+    "scipy<2.0.0,>=1.14.1",
+]
+name = "wtapc-data"
+version = "1.2"
 description = ""
-authors = ["Alpakinator"]
-license = "Apache 2.0"
 readme = "README.md"
 package-mode = false
-
-[tool.poetry.dependencies]
-python = "^3.12"
-pandas = "^2.2.2"
-pyarrow = "^16.1.0"
-plotly = "^5.22.0"
-regex = "^2024.5.15"
-requests = "^2.31.0"
-fsspec = "^2024.5.0"
-gitdb = "^4.0.11"
-GitPython = "^3.1.43"
-pillow  = "^10.3.0"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-    

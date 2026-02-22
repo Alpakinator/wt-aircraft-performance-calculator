@@ -4,8 +4,8 @@ import pandas as pd
 import numpy as np
 from graph_maker import dict_dataframer, plotter
 from blkx_parsers import fm_parser, central_parser
-from plane_power_calculator import power_curve_culator, enginecounter
-from ram_pressure_density_calculator import rameffect_er
+from plane_power_calculator import power_curve_culator
+from batch_runner import find_latest_datamine
 
 """
 Script used for locally making engine power plots, based on flightmodel files from .
@@ -36,18 +36,20 @@ def inputter():
     octane = True
     power_to_weight = False
     engine_modes = [
-        # "military",
+        "military",
         "WEP"
         ]
+    min_altm = -500
     max_altm = 10000
     alt_unit = 'm'
     speed_unit = 'kph'
 
     axis_layout= False
-    alt_tick = 1
-    fm_dir = "input_files/fm_files/"
-    central_dir = "input_files/central_files/"
-    central_fm_read_dir = "output_files/plane_name_files/central-fm_plane_names_piston.json"
+    alt_tick = 50
+    latest_folder = find_latest_datamine()
+    fm_dir = f"input_files/datamines/{latest_folder}/gamedata/flightmodels/fm/"
+    central_dir = f"input_files/datamines/{latest_folder}/gamedata/flightmodels/"
+    central_fm_read_dir = "output_files/plane_name_files/central-fm_plane_names.json"
     plot_t = "power"
     
     TEST_file_dir = [
@@ -82,9 +84,9 @@ def inputter():
     # "ingame_power_log_files/tempest_mk2-2022_11_280IAS.csv",
     # "ingame_power_log_files/p-63a-5-2023_05_500TAS.csv",
     # "ingame_power_log_files/p-63a-10-2023_05_100%&WEP_280IAS.csv",
-    "ingame_power_log_files/p-63a-10-2023_05_500TAS.csv",
+    # "ingame_power_log_files/p-63a-10-2023_05_500TAS.csv",
     # "ingame_power_log_files/p-63c-5-2023_05_100%_280IAS.csv",
-    "ingame_power_log_files/p-63c-5-2023_05_WEP_280IAS.csv",
+    # "ingame_power_log_files/p-63c-5-2023_05_WEP_280IAS.csv",
     # "ingame_power_log_files/tu-1-2023_10_WEP_700tas_12k.csv",
     # "ingame_power_log_files/tu-1-2023_10_100%_700tas_8k.csv",
     # "ingame_power_log_files/mosquito_fb_mk6-2024_05_29_14_52_32.csv",
@@ -100,7 +102,7 @@ def inputter():
     # "ingame_power_log_files/spitfire_ix_early-2024_06_02_16_24_14.csv",
     # "ingame_power_log_files/spitfire_ix_early-2024_06_02_16_27_04.csv",
     # "ingame_power_log_files/bv-238-2024_06_02_19_42_58.csv",
-    # put your new test flight climb logs to compare with the calculator here
+    # put the new test flight climb logs to compare with the calculator here
     # "ingame_power_log_files/f8f_alpha_strike_100%_300kphIAS.csv",
     # "ingame_power_log_files/f8f_alpha_strike_WEP_300kphIAS.csv",
     # "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv",
@@ -109,12 +111,12 @@ def inputter():
     # "ingame_power_log_files/j2m4 10k climb 270kph 1.101 glued together.csv",
     ]
 
-    fm_files = [
+    central_names = [
     #####Those need improvement:
     # "p-63a-10",
     # "p-63c-5",
-    "p-63a-5",
-    "p-61c_1",
+    # "p-63a-5",
+    # "p-61c_1",
     # "tu-1",
     #these have a bit wrong throttling losses below "AltitudeConstRPM1"
     # "mosquito_fb_mk6",
@@ -218,7 +220,7 @@ def inputter():
     # "p-38l",
     # "p-38k",
     
-    # "xp-50",
+    "xp-50",
     # "xf5f",
     # "douglas_ad_2",
     # "am_1_mauler",
@@ -241,8 +243,10 @@ def inputter():
 
 
     ###  GREAT BRITAIN
+    # "a2d", #doesn't work
+    # "wyvern_s4", #doesn't work
     # "sea_fury_fb11",
-    # "hornet_mk3",
+    "hornet_mk3",
     # "shackleton_mr_mk_2",
     # "tempest_mk2",
     # "tempest_mkv",
@@ -292,8 +296,8 @@ def inputter():
     # "la-5_type37_early",
     # "mig_3_series_34",
     # "mig_3_series_1_15_bk_pod",
-    # "yak-3u",
-    # "yak-3",
+    "yak-3u",
+    "yak-3",
     # "yak-3_vk107",
     # "po-2",
     # "yak-9u",
@@ -335,8 +339,8 @@ def inputter():
     # "",
     ]
 
-    return (speed, speed_type, air_temp, octane, power_to_weight, engine_modes, alt_tick, fm_dir, central_dir, central_fm_read_dir,
-            max_altm, alt_unit, speed_unit, air_temp_unit, axis_layout, plot_t, plot_all_planes, fm_files, TEST_file_dir)
+    return (speed, speed_type, air_temp, octane, power_to_weight, engine_modes, alt_tick, fm_dir, central_dir, central_fm_read_dir, min_altm,
+            max_altm, alt_unit, speed_unit, air_temp_unit, axis_layout, plot_t, plot_all_planes, central_names, TEST_file_dir)
 
 def csv_dataframer(TEST_file_dir):
     """
@@ -380,43 +384,45 @@ def dataframe_combiner(MODEL_dataf_all, TEST_dataf_all):
     return MODEL_TEST_dataf
 
 
+
 def main():
     """
     Runs all functions needed to locally run engine power calcuation ond display resulting plots in the browser.
     """
     start_time = time.time()
-    (speed, speed_type, air_temp, octane, power_to_weight, engine_modes, alt_tick, fm_dir, central_dir, central_fm_read_dir,
-     max_altm, alt_unit, speed_unit, air_temp_unit, axis_layout, plot_t, plot_all_planes, fm_files, TEST_file_dir) = inputter()
+    (speed, speed_type, air_temp, octane, power_to_weight, engine_modes, alt_tick, fm_dir, central_dir, central_fm_read_dir, min_altm, max_altm, alt_unit, speed_unit, air_temp_unit, axis_layout, plot_t, plot_all_planes, central_names, TEST_file_dir) = inputter()
 
     
+
+    with open(central_fm_read_dir, "r") as central_to_FM_json:
+        central_fm_dict = json.load(central_to_FM_json)
     if plot_all_planes == True:
-        with open(central_fm_read_dir, "r") as central_to_FM_json:
-            planes_to_calculate = json.load(central_to_FM_json)
+        planes_to_calculate = central_fm_dict
     else:
-        planes_to_calculate = fm_files
-    named_central_dict = central_parser(central_dir, planes_to_calculate, central_fm_read_dir, ".blkx")
-    named_fm_dict = fm_parser(fm_dir, planes_to_calculate, central_fm_read_dir)
-    
-    named_power_curves_merged, plane_speed_multipliers = power_curve_culator(named_fm_dict,
-                                                                                named_central_dict, 0,
-                                                                                speed_type, air_temp,
-                                                                                octane,
-                                                                                engine_modes,
-                                                                                10) 
+        planes_to_calculate = central_names
+    named_power_curves_merged = {}
+    for central_name in planes_to_calculate:
+        fm_name = central_fm_dict[central_name]
+        central_dict = central_parser(central_dir, central_name, ".blkx")
+        fm_dict = fm_parser(fm_dir, fm_name, ".blkx")   
+        power_curves_merged, speed_multiplier = power_curve_culator(central_name, fm_dict, central_dict, speed, speed_type, air_temp, octane, engine_modes,min_altm, max_altm, alt_tick)
+        named_power_curves_merged[central_name] = power_curves_merged
+    named_power_curves_merged['Altitudes'] = list(range(min_altm, max_altm, alt_tick))
     #above alt_tick = 1 because otherwise the power_curves_merged[user_alt] = power_curves_merged_unrammed[(alt_RAM + 4000)] will fail
     #it's because power_curves_merged_unrammed indexes are treated as meters, but is alt tick = 10, then each index is 10m.
     # otherwise of you want this alt_tick to be 10, then use 'int(round(((alt_RAM + 4000)/10),0))' istead of (alt_RAM + 4000)! 
-    for (plane_name, power_curves_merged_old), (plane_name2, speed_multiplier_float) in zip(named_power_curves_merged.items(), plane_speed_multipliers.items()):
-        speed_multiplier = {}
-        for mode, power_curves_merged_unrammed in power_curves_merged_old.items():
-            power_curves_merged = {}
-            for user_alt in range(0, max_altm, alt_tick):
-                alt_RAM = (rameffect_er(user_alt, air_temp, speed, speed_type, speed_multiplier_float))
-                try:
-                    power_curves_merged[user_alt] = power_curves_merged_unrammed[int(round(((alt_RAM + 4000)/10),0))] 
-                except KeyError:
-                    continue #If engine power is 0, the dictionary ends, so you can't apply RAM effect.
-            named_power_curves_merged[plane_name][mode] = power_curves_merged
+    # for (central_name, power_curves_merged_old), (central_name2, speed_multiplier_float) in zip(named_power_curves_merged.items(), plane_speed_multipliers.items()):
+    #     speed_multiplier = {}
+    #     for mode, power_curves_merged_unrammed in power_curves_merged_old.items():
+    #         power_curves_merged = {}
+    #         for user_alt in range(0, max_altm, alt_tick):
+    #             alt_RAM = (rameffect_er(user_alt, air_temp, speed, speed_type, speed_multiplier_float))
+    #             try:
+    #                 power_curves_merged[user_alt] = power_curves_merged_unrammed[int(round(((alt_RAM + 4000)/10),0))] 
+    #             except KeyError:
+    #                 continue #If engine power is 0, the dictionary ends, so you can't apply RAM effect.
+    #         named_power_curves_merged[central_name][mode] = power_curves_merged
+    print(named_power_curves_merged)
     MODEL_dataf_all = dict_dataframer(named_power_curves_merged, alt_unit)
     TEST_dataf = csv_dataframer(TEST_file_dir)
     pd.set_option('display.max_columns', None)
@@ -424,7 +430,7 @@ def main():
     final_plot = plotter(MODEL_TEST_dataf, max_altm, alt_unit, speed, speed_type, speed_unit, air_temp,
                          air_temp_unit, axis_layout, plot_t)
     
-    plane_engine_count = enginecounter(named_fm_dict)
+    # plane_engine_count, engine_keys = enginecounter(fm_dict)
     'Post-processing into a dataframe and plot generation'
 
     print("--- %s seconds ---" % (time.time() - start_time))
