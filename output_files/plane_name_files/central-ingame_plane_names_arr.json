@@ -511,6 +511,11 @@
       "nogap": "BF2C1Goshawk"
     },
     {
+      "id": "bf_109t_2",
+      "name": "Bf 109 T-2",
+      "nogap": "Bf109T2"
+    },
+    {
       "id": "bf_110g_4",
       "name": "Bf 110 G-4",
       "nogap": "Bf110G4"
@@ -589,6 +594,11 @@
       "id": "c-47",
       "name": "C-47",
       "nogap": "C47"
+    },
+    {
+      "id": "c_3604",
+      "name": "\u25ccC-3604",
+      "nogap": "\u25ccC3604"
     },
     {
       "id": "caudron_cr714",
@@ -709,6 +719,11 @@
       "id": "db_7",
       "name": "\u2584DB-7",
       "nogap": "\u2584DB7"
+    },
+    {
+      "id": "db_lk",
+      "name": "DB-LK",
+      "nogap": "DBLK"
     },
     {
       "id": "do_17e_1",
@@ -1101,14 +1116,34 @@
       "nogap": "\u2584FokkerDXXI"
     },
     {
+      "id": "fokker_d21_netherlands",
+      "name": "\u25d7Fokker D.XXI",
+      "nogap": "\u25d7FokkerDXXI"
+    },
+    {
       "id": "fokker_d21_serie3_finland",
       "name": "\u2584Fokker D.XXI Series 3",
       "nogap": "\u2584FokkerDXXISeries3"
     },
     {
+      "id": "fokker_d23",
+      "name": "\u25d7Fokker D.XXIII",
+      "nogap": "\u25d7FokkerDXXIII"
+    },
+    {
+      "id": "fokker_d7",
+      "name": "Fokker D.VII",
+      "nogap": "FokkerDVII"
+    },
+    {
       "id": "fokker_g1a",
       "name": "\u25d7Fokker G.I Mercury",
       "nogap": "\u25d7FokkerGIMercury"
+    },
+    {
+      "id": "fr_1_fireball",
+      "name": "FR-1 Fireball",
+      "nogap": "FR1Fireball"
     },
     {
       "id": "fury_mk1",
@@ -1142,6 +1177,11 @@
     },
     {
       "id": "fw-190a-5_cannons",
+      "name": "Fw 190 A-5",
+      "nogap": "Fw190A5"
+    },
+    {
+      "id": "fw-190a-5_cannons_tutorial",
       "name": "Fw 190 A-5",
       "nogap": "Fw190A5"
     },
@@ -1387,8 +1427,13 @@
     },
     {
       "id": "h-75m",
-      "name": "Hawk H-75M",
-      "nogap": "HawkH75M"
+      "name": "H-75M (H-75A-8)",
+      "nogap": "H75M(H75A8)"
+    },
+    {
+      "id": "h-75m_china",
+      "name": "\u2417H-75M (H-75A-8)",
+      "nogap": "\u2417H75M(H75A8)"
     },
     {
       "id": "h-75n",
@@ -1551,6 +1596,11 @@
       "nogap": "\u2582HampdenTBMkIUTK1"
     },
     {
+      "id": "hp_12",
+      "name": "H.P.12",
+      "nogap": "HP12"
+    },
+    {
       "id": "hs-123a-1",
       "name": "Hs 123 A-1",
       "nogap": "Hs123A1"
@@ -1592,6 +1642,11 @@
     },
     {
       "id": "hurricane_mk1",
+      "name": "Hurricane Mk I Late",
+      "nogap": "HurricaneMkILate"
+    },
+    {
+      "id": "hurricane_mk1_late",
       "name": "Hurricane Mk I Late",
       "nogap": "HurricaneMkILate"
     },
@@ -1997,53 +2052,53 @@
     },
     {
       "id": "ki-27_otsu",
-      "name": "Ki-27 otsu",
-      "nogap": "Ki27otsu"
+      "name": "Ki-27 Otsu",
+      "nogap": "Ki27Otsu"
     },
     {
       "id": "ki-27_otsu_china",
-      "name": "\u2417Ki-27 otsu",
-      "nogap": "\u2417Ki27otsu"
+      "name": "\u2417Ki-27 Otsu",
+      "nogap": "\u2417Ki27Otsu"
     },
     {
       "id": "ki-27_otsu_ep",
-      "name": "Ki-27 otsu Tachiarai",
-      "nogap": "Ki27otsuTachiarai"
+      "name": "Ki-27 Otsu Tachiarai",
+      "nogap": "Ki27OtsuTachiarai"
     },
     {
       "id": "ki-45_hei",
-      "name": "Ki-45 hei Toryu",
-      "nogap": "Ki45heiToryu"
+      "name": "Ki-45 Hei Toryu",
+      "nogap": "Ki45HeiToryu"
     },
     {
       "id": "ki-45_hei_tei",
-      "name": "Ki-45 hei/tei Toryu",
-      "nogap": "Ki45hei/teiToryu"
+      "name": "Ki-45 Hei/Tei Toryu",
+      "nogap": "Ki45Hei/TeiToryu"
     },
     {
       "id": "ki-45_hei_tei_china",
-      "name": "\u2417Ki-45 hei/tei Toryu",
-      "nogap": "\u2417Ki45hei/teiToryu"
+      "name": "\u2417Ki-45 Hei/Tei Toryu",
+      "nogap": "\u2417Ki45Hei/TeiToryu"
     },
     {
       "id": "ki-45_ko",
-      "name": "Ki-45 ko Toryu",
-      "nogap": "Ki45koToryu"
+      "name": "Ki-45 Ko Toryu",
+      "nogap": "Ki45KoToryu"
     },
     {
       "id": "ki-45_ko_tei",
-      "name": "Ki-45 ko/tei Toryu",
-      "nogap": "Ki45ko/teiToryu"
+      "name": "Ki-45 Ko/Tei Toryu",
+      "nogap": "Ki45Ko/TeiToryu"
     },
     {
       "id": "ki-45_otsu",
-      "name": "Ki-45 otsu Toryu",
-      "nogap": "Ki45otsuToryu"
+      "name": "Ki-45 Otsu Toryu",
+      "nogap": "Ki45OtsuToryu"
     },
     {
       "id": "ki-45_tei",
-      "name": "Ki-45 tei Toryu",
-      "nogap": "Ki45teiToryu"
+      "name": "Ki-45 Tei Toryu",
+      "nogap": "Ki45TeiToryu"
     },
     {
       "id": "ki-49_1",
@@ -2087,8 +2142,8 @@
     },
     {
       "id": "ki_102_otsu",
-      "name": "Ki-102 otsu",
-      "nogap": "Ki102otsu"
+      "name": "Ki-102 Otsu",
+      "nogap": "Ki102Otsu"
     },
     {
       "id": "ki_108",
@@ -2122,8 +2177,8 @@
     },
     {
       "id": "ki_21_1hei",
-      "name": "Ki-21-I hei",
-      "nogap": "Ki21Ihei"
+      "name": "Ki-21-I Hei",
+      "nogap": "Ki21IHei"
     },
     {
       "id": "ki_21_1ko",
@@ -2152,13 +2207,13 @@
     },
     {
       "id": "ki_43_3_ko",
-      "name": "\u2417Ki-43-III ko Hayabusa",
-      "nogap": "\u2417Ki43IIIkoHayabusa"
+      "name": "\u2417Ki-43-III Ko Hayabusa",
+      "nogap": "\u2417Ki43IIIKoHayabusa"
     },
     {
       "id": "ki_43_3_otsu",
-      "name": "Ki-43-III otsu Hayabusa",
-      "nogap": "Ki43IIIotsuHayabusa"
+      "name": "Ki-43-III Otsu Hayabusa",
+      "nogap": "Ki43IIIOtsuHayabusa"
     },
     {
       "id": "ki_44_1",
@@ -2172,53 +2227,53 @@
     },
     {
       "id": "ki_44_2_hei",
-      "name": "Ki-44-II hei Shoki",
-      "nogap": "Ki44IIheiShoki"
+      "name": "Ki-44-II Hei Shoki",
+      "nogap": "Ki44IIHeiShoki"
     },
     {
       "id": "ki_44_2_hei_china",
-      "name": "\u2417Ki-44-II hei Shoki",
-      "nogap": "\u2417Ki44IIheiShoki"
+      "name": "\u2417Ki-44-II Hei Shoki",
+      "nogap": "\u2417Ki44IIHeiShoki"
     },
     {
       "id": "ki_44_2_otsu",
-      "name": "Ki-44-II otsu Shoki",
-      "nogap": "Ki44IIotsuShoki"
+      "name": "Ki-44-II Otsu Shoki",
+      "nogap": "Ki44IIOtsuShoki"
     },
     {
       "id": "ki_48_2_otsu",
-      "name": "Ki-48-II otsu",
-      "nogap": "Ki48IIotsu"
+      "name": "Ki-48-II Otsu",
+      "nogap": "Ki48IIOtsu"
     },
     {
       "id": "ki_48_2_otsu_event",
-      "name": "Ki-48-II otsu",
-      "nogap": "Ki48IIotsu"
+      "name": "Ki-48-II Otsu",
+      "nogap": "Ki48IIOtsu"
     },
     {
       "id": "ki_61_1a_hei",
-      "name": "Ki-61-I hei Hien",
-      "nogap": "Ki61IheiHien"
+      "name": "Ki-61-I Hei Hien",
+      "nogap": "Ki61IHeiHien"
     },
     {
       "id": "ki_61_1a_hei_ep",
-      "name": "Tada's Ki-61-I hei Hien",
-      "nogap": "Tada'sKi61IheiHien"
+      "name": "Tada's Ki-61-I Hei Hien",
+      "nogap": "Tada'sKi61IHeiHien"
     },
     {
       "id": "ki_61_1a_ko",
-      "name": "Ki-61-I ko Hien",
-      "nogap": "Ki61IkoHien"
+      "name": "Ki-61-I Ko Hien",
+      "nogap": "Ki61IKoHien"
     },
     {
       "id": "ki_61_1a_otsu",
-      "name": "Ki-61-I otsu Hien",
-      "nogap": "Ki61IotsuHien"
+      "name": "Ki-61-I Otsu Hien",
+      "nogap": "Ki61IOtsuHien"
     },
     {
       "id": "ki_61_1a_otsu_china",
-      "name": "\u2417Ki-61-I otsu Hien",
-      "nogap": "\u2417Ki61IotsuHien"
+      "name": "\u2417Ki-61-I Otsu Hien",
+      "nogap": "\u2417Ki61IOtsuHien"
     },
     {
       "id": "ki_61_1a_otsu_usa",
@@ -2227,8 +2282,8 @@
     },
     {
       "id": "ki_61_1a_tei",
-      "name": "Ki-61-I tei Hien",
-      "nogap": "Ki61IteiHien"
+      "name": "Ki-61-I Tei Hien",
+      "nogap": "Ki61ITeiHien"
     },
     {
       "id": "ki_61_2_early",
@@ -2242,28 +2297,28 @@
     },
     {
       "id": "ki_67_1_otsu",
-      "name": "Ki-67-I otsu",
-      "nogap": "Ki67Iotsu"
+      "name": "Ki-67-I Otsu",
+      "nogap": "Ki67IOtsu"
     },
     {
       "id": "ki_84_hei",
-      "name": "Ki-84 hei Hayate",
-      "nogap": "Ki84heiHayate"
+      "name": "Ki-84 Hei Hayate",
+      "nogap": "Ki84HeiHayate"
     },
     {
       "id": "ki_84_ko",
-      "name": "Ki-84 ko Hayate",
-      "nogap": "Ki84koHayate"
+      "name": "Ki-84 Ko Hayate",
+      "nogap": "Ki84KoHayate"
     },
     {
       "id": "ki_84_ko_china",
-      "name": "\u2417Ki-84 ko Hayate",
-      "nogap": "\u2417Ki84koHayate"
+      "name": "\u2417Ki-84 Ko Hayate",
+      "nogap": "\u2417Ki84KoHayate"
     },
     {
       "id": "ki_84_otsu",
-      "name": "Ki-84 otsu Hayate",
-      "nogap": "Ki84otsuHayate"
+      "name": "Ki-84 Otsu Hayate",
+      "nogap": "Ki84OtsuHayate"
     },
     {
       "id": "ki_87",
@@ -2279,6 +2334,11 @@
       "id": "kor_1",
       "name": "KOR-1",
       "nogap": "KOR1"
+    },
+    {
+      "id": "kor_2",
+      "name": "KOR-2",
+      "nogap": "KOR2"
     },
     {
       "id": "la-11",
@@ -2447,8 +2507,8 @@
     },
     {
       "id": "loire_130",
-      "name": "Loire 130\u0421",
-      "nogap": "Loire130\u0421"
+      "name": "Loire 130C",
+      "nogap": "Loire130C"
     },
     {
       "id": "martin_139wc",
@@ -2636,6 +2696,16 @@
       "nogap": "M\u00f6rk\u00f6Morane"
     },
     {
+      "id": "mosquito_b_mk16",
+      "name": "Mosquito B.Mk.XVI",
+      "nogap": "MosquitoBMkXVI"
+    },
+    {
+      "id": "mosquito_f_mk2_norway",
+      "name": "\u25e2Mosquito F.Mk.II",
+      "nogap": "\u25e2MosquitoFMkII"
+    },
+    {
       "id": "mosquito_fb_mk18",
       "name": "Mosquito FB Mk XVIII",
       "nogap": "MosquitoFBMkXVIII"
@@ -2649,6 +2719,31 @@
       "id": "mosquito_fb_mk6",
       "name": "Mosquito FB Mk VI",
       "nogap": "MosquitoFBMkVI"
+    },
+    {
+      "id": "mosquito_fb_mk6_ash_norway",
+      "name": "\u25e2Mosquito FB Mk VI ASH",
+      "nogap": "\u25e2MosquitoFBMkVIASH"
+    },
+    {
+      "id": "mosquito_fb_mk6_norway",
+      "name": "\u25e2Mosquito FB Mk VI",
+      "nogap": "\u25e2MosquitoFBMkVI"
+    },
+    {
+      "id": "mosquito_j30_sweden",
+      "name": "Mosquito J30",
+      "nogap": "MosquitoJ30"
+    },
+    {
+      "id": "mosquito_nf_mk2",
+      "name": "Mosquito NF.Mk.II",
+      "nogap": "MosquitoNFMkII"
+    },
+    {
+      "id": "mosquito_tr_mk33",
+      "name": "Mosquito TR.Mk.33",
+      "nogap": "MosquitoTRMk33"
     },
     {
       "id": "ms_405c1",
@@ -3401,6 +3496,11 @@
       "nogap": "Re2005serie0"
     },
     {
+      "id": "re_2005_vdm",
+      "name": "Re.2005 MM.495 (VDM)",
+      "nogap": "Re2005MM495(VDM)"
+    },
+    {
       "id": "ro_43",
       "name": "Ro.43",
       "nogap": "Ro43"
@@ -3501,6 +3601,11 @@
       "nogap": "\u2584SB2C5Helldiver"
     },
     {
+      "id": "sb2c_5_thailand",
+      "name": "\u2584SB2C-5 Helldiver",
+      "nogap": "\u2584SB2C5Helldiver"
+    },
+    {
       "id": "sb2u-2",
       "name": "SB2U-2",
       "nogap": "SB2U2"
@@ -3511,9 +3616,14 @@
       "nogap": "SB2U3"
     },
     {
+      "id": "sb_25j_netherlands",
+      "name": "\u25d8SB-25J Strafer",
+      "nogap": "\u25d8SB25JStrafer"
+    },
+    {
       "id": "sb_2m_100",
-      "name": "SB 2M-100",
-      "nogap": "SB2M100"
+      "name": "SB 2M-100A",
+      "nogap": "SB2M100A"
     },
     {
       "id": "sb_2m_100a",
@@ -3559,6 +3669,11 @@
       "id": "sbd-3",
       "name": "SBD-3 Dauntless",
       "nogap": "SBD3Dauntless"
+    },
+    {
+      "id": "sc_1",
+      "name": "SC-1 Seahawk",
+      "nogap": "SC1Seahawk"
     },
     {
       "id": "sea_fury_fb11",
@@ -3611,6 +3726,11 @@
       "nogap": "\u2580SM79Sparvieroserie4(1937)"
     },
     {
+      "id": "sm_79_1937_italy",
+      "name": "S.M.79 Sparviero serie 4 (1937)",
+      "nogap": "SM79Sparvieroserie4(1937)"
+    },
+    {
       "id": "sm_79_1939",
       "name": "\u2580S.M.79 Sparviero serie 8 (1939)",
       "nogap": "\u2580SM79Sparvieroserie8(1939)"
@@ -3634,6 +3754,11 @@
       "id": "sm_79_1942",
       "name": "\u2580S.M.79 Sparviero bis/N (1942)",
       "nogap": "\u2580SM79Sparvierobis/N(1942)"
+    },
+    {
+      "id": "sm_79_1942_italy",
+      "name": "S.M.79 Sparviero bis/N (1942)",
+      "nogap": "SM79Sparvierobis/N(1942)"
     },
     {
       "id": "sm_79_1943",
@@ -3676,9 +3801,19 @@
       "nogap": "SOC1Seagull"
     },
     {
+      "id": "spad_13",
+      "name": "SPAD S.XIII",
+      "nogap": "SPADSXIII"
+    },
+    {
       "id": "spitfire_f22",
       "name": "Spitfire F Mk 22",
       "nogap": "SpitfireFMk22"
+    },
+    {
+      "id": "spitfire_f22_test",
+      "name": "spitfire_f22_test",
+      "nogap": "spitfire_f22_test"
     },
     {
       "id": "spitfire_f24",
@@ -3709,6 +3844,11 @@
       "id": "spitfire_ix_plagis",
       "name": "Plagis' Spitfire LF Mk IXc",
       "nogap": "Plagis'SpitfireLFMkIXc"
+    },
+    {
+      "id": "spitfire_ix_tutorial",
+      "name": "Spitfire LF Mk IX",
+      "nogap": "SpitfireLFMkIX"
     },
     {
       "id": "spitfire_ix_usa",
@@ -4016,6 +4156,11 @@
       "nogap": "TyphoonMkIb/Late"
     },
     {
+      "id": "uav_inf_strike_drone",
+      "name": "uav_inf_strike_drone",
+      "nogap": "uav_inf_strike_drone"
+    },
+    {
       "id": "ucav_mq_1_predator",
       "name": "MQ-1",
       "nogap": "MQ1"
@@ -4057,8 +4202,8 @@
     },
     {
       "id": "v_156_b1",
-      "name": "V-156-B1",
-      "nogap": "V156B1"
+      "name": "Chesapeake Mk I",
+      "nogap": "ChesapeakeMkI"
     },
     {
       "id": "v_156_f",
@@ -4139,6 +4284,11 @@
       "id": "xf5f",
       "name": "XF5F Skyrocket",
       "nogap": "XF5FSkyrocket"
+    },
+    {
+      "id": "xf5u_1",
+      "name": "XF5U-1",
+      "nogap": "XF5U1"
     },
     {
       "id": "xp-50",
@@ -4266,6 +4416,11 @@
       "nogap": "Yak9UT"
     },
     {
+      "id": "yak_1_litvyak",
+      "name": "Yak-1 Litvyak",
+      "nogap": "Yak1Litvyak"
+    },
+    {
       "id": "yak_2_kabb",
       "name": "Yak-2 KABB",
       "nogap": "Yak2KABB"
@@ -4284,6 +4439,11 @@
       "id": "z_1007_bis_serie5",
       "name": "Z.1007 bis serie 5",
       "nogap": "Z1007bisserie5"
+    },
+    {
+      "id": "zeppelin",
+      "name": "Zeppelin LZ 62 (L 30) R",
+      "nogap": "ZeppelinLZ62(L30)R"
     }
   ],
   "turboprop": [
@@ -4293,8 +4453,13 @@
       "nogap": "A2D1Skyshark"
     },
     {
+      "id": "quing_6",
+      "name": "Qing-6",
+      "nogap": "Qing6"
+    },
+    {
       "id": "wyvern_s4",
-      "name": "Wyvern S4",
+      "name": "Wyvern S.4",
       "nogap": "WyvernS4"
     }
   ],
@@ -4480,6 +4645,11 @@
       "nogap": "B57BCanberra"
     },
     {
+      "id": "b_66b",
+      "name": "B-66B Destroyer",
+      "nogap": "B66BDestroyer"
+    },
+    {
       "id": "bi",
       "name": "BI",
       "nogap": "BI"
@@ -4510,9 +4680,19 @@
       "nogap": "CanberraBMk2"
     },
     {
+      "id": "cf_188a_canada",
+      "name": "CF-188A",
+      "nogap": "CF188A"
+    },
+    {
       "id": "dh_110_sea_vixen",
       "name": "DH.110 Sea Vixen F.A.W. Mk.2",
       "nogap": "DH110SeaVixenFAWMk2"
+    },
+    {
+      "id": "ef_2000_aesa",
+      "name": "\u25c4EF-2000 (AESA)",
+      "nogap": "\u25c4EF2000(AESA)"
     },
     {
       "id": "ef_2000_block_10",
@@ -4525,9 +4705,19 @@
       "nogap": "EF2000TyphoonFGR4"
     },
     {
+      "id": "ef_2000_typhoon_aesa",
+      "name": "EF-2000 Typhoon (AESA)",
+      "nogap": "EF2000Typhoon(AESA)"
+    },
+    {
       "id": "ef_2000a",
       "name": "F-2000A Typhoon",
       "nogap": "F2000ATyphoon"
+    },
+    {
+      "id": "ef_2000a_aesa",
+      "name": "F-2000A (AESA) Typhoon",
+      "nogap": "F2000A(AESA)Typhoon"
     },
     {
       "id": "etndard_4m",
@@ -4700,6 +4890,11 @@
       "nogap": "\u2584F5AFreedomFighter"
     },
     {
+      "id": "f-5ag_norway",
+      "name": "\u25e2F-5A(G) Tiger-PAWS",
+      "nogap": "\u25e2F5A(G)TigerPAWS"
+    },
+    {
       "id": "f-5c",
       "name": "F-5C Skoshi Tiger",
       "nogap": "F5CSkoshiTiger"
@@ -4720,9 +4915,19 @@
       "nogap": "\u2584F5EFCU"
     },
     {
+      "id": "f-5e_switzerland",
+      "name": "\u25ccF-5E Tiger II",
+      "nogap": "\u25ccF5ETigerII"
+    },
+    {
       "id": "f-5t_thailand",
       "name": "\u2584F-5T Tigris SCU",
       "nogap": "\u2584F5TTigrisSCU"
+    },
+    {
+      "id": "f-5th_thailand",
+      "name": "\u2584F-5TH Super Tigris TCU",
+      "nogap": "\u2584F5THSuperTigrisTCU"
     },
     {
       "id": "f-80",
@@ -4960,6 +5165,11 @@
       "nogap": "\u2417F100FSuperSabre"
     },
     {
+      "id": "f_106a_1972",
+      "name": "F-106A \"Six Shooter\"",
+      "nogap": "F106A\"SixShooter\""
+    },
+    {
       "id": "f_111a",
       "name": "F-111A Aardvark",
       "nogap": "F111AAardvark"
@@ -5010,6 +5220,11 @@
       "nogap": "F15CBaz(Improved)Meshupar"
     },
     {
+      "id": "f_15c_golden_eagle",
+      "name": "F-15C Golden Eagle",
+      "nogap": "F15CGoldenEagle"
+    },
+    {
       "id": "f_15c_msip2",
       "name": "F-15C MSIP II Eagle",
       "nogap": "F15CMSIPIIEagle"
@@ -5045,6 +5260,11 @@
       "nogap": "F16ABlock10Netz"
     },
     {
+      "id": "f_16a_block_10_netz_mod",
+      "name": "F-16A Block 10 Netz (Mod)",
+      "nogap": "F16ABlock10Netz(Mod)"
+    },
+    {
       "id": "f_16a_block_15_adf",
       "name": "F-16A Block 15 ADF Fighting Falcon",
       "nogap": "F16ABlock15ADFFightingFalcon"
@@ -5070,9 +5290,19 @@
       "nogap": "\u2417F16ABlock20MLUFightingFalcon"
     },
     {
+      "id": "f_16a_block_5_netherlands",
+      "name": "\u25d8F-16A Block 5 Fighting Falcon",
+      "nogap": "\u25d8F16ABlock5FightingFalcon"
+    },
+    {
       "id": "f_16aj",
       "name": "F-16AJ Fighting Falcon",
       "nogap": "F16AJFightingFalcon"
+    },
+    {
+      "id": "f_16am_block_20_mlu_norway",
+      "name": "\u25e2F-16AM Block 20 MLU Fighting Falcon",
+      "nogap": "\u25e2F16AMBlock20MLUFightingFalcon"
     },
     {
       "id": "f_16c_block_40_barak_2",
@@ -5100,9 +5330,84 @@
       "nogap": "F16DBlock40BarakII"
     },
     {
+      "id": "f_16i_sufa",
+      "name": "F-16I Sufa",
+      "nogap": "F16ISufa"
+    },
+    {
       "id": "f_20a",
       "name": "F-20A Tigershark",
       "nogap": "F20ATigershark"
+    },
+    {
+      "id": "f_2a",
+      "name": "F-2A",
+      "nogap": "F2A"
+    },
+    {
+      "id": "f_2a_adtw",
+      "name": "F-2A ADTW",
+      "nogap": "F2AADTW"
+    },
+    {
+      "id": "f_4e_event",
+      "name": "F-4E Phantom II",
+      "nogap": "F4EPhantomII"
+    },
+    {
+      "id": "fa_18a",
+      "name": "F/A-18A Hornet",
+      "nogap": "F/A18AHornet"
+    },
+    {
+      "id": "fa_18a_hug_2_raaf",
+      "name": "\u2584AF/A-18A (HUG 2.4) Hornet",
+      "nogap": "\u2584AF/A18A(HUG24)Hornet"
+    },
+    {
+      "id": "fa_18a_raaf",
+      "name": "\u2584F/A-18A Hornet",
+      "nogap": "\u2584F/A18AHornet"
+    },
+    {
+      "id": "fa_18c_early",
+      "name": "F/A-18C (Early) Hornet",
+      "nogap": "F/A18C(Early)Hornet"
+    },
+    {
+      "id": "fa_18c_finland",
+      "name": "\u2584F-18C Hornet",
+      "nogap": "\u2584F18CHornet"
+    },
+    {
+      "id": "fa_18c_late",
+      "name": "F/A-18C (Late) Hornet",
+      "nogap": "F/A18C(Late)Hornet"
+    },
+    {
+      "id": "fa_18c_late_switzerland",
+      "name": "\u25ccF/A-18C (Late) Hornet",
+      "nogap": "\u25ccF/A18C(Late)Hornet"
+    },
+    {
+      "id": "fa_18c_mlu_2_finland",
+      "name": "\u2584F/A-18C MLU 2 Hornet",
+      "nogap": "\u2584F/A18CMLU2Hornet"
+    },
+    {
+      "id": "fa_18c_switzerland",
+      "name": "\u25ccF/A-18C Hornet",
+      "nogap": "\u25ccF/A18CHornet"
+    },
+    {
+      "id": "fa_18d_late_malaysia",
+      "name": "\u2584F/A-18D (Late) Hornet",
+      "nogap": "\u2584F/A18D(Late)Hornet"
+    },
+    {
+      "id": "fa_18e_block_2",
+      "name": "F/A-18E (Block 2) Super Hornet",
+      "nogap": "F/A18E(Block2)SuperHornet"
     },
     {
       "id": "fau-1",
@@ -5111,8 +5416,8 @@
     },
     {
       "id": "ffa_p16",
-      "name": "FFA P-16",
-      "nogap": "FFAP16"
+      "name": "\u25ccFFA P-16",
+      "nogap": "\u25ccFFAP16"
     },
     {
       "id": "fiat_g91_ps",
@@ -5190,6 +5495,26 @@
       "nogap": "HarrierGR7"
     },
     {
+      "id": "harrier_t10",
+      "name": "Harrier T.10",
+      "nogap": "HarrierT10"
+    },
+    {
+      "id": "hawk_200",
+      "name": "Hawk 200",
+      "nogap": "Hawk200"
+    },
+    {
+      "id": "hawk_200_rda",
+      "name": "Hawk 200 RDA",
+      "nogap": "Hawk200RDA"
+    },
+    {
+      "id": "hawk_209_indonesia",
+      "name": "\u25e5Hawk 209",
+      "nogap": "\u25e5Hawk209"
+    },
+    {
       "id": "he-162a-1",
       "name": "He 162 A-1",
       "nogap": "He162A1"
@@ -5213,6 +5538,11 @@
       "id": "hunter_f58_switzerland",
       "name": "\u25ccHunter F.58",
       "nogap": "\u25ccHunterF58"
+    },
+    {
+      "id": "hunter_f58a_1971_switzerland",
+      "name": "\u25ccHunter F.58A (1971)",
+      "nogap": "\u25ccHunterF58A(1971)"
     },
     {
       "id": "hunter_f6",
@@ -5275,6 +5605,11 @@
       "nogap": "J10A(Early)"
     },
     {
+      "id": "j_10c",
+      "name": "J-10C",
+      "nogap": "J10C"
+    },
+    {
       "id": "j_11",
       "name": "J-11",
       "nogap": "J11"
@@ -5283,6 +5618,11 @@
       "id": "j_11a",
       "name": "J-11A",
       "nogap": "J11A"
+    },
+    {
+      "id": "j_11b",
+      "name": "J-11B",
+      "nogap": "J11B"
     },
     {
       "id": "j_7_mk2",
@@ -5350,9 +5690,19 @@
       "nogap": "JF17Thunder"
     },
     {
+      "id": "jh_7",
+      "name": "JH-7 Block 02 Flying Leopard",
+      "nogap": "JH7Block02FlyingLeopard"
+    },
+    {
       "id": "jh_7a",
-      "name": "JH-7A Flying Leopard II",
-      "nogap": "JH7AFlyingLeopardII"
+      "name": "JH-7A Flying Leopard",
+      "nogap": "JH7AFlyingLeopard"
+    },
+    {
+      "id": "jh_7a_prototype",
+      "name": "JH-7A (Prototype) Flying Leopard",
+      "nogap": "JH7A(Prototype)FlyingLeopard"
     },
     {
       "id": "kfir_c10_colombia",
@@ -5380,6 +5730,11 @@
       "nogap": "Kikka"
     },
     {
+      "id": "l_39za",
+      "name": "\u2582L-39ZA Albatros",
+      "nogap": "\u2582L39ZAAlbatros"
+    },
+    {
       "id": "la-15",
       "name": "La-15",
       "nogap": "La15"
@@ -5405,6 +5760,21 @@
       "nogap": "LightningF6"
     },
     {
+      "id": "marut_mk1",
+      "name": "\u2584HF-24 Marut",
+      "nogap": "\u2584HF24Marut"
+    },
+    {
+      "id": "mb_326b",
+      "name": "MB-326B",
+      "nogap": "MB326B"
+    },
+    {
+      "id": "mb_326k",
+      "name": "MB-326K",
+      "nogap": "MB326K"
+    },
+    {
       "id": "md_450b_barougan",
       "name": "M.D.450B Barougan",
       "nogap": "MD450BBarougan"
@@ -5418,6 +5788,11 @@
       "id": "md_450b_ouragan_iaf",
       "name": "\uf059M.D.450B Ouragan",
       "nogap": "\uf059MD450BOuragan"
+    },
+    {
+      "id": "md_450b_ouragan_iaf_29",
+      "name": "\uf059M.D.450B Ouragan (29)",
+      "nogap": "\uf059MD450BOuragan(29)"
     },
     {
       "id": "md_452_mystere_2a",
@@ -5555,6 +5930,11 @@
       "nogap": "MeteorFMk8Reaper"
     },
     {
+      "id": "meteor_frmk9_iaf",
+      "name": "\uf059Meteor FR Mk.9",
+      "nogap": "\uf059MeteorFRMk9"
+    },
+    {
       "id": "meteor_nfmk13",
       "name": "\uf059Meteor NF Mk.13",
       "nogap": "\uf059MeteorNFMk13"
@@ -5646,6 +6026,11 @@
     },
     {
       "id": "mig-21_bis",
+      "name": "MiG-21bis",
+      "nogap": "MiG21bis"
+    },
+    {
+      "id": "mig-21_bis_event",
       "name": "MiG-21bis",
       "nogap": "MiG21bis"
     },
@@ -5765,6 +6150,11 @@
       "nogap": "MiG23MLD"
     },
     {
+      "id": "mig_25pd",
+      "name": "MiG-25PD",
+      "nogap": "MiG25PD"
+    },
+    {
       "id": "mig_27k",
       "name": "MiG-27K",
       "nogap": "MiG27K"
@@ -5780,6 +6170,11 @@
       "nogap": "\u25caMiG29(912A)"
     },
     {
+      "id": "mig_29_9_12_sniper",
+      "name": "MiG-29 Sniper",
+      "nogap": "MiG29Sniper"
+    },
+    {
       "id": "mig_29_9_12b_hungary",
       "name": "\u25d4MiG-29 (9-12B)",
       "nogap": "\u25d4MiG29(912B)"
@@ -5793,6 +6188,11 @@
       "id": "mig_29_9_13",
       "name": "MiG-29 (9-13)",
       "nogap": "MiG29(913)"
+    },
+    {
+      "id": "mig_29n",
+      "name": "\u2584MiG-29 (9-12\u0421\u0414)",
+      "nogap": "\u2584MiG29(912\u0421\u0414)"
     },
     {
       "id": "mig_29smt_9_19",
@@ -5855,6 +6255,11 @@
       "nogap": "MirageIIIE"
     },
     {
+      "id": "mirage_3s_c70_switzerland",
+      "name": "\u25ccMirage IIIS C.70",
+      "nogap": "\u25ccMirageIIISC70"
+    },
+    {
       "id": "mirage_4000",
       "name": "Mirage 4000",
       "nogap": "Mirage4000"
@@ -5893,6 +6298,11 @@
       "id": "nesher",
       "name": "Nesher",
       "nogap": "Nesher"
+    },
+    {
+      "id": "nf_5a_netherlands",
+      "name": "\u25d8NF-5A Freedom Fighter",
+      "nogap": "\u25d8NF5AFreedomFighter"
     },
     {
       "id": "p-59a",
@@ -5935,6 +6345,11 @@
       "nogap": "RafaleCF3R"
     },
     {
+      "id": "rafale_m_f3r",
+      "name": "Rafale M F3-R",
+      "nogap": "RafaleMF3R"
+    },
+    {
       "id": "saab_105g",
       "name": "SAAB-105G",
       "nogap": "SAAB105G"
@@ -5968,6 +6383,11 @@
       "id": "saab_ajs37",
       "name": "AJS37 Viggen",
       "nogap": "AJS37Viggen"
+    },
+    {
+      "id": "saab_f35_wdns",
+      "name": "Saab F-35 Draken",
+      "nogap": "SaabF35Draken"
     },
     {
       "id": "saab_j21ra",
@@ -6063,6 +6483,11 @@
       "id": "saab_jas39c_thailand",
       "name": "\u2584JAS39C Gripen",
       "nogap": "\u2584JAS39CGripen"
+    },
+    {
+      "id": "saab_jas39e",
+      "name": "JAS39E Gripen",
+      "nogap": "JAS39EGripen"
     },
     {
       "id": "saab_sk60b",
@@ -6250,6 +6675,31 @@
       "nogap": "Su27SM"
     },
     {
+      "id": "su_30mk2v_venezuela",
+      "name": "\u2584Su-30MK2 AMV",
+      "nogap": "\u2584Su30MK2AMV"
+    },
+    {
+      "id": "su_30mkk",
+      "name": "\u2417Su-30MKK",
+      "nogap": "\u2417Su30MKK"
+    },
+    {
+      "id": "su_30mkm",
+      "name": "\u2584Su-30MKM",
+      "nogap": "\u2584Su30MKM"
+    },
+    {
+      "id": "su_30sm",
+      "name": "Su-30SM",
+      "nogap": "Su30SM"
+    },
+    {
+      "id": "su_30sm2",
+      "name": "Su-30SM2",
+      "nogap": "Su30SM2"
+    },
+    {
       "id": "su_33",
       "name": "Su-33",
       "nogap": "Su33"
@@ -6315,6 +6765,11 @@
       "nogap": "\u25c4TornadoIDSASSTA1"
     },
     {
+      "id": "tornado_ids_de_assta3_sle",
+      "name": "\u25c4Tornado IDS SLE",
+      "nogap": "\u25c4TornadoIDSSLE"
+    },
+    {
       "id": "tornado_ids_de_mfg",
       "name": "\u25c4Tornado IDS Marineflieger",
       "nogap": "\u25c4TornadoIDSMarineflieger"
@@ -6335,14 +6790,34 @@
       "nogap": "\u2584TornadoIDS(1995)"
     },
     {
+      "id": "tornado_ids_it_ret8",
+      "name": "\u2584Tornado IDS MLU (RET.8)",
+      "nogap": "\u2584TornadoIDSMLU(RET8)"
+    },
+    {
       "id": "tu_14t",
       "name": "Tu-14T",
       "nogap": "Tu14T"
     },
     {
+      "id": "uav_inf_fpv_strike_drone",
+      "name": "uav_inf_fpv_strike_drone",
+      "nogap": "uav_inf_fpv_strike_drone"
+    },
+    {
+      "id": "uav_inf_recon_drone",
+      "name": "uav_inf_recon_drone",
+      "nogap": "uav_inf_recon_drone"
+    },
+    {
       "id": "uav_quadcopter",
       "name": "UAV Raven's Eye",
       "nogap": "UAVRaven'sEye"
+    },
+    {
+      "id": "uav_recon_drone",
+      "name": "uav_recon_drone",
+      "nogap": "uav_recon_drone"
     },
     {
       "id": "vampire_fb5",

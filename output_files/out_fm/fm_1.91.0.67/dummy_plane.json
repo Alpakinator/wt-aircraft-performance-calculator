@@ -1,219 +1,4 @@
 {
- "AileronEffectiveSpeed": 320.0,
- "RudderEffectiveSpeed": 420.0,
- "ElevatorsEffectiveSpeed": 420.0,
- "AileronPowerLoss": 3.0,
- "RudderPowerLoss": 2.0,
- "ElevatorPowerLoss": 2.0,
- "AlphaAileronMin": 0.1,
- "AlphaRudderMin": 0.1,
- "AlphaElevatorMin": 0.2,
- "AllowStrongControlsRestrictions": false,
- "RudderSens": 0.45,
- "ElevatorSens": 0.66,
- "AileronSens": 0.32,
- "GearActuatorSpeed": 0.2,
- "WingActuatorSpeed": 0.1,
- "CockpitDoorSpeed": 0.1,
- "dvFlapsIn": [
-  150.0,
-  280.0,
-  0.15,
-  0.25
- ],
- "dvFlapsOut": [
-  150.0,
-  280.0,
-  0.15,
-  0.02
- ],
- "Wingspan": 11.23,
- "Length": 9.12,
- "StabWidth": 3.0496,
- "FinHeight": 1.7103,
- "Crew": 1,
- "WingAngle": 0.0,
- "StabAngle": 0.0,
- "KeelAngle": 0.0,
- "AileronAngles": [
-  14.0,
-  14.0
- ],
- "ElevatorAngles": [
-  28.0,
-  20.0
- ],
- "RudderAngles": [
-  28.0,
-  28.0
- ],
- "VSlats": [
-  137.0,
-  165.0
- ],
- "Vne": 750.0,
- "VneMach": 1.1,
- "MinimalSpeed": 165.0,
- "MaxSpeedNearGround": 548.36,
- "MaxSpeedAtAltitude": 595.0,
- "MaxSpeedFlaps": 250.0,
- "MinSpeedFlaps": 119.19,
- "CriticalSpeed": 50.0,
- "ArcadeLimitWepMultiplier": 1.6,
- "ArcadeHelpersSensitivity": 1.0,
- "EngineForceMultiplier": 1.0,
- "EngineWepForceMultiplier": 1.1,
- "MomentOfInertia": [
-  5542.73,
-  11209.8,
-  6665.56
- ],
- "AvailableControls": {
-  "hasAileronControl": true,
-  "hasAileronTrimControl": false,
-  "hasAileronTrimGroundControl": false,
-  "hasElevatorControl": true,
-  "hasElevatorTrimControl": true,
-  "hasElevatorTrimGroundControl": false,
-  "hasRudderControl": true,
-  "hasRudderTrimControl": true,
-  "hasRudderTrimGroundControl": false,
-  "hasFlapsControl": true,
-  "hasTakeoffFlapsPosition": false,
-  "hasAirbrake": false,
-  "hasGearControl": true,
-  "hasArrestorControl": false,
-  "hasWingFoldControl": false,
-  "hasCockpitDoorControl": false,
-  "hasWheelBrakeControl": true,
-  "hasLockGearControl": true
- },
- "Areas": {
-  "WingLeftIn": 3.0,
-  "WingLeftMid": 3.0,
-  "WingLeftOut": 3.5,
-  "WingRightIn": 3.0,
-  "WingRightMid": 3.0,
-  "WingRightOut": 3.5,
-  "Aileron": 1.32,
-  "Stabilizer": 1.9,
-  "Elevator": 1.2,
-  "Keel": 0.85,
-  "Rudder": 1.1,
-  "SmallHoleDrag": 0.01,
-  "MediumHoleDrag": 0.02,
-  "BigHoleDrag": 0.04,
-  "SmallHole": 0.0006,
-  "MediumHole": 0.0016,
-  "BigHole": 0.0055,
-  "WingLeftCut": 0.25,
-  "WingRightCut": 0.25
- },
- "Focus": {
-  "FocusOffset": 0.0296,
-  "WingVertPos": 0.0,
-  "AlphaShift": 0.266,
-  "FlapsShift": 0.0887,
-  "GearShift": -0.05,
-  "WingInFocus": 0.43,
-  "WingMidFocus": 2.995,
-  "WingOutFocus": 5.56,
-  "WingV": 1.8,
-  "Stabilizer": 4.3,
-  "Keel": 4.4,
-  "Rudder": 5.1,
-  "Fuselage": [
-   -2.19947,
-   1.0,
-   0.0
-  ],
-  "LeftStab": [
-   -4.3,
-   0.0,
-   1.0
-  ],
-  "RightStab": [
-   -4.3,
-   0.0,
-   -1.0
-  ],
-  "VertStab": [
-   -4.4,
-   1.0,
-   0.0
-  ],
-  "WingVWingFocusMultiplier": 0.0,
-  "SineAOSMultiplier": 1.0
- },
- "Aerodynamics": {
-  "GearCd": 0.035,
-  "RadiatorCd": 0.003,
-  "FuseCd": 0.0,
-  "AirbrakeCd": 0.0,
-  "ClToCmCoeff": 0.055,
-  "UseSpinLoss": false,
-  "SpinClLoss": 0.03,
-  "SpinCdLoss": 0.06,
-  "OswaldsEfficiencyNumber": 0.75,
-  "lineClCoeff": 0.092,
-  "AfterCritParabAngle": 3.0,
-  "AfterCritDeclineCoeff": 0.03,
-  "AfterCritMaxDistanceAngle": 33.0,
-  "ClAfterCrit": 1.09,
-  "NoFlaps": {
-   "Cl0": 0.1,
-   "alphaCritHigh": 16.0,
-   "alphaCritLow": -17.0,
-   "ClCritHigh": 1.4,
-   "ClCritLow": -0.7,
-   "CdMin": 0.0235
-  },
-  "FullFlaps": {
-   "Cl0": 0.6669,
-   "alphaCritHigh": 14.0,
-   "alphaCritLow": -20.0,
-   "ClCritHigh": 1.7,
-   "ClCritLow": -0.7,
-   "CdMin": 0.0813
-  },
-  "Fuselage": {
-   "lineClCoeff": 0.0065,
-   "Cl0": 0.0,
-   "alphaCritHigh": 17.0,
-   "alphaCritLow": -17.0,
-   "ClCritHigh": 0.11,
-   "ClCritLow": -0.11,
-   "CdMin": 0.0
-  },
-  "Stab": {
-   "OswaldsEfficiencyNumber": 1.0,
-   "lineClCoeff": 0.085,
-   "Cl0": 0.0,
-   "alphaCritHigh": 17.0,
-   "alphaCritLow": -17.0,
-   "ClCritHigh": 1.1,
-   "ClCritLow": -1.1,
-   "CdMin": 0.02,
-   "AfterCritParabAngle": 5.0,
-   "AfterCritDeclineCoeff": 0.007,
-   "AfterCritMaxDistanceAngle": 30.0,
-   "ClAfterCrit": 1.09
-  },
-  "Fin": {
-   "OswaldsEfficiencyNumber": 1.0,
-   "lineClCoeff": 0.085,
-   "Cl0": 0.0,
-   "alphaCritHigh": 17.0,
-   "alphaCritLow": -17.0,
-   "ClCritHigh": 1.1,
-   "ClCritLow": -1.1,
-   "CdMin": 0.02,
-   "AfterCritParabAngle": 5.0,
-   "AfterCritDeclineCoeff": 0.007,
-   "AfterCritMaxDistanceAngle": 30.0,
-   "ClAfterCrit": 1.09
-  }
- },
  "Engine0": {
   "Position": [
    1.131,
@@ -309,14 +94,14 @@
     "ThrustMaxCoeff_3_6": 0.237
    },
    "Power": 850.0,
-   "WEP_RPM": 666,
-   "military_RPM": 666,
+   "WEP_rpm": 666,
+   "Mil_rpm": 666,
    "default_RPM": 2650.0,
-   "default-mil_RPM_EffectOnSupercharger": 9.518985291597906,
-   "WEP-mil_RPM_EffectOnSupercharger": 1.0,
-   "Octane_MP": 1,
-   "WEP_MP": 2.016668,
-   "Military_MP": 1.816,
+   "default_mil_RPM_EffectOnSupercharger": 9.518985291597906,
+   "WEP_mil_RPM_EffectOnSupercharger": 1.0,
+   "Octane_mp": 1,
+   "WEP_mp": 2.016668,
+   "Mil_mp": 1.816,
    "crit_supercharger_strength0": 0.3994157565178422,
    "deck_supercharger_strength0": 0.1907766368336469,
    "Deck_Altitude0": -23729.697931087438,
@@ -571,41 +356,8 @@
   },
   "pilots_mass": 90
  },
- "SelfSealingTanks": {
-  "tank1_dm": true,
-  "tank2_dm": true,
-  "tank3_dm": true,
-  "tank4_dm": true,
-  "tank5_dm": true,
-  "tank6_dm": true,
-  "tank7_dm": true,
-  "tank8_dm": true
- },
- "Gear": {
-  "SinkFactor": 1000.0,
-  "WaterFriction": 1.0,
-  "FrontalSpringsHeight": 0.3,
-  "TailSpringsHeight": 0.1,
-  "FrontalSpringsCoeff": 277026.0,
-  "TailSpringsCoeff": 277026.0,
-  "HasWheels": true,
-  "LeftWheelRadius": 0.325,
-  "RightWheelRadius": 0.325,
-  "CenterWheelRadius": 0.118,
-  "Height": 1.6145,
-  "Pitch": 11.842,
-  "Floats": false
- },
- "Passport": {
-  "mass": 0.0,
-  "Alt": [],
-  "IAS": []
- },
- "Test": {
-  "mass": 2960.0
- },
  "engine_count": 1,
- "modifications": {},
+ "Modif": {},
  "Guns": {
   "cannonHispanoMkI.blk": {
    "ammo_count": 120,

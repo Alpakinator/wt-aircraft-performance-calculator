@@ -34,6 +34,7 @@ def air_densitier(air_pressure, air_temp, alt):
     air_temp_at_alt = air_temp - (0.0065 * alt)
     R_specific = 287.0500676
     air_density = 101325 * air_pressure / ((273.15 + air_temp_at_alt) * R_specific)
+    print(f"alt,{alt},air_density: {air_density} kg/m^3")
     return air_density
 
 

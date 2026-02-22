@@ -11,25 +11,27 @@ from batch_runner import find_latest_datamine
 Script used for locally making engine power plots, based on flightmodel files from .
 Alows to simultaneously plot engine power logged in-game using WTRTI, if log file directory is referenced in TEST_file_dir variable.
 
+Change stuff in inputter() and then run the whole script.
+
 Useful for development and debugging functions from 'plane_power_calculator' 
-and other scripts, by comparing calulated plots with ones made from in-game logged files.
+and other scripts, by comparing calculated plots with ones made from in-game logged files.
 
 Current issues in 'plane_power_calculator':
- - P-63 A-5 A-10 and C5 aren't accurately modelled above critial altitudes. 
+ - P-63 A-5 A-10 and C5 aren't accurately modelled above critical altitudes. 
  - TU-1 is almost good.
 
-Make sure you have downloaded necessary flighmodel files via 'batch_runner.py' script into the input_files directory.
+Make sure you have downloaded necessary flight model files via 'batch_runner.py' script into the input_files directory.
 """
 
 def inputter():
     """
-    All parameters for customization of the power plot made locally. Used only within this script.
+    All parameters for customization of the power plot. Used only within this script.
 
     Returns:
         tuple: a tuple of all the necessary parameters passed to main.
         """
     plot_all_planes = False
-    speed = 0
+    speed = 300
     speed_type = "IAS"
     air_temp = 15
     air_temp_unit= '°C'
@@ -39,20 +41,50 @@ def inputter():
         "military",
         "WEP"
         ]
-    min_altm = -500
+    min_altm = -5000
     max_altm = 10000
     alt_unit = 'm'
     speed_unit = 'kph'
 
-    axis_layout= False
-    alt_tick = 50
+    axis_layout= True
+    alt_tick = 20
     latest_folder = find_latest_datamine()
-    fm_dir = f"input_files/datamines/{latest_folder}/gamedata/flightmodels/fm/"
-    central_dir = f"input_files/datamines/{latest_folder}/gamedata/flightmodels/"
-    central_fm_read_dir = "output_files/plane_name_files/central-fm_plane_names.json"
+    # comment out the versions you don't want to plot
+    game_versions = [
+    # "aces_2.39.0.8",
+    # "aces_2.37.0.9",
+    # "aces_2.35.0.10",
+    # "aces_2.33.0.4",
+    # "aces_2.31.0.10",
+    # "aces_2.29.0.5",
+    # "aces_2.27.0.19",
+    # "aces_2.25.0.8",
+    # "aces_2.23.0.9",
+    "aces_2.21.0.10",
+    # "aces_2.19.0.13",
+    # "aces_2.17.0.8",
+    # "aces_2.15.0.3",
+    # "aces_2.13.0.11",
+    # "aces_2.11.0.9",
+    # "aces_2.9.0.4",
+    # "aces_2.7.0.10",
+    # "aces_2.5.0.4",
+    # "aces_2.3.0.12",
+    # "aces_2.1.0.18",
+    # "aces_1.101.0.13",
+    # "aces_1.99.0.20",
+    # "aces_1.97.0.54",
+    # "aces_1.95.0.37",
+    # "aces_1.91.0.67",
+    # "aces_1.89",
+        # latest_folder
+    ]
+
     plot_t = "power"
-    
+
+    # put the new test flight climb logs to compare with the calculator here:
     TEST_file_dir = [
+    ### custom i_185 flightmolels resmbling p-63 tested in war thunder. neede for figuring out p-63 power calculation.
     # "ingame_power_log_files\sample_p63a10_2024_06_100%_default.csv",
     # "ingame_power_log_files\sample_p63a10_2024_06_100%_1_curvature.csv",
     # "ingame_power_log_files\sample_i_185_m82-2024_06_13_14_20_06.csv",
@@ -60,22 +92,25 @@ def inputter():
     # "ingame_power_log_files\sample_i_185_m82-2024_06_1325.csv",
     # "ingame_power_log_files\sample_i_185_m82-2024_06_1450.csv",
     # "ingame_power_log_files\sample_i_185_m82-2024_06_exact_true.csv",
-#     "ingame_power_log_files\sample_i_185_m82-2024_06_13_15_05_29.csv",
-#     "ingame_power_log_files\sample_i_185_m82-2024_06_13_15_02_23.csv",
-#     "ingame_power_log_files\sample_i_185_m82-2024_06_13_14_59_13.csv",
-#     "ingame_power_log_files\sample_i_185_m82-2024_06_13_14_57_34.csv",
-# "ingame_power_log_files\sample_i_185_m82-2024_1450deck.csv",
-#    "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_36_48.csv",
-#    "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_34_44.csv",
-#    "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_51_24.csv",
-# "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_49_30.csv",
-# "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_46_35.csv",
-# "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_57_48.csv",
-# "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_55_44.csv",
-# "ingame_power_log_files\sample_i_185_m82-2024_06_13_17_08_46.csv",
-# "ingame_power_log_files\sample_i_185_m82-2024_06_13_21_17_07.csv",
-# "ingame_power_log_files\sample_i_185_m82-2024_06_13_21_15_22.csv",
-# "ingame_power_log_files\sample_i_185_m82-2024_06_13_21_10_37.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_15_05_29.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_15_02_23.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_14_59_13.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_14_57_34.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_1450deck.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_36_48.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_34_44.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_51_24.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_49_30.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_46_35.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_57_48.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_16_55_44.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_17_08_46.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_21_17_07.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_21_15_22.csv",
+    # "ingame_power_log_files\sample_i_185_m82-2024_06_13_21_10_37.csv",
+    ###
+    # "ingame_power_log_files\sample_p63a10_2024_06_100%_default.csv",
+    # "ingame_power_log_files\sample_p63a10_2024_06_100%_1_curvature.csv",
     # "ingame_power_log_files/Bf-109G-2_1.91_climb_to_8k_270IAS.csv",
     # "ingame_power_log_files/saab_b18b-2023_04_280IAS.csv",
     # "ingame_power_log_files/b_26b_c-2024_06_19_08_10_46.csv",
@@ -102,7 +137,6 @@ def inputter():
     # "ingame_power_log_files/spitfire_ix_early-2024_06_02_16_24_14.csv",
     # "ingame_power_log_files/spitfire_ix_early-2024_06_02_16_27_04.csv",
     # "ingame_power_log_files/bv-238-2024_06_02_19_42_58.csv",
-    # put the new test flight climb logs to compare with the calculator here
     # "ingame_power_log_files/f8f_alpha_strike_100%_300kphIAS.csv",
     # "ingame_power_log_files/f8f_alpha_strike_WEP_300kphIAS.csv",
     # "ingame_power_log_files/f8f_alpha_strike_WEP_6-12k_300IAS.csv",
@@ -116,9 +150,9 @@ def inputter():
     # "p-63a-10",
     # "p-63c-5",
     # "p-63a-5",
-    # "p-61c_1",
     # "tu-1",
-    #these have a bit wrong throttling losses below "AltitudeConstRPM1"
+        #####Afaik, all other planes are accurately calculated
+    #  "p-61c_1",
     # "mosquito_fb_mk6",
     # "n1k1_kyuofu",
     # "he_112b_1",
@@ -127,11 +161,10 @@ def inputter():
     # "mb_157",
     # "f_47n_25_re_china",
     # "p-47n-15",
-    #####Afaik, all other planes are accurately calculated
 
     ### GERMANY
 
-    # "bf-109e-4",
+    "bf-109e-4",
     # "bf-109f-1",
     # "bf-109f-4_trop",
     # "bf-109f-4",
@@ -161,7 +194,7 @@ def inputter():
     # "pyorremyrsky",
     # 'bv-238',
 
-    ## JAPAN
+    # # JAPAN
     # 'b6n2',
     # "b7a2_homare_23",
     # "b7a2",
@@ -176,6 +209,7 @@ def inputter():
     # "ki_94_2",
     # "ki_84_ko",
     # "j6k1",
+    # "j7w1",
     # "a7m2",
     # 'a6m5ko',
     # "ki_44_2_hei",
@@ -206,7 +240,7 @@ def inputter():
     # "corsair_fmk2",
     # "f4u-4",
     # "f4u-6_au-1",
-    # "f4u-1a",
+    "f4u-1a",
     # "am_1_mauler",
     # "pbm_1",
 
@@ -220,7 +254,7 @@ def inputter():
     # "p-38l",
     # "p-38k",
     
-    "xp-50",
+    # "xp-50",
     # "xf5f",
     # "douglas_ad_2",
     # "am_1_mauler",
@@ -246,7 +280,7 @@ def inputter():
     # "a2d", #doesn't work
     # "wyvern_s4", #doesn't work
     # "sea_fury_fb11",
-    "hornet_mk3",
+    # "hornet_mk3",
     # "shackleton_mr_mk_2",
     # "tempest_mk2",
     # "tempest_mkv",
@@ -296,8 +330,8 @@ def inputter():
     # "la-5_type37_early",
     # "mig_3_series_34",
     # "mig_3_series_1_15_bk_pod",
-    "yak-3u",
-    "yak-3",
+    # "yak-3u",
+    # "yak-3",
     # "yak-3_vk107",
     # "po-2",
     # "yak-9u",
@@ -339,8 +373,8 @@ def inputter():
     # "",
     ]
 
-    return (speed, speed_type, air_temp, octane, power_to_weight, engine_modes, alt_tick, fm_dir, central_dir, central_fm_read_dir, min_altm,
-            max_altm, alt_unit, speed_unit, air_temp_unit, axis_layout, plot_t, plot_all_planes, central_names, TEST_file_dir)
+    return (speed, speed_type, air_temp, octane, power_to_weight, engine_modes, alt_tick, min_altm,
+            max_altm, alt_unit, speed_unit, air_temp_unit, axis_layout, plot_t, plot_all_planes, central_names, TEST_file_dir,  game_versions)
 
 def csv_dataframer(TEST_file_dir):
     """
@@ -390,39 +424,32 @@ def main():
     Runs all functions needed to locally run engine power calcuation ond display resulting plots in the browser.
     """
     start_time = time.time()
-    (speed, speed_type, air_temp, octane, power_to_weight, engine_modes, alt_tick, fm_dir, central_dir, central_fm_read_dir, min_altm, max_altm, alt_unit, speed_unit, air_temp_unit, axis_layout, plot_t, plot_all_planes, central_names, TEST_file_dir) = inputter()
+    (speed, speed_type, air_temp, octane, power_to_weight, engine_modes, alt_tick, min_altm, max_altm, alt_unit, speed_unit, air_temp_unit, axis_layout, plot_t, plot_all_planes, central_names, TEST_file_dir, game_versions) = inputter()
 
     
-
+    central_fm_read_dir = "output_files/plane_name_files/central-fm_plane_names.json"
     with open(central_fm_read_dir, "r") as central_to_FM_json:
         central_fm_dict = json.load(central_to_FM_json)
+    central_ingame_read_dir = "output_files/plane_name_files/central-ingame_plane_names.json"
+    with open(central_ingame_read_dir, "r") as central_to_ingame_json:
+        central_ingame_dict = json.load(central_to_ingame_json)
     if plot_all_planes == True:
-        planes_to_calculate = central_fm_dict
+        planes_to_calculate = central_ingame_dict['piston']
     else:
         planes_to_calculate = central_names
     named_power_curves_merged = {}
-    for central_name in planes_to_calculate:
-        fm_name = central_fm_dict[central_name]
-        central_dict = central_parser(central_dir, central_name, ".blkx")
-        fm_dict = fm_parser(fm_dir, fm_name, ".blkx")   
-        power_curves_merged, speed_multiplier = power_curve_culator(central_name, fm_dict, central_dict, speed, speed_type, air_temp, octane, engine_modes,min_altm, max_altm, alt_tick)
-        named_power_curves_merged[central_name] = power_curves_merged
+    for game_version in game_versions:
+        
+        fm_dir = f"input_files/datamines/{game_version}/gamedata/flightmodels/fm/"
+        central_dir = f"input_files/datamines/{game_version}/gamedata/flightmodels/"
+        for central_name in planes_to_calculate:
+            fm_name = central_fm_dict[central_name]
+            central_dict = central_parser(central_dir, central_name, ".blkx")
+            fm_dict = fm_parser(fm_dir, fm_name, ".blkx") 
+            central_name_ver = central_name + "_" + game_version  
+            power_curves_merged, speed_multiplier = power_curve_culator(central_name_ver, fm_dict, central_dict, speed, speed_type, air_temp, octane, engine_modes,min_altm, max_altm, alt_tick)
+            named_power_curves_merged[central_name_ver] = power_curves_merged
     named_power_curves_merged['Altitudes'] = list(range(min_altm, max_altm, alt_tick))
-    #above alt_tick = 1 because otherwise the power_curves_merged[user_alt] = power_curves_merged_unrammed[(alt_RAM + 4000)] will fail
-    #it's because power_curves_merged_unrammed indexes are treated as meters, but is alt tick = 10, then each index is 10m.
-    # otherwise of you want this alt_tick to be 10, then use 'int(round(((alt_RAM + 4000)/10),0))' istead of (alt_RAM + 4000)! 
-    # for (central_name, power_curves_merged_old), (central_name2, speed_multiplier_float) in zip(named_power_curves_merged.items(), plane_speed_multipliers.items()):
-    #     speed_multiplier = {}
-    #     for mode, power_curves_merged_unrammed in power_curves_merged_old.items():
-    #         power_curves_merged = {}
-    #         for user_alt in range(0, max_altm, alt_tick):
-    #             alt_RAM = (rameffect_er(user_alt, air_temp, speed, speed_type, speed_multiplier_float))
-    #             try:
-    #                 power_curves_merged[user_alt] = power_curves_merged_unrammed[int(round(((alt_RAM + 4000)/10),0))] 
-    #             except KeyError:
-    #                 continue #If engine power is 0, the dictionary ends, so you can't apply RAM effect.
-    #         named_power_curves_merged[central_name][mode] = power_curves_merged
-    print(named_power_curves_merged)
     MODEL_dataf_all = dict_dataframer(named_power_curves_merged, alt_unit)
     TEST_dataf = csv_dataframer(TEST_file_dir)
     pd.set_option('display.max_columns', None)

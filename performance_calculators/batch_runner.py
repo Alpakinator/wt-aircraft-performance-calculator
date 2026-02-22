@@ -2,92 +2,21 @@ import os
 import json
 import shutil
 from pathlib import Path
+
 from blkx_parsers import fm_parser, central_parser
-from datamine_fetcher import  newest_repo_getter
+from datamine_fetcher import  newest_repo_getter, repo_processor
 from plane_names_inator import central_fm_jsoner, ingame_central_names_lister, planeinfoarray_maker, vehicle_image_name_jsoner, central_to_fm_giver, valid_plane_checker
 from plane_mass_calculator import gun_ammocount_assembler, ammo_mass_calculator, plane_total_mass_calculator, plane_masses_to_json
-from plane_power_calculator import enginecounter, power_curve_culator, engine_power_to_json, fileprepper
+from plane_power_calculator import enginecounter, power_curve_culator, engine_power_to_json
+from file_prep import version_key, clean_fm_for_comparison, has_files_recursive, find_latest_datamine, fileprepper
 """
 Script for dowloading up-to-date datamine files and generating 
 'engine power', 'plane names' and 'plane mass' .json files.
 Comment in and out sections you want or dont want to run. 
 Downloading datamine takes an hours so be careful with the lines for removing files.
 """
-def version_key(path):
-            """Extract and convert version numbers from path for sorting"""
-            # Get folder name and remove 'aces_' prefix and '_latest' suffix
-            version_str = path.name.split('_')[1]  # Gets the middle part with version
-            if '.' not in version_str:  # Skip if no version number found
-                return (0, 0, 0, 0)
-                
-            # Split version into components
-            parts = version_str.split('.')
-            
-            # Convert to integers, pad with zeros if component missing
-            major = int(parts[0])
-            minor = int(parts[1]) if len(parts) > 1 else 0
-            patch = int(parts[2]) if len(parts) > 2 else 0
-            build = int(parts[3]) if len(parts) > 3 else 0
-            
-            # Special handling for 1.101 vs 1.99
-            if major == 1:
-                minor = int(str(minor).zfill(3))
-                
-            return (major, minor, patch, build)
-
-
-def clean_fm_for_comparison(fm_dict):
-    """Recursively clean FM dict by removing irrelevant sections at any nesting level"""
-    #maybe 'Autopilot' will be useful
-    irrelevant_keys = {
-    "CockpitDoorSpeedClose", "CockpitDoorSpeedOpen", 
-    "Gear", "SelfSealingTanks", "PartsWithSurface",
-    "Parts", "Test", "Passport", "MouseAim", 
-    "GearActuatorSpeed", "CockpitDoorBlockSpeed", "AirBrakeSpeed",
-    "BayDoorSpeed", "BombLauncherSpeed", "InterceptorType", 
-    "MaxSpeedNearGround", "MaxSpeedAtAltitude", "UseAutoPropInertia",   
-    "isAirBrakeAvailableOnGround", "hasIndependentAirbrakesAndFlaps", 
-    "maxChuteSpeed", "minChuteSpeed", "chuteRipSpeed",
-    "GovernorFast", "GearShift", "FireExtinguisher", "Autopilot"
-}
-    if not isinstance(fm_dict, dict):
-        return fm_dict
-        
-    return {
-        k: clean_fm_for_comparison(v)
-        for k, v in fm_dict.items()
-        if k not in irrelevant_keys
-    }
-
-def has_files_recursive(path):
-    """Check if directory contains any files (recursively)"""
-    return any(item.is_file() for item in Path(path).rglob('*'))   
-
-def find_latest_datamine():
-    datamine_path = Path("input_files/datamines")
-    latest_folders = []
-    
-    # Collect all '_latest' folders
-    for folder in datamine_path.iterdir():
-        if folder.is_dir() and folder.name.endswith('_latest'):
-            latest_folders.append(folder)
-    
-    if not latest_folders:
-        return None
-        
-    # Sort folders using version_key function and return highest version
-    latest_folder = sorted(latest_folders, key=version_key)[-1]
-    return str(latest_folder.name)
 
 def main():
-    latest_folder = find_latest_datamine()
-    if not latest_folder:
-        raise Exception("No latest datamine folder found!")
-    print(latest_folder)
-    latest_datamine_dir = f"input_files/datamines/{latest_folder}/"
-    latest_fm_dir = f"input_files/datamines/{latest_folder}/gamedata/flightmodels/fm/"
-    latest_central_dir = f"input_files/datamines/{latest_folder}/gamedata/flightmodels/"
-    latest_gun_dir = f"input_files/datamines/{latest_folder}/gamedata/weapons/"
     name_read_dir = "input_files/vehicle_names/"
     image_write_dir = "input_files/vehicle_images/"
     central_fm_read_dir = "output_files/plane_name_files/central-fm_plane_names.json"
@@ -107,14 +36,26 @@ def main():
     if answer1 == 'yes':
         print('Started fetching datamine files! Might take an hour!')
         newest_repo_getter()
-        print('Finished fetching datamine files! Have fun now.')
+        print('Finished fetching datamine files!')
 
+    answer1_5 = input("Do you have it downloaded? If yes then do you want to extract and prep the needed parts for the rest of the script? \n(yes/no) ")
+    if answer1_5 == 'yes':
+        print('prepping the datamine files!')
+        repo_processor()
+        print('Finished prepping datamine files! Have fun now.')
 
     # Section for downloading datamine ends
     ###########################################
     # Section for calcualting everything starts
 
-
+    latest_folder = find_latest_datamine()
+    if not latest_folder:
+        raise Exception("No latest datamine folder found!")
+    print(latest_folder)
+    latest_datamine_dir = f"input_files/datamines/{latest_folder}/"
+    latest_fm_dir = f"input_files/datamines/{latest_folder}/gamedata/flightmodels/fm/"
+    latest_central_dir = f"input_files/datamines/{latest_folder}/gamedata/flightmodels/"
+    latest_gun_dir = f"input_files/datamines/{latest_folder}/gamedata/weapons/"
     answer2 = input("Do you want to make files with plane names? Necessary for the next step \n(yes/no) ")
     if answer2 == 'yes':
         if os.path.isdir("output_files/plane_name_files/"):
@@ -139,7 +80,7 @@ def main():
         named_power_curves_merged = {}
         plane_speed_multipliers = {}
         enginecounts = {}
-        for central_name in central_ingame_dict['jet'].keys():
+        for central_name in central_ingame_dict['piston'].keys():
         # for central_name in ['yak-38']:
             print('Calculating power of ', central_name)
             central_dict = central_parser(latest_central_dir, central_name, ".blkx")
@@ -201,20 +142,20 @@ def main():
                 plane_gun_ammo_mass_dict = ammo_mass_calculator(gun_dir, plane_gunammo_dict)
 
                 fm_dict = fileprepper(central_dict, fm_dict, plane_gun_ammo_mass_dict)
-
+                useful_fm_dict = clean_fm_for_comparison(fm_dict.copy())
                 if not central_name in oldest_same_fm_counter.keys():
-                    oldest_same_fm_counter[central_name] = [clean_fm_for_comparison(fm_dict.copy()), [version_str]]
+                    oldest_same_fm_counter[central_name] = [useful_fm_dict, [version_str]]
 
-                elif oldest_same_fm_counter[central_name][0] == clean_fm_for_comparison(fm_dict.copy()):
+                elif oldest_same_fm_counter[central_name][0] == useful_fm_dict:
                     continue
                 else:
-                    oldest_same_fm_counter[central_name][0] = clean_fm_for_comparison(fm_dict.copy())
+                    oldest_same_fm_counter[central_name][0] = useful_fm_dict
                     oldest_same_fm_counter[central_name][1].append(version_str)
-
+                # print(useful_fm_dict)
                 write_path = Path.cwd() / out_fm_dir
                 write_path.mkdir(exist_ok=True, parents=True)  
                 with open(out_fm_dir + central_name + '.json', 'w') as plane_fm_file:
-                    json.dump(fm_dict, plane_fm_file, indent=1)
+                    json.dump(useful_fm_dict, plane_fm_file, indent=1)
 
         for key, value in oldest_same_fm_counter.items():
             oldest_same_fm_counter[key] = value[1][::-1]  # Added [::-1] to reverse the list
@@ -226,7 +167,7 @@ def main():
     answer5 = input("Do you want to do all these?: \n 1) create .json array of plane names and unique versions. \n 2) copy it to the website repo. \n 3)Copy all image names of planes to the website repo. \n(yes/no) ")
     if answer5 == 'yes':
 
-        lib_destination = Path.cwd().parents[0] /"wt-aircraft-performance-calculator.org/src/lib/"
+        lib_destination = Path.cwd().parents[0] /"wtapc-org/src/lib/"
         dir_list = sorted(Path("input_files/datamines").iterdir(), key=version_key)
         version_names = [dir.name.split('_')[1] for dir in dir_list if dir.is_dir()][::-1]  # Added [::-1] to reverse the list
         all_verlist_path = os.path.join(name_write_dir, "all_versions_list.json")
@@ -245,12 +186,24 @@ def main():
         if os.path.isdir(img_destination):
             shutil.rmtree(img_destination)
         img_destination.mkdir(exist_ok=True, parents=True)
+        oldest_same_fm_path = os.path.join(name_write_dir, "oldest_same_fm_dict.json")
+        with open(oldest_same_fm_path, 'r') as oldest_same_fm_file:
+            oldest_same_fm_counter = json.load(oldest_same_fm_file)
         for central_name in oldest_same_fm_counter.keys():
             img_source = Path.cwd() / image_write_dir / (central_name + '.png')
             if not img_source.exists():
                  continue
             shutil.copy(img_source, img_destination)
-        
+        fm_destination = Path.cwd().parents[0] / "wtapc-org/static/fm_files/"
+        if os.path.isdir(fm_destination):
+            shutil.rmtree(fm_destination)
+        fm_destination.mkdir(exist_ok=True, parents=True)
+        for version in version_names:
+            fm_source = Path.cwd() / out_fm_path / f"fm_{version}"
+            if not fm_source.exists():
+                continue
+            shutil.copytree(fm_source, fm_destination / f"fm_{version}")
+
     print("This is the end of the script. UUuuuu")
 
     

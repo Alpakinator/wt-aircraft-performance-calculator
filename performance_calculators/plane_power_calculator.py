@@ -2,6 +2,7 @@ import math as ma
 import json
 from pathlib import Path
 from ram_pressure_density_calculator import air_pressurer, altitude_at_pressure, rameffect_er
+from inspect import currentframe, getframeinfo
 """
 The most important file of the entire WTAPC.org project.
 File with all the functions needed to calculate engine power curves of all piston engine aircraft, and save them to .json. 
@@ -46,7 +47,7 @@ def same_engine_checker(fm_dict, engine_keys):
     for key in engine_keys[1:]:
         current_engine = fm_dict[key]["Main"]
         if (first_engine["Power"] != current_engine["Power"] or 
-            first_engine["Thrust"] != current_engine["Thrust"]):
+            first_engine["Thrust"] != current_engine["Thrust"] or fm_dict[engine_keys[0]]["Compressor"] != fm_dict[key]["Compressor"]):
             engines_are_same = False
             break
     return engines_are_same
@@ -55,13 +56,13 @@ def torquer(Main, lower_RPM, higher_RPM):
     """
     Calculates the effect of RPM change on engine power
     Torque curve is an upside down parabola that has a maximum at 75% of WEP RPM
-    Here Main["WEP_RPM"] or Main["military_RPM"] are equivalent to 'x' and 'Torque_max_RPM' to 'b' in:
+    Here Main["WEP_rpm"] or Main["Mil_rpm"] are equivalent to 'x' and 'Torque_max_RPM' to 'b' in:
     = -(x^2) + 2bx curve of torque. then to get engine power you multiply by RPM. 
     """
     Torque_max_RPM = 0.75 * higher_RPM
-    WEP_military_RPM_boost = ((higher_RPM * ((2 * Torque_max_RPM * higher_RPM) - (higher_RPM ** 2))) / (
+    WEP_Mil_rpm_boost = ((higher_RPM * ((2 * Torque_max_RPM * higher_RPM) - (higher_RPM ** 2))) / (
             lower_RPM * ((2 * Torque_max_RPM * lower_RPM) - (lower_RPM ** 2))))
-    return WEP_military_RPM_boost
+    return WEP_Mil_rpm_boost
 ########################################################################################################################
 
 def torque_from_hp(power, reduct_RPM):
@@ -96,8 +97,6 @@ def engine_shortcuter(fm_dict ,engine):
 
     if "Propellor" in Engine:
         Propeller = Engine["Propellor"]
-    # elif "PropellerType0" in fm_dict:
-    #     Propeller = fm_dict["PropellerType0"]["Governor"]
     else:
         Propeller = Main
     return Engine, Compressor, Main, Afterburner, Propeller
@@ -139,29 +138,29 @@ def rpm_er(Main, Propeller):
     """
     Extracts RPM values from flightmodel files for military and WEP mode
     """
-    Main["WEP_RPM"] = 666
-    Main["military_RPM"] = 666
+    Main["WEP_rpm"] = 666
+    Main["Mil_rpm"] = 666
     for key, value in Propeller.items():
         if key[:-1] != "ThrottleRPMAuto":
             continue
         if type(value[0]) is list:
             for value1 in value:
                 if float(value1[0]) == 1.0:
-                    Main["military_RPM"] = float(value1[1])
-                    Main["WEP_RPM"] = float(value1[1])
+                    Main["Mil_rpm"] = float(value1[1])
+                    Main["WEP_rpm"] = float(value1[1])
                 elif float(value1[0]) == 1.1:
-                    Main["WEP_RPM"] = float(value1[1])
+                    Main["WEP_rpm"] = float(value1[1])
         elif float(value[0]) == 1.0:
-            Main["military_RPM"] = float(value[1])
-            Main["WEP_RPM"] = float(value[1])
+            Main["Mil_rpm"] = float(value[1])
+            Main["WEP_rpm"] = float(value[1])
         elif float(value[0]) == 1.1:
-            Main["WEP_RPM"] = float(value[1])
+            Main["WEP_rpm"] = float(value[1])
     
     #FOR REFINEMENT. B7A2 hOMARE 2900 RPM
     # if "PropellerType0" in fm_dict:
-    #     Main["WEP_RPM"] = fm_dict["PropellerType0"]["Governor"]["GovernorAfterburnerParam"]
-    #     if Main["military_RPM"] >= Main["WEP_RPM"]:
-    #         Main["military_RPM"] == Main["WEP_RPM"]
+    #     Main["WEP_rpm"] = fm_dict["PropellerType0"]["Governor"]["GovernorAfterburnerParam"]
+    #     if Main["Mil_rpm"] >= Main["WEP_rpm"]:
+    #         Main["Mil_rpm"] == Main["WEP_rpm"]
     return
 
 def wep_mp_er(Engine, Compressor, Main, Afterburner):
@@ -170,9 +169,9 @@ def wep_mp_er(Engine, Compressor, Main, Afterburner):
     """
     mode_manifolds = {}
     non_wep_manifolds = {}
-    Main["Octane_MP"] = 1
-    Main["WEP_MP"] = 1
-    Main["Military_MP"] = 1
+    Main["Octane_mp"] = 1
+    Main["WEP_mp"] = 1
+    Main["Mil_mp"] = 1
 
     for key_T, value_T in Engine["Temperature"].items():
         if key_T[:-1] == "Mode":
@@ -185,17 +184,17 @@ def wep_mp_er(Engine, Compressor, Main, Afterburner):
             non_wep_manifolds = dict(sorted(non_wep_manifolds.items(), key=lambda item: item[1]))
 
     if Afterburner:
-        Main["Military_MP"] = list(non_wep_manifolds.values())[-1]
+        Main["Mil_mp"] = list(non_wep_manifolds.values())[-1]
         if list(mode_manifolds.values())[-1] - Compressor["AfterburnerManifoldPressure"] > 0.02:
-            Main["WEP_MP"] = Compressor["AfterburnerManifoldPressure"]
+            Main["WEP_mp"] = Compressor["AfterburnerManifoldPressure"]
         else:
-            Main["WEP_MP"] = Compressor["AfterburnerManifoldPressure"]
+            Main["WEP_mp"] = Compressor["AfterburnerManifoldPressure"]
     elif not Afterburner:
         if ma.isclose(list(mode_manifolds.values())[-1], Compressor["AfterburnerManifoldPressure"], abs_tol=0.011):
-            Main["Military_MP"] = list(non_wep_manifolds.values())[-1]
-            Main["Military_MP"] = list(non_wep_manifolds.values())[-1]
+            Main["Mil_mp"] = list(non_wep_manifolds.values())[-1]
+            Main["Mil_mp"] = list(non_wep_manifolds.values())[-1]
         elif list(mode_manifolds.values())[-1] - Compressor["AfterburnerManifoldPressure"] < -0.02:
-            Main["Military_MP"] = list(non_wep_manifolds.values())[-1]
+            Main["Mil_mp"] = list(non_wep_manifolds.values())[-1]
     return
 
 def wep_rpm_ratioer(Main, Compressor, Propeller):
@@ -203,23 +202,23 @@ def wep_rpm_ratioer(Main, Compressor, Propeller):
     Equation governing how much RPM increase on WEP, strengthens supercharger effectiveness.
     Uses surprisingly many parameters from FM file in complex ways.
 
-    Main["WEP-mil_RPM_EffectOnSupercharger"] (float): usually between 1<->1.3 Coefficient of supercharger strength when switching form military to WEP.
+    Main["WEP_mil_RPM_EffectOnSupercharger"] (float): usually between 1<->1.3 Coefficient of supercharger strength when switching form military to WEP.
     """ 
-    if ("ShaftRPMMax" in Main and Main["ShaftRPMMax"] - Main["military_RPM"] > 5 and Main["ShaftRPMMax"] - Main["WEP_RPM"] < 5):
+    if ("ShaftRPMMax" in Main and Main["ShaftRPMMax"] - Main["Mil_rpm"] > 5 and Main["ShaftRPMMax"] - Main["WEP_rpm"] < 5):
         Main["default_RPM"] = Main["ShaftRPMMax"]
-    elif ("RPMNom" in Main and Main["RPMNom"] - Main["military_RPM"] > 5):
+    elif ("RPMNom" in Main and Main["RPMNom"] - Main["Mil_rpm"] > 5):
         Main["default_RPM"] = Main["RPMNom"]  # For when Shaft RPM = WEP RPM. Becasue "CompressorPressureAtRPM0" is defined for WEP RPM, not military RPM
-    elif ("GovernorMaxParam" in Propeller and ((Propeller["GovernorMaxParam"] - Main["military_RPM"]) > 5)):
+    elif ("GovernorMaxParam" in Propeller and ((Propeller["GovernorMaxParam"] - Main["Mil_rpm"]) > 5)):
         Main["default_RPM"] = Propeller["GovernorMaxParam"]
     else:
-        Main["default_RPM"] = Main["military_RPM"]
+        Main["default_RPM"] = Main["Mil_rpm"]
     # Main["default_RPM"] = 2600
-    Main["default-mil_RPM_EffectOnSupercharger"] = (1 + ((1 - Compressor["CompressorPressureAtRPM0"]) / Main["military_RPM"]) * (Main["default_RPM"] - Main["military_RPM"])) \
+    Main["default_mil_RPM_EffectOnSupercharger"] = (1 + ((1 - Compressor["CompressorPressureAtRPM0"]) / Main["Mil_rpm"]) * (Main["default_RPM"] - Main["Mil_rpm"])) \
                         ** (1 + Compressor["CompressorOmegaFactorSq"])
-    Main["WEP-mil_RPM_EffectOnSupercharger"] = (1 + ((1 - Compressor["CompressorPressureAtRPM0"]) / Main["military_RPM"]) * (Main["WEP_RPM"] - Main["military_RPM"])) \
+    Main["WEP_mil_RPM_EffectOnSupercharger"] = (1 + ((1 - Compressor["CompressorPressureAtRPM0"]) / Main["Mil_rpm"]) * (Main["WEP_rpm"] - Main["Mil_rpm"])) \
                         ** (1 + Compressor["CompressorOmegaFactorSq"])
     # else:  # When military RPM is actually the default one
-    #     Main["WEP-mil_RPM_EffectOnSupercharger"] = (1 + ((1 - Compressor["CompressorPressureAtRPM0"]) / Main["military_RPM"]) * (Main["WEP_RPM"] - Main["military_RPM"])) \ ** (1 + Compressor["CompressorOmegaFactorSq"])
+    #     Main["WEP_mil_RPM_EffectOnSupercharger"] = (1 + ((1 - Compressor["CompressorPressureAtRPM0"]) / Main["Mil_rpm"]) * (Main["WEP_rpm"] - Main["Mil_rpm"])) \ ** (1 + Compressor["CompressorOmegaFactorSq"])
     return
 
 def definition_alt_power_adjuster(Main, Compressor, Propeller, i):
@@ -233,34 +232,34 @@ def definition_alt_power_adjuster(Main, Compressor, Propeller, i):
         Compressor["Old_Ceiling" + str(i)] = Compressor["Ceiling" + str(i)]
     if ConstRPM_is(Compressor, i):
         Compressor["Old_PowerConstRPM" + str(i)] = Compressor["PowerConstRPM" + str(i)]
-    if (("ShaftRPMMax" in Main and Main["ShaftRPMMax"] - Main["military_RPM"] > 5 and Main["ShaftRPMMax"] - Main["WEP_RPM"] < 5) or
-            ("RPMNom" in Main and Main["RPMNom"] - Main["military_RPM"] > 5) or ("GovernorMaxParam" in Propeller and ((Propeller["GovernorMaxParam"] - Main["military_RPM"]) > 5) )):  # If fm power and crit alt is for WEP RPM
+    if (("ShaftRPMMax" in Main and Main["ShaftRPMMax"] - Main["Mil_rpm"] > 5 and Main["ShaftRPMMax"] - Main["WEP_rpm"] < 5) or
+            ("RPMNom" in Main and Main["RPMNom"] - Main["Mil_rpm"] > 5) or ("GovernorMaxParam" in Propeller and ((Propeller["GovernorMaxParam"] - Main["Mil_rpm"]) > 5) )):  # If fm power and crit alt is for WEP RPM
         if ConstRPM_is(Compressor, i):
             Compressor["Old_PowerConstRPM" + str(i)] = Compressor["PowerConstRPM" + str(i)]
             Compressor["PowerConstRPM" + str(i)] = Compressor["PowerConstRPM" + str(i)] / (
-                torquer(Main, Main["military_RPM"], Main["default_RPM"]))
+                torquer(Main, Main["Mil_rpm"], Main["default_RPM"]))
         # Useful for marking the wep_crit_alt <-> mil_crit alt area
         Compressor["Old_Power" + str(i)] = Compressor["Power" + str(i)]
-        Compressor["Old_Power_new_RPM" + str(i)] = Compressor["Old_Power" + str(i)]/torquer(Main, Main["military_RPM"], Main["default_RPM"])
+        Compressor["Old_Power_new_RPM" + str(i)] = Compressor["Old_Power" + str(i)]/torquer(Main, Main["Mil_rpm"], Main["default_RPM"])
         Compressor["Old_Altitude" + str(i)] = Compressor["Altitude" + str(i)]
 
-        fake_mil_crit_supercharger_strength = Main["Military_MP"] / air_pressurer(Compressor["Altitude" + str(i)])
-        Main["crit_supercharger_strength" + str(i)] = fake_mil_crit_supercharger_strength / Main["default-mil_RPM_EffectOnSupercharger"]
-        Compressor["Altitude" + str(i)] = round(altitude_at_pressure(Main["Military_MP"] / Main["crit_supercharger_strength" + str(i)]))
+        fake_mil_crit_supercharger_strength = Main["Mil_mp"] / air_pressurer(Compressor["Altitude" + str(i)])
+        Main["crit_supercharger_strength" + str(i)] = fake_mil_crit_supercharger_strength / Main["default_mil_RPM_EffectOnSupercharger"]
+        Compressor["Altitude" + str(i)] = round(altitude_at_pressure(Main["Mil_mp"] / Main["crit_supercharger_strength" + str(i)]))
 
-        fake_mil_deck_supercharger_strength = Main["Military_MP"] / air_pressurer(0)
-        Main["deck_supercharger_strength" + str(i)] = fake_mil_deck_supercharger_strength / Main["default-mil_RPM_EffectOnSupercharger"]
-        Main["Deck_Altitude" + str(i)] = altitude_at_pressure(Main["Military_MP"] /Main["deck_supercharger_strength" + str(i)])
+        fake_mil_deck_supercharger_strength = Main["Mil_mp"] / air_pressurer(0)
+        Main["deck_supercharger_strength" + str(i)] = fake_mil_deck_supercharger_strength / Main["default_mil_RPM_EffectOnSupercharger"]
+        Main["Deck_Altitude" + str(i)] = altitude_at_pressure(Main["Mil_mp"] /Main["deck_supercharger_strength" + str(i)])
 
         Compressor["Power" + str(i)] = ((equationer(Compressor["Power" + str(i)], Compressor["Old_Altitude" + str(i)],
                                         Compressor["Power" + str(i)] * ((Main["Power"]/Compressor["Old_Power" + str(0)] )),Compressor["Old_Altitude" + str(i)]-Compressor["Old_Altitude" + str(0)], Compressor["Altitude" + str(i)], 1))
-                                        / (torquer(Main, Main["military_RPM"], Main["default_RPM"])))
+                                        / (torquer(Main, Main["Mil_rpm"], Main["default_RPM"])))
         if Ceiling_is(Compressor, i):
             Compressor["Old_Ceiling" + str(i)] = Compressor["Ceiling" + str(i)]
             Compressor["Old_PowerAtCeiling" + str(i)] = Compressor["PowerAtCeiling" + str(i)]
-            fake_mil_ceil_supercharger_strength = Main["Military_MP"] / air_pressurer(Compressor["Ceiling" + str(i)])
-            ceil_supercharger_strength = fake_mil_ceil_supercharger_strength / Main["default-mil_RPM_EffectOnSupercharger"]
-            Compressor["Ceiling" + str(i)] = round(altitude_at_pressure(Main["Military_MP"] / ceil_supercharger_strength))
+            fake_mil_ceil_supercharger_strength = Main["Mil_mp"] / air_pressurer(Compressor["Ceiling" + str(i)])
+            ceil_supercharger_strength = fake_mil_ceil_supercharger_strength / Main["default_mil_RPM_EffectOnSupercharger"]
+            Compressor["Ceiling" + str(i)] = round(altitude_at_pressure(Main["Mil_mp"] / ceil_supercharger_strength))
 
         if ConstRPM_is(Compressor, i) and Compressor["Old_PowerConstRPM" + str(i)] == Compressor["Old_Power" + str(i)]:
             #For Hornet Mk3. After adjusting military power and crit alts to lower RPM, "AltitudeConstRPM" is no longer
@@ -272,7 +271,7 @@ def definition_alt_power_adjuster(Main, Compressor, Propeller, i):
         deck_power_maker(Main, Compressor, i) #Important. Redefines Main["Power" + str(i)] in case things abpve changed how Main["Power" + str(i)] should be defined.        
         Main["Power" + str(i)] = equationer(Compressor["Old_Power" + str(i)], Compressor["Old_Altitude" + str(i)],
                                             Main["Power" + str(i)], 0, Main["Deck_Altitude" + str(i)], 1) / (
-                                     torquer(Main, Main["military_RPM"], Main["default_RPM"]))    
+                                     torquer(Main, Main["Mil_rpm"], Main["default_RPM"]))    
     return
 
 def deck_power_maker(Main, Compressor, i):
@@ -294,6 +293,26 @@ def deck_power_maker(Main, Compressor, i):
     return
 
 
+# def soviet_octane_adder(FMmodel, eng, stage):
+#     """
+#     Adds effect of soviet higher octane engine upgrade
+#     """
+#     if not "modifications" in FMmodel:
+#         return
+#     if ("ussr_fuel_b-95" in FMmodel["modifications"] and
+#         FMmodel["modifications"]["ussr_fuel_b-95"]["effects"]["addHorsePowers"] == 50) or \
+#         ("ussr_fuel_b-100" in FMmodel["modifications"] and
+#         FMmodel["modifications"]["ussr_fuel_b-100"]["effects"]["addHorsePowers"] == 50):
+#         universal_octane_modifier = 1.018
+#         if stage == 0:
+#             FMmodel[eng]['Main']["Power"] = FMmodel[eng]['Main']["Power"] * universal_octane_modifier
+#         if ConstRPM_is(FMmodel[eng]['Compressor'], stage):
+#             FMmodel[eng]['Compressor']["PowerConstRPM" + str(stage)] = FMmodel[eng]['Compressor']["PowerConstRPM" + str(stage)] * universal_octane_modifier
+#         FMmodel[eng]['Compressor']["Power" + str(stage)] = FMmodel[eng]['Compressor']["Power" + str(stage)] * universal_octane_modifier
+#         if Ceiling_is_useful(FMmodel[eng]['Compressor'], stage):
+#             FMmodel[eng]['Compressor']["PowerAtCeiling" + str(stage)] = FMmodel[eng]['Compressor']["PowerAtCeiling" + str(stage)] * universal_octane_modifier
+#     return
+
 def soviet_octane_adder(central_dict, Compressor, Main, i, octane):
     """
     Adds effect of soviet higher octane engine upgrade
@@ -314,7 +333,6 @@ def soviet_octane_adder(central_dict, Compressor, Main, i, octane):
             Compressor["PowerAtCeiling" + str(i)] = Compressor["PowerAtCeiling" + str(i)] * universal_octane_modifier
     return
 
-
 def brrritish_octane_adder(central_dict, Main, octane):
     """
     Adds effect of British higher octane engine upgrade
@@ -327,24 +345,24 @@ def brrritish_octane_adder(central_dict, Main, octane):
         Octane_modifier = central_dict["modifications"]["150_octan_fuel"]["effects"]["afterburnerMult"]
         if octane == True:
             Main["OctaneAfterburnerMult"] = Octane_modifier
-            Main["Octane_MP"] = Main["Military_MP"] + ((Main["WEP_MP"] - Main["Military_MP"])
+            Main["Octane_mp"] = Main["Mil_mp"] + ((Main["WEP_mp"] - Main["Mil_mp"])
                             * central_dict["modifications"]["150_octan_fuel"]["effects"]["afterburnerCompressorMult"])
     elif "150_octan_fuel" in central_dict["modifications"] and \
                 central_dict["modifications"]["150_octan_fuel"]["invertEnableLogic"] == True:
-        temp_mp = Main["WEP_MP"]
-        Main["WEP_MP"] = Main["Military_MP"] + ((Main["WEP_MP"] - Main["Military_MP"])
+        temp_mp = Main["WEP_mp"]
+        Main["WEP_mp"] = Main["Mil_mp"] + ((Main["WEP_mp"] - Main["Mil_mp"])
                             * central_dict["modifications"]["150_octan_fuel"]["effects"]["afterburnerCompressorMult"])
-        Main["Octane_MP"] = temp_mp
+        Main["Octane_mp"] = temp_mp
         De_Octane_modifier = central_dict["modifications"]["150_octan_fuel"]["effects"]["afterburnerMult"]
         if octane == False:
             Main["OctaneAfterburnerMult"] = De_Octane_modifier
     elif "100_octan_spitfire" in central_dict["modifications"] and \
         central_dict["modifications"]["100_octan_spitfire"]["invertEnableLogic"] == True:
         De_Octane_modifier = central_dict["modifications"]["100_octan_spitfire"]["effects"]["afterburnerMult"]
-        temp_mp = Main["WEP_MP"]
-        Main["WEP_MP"] = Main["Military_MP"] + ((Main["WEP_MP"] - Main["Military_MP"]) *
+        temp_mp = Main["WEP_mp"]
+        Main["WEP_mp"] = Main["Mil_mp"] + ((Main["WEP_mp"] - Main["Mil_mp"]) *
                                 central_dict["modifications"]["100_octan_spitfire"]["effects"]["afterburnerCompressorMult"])
-        Main["Octane_MP"] = temp_mp
+        Main["Octane_mp"] = temp_mp
         if octane == False:
             Main["OctaneAfterburnerMult"] = De_Octane_modifier
     return
@@ -357,52 +375,44 @@ def wep_mulitiplierer(octane, Main, Compressor, i, mode):
     """
     if not 'AfterburnerPressureBoost' + str(i) in Compressor:
         Compressor['AfterburnerPressureBoost' + str(i)] = 1
-    Compressor["Old_Altitude_WEPboost" + str(i)] = round(altitude_at_pressure(air_pressurer(Compressor["Old_Altitude"+ str(i)])/Compressor['AfterburnerPressureBoost' + str(i)]))
+    # Compressor["Old_Altitude_WEPboost" + str(i)] = round(altitude_at_pressure(air_pressurer(Compressor["Old_Altitude"+ str(i)])/Compressor['AfterburnerPressureBoost' + str(i)]))
 
 
-    Main["deck_supercharger_strength" + str(i)] = Main["Military_MP"] / air_pressurer(Main["Deck_Altitude" + str(i)])
-    Main["WEP_deck_supercharger_strength"] = Main["deck_supercharger_strength" + str(i)] * Main["WEP-mil_RPM_EffectOnSupercharger"] * Compressor['AfterburnerPressureBoost' + str(i)]
-    Main["crit_supercharger_strength" + str(i)] = Main["Military_MP"] / air_pressurer(Compressor["Altitude" + str(i)])
-    Main["WEP_crit_supercharger_strength"] = Main["crit_supercharger_strength" + str(i)] * Main["WEP-mil_RPM_EffectOnSupercharger"] * Compressor['AfterburnerPressureBoost' + str(i)]
+    Main["deck_supercharger_strength" + str(i)] = Main["Mil_mp"] / air_pressurer(Main["Deck_Altitude" + str(i)])
+    Main["WEP_deck_supercharger_strength"] = Main["deck_supercharger_strength" + str(i)] * Main["WEP_mil_RPM_EffectOnSupercharger"] * Compressor['AfterburnerPressureBoost' + str(i)]
+    Main["crit_supercharger_strength" + str(i)] = Main["Mil_mp"] / air_pressurer(Compressor["Altitude" + str(i)])
+    Main["WEP_crit_supercharger_strength"] = Main["crit_supercharger_strength" + str(i)] * Main["WEP_mil_RPM_EffectOnSupercharger"] * Compressor['AfterburnerPressureBoost' + str(i)]
     ########################################################################################################################
     if all(k in Compressor for k in ("Ceiling" + str(i), "PowerAtCeiling" + str(i))):
-        # ceil_supercharger_strength = Main["Military_MP"] / air_pressurer(Compressor["Ceiling" + str(i)])
-        # WEP_ceil_supercharger_strength = ceil_supercharger_strength * Main["WEP-mil_RPM_EffectOnSupercharger"]
-        # Main["WEP_ceil_altitude"] = altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) /
-        # WEP_ceil_supercharger_strength)
         Main["WEP_ceil_altitude"] = Compressor["Ceiling" + str(i)]
     else:
         Main["WEP_ceil_altitude"] = 0
-    if Main["Octane_MP"] == 1:
+    if Main["Octane_mp"] == 1:
         octane = False
 
     if octane:
-        Main["WEP_deck_altitude"] = round(altitude_at_pressure(Main["Octane_MP"] / Main["WEP_deck_supercharger_strength"]))
-        Main["WEP_crit_altitude"] = round(altitude_at_pressure(Main["Octane_MP"] / Main["WEP_crit_supercharger_strength"]))
+        Main["WEP_deck_altitude"] = round(altitude_at_pressure(Main["Octane_mp"] / Main["WEP_deck_supercharger_strength"]))
+        Main["WEP_crit_altitude"] = round(altitude_at_pressure(Main["Octane_mp"] / Main["WEP_crit_supercharger_strength"]))
     else:
-        Main["WEP_deck_altitude"] = round(altitude_at_pressure(Main["WEP_MP"] / Main["WEP_deck_supercharger_strength"]))
-        Main["WEP_crit_altitude"] = round(altitude_at_pressure(Main["WEP_MP"] / Main["WEP_crit_supercharger_strength"]))
+        Main["WEP_deck_altitude"] = round(altitude_at_pressure(Main["WEP_mp"] / Main["WEP_deck_supercharger_strength"]))
+        Main["WEP_crit_altitude"] = round(altitude_at_pressure(Main["WEP_mp"] / Main["WEP_crit_supercharger_strength"]))
 
     if mode == "WEP" and Compressor["ExactAltitudes"] == False and ConstRPM_is(Compressor, i): # F2G-1
-        Main["constRPM_supercharger_strength"] = Main["Military_MP"] / air_pressurer(
+        Main["constRPM_supercharger_strength"] = Main["Mil_mp"] / air_pressurer(
             Compressor["AltitudeConstRPM" + str(i)])
-        Main["WEP_constRPM_supercharger_strength"] = Main["constRPM_supercharger_strength"] * Main["WEP-mil_RPM_EffectOnSupercharger"] * Compressor['AfterburnerPressureBoost' + str(i)]
+        Main["WEP_constRPM_supercharger_strength"] = Main["constRPM_supercharger_strength"] * Main["WEP_mil_RPM_EffectOnSupercharger"] * Compressor['AfterburnerPressureBoost' + str(i)]
         if octane:
             Main["WEP_powerconstRPM"] = altitude_at_pressure(
-                Main["Octane_MP"] / Main["WEP_constRPM_supercharger_strength"])
+                Main["Octane_mp"] / Main["WEP_constRPM_supercharger_strength"])
         else:
             Main["WEP_powerconstRPM"] = altitude_at_pressure(
-                Main["WEP_MP"] / Main["WEP_constRPM_supercharger_strength"])
+                Main["WEP_mp"] / Main["WEP_constRPM_supercharger_strength"])
 
     if mode == "WEP":
         if not ("AfterburnerBoostMul" + str(i)) in Compressor:
             Compressor["AfterburnerBoostMul" + str(i)] = 1
         Main["WEP_power_mult"] = ((1 + ((Main["AfterburnerBoost"] - 1) * Main["OctaneAfterburnerMult"])) *
-                              Main["ThrottleBoost"] * Compressor["AfterburnerBoostMul" + str(i)]) * (torquer(Main, Main["military_RPM"], Main["WEP_RPM"]))
-                            # Adding effect of 150 oct fuel upgrade
-        # else:
-        #     Main["WEP_power_mult"] = (Main["AfterburnerBoost"] * Main["ThrottleBoost"] * boost_mul) * (
-        #         torquer(Main))
+                              Main["ThrottleBoost"] * Compressor["AfterburnerBoostMul" + str(i)]) * (torquer(Main, Main["Mil_rpm"], Main["WEP_rpm"]))
         if Compressor["AfterburnerBoostMul" + str(i)] == 0:
             Main["WEP_deck_altitude"] = 0
             Main["WEP_crit_altitude"] = Compressor["Altitude" + str(i)]
@@ -428,31 +438,32 @@ def ConstRPM_bends_above_crit_alt(Compressor, i):
     else:
         return False
 
-def ConstRPM_is_high_bends_below_critalt(Compressor, i):
-    if (ConstRPM_is(Compressor, i)
-            and Compressor["AltitudeConstRPM" + str(i)] > Compressor["Altitude" + str(i)]
-            and Compressor["AltitudeConstRPM" + str(i)] > Compressor["Ceiling" + str(i)]
-            and Compressor["PowerConstRPM" + str(i)] > Compressor["Power" + str(i)]):
-        return True
-    else:
-        return False
-def ConstRPM_is_high_but_useless(Compressor, i):
-    if (ConstRPM_is(Compressor, i)
-            and Compressor["AltitudeConstRPM" + str(i)] > Compressor["Old_Altitude" + str(i)]
-            and Compressor["AltitudeConstRPM" + str(i)] > Compressor["Old_Ceiling" + str(i)]
-            and Compressor["Old_PowerConstRPM" + str(i)] == Compressor["Old_Power" + str(i)]):
-        return True
-    else:
-        return False
+# def ConstRPM_is_high_bends_below_critalt(Compressor, i):
+#     if (ConstRPM_is(Compressor, i)
+#             and Compressor["AltitudeConstRPM" + str(i)] > Compressor["Altitude" + str(i)]
+#             and Compressor["AltitudeConstRPM" + str(i)] > Compressor["Ceiling" + str(i)]
+#             and Compressor["PowerConstRPM" + str(i)] > Compressor["Power" + str(i)]):
+#         return True
+#     else:
+#         return False
+
+# def ConstRPM_is_high_but_useless(Compressor, i):
+#     if (ConstRPM_is(Compressor, i)
+#             and Compressor["AltitudeConstRPM" + str(i)] > Compressor["Old_Altitude" + str(i)]
+#             and Compressor["AltitudeConstRPM" + str(i)] > Compressor["Old_Ceiling" + str(i)]
+#             and Compressor["Old_PowerConstRPM" + str(i)] == Compressor["Old_Power" + str(i)]):
+#         return True
+#     else:
+#         return False
 
 
-def ConstRPM_is_high_equal_to_power(Compressor, i):
-    if (ConstRPM_is(Compressor, i) and i != 0
-            and Compressor["AltitudeConstRPM" + str(i)] == Compressor["Altitude"+ str(i)]
-            and Compressor["PowerConstRPM" + str(i)] == Compressor["Power" + str(i)]):
-        return True
-    else:
-        return False
+# def ConstRPM_is_high_equal_to_power(Compressor, i):
+#     if (ConstRPM_is(Compressor, i) and i != 0
+#             and Compressor["AltitudeConstRPM" + str(i)] == Compressor["Altitude"+ str(i)]
+#             and Compressor["PowerConstRPM" + str(i)] == Compressor["Power" + str(i)]):
+#         return True
+#     else:
+#         return False
 
 
 def ConstRPM_bends_below_critalt(Compressor, i):
@@ -462,12 +473,12 @@ def ConstRPM_bends_below_critalt(Compressor, i):
     else:
         return False
     
-def ConstRPM_bends_below_old_critalt(Compressor, i):
-    if ConstRPM_is(Compressor, i) and -1 > Compressor["AltitudeConstRPM" + str(i)] - Compressor[
-        "Old_Altitude" + str(i)]:
-        return True
-    else:
-        return False
+# def ConstRPM_bends_below_old_critalt(Compressor, i):
+#     if ConstRPM_is(Compressor, i) and -1 > Compressor["AltitudeConstRPM" + str(i)] - Compressor[
+#         "Old_Altitude" + str(i)]:
+#         return True
+#     else:
+#         return False
     
 def ConstRPM_bends_below_WEP_critalt(Main, Compressor, i):
     if ConstRPM_is(Compressor, i) and -1 > Compressor["AltitudeConstRPM" + str(i)] - Main[
@@ -476,26 +487,26 @@ def ConstRPM_bends_below_WEP_critalt(Main, Compressor, i):
     else:
         return False
 
-def ConstRPM_bends_below_critalt_0(Compressor):
-    if ConstRPM_is(Compressor, 0) and -1 > Compressor["AltitudeConstRPM" + str(0)] - Compressor[
-        "Altitude" + str(0)]:  # For A7M2 - cases when constrpm equals altitude
-        return True
-    else:
-        return False
+# def ConstRPM_bends_below_critalt_0(Compressor):
+#     if ConstRPM_is(Compressor, 0) and -1 > Compressor["AltitudeConstRPM" + str(0)] - Compressor[
+#         "Altitude" + str(0)]:  # For A7M2 - cases when constrpm equals altitude
+#         return True
+#     else:
+#         return False
     
-def ConstRPM_bends_below_old_critalt_0(Compressor):
-    if ConstRPM_is(Compressor, 0) and -1 > Compressor["AltitudeConstRPM" + str(0)] - Compressor[
-        "Old_Altitude" + str(0)]:  # For A7M2 - cases when constrpm equals altitude
-        return True
-    else:
-        return False
+# def ConstRPM_bends_below_old_critalt_0(Compressor):
+#     if ConstRPM_is(Compressor, 0) and -1 > Compressor["AltitudeConstRPM" + str(0)] - Compressor[
+#         "Old_Altitude" + str(0)]:  # For A7M2 - cases when constrpm equals altitude
+#         return True
+#     else:
+#         return False
         
-def ConstRPM_is_power(Compressor, i):
-    if (ConstRPM_is(Compressor, i) and Compressor["AltitudeConstRPM" + str(i)] == Compressor["Altitude" + str(i)]
-            and Compressor["PowerConstRPM" + str(i)] == Compressor["Power" + str(i)]):
-        return True
-    else:
-        return False
+# def ConstRPM_is_power(Compressor, i):
+#     if (ConstRPM_is(Compressor, i) and Compressor["AltitudeConstRPM" + str(i)] == Compressor["Altitude" + str(i)]
+#             and Compressor["PowerConstRPM" + str(i)] == Compressor["Power" + str(i)]):
+#         return True
+#     else:
+#         return False
 
 def ConstRPM_is_below_deck(Compressor, i):
     if ConstRPM_is(Compressor, i) and Compressor["AltitudeConstRPM" + str(i)] <= 0:
@@ -612,13 +623,6 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
                                               (Compressor["Altitude" + str(i)])))),
                                           Compressor["Old_Power_new_RPM" + str(i)], Compressor["Altitude" + str(i)],
                                           Compressor["Old_Altitude" + str(i)], curvature)
-                # old_version
-                # higher_power = equationer(Compressor["PowerAtCeiling" + str(i)],
-                #                           altitude_at_pressure(air_pressurer(Compressor["Ceiling" + str(i)]) * (
-                #                                   air_pressurer(Compressor["Altitude" + str(i)]) / air_pressurer(
-                #                               (Compressor["Altitude" + str(i)])))),
-                #                           Compressor["Power" + str(i)], Compressor["Altitude" + str(i)],
-                #                           Compressor["Old_Altitude" + str(i)], curvature)
             else:
                 # print(getframeinfo(currentframe()).lineno)
                 higher = Compressor["Ceiling" + str(i)]
@@ -915,8 +919,7 @@ def variabler(Compressor, Main, i, alt_RAM, mode):
         if (higher < lower) and (higher_power > lower_power):
             lower, higher = higher, lower
             lower_power, higher_power = higher_power, lower_power
-
-    # print(alt_RAM, '[',higher_power, higher, lower_power, lower, curvature,']', Compressor["Power" + str(i)] , 'old_altitude: ', Compressor["Old_Altitude" + str(i)], 'new_altitude: ', Compressor["Altitude" + str(i)], Compressor["Old_Power" + str(i)] , Compressor["Old_Altitude" + str(i)], Main["WEP_crit_altitude"], )
+    # print(alt_RAM, higher_power, higher, lower_power, lower, curvature)
     return higher_power, higher, lower_power, lower, curvature
 
 
@@ -927,16 +930,16 @@ def equationer(higher_power, higher, lower_power, lower, alt_RAM, curvature):
     The function calculating power at altitudes between 'lower' and 'higher'.
     It draws a staight line between [lower_power, lower] and [higher_power, higher] and applies curvature to this line.
     """
-    power_difference = 0
-    if alt_RAM >= lower:
-        power_difference = (higher_power - lower_power)
-    elif alt_RAM < lower:
-        power_difference = (lower_power - higher_power)
+    # if alt_RAM >= lower:
+    #     power_difference = (higher_power - lower_power)
+    # elif alt_RAM < lower:
+    #     power_difference = (lower_power - higher_power)
 
-    power = lower_power + power_difference * (abs((air_pressurer(alt_RAM) - air_pressurer(lower)) /
+    power = lower_power + (higher_power - lower_power) * (((air_pressurer(alt_RAM) - air_pressurer(lower)) /
                                                            (air_pressurer(higher) - air_pressurer(lower)))) ** curvature
     
     return power
+
 
 
 def power_curve_culator(central_name, fm_dict, central_dict, speed, speed_type, air_temp, octane, engine_modes, min_alt, max_alt, alt_tick): 
@@ -969,9 +972,9 @@ def power_curve_culator(central_name, fm_dict, central_dict, speed, speed_type, 
     for h in range(0, compr_stages_count):
         definition_alt_power_adjuster(Main, Compressor, Propeller, h)
         deck_power_maker(Main, Compressor, h)
-    # print( Main["military_RPM"], Main["default_RPM"], Main["WEP_RPM"])
+    # print( Main["Mil_rpm"], Main["default_RPM"], Main["WEP_rpm"])
     # if "GovernorMaxParam" in Propeller.keys():
-    #     print('mil_RPM: ',Main["military_RPM"], 'WEP_RPM: ', Main["WEP_RPM"], 'governor_mil_RPM: ', Propeller["GovernorMaxParam"], 'governor_WEP_RPM: ', Propeller["GovernorAfterburnerParam"])
+    #     print('mil_RPM: ',Main["Mil_rpm"], 'WEP_rpm: ', Main["WEP_rpm"], 'governor_mil_RPM: ', Propeller["GovernorMaxParam"], 'governor_WEP_rpm: ', Propeller["GovernorAfterburnerParam"])
     
     'Calculations begin'
     for i in range(0, compr_stages_count):
@@ -980,7 +983,7 @@ def power_curve_culator(central_name, fm_dict, central_dict, speed, speed_type, 
             for alt in range(min_alt, max_alt, alt_tick):
 
                 if speed > 0:
-                    alt_RAM = rameffect_er(alt, air_temp, speed, speed_type, Compressor)
+                    alt_RAM = rameffect_er(alt, air_temp, speed, speed_type, Compressor["SpeedManifoldMultiplier"])
                 else:
                     alt_RAM = alt
                 # print(alt_RAM)
@@ -989,6 +992,7 @@ def power_curve_culator(central_name, fm_dict, central_dict, speed, speed_type, 
                 # power_curves[mode][i].append(power)
                 power_curves[mode][i].append(power)
     power_curves_merged = plot_merger(power_curves)
+    
     return power_curves_merged, Compressor["SpeedManifoldMultiplier"]
 
 
@@ -1035,53 +1039,8 @@ def engine_power_to_json(power_write_dir, named_power_curves_merged, plane_speed
             with open(powerwritepath, 'w') as plane_power_piston_json:
                 json.dump(complete_power_dict, plane_power_piston_json)
                 
-def fileprepper(central_dict, fm_dict, plane_gun_ammo_mass_dict):
-    """
-    A bulk function running previous functions to make a list of engine power values from -4000m to 20000m for every superchrger gear.
-    """
-    compr_stages_count = 1
-    fm_dict["engine_count"], engine_keys = enginecounter(fm_dict)
-    for engine in engine_keys:
-        Engine, Compressor, Main, Afterburner, Propeller = engine_shortcuter(fm_dict, engine)
-        "Prepping parameters in fm_dict for calculation"
-        if Main["Type"] == "Inline" or Main["Type"] == "Radial":
-            old_type_fm_detector(Compressor, Main)
-            exception_fixer(Compressor)
-            rpm_er(Main, Propeller)
-            wep_rpm_ratioer(Main, Compressor, Propeller)
-            wep_mp_er(Engine, Compressor, Main, Afterburner)
-            for compr_stage in range(0, 6):
-                if "Power" + str(compr_stage) in Compressor:
-                    compr_stages_count = compr_stage + 1
-            for h in range(0, compr_stages_count):
-                definition_alt_power_adjuster(Main, Compressor, Propeller, h)
-                deck_power_maker(Main, Compressor, h)
-    if 'modifications' in central_dict.keys():
-        important_mods = {}
-        for key, value in central_dict['modifications'].items():
-            if value == []:
-                central_dict['modifications'][key] = ['u']
-            if key in ["new_radiator", "cd_98", "CdMin_Fuse", "new_cover", "structure_str",
-                       "hp_105",  "new_compressor", "new_engine_injection", "150_octan_fuel", 
-                        "100_octan_spitfire", "ussr_fuel_b-95", "ussr_fuel_b-100",
-                       "hp_105_jet", "f_4c_CdMin_Fuse", "new_compressor_jet", "hydravlic_power"
-                        ]:
-                important_mods[key] = value
-                
-        fm_dict['Modif'] = important_mods
-    else:
-        fm_dict['Modif'] = {}
-
-    if "MaxFuelMass0" in fm_dict["Mass"]:
-        fm_dict["Mass"]["MaxFuelMass"] = fm_dict["Mass"].pop("MaxFuelMass0")
-    fm_dict["Mass"]['pilots_mass']= 90 * fm_dict["Crew"]
-    fm_dict["Guns"] = plane_gun_ammo_mass_dict
-    fm_dict["engines_are_same"]  = same_engine_checker(fm_dict, engine_keys)
-    return fm_dict
-
-def main():
-    help(fileprepper())     
-     
+def main():   
+     help(power_curve_culator)
 
 if __name__ == "__main__":
     main()

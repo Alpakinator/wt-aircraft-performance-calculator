@@ -1,0 +1,964 @@
+{
+ "Engine0": {
+  "External": false,
+  "Booster": false,
+  "Position": [
+   -3.8,
+   0.0,
+   0.3
+  ],
+  "Direction": [
+   -0.0,
+   0.572939
+  ],
+  "Main": {
+   "FuelSystemNum": 0,
+   "Type": "Jet",
+   "Cylinders": 25,
+   "Mass": 439.0,
+   "Thrust": 2200.0,
+   "ThrottleBoost": 1.01,
+   "AfterburnerBoost": 1.0,
+   "RPMMin": 5500.0,
+   "RPMMax": 16500.0,
+   "RPMAfterburner": 16500.0,
+   "RPMMaxAllowed": 17500.0,
+   "StandbyFriction": 0.055,
+   "FuelConsumptionOnIdle": 0.108,
+   "FuelConsumptionOnHalfThr": 0.476,
+   "FuelConsumptionOnFullThr": 1.15,
+   "FuelConsumptionOnWEP": 1.15,
+   "CarbueretorType": 0,
+   "CarbureutorCapacity": 1.34167,
+   "IsAutonomous": false,
+   "ExtinguisherNum": 0,
+   "MinThrMult": 0.05,
+   "MaxThrMult": 1.0,
+   "IsWaterCooled": false,
+   "EngineInertiaMoment": 1.0,
+   "RPMAmplitude0": [
+    16500.0,
+    0.0
+   ],
+   "RPMAmplitude1": [
+    0.0,
+    70.0
+   ],
+   "ConsumptionOmegaMax": 1.05,
+   "TorqueZeroOmegaMult": 3.0,
+   "TurbineTimeConstant": 2.4,
+   "ThrottleRPMAuto0": [
+    0.0,
+    5500.0
+   ],
+   "ThrottleRPMAuto1": [
+    1.0,
+    16500.0
+   ],
+   "ShaftRPMMin": 5500.0,
+   "ShaftRPMMax": 16500.0,
+   "ShaftRpmController": false,
+   "Power": 1200.0,
+   "ThrustMax": {
+    "Altitude_0": 0.0,
+    "Altitude_1": 3000.0,
+    "Altitude_2": 6000.0,
+    "Altitude_3": 9000.0,
+    "Altitude_4": 12000.0,
+    "Altitude_5": 15000.0,
+    "Velocity_0": 0.0,
+    "Velocity_1": 200.0,
+    "Velocity_2": 400.0,
+    "Velocity_3": 600.0,
+    "Velocity_4": 800.0,
+    "Velocity_5": 1000.0,
+    "Velocity_6": 1200.0,
+    "ThrustMax0": 1230.0,
+    "ThrustMaxCoeff_0_0": 1.0,
+    "TorqueMaxCoeff_0_0": 1.0,
+    "ThrustMaxCoeff_0_1": 0.93,
+    "TorqueMaxCoeff_0_1": 0.93,
+    "ThrustMaxCoeff_0_2": 0.875,
+    "TorqueMaxCoeff_0_2": 0.875,
+    "ThrustMaxCoeff_0_3": 0.876,
+    "TorqueMaxCoeff_0_3": 0.876,
+    "ThrustMaxCoeff_0_4": 0.95,
+    "TorqueMaxCoeff_0_4": 0.95,
+    "ThrustMaxCoeff_0_5": 1.01,
+    "TorqueMaxCoeff_0_5": 1.01,
+    "ThrustMaxCoeff_0_6": 1.02,
+    "TorqueMaxCoeff_0_6": 1.02,
+    "ThrustMaxCoeff_1_0": 0.76,
+    "TorqueMaxCoeff_1_0": 0.76,
+    "ThrustMaxCoeff_1_1": 0.73,
+    "TorqueMaxCoeff_1_1": 0.73,
+    "ThrustMaxCoeff_1_2": 0.71,
+    "TorqueMaxCoeff_1_2": 0.71,
+    "ThrustMaxCoeff_1_3": 0.715,
+    "TorqueMaxCoeff_1_3": 0.715,
+    "ThrustMaxCoeff_1_4": 0.77,
+    "TorqueMaxCoeff_1_4": 0.77,
+    "ThrustMaxCoeff_1_5": 0.8,
+    "TorqueMaxCoeff_1_5": 0.8,
+    "ThrustMaxCoeff_1_6": 0.81,
+    "TorqueMaxCoeff_1_6": 0.81,
+    "ThrustMaxCoeff_2_0": 0.61,
+    "TorqueMaxCoeff_2_0": 0.61,
+    "ThrustMaxCoeff_2_1": 0.58,
+    "TorqueMaxCoeff_2_1": 0.58,
+    "ThrustMaxCoeff_2_2": 0.56,
+    "TorqueMaxCoeff_2_2": 0.56,
+    "ThrustMaxCoeff_2_3": 0.56,
+    "TorqueMaxCoeff_2_3": 0.56,
+    "ThrustMaxCoeff_2_4": 0.58,
+    "TorqueMaxCoeff_2_4": 0.58,
+    "ThrustMaxCoeff_2_5": 0.595,
+    "TorqueMaxCoeff_2_5": 0.595,
+    "ThrustMaxCoeff_2_6": 0.6,
+    "TorqueMaxCoeff_2_6": 0.6,
+    "ThrustMaxCoeff_3_0": 0.45,
+    "TorqueMaxCoeff_3_0": 0.45,
+    "ThrustMaxCoeff_3_1": 0.42,
+    "TorqueMaxCoeff_3_1": 0.42,
+    "ThrustMaxCoeff_3_2": 0.4,
+    "TorqueMaxCoeff_3_2": 0.4,
+    "ThrustMaxCoeff_3_3": 0.4,
+    "TorqueMaxCoeff_3_3": 0.4,
+    "ThrustMaxCoeff_3_4": 0.42,
+    "TorqueMaxCoeff_3_4": 0.42,
+    "ThrustMaxCoeff_3_5": 0.43,
+    "TorqueMaxCoeff_3_5": 0.43,
+    "ThrustMaxCoeff_3_6": 0.44,
+    "TorqueMaxCoeff_3_6": 0.44,
+    "ThrustMaxCoeff_4_0": 0.31,
+    "TorqueMaxCoeff_4_0": 0.31,
+    "ThrustMaxCoeff_4_1": 0.3,
+    "TorqueMaxCoeff_4_1": 0.3,
+    "ThrustMaxCoeff_4_2": 0.29,
+    "TorqueMaxCoeff_4_2": 0.29,
+    "ThrustMaxCoeff_4_3": 0.295,
+    "TorqueMaxCoeff_4_3": 0.295,
+    "ThrustMaxCoeff_4_4": 0.305,
+    "TorqueMaxCoeff_4_4": 0.305,
+    "ThrustMaxCoeff_4_5": 0.31,
+    "TorqueMaxCoeff_4_5": 0.31,
+    "ThrustMaxCoeff_4_6": 0.315,
+    "TorqueMaxCoeff_4_6": 0.315,
+    "ThrustMaxCoeff_5_0": 0.138,
+    "TorqueMaxCoeff_5_0": 0.138,
+    "ThrustMaxCoeff_5_1": 0.13,
+    "TorqueMaxCoeff_5_1": 0.13,
+    "ThrustMaxCoeff_5_2": 0.125,
+    "TorqueMaxCoeff_5_2": 0.125,
+    "ThrustMaxCoeff_5_3": 0.122,
+    "TorqueMaxCoeff_5_3": 0.122,
+    "ThrustMaxCoeff_5_4": 0.125,
+    "TorqueMaxCoeff_5_4": 0.125,
+    "ThrustMaxCoeff_5_5": 0.13,
+    "TorqueMaxCoeff_5_5": 0.13,
+    "ThrustMaxCoeff_5_6": 0.14,
+    "TorqueMaxCoeff_5_6": 0.14
+   },
+   "Mode0": {
+    "Throttle": 0.0,
+    "RPM": 0.34,
+    "ThrustMult": 0.05,
+    "TorqueMultMinRpm": 0.15,
+    "TorqueMultMaxRpm": 0.05,
+    "ConsumptionMult": 1.8,
+    "TurbineTimeConstantMult": 1.0
+   },
+   "Mode1": {
+    "Throttle": 0.3,
+    "RPM": 0.6,
+    "ThrustMult": 0.2,
+    "TorqueMultMinRpm": 0.6,
+    "TorqueMultMaxRpm": 0.2,
+    "ConsumptionMult": 1.4,
+    "TurbineTimeConstantMult": 1.0
+   },
+   "Mode2": {
+    "Throttle": 0.5,
+    "RPM": 0.8,
+    "ThrustMult": 0.5,
+    "TorqueMultMinRpm": 1.5,
+    "TorqueMultMaxRpm": 0.5,
+    "ConsumptionMult": 1.2,
+    "TurbineTimeConstantMult": 1.0
+   },
+   "Mode3": {
+    "Throttle": 0.9,
+    "RPM": 0.95,
+    "ThrustMult": 0.852,
+    "TorqueMultMinRpm": 2.556,
+    "TorqueMultMaxRpm": 0.852,
+    "ConsumptionMult": 1.1,
+    "TurbineTimeConstantMult": 1.0
+   },
+   "Mode4": {
+    "Throttle": 1.0,
+    "RPM": 0.99,
+    "ThrustMult": 1.0,
+    "TorqueMultMinRpm": 3.0,
+    "TorqueMultMaxRpm": 1.0,
+    "ConsumptionMult": 1.0,
+    "TurbineTimeConstantMult": 1.0
+   },
+   "Mode5": {
+    "Throttle": 1.1,
+    "RPM": 1.0,
+    "ThrustMult": 1.54,
+    "TorqueMultMinRpm": 3.0,
+    "TorqueMultMaxRpm": 1.0,
+    "ConsumptionMult": 1.9,
+    "TurbineTimeConstantMult": 0.01
+   }
+  },
+  "AutoThrottle": {
+   "HasContorller": false,
+   "ThrottleOmegaPidInputLim": 1000000000.0,
+   "ContorllerKp": 1e-06,
+   "ContorllerKi": 1e-05,
+   "ContorllerImax": 1.0,
+   "ContorllerKd": 1.5e-05
+  },
+  "Afterburner": {
+   "IsControllable": true,
+   "Type": 3,
+   "NitroConsumption": 0.0
+  },
+  "Controls": {
+   "hasThrottleControl": true,
+   "hasMagnetoControl": false,
+   "hasRadiatorControl": false,
+   "hasOilRadiatorControl": false,
+   "hasCommonRadiator": true
+  },
+  "Temperature": {
+   "RadiatorAuto": true,
+   "OilRadiatorAuto": true,
+   "NoIgnitionWaterHeatProducingFactor": 0.15,
+   "NoIgnitionOilHeatProducingFactor": 0.15,
+   "OilRadiatorEffectPower": 1.0,
+   "OilMinRadiatorThermalConductionCoeff": 1.0,
+   "OilMinThermostatThermalConductionCoeff": 0.3,
+   "OilMinLevelThermalConductionCoeff": 0.2,
+   "OilThermalConductionCrossCoeffTable": [
+    0.4,
+    0.2,
+    0.02,
+    0.2
+   ],
+   "OilBoilingTemperature": 360.0,
+   "OilThermostatInertia": 20.0,
+   "OilThermostatSetPoint": 50.0,
+   "DegradationTime_10_5": [
+    180.0,
+    171.0
+   ],
+   "HalfHealthWaterTemperatureToleranceDecrease": 270.0,
+   "HalfHealthOilTemperatureToleranceDecrease": 15.5,
+   "WaterAirDensityPower": -3.0,
+   "OilAirDensityPower": -2.0,
+   "WaterFlowEffectPower": 1.0,
+   "OilFlowEffectPower": 1.0,
+   "WaterPropFlowSpeedCoeff": 1.0,
+   "OilPropFlowSpeedCoeff": 1.0,
+   "WaterTemperatureInertia": 6.76942,
+   "OilTemperatureInertia": 12.426,
+   "Mode0": {
+    "Altitude": 1000.0,
+    "RPM": 5500.0,
+    "WaterTemperature": 465.0,
+    "OilTemperature": 70.0
+   },
+   "Mode1": {
+    "Altitude": 1000.0,
+    "RPM": 15500.0,
+    "WaterTemperature": 630.0,
+    "OilTemperature": 90.0
+   },
+   "Mode2": {
+    "Altitude": 1000.0,
+    "RPM": 16000.0,
+    "WaterTemperature": 655.0,
+    "OilTemperature": 94.0
+   },
+   "Mode3": {
+    "Altitude": 1000.0,
+    "RPM": 16500.0,
+    "WaterTemperature": 665.0,
+    "OilTemperature": 98.0
+   },
+   "Load0": {
+    "WaterTemperature": 550.0,
+    "OilTemperature": 80.0
+   },
+   "Load1": {
+    "WaterTemperature": 600.0,
+    "OilTemperature": 85.0,
+    "WorkTime": 3600.0,
+    "RecoverTime": 90.0
+   },
+   "Load2": {
+    "WaterTemperature": 640.0,
+    "OilTemperature": 90.0,
+    "WorkTime": 1800.0,
+    "RecoverTime": 90.0
+   },
+   "Load3": {
+    "WaterTemperature": 660.0,
+    "OilTemperature": 95.0,
+    "WorkTime": 600.0,
+    "RecoverTime": 60.0
+   },
+   "Load4": {
+    "WaterTemperature": 670.0,
+    "OilTemperature": 100.0,
+    "WorkTime": 300.0,
+    "RecoverTime": 30.0
+   },
+   "Load5": {
+    "WaterTemperature": 680.0,
+    "OilTemperature": 105.0,
+    "WorkTime": 120.0,
+    "RecoverTime": 30.0
+   }
+  },
+  "Compressor": {
+   "IsControllable": false,
+   "Type": 3,
+   "NumSteps": 1,
+   "RPM0": 5500.0,
+   "ATA0": 1.0,
+   "RPM1": 16500.0,
+   "ATA1": 1.86,
+   "ExactAltitudes": false,
+   "CompressorOmegaFactorSq": 0.0,
+   "CompressorPressureAtRPM0": 0.3,
+   "Altitude0": 6000.0,
+   "AfterburnerBoostMul0": 1.0,
+   "Power0": 1200.0,
+   "AltitudeConstRPM0": 18300.0,
+   "PowerConstRPM0": 1200.0,
+   "PowerConstRPMCurvature0": 1.0,
+   "Ceiling0": 0.0,
+   "PowerAtCeiling0": 2574.53,
+   "AfterburnerManifoldPressure": 1.86,
+   "SpeedManifoldMultiplier": 1.0,
+   "AllowAutoTurboCharger": false,
+   "TurboChargerRPMMin": 0.0,
+   "TurboChargerRPMMaxAllowed": 18250.0,
+   "TurboChargerRPMMax": 25000.0,
+   "TurboChargerTimeConst": 1.0
+  },
+  "Mixer": {
+   "IsControllable": false,
+   "Type": 0,
+   "AltitudePressureToP0": 0.0
+  },
+  "Stages": {
+   "Stage1": {
+    "minTime": 0.5,
+    "maxTime": 1.0,
+    "fromRPM": 0.0,
+    "toRPM": 20.0,
+    "fromSuperchargerRPM": 0.0,
+    "toSuperchargerRPM": 0.0
+   },
+   "Stage2": {
+    "minTime": 1.0,
+    "maxTime": 2.0,
+    "fromRPM": 20.0,
+    "toRPM": 35.0,
+    "fromSuperchargerRPM": 0.0,
+    "toSuperchargerRPM": 0.0
+   },
+   "Stage3": {
+    "minTime": 0.1,
+    "maxTime": 0.2,
+    "fromRPM": 35.0,
+    "toRPM": 120.0,
+    "fromSuperchargerRPM": 0.0,
+    "toSuperchargerRPM": 0.0
+   },
+   "Stage4": {
+    "minTime": 0.5,
+    "maxTime": 1.0,
+    "fromRPM": 120.0,
+    "toRPM": 120.0,
+    "fromSuperchargerRPM": 0.0,
+    "toSuperchargerRPM": 0.0
+   },
+   "Stage5": {
+    "minTime": 0.5,
+    "maxTime": 1.0,
+    "fromRPM": 120.0,
+    "toRPM": 240.0,
+    "fromSuperchargerRPM": 0.0,
+    "toSuperchargerRPM": 0.0
+   }
+  }
+ },
+ "Engine1": {
+  "External": false,
+  "Booster": false,
+  "Position": [
+   -3.8,
+   0.0,
+   -0.3
+  ],
+  "Direction": [
+   -0.0,
+   0.572939
+  ],
+  "Main": {
+   "FuelSystemNum": 0,
+   "Type": "Jet",
+   "Cylinders": 25,
+   "Mass": 439.0,
+   "Thrust": 2200.0,
+   "ThrottleBoost": 1.01,
+   "AfterburnerBoost": 1.0,
+   "RPMMin": 5500.0,
+   "RPMMax": 16500.0,
+   "RPMAfterburner": 16500.0,
+   "RPMMaxAllowed": 17500.0,
+   "StandbyFriction": 0.055,
+   "FuelConsumptionOnIdle": 0.108,
+   "FuelConsumptionOnHalfThr": 0.476,
+   "FuelConsumptionOnFullThr": 1.15,
+   "FuelConsumptionOnWEP": 1.15,
+   "CarbueretorType": 0,
+   "CarbureutorCapacity": 1.34167,
+   "IsAutonomous": false,
+   "ExtinguisherNum": 0,
+   "MinThrMult": 0.05,
+   "MaxThrMult": 1.0,
+   "IsWaterCooled": false,
+   "EngineInertiaMoment": 1.0,
+   "RPMAmplitude0": [
+    16500.0,
+    0.0
+   ],
+   "RPMAmplitude1": [
+    0.0,
+    70.0
+   ],
+   "ConsumptionOmegaMax": 1.05,
+   "TorqueZeroOmegaMult": 3.0,
+   "TurbineTimeConstant": 2.4,
+   "ThrottleRPMAuto0": [
+    0.0,
+    5500.0
+   ],
+   "ThrottleRPMAuto1": [
+    1.0,
+    16500.0
+   ],
+   "ShaftRPMMin": 5500.0,
+   "ShaftRPMMax": 16500.0,
+   "ShaftRpmController": false,
+   "Power": 1200.0,
+   "ThrustMax": {
+    "Altitude_0": 0.0,
+    "Altitude_1": 3000.0,
+    "Altitude_2": 6000.0,
+    "Altitude_3": 9000.0,
+    "Altitude_4": 12000.0,
+    "Altitude_5": 15000.0,
+    "Velocity_0": 0.0,
+    "Velocity_1": 200.0,
+    "Velocity_2": 400.0,
+    "Velocity_3": 600.0,
+    "Velocity_4": 800.0,
+    "Velocity_5": 1000.0,
+    "Velocity_6": 1200.0,
+    "ThrustMax0": 1230.0,
+    "ThrustMaxCoeff_0_0": 1.0,
+    "TorqueMaxCoeff_0_0": 1.0,
+    "ThrustMaxCoeff_0_1": 0.93,
+    "TorqueMaxCoeff_0_1": 0.93,
+    "ThrustMaxCoeff_0_2": 0.875,
+    "TorqueMaxCoeff_0_2": 0.875,
+    "ThrustMaxCoeff_0_3": 0.876,
+    "TorqueMaxCoeff_0_3": 0.876,
+    "ThrustMaxCoeff_0_4": 0.95,
+    "TorqueMaxCoeff_0_4": 0.95,
+    "ThrustMaxCoeff_0_5": 1.01,
+    "TorqueMaxCoeff_0_5": 1.01,
+    "ThrustMaxCoeff_0_6": 1.02,
+    "TorqueMaxCoeff_0_6": 1.02,
+    "ThrustMaxCoeff_1_0": 0.76,
+    "TorqueMaxCoeff_1_0": 0.76,
+    "ThrustMaxCoeff_1_1": 0.73,
+    "TorqueMaxCoeff_1_1": 0.73,
+    "ThrustMaxCoeff_1_2": 0.71,
+    "TorqueMaxCoeff_1_2": 0.71,
+    "ThrustMaxCoeff_1_3": 0.715,
+    "TorqueMaxCoeff_1_3": 0.715,
+    "ThrustMaxCoeff_1_4": 0.77,
+    "TorqueMaxCoeff_1_4": 0.77,
+    "ThrustMaxCoeff_1_5": 0.8,
+    "TorqueMaxCoeff_1_5": 0.8,
+    "ThrustMaxCoeff_1_6": 0.81,
+    "TorqueMaxCoeff_1_6": 0.81,
+    "ThrustMaxCoeff_2_0": 0.61,
+    "TorqueMaxCoeff_2_0": 0.61,
+    "ThrustMaxCoeff_2_1": 0.58,
+    "TorqueMaxCoeff_2_1": 0.58,
+    "ThrustMaxCoeff_2_2": 0.56,
+    "TorqueMaxCoeff_2_2": 0.56,
+    "ThrustMaxCoeff_2_3": 0.56,
+    "TorqueMaxCoeff_2_3": 0.56,
+    "ThrustMaxCoeff_2_4": 0.58,
+    "TorqueMaxCoeff_2_4": 0.58,
+    "ThrustMaxCoeff_2_5": 0.595,
+    "TorqueMaxCoeff_2_5": 0.595,
+    "ThrustMaxCoeff_2_6": 0.6,
+    "TorqueMaxCoeff_2_6": 0.6,
+    "ThrustMaxCoeff_3_0": 0.45,
+    "TorqueMaxCoeff_3_0": 0.45,
+    "ThrustMaxCoeff_3_1": 0.42,
+    "TorqueMaxCoeff_3_1": 0.42,
+    "ThrustMaxCoeff_3_2": 0.4,
+    "TorqueMaxCoeff_3_2": 0.4,
+    "ThrustMaxCoeff_3_3": 0.4,
+    "TorqueMaxCoeff_3_3": 0.4,
+    "ThrustMaxCoeff_3_4": 0.42,
+    "TorqueMaxCoeff_3_4": 0.42,
+    "ThrustMaxCoeff_3_5": 0.43,
+    "TorqueMaxCoeff_3_5": 0.43,
+    "ThrustMaxCoeff_3_6": 0.44,
+    "TorqueMaxCoeff_3_6": 0.44,
+    "ThrustMaxCoeff_4_0": 0.31,
+    "TorqueMaxCoeff_4_0": 0.31,
+    "ThrustMaxCoeff_4_1": 0.3,
+    "TorqueMaxCoeff_4_1": 0.3,
+    "ThrustMaxCoeff_4_2": 0.29,
+    "TorqueMaxCoeff_4_2": 0.29,
+    "ThrustMaxCoeff_4_3": 0.295,
+    "TorqueMaxCoeff_4_3": 0.295,
+    "ThrustMaxCoeff_4_4": 0.305,
+    "TorqueMaxCoeff_4_4": 0.305,
+    "ThrustMaxCoeff_4_5": 0.31,
+    "TorqueMaxCoeff_4_5": 0.31,
+    "ThrustMaxCoeff_4_6": 0.315,
+    "TorqueMaxCoeff_4_6": 0.315,
+    "ThrustMaxCoeff_5_0": 0.138,
+    "TorqueMaxCoeff_5_0": 0.138,
+    "ThrustMaxCoeff_5_1": 0.13,
+    "TorqueMaxCoeff_5_1": 0.13,
+    "ThrustMaxCoeff_5_2": 0.125,
+    "TorqueMaxCoeff_5_2": 0.125,
+    "ThrustMaxCoeff_5_3": 0.122,
+    "TorqueMaxCoeff_5_3": 0.122,
+    "ThrustMaxCoeff_5_4": 0.125,
+    "TorqueMaxCoeff_5_4": 0.125,
+    "ThrustMaxCoeff_5_5": 0.13,
+    "TorqueMaxCoeff_5_5": 0.13,
+    "ThrustMaxCoeff_5_6": 0.14,
+    "TorqueMaxCoeff_5_6": 0.14
+   },
+   "Mode0": {
+    "Throttle": 0.0,
+    "RPM": 0.34,
+    "ThrustMult": 0.05,
+    "TorqueMultMinRpm": 0.15,
+    "TorqueMultMaxRpm": 0.05,
+    "ConsumptionMult": 1.8,
+    "TurbineTimeConstantMult": 1.0
+   },
+   "Mode1": {
+    "Throttle": 0.3,
+    "RPM": 0.6,
+    "ThrustMult": 0.2,
+    "TorqueMultMinRpm": 0.6,
+    "TorqueMultMaxRpm": 0.2,
+    "ConsumptionMult": 1.4,
+    "TurbineTimeConstantMult": 1.0
+   },
+   "Mode2": {
+    "Throttle": 0.5,
+    "RPM": 0.8,
+    "ThrustMult": 0.5,
+    "TorqueMultMinRpm": 1.5,
+    "TorqueMultMaxRpm": 0.5,
+    "ConsumptionMult": 1.2,
+    "TurbineTimeConstantMult": 1.0
+   },
+   "Mode3": {
+    "Throttle": 0.9,
+    "RPM": 0.95,
+    "ThrustMult": 0.852,
+    "TorqueMultMinRpm": 2.556,
+    "TorqueMultMaxRpm": 0.852,
+    "ConsumptionMult": 1.1,
+    "TurbineTimeConstantMult": 1.0
+   },
+   "Mode4": {
+    "Throttle": 1.0,
+    "RPM": 0.99,
+    "ThrustMult": 1.0,
+    "TorqueMultMinRpm": 3.0,
+    "TorqueMultMaxRpm": 1.0,
+    "ConsumptionMult": 1.0,
+    "TurbineTimeConstantMult": 1.0
+   },
+   "Mode5": {
+    "Throttle": 1.1,
+    "RPM": 1.0,
+    "ThrustMult": 1.54,
+    "TorqueMultMinRpm": 3.0,
+    "TorqueMultMaxRpm": 1.0,
+    "ConsumptionMult": 1.9,
+    "TurbineTimeConstantMult": 0.01
+   }
+  },
+  "AutoThrottle": {
+   "HasContorller": false,
+   "ThrottleOmegaPidInputLim": 1000000000.0,
+   "ContorllerKp": 1e-06,
+   "ContorllerKi": 1e-05,
+   "ContorllerImax": 1.0,
+   "ContorllerKd": 1.5e-05
+  },
+  "Afterburner": {
+   "IsControllable": true,
+   "Type": 3,
+   "NitroConsumption": 0.0
+  },
+  "Controls": {
+   "hasThrottleControl": true,
+   "hasMagnetoControl": false,
+   "hasRadiatorControl": false,
+   "hasOilRadiatorControl": false,
+   "hasCommonRadiator": true
+  },
+  "Temperature": {
+   "RadiatorAuto": true,
+   "OilRadiatorAuto": true,
+   "NoIgnitionWaterHeatProducingFactor": 0.15,
+   "NoIgnitionOilHeatProducingFactor": 0.15,
+   "OilRadiatorEffectPower": 1.0,
+   "OilMinRadiatorThermalConductionCoeff": 1.0,
+   "OilMinThermostatThermalConductionCoeff": 0.3,
+   "OilMinLevelThermalConductionCoeff": 0.2,
+   "OilThermalConductionCrossCoeffTable": [
+    0.4,
+    0.2,
+    0.02,
+    0.2
+   ],
+   "OilBoilingTemperature": 360.0,
+   "OilThermostatInertia": 20.0,
+   "OilThermostatSetPoint": 50.0,
+   "DegradationTime_10_5": [
+    180.0,
+    171.0
+   ],
+   "HalfHealthWaterTemperatureToleranceDecrease": 270.0,
+   "HalfHealthOilTemperatureToleranceDecrease": 15.5,
+   "WaterAirDensityPower": -3.0,
+   "OilAirDensityPower": -2.0,
+   "WaterFlowEffectPower": 1.0,
+   "OilFlowEffectPower": 1.0,
+   "WaterPropFlowSpeedCoeff": 1.0,
+   "OilPropFlowSpeedCoeff": 1.0,
+   "WaterTemperatureInertia": 6.76942,
+   "OilTemperatureInertia": 12.426,
+   "Mode0": {
+    "Altitude": 1000.0,
+    "RPM": 5500.0,
+    "WaterTemperature": 465.0,
+    "OilTemperature": 70.0
+   },
+   "Mode1": {
+    "Altitude": 1000.0,
+    "RPM": 15500.0,
+    "WaterTemperature": 630.0,
+    "OilTemperature": 90.0
+   },
+   "Mode2": {
+    "Altitude": 1000.0,
+    "RPM": 16000.0,
+    "WaterTemperature": 655.0,
+    "OilTemperature": 94.0
+   },
+   "Mode3": {
+    "Altitude": 1000.0,
+    "RPM": 16500.0,
+    "WaterTemperature": 665.0,
+    "OilTemperature": 98.0
+   },
+   "Load0": {
+    "WaterTemperature": 550.0,
+    "OilTemperature": 78.0
+   },
+   "Load1": {
+    "WaterTemperature": 600.0,
+    "OilTemperature": 85.0,
+    "WorkTime": 3600.0,
+    "RecoverTime": 90.0
+   },
+   "Load2": {
+    "WaterTemperature": 640.0,
+    "OilTemperature": 90.0,
+    "WorkTime": 1800.0,
+    "RecoverTime": 90.0
+   },
+   "Load3": {
+    "WaterTemperature": 660.0,
+    "OilTemperature": 95.0,
+    "WorkTime": 600.0,
+    "RecoverTime": 60.0
+   },
+   "Load4": {
+    "WaterTemperature": 670.0,
+    "OilTemperature": 100.0,
+    "WorkTime": 300.0,
+    "RecoverTime": 30.0
+   },
+   "Load5": {
+    "WaterTemperature": 680.0,
+    "OilTemperature": 105.0,
+    "WorkTime": 120.0,
+    "RecoverTime": 30.0
+   }
+  },
+  "Compressor": {
+   "IsControllable": false,
+   "Type": 3,
+   "NumSteps": 1,
+   "RPM0": 5500.0,
+   "ATA0": 1.0,
+   "RPM1": 16500.0,
+   "ATA1": 1.86,
+   "ExactAltitudes": false,
+   "CompressorOmegaFactorSq": 0.0,
+   "CompressorPressureAtRPM0": 0.3,
+   "Altitude0": 6000.0,
+   "AfterburnerBoostMul0": 1.0,
+   "Power0": 1200.0,
+   "AltitudeConstRPM0": 18300.0,
+   "PowerConstRPM0": 1200.0,
+   "PowerConstRPMCurvature0": 1.0,
+   "Ceiling0": 0.0,
+   "PowerAtCeiling0": 2574.53,
+   "AfterburnerManifoldPressure": 1.86,
+   "SpeedManifoldMultiplier": 1.0,
+   "AllowAutoTurboCharger": false,
+   "TurboChargerRPMMin": 0.0,
+   "TurboChargerRPMMaxAllowed": 18250.0,
+   "TurboChargerRPMMax": 25000.0,
+   "TurboChargerTimeConst": 1.0
+  },
+  "Mixer": {
+   "IsControllable": false,
+   "Type": 0,
+   "AltitudePressureToP0": 0.0
+  },
+  "Stages": {
+   "Stage1": {
+    "minTime": 0.5,
+    "maxTime": 1.0,
+    "fromRPM": 0.0,
+    "toRPM": 20.0,
+    "fromSuperchargerRPM": 0.0,
+    "toSuperchargerRPM": 0.0
+   },
+   "Stage2": {
+    "minTime": 1.0,
+    "maxTime": 2.0,
+    "fromRPM": 20.0,
+    "toRPM": 35.0,
+    "fromSuperchargerRPM": 0.0,
+    "toSuperchargerRPM": 0.0
+   },
+   "Stage3": {
+    "minTime": 0.1,
+    "maxTime": 0.2,
+    "fromRPM": 35.0,
+    "toRPM": 120.0,
+    "fromSuperchargerRPM": 0.0,
+    "toSuperchargerRPM": 0.0
+   },
+   "Stage4": {
+    "minTime": 0.5,
+    "maxTime": 1.0,
+    "fromRPM": 120.0,
+    "toRPM": 120.0,
+    "fromSuperchargerRPM": 0.0,
+    "toSuperchargerRPM": 0.0
+   },
+   "Stage5": {
+    "minTime": 0.5,
+    "maxTime": 1.0,
+    "fromRPM": 120.0,
+    "toRPM": 240.0,
+    "fromSuperchargerRPM": 0.0,
+    "toSuperchargerRPM": 0.0
+   }
+  }
+ },
+ "Mass": {
+  "EmptyMass": 4350.0,
+  "FuelAccumulatorCapacity0": 12.0,
+  "MinimalLoadFactor0": 0.0,
+  "FuelAccumulatorFlowRate0": 4.0,
+  "FuelEngineFlowRate0": 1000000.0,
+  "MaxNitro": 0.0,
+  "OilMass": 12.0,
+  "AdvancedMass": false,
+  "SeparateFuelTanks": true,
+  "Takeoff": 8500.0,
+  "CenterOfGravity": [
+   0.0,
+   -0.2,
+   0.0
+  ],
+  "WingCritOverload": [
+   -155000.0,
+   380000.0
+  ],
+  "GearDestructionIndSpeed": 371.0,
+  "AirbrakeDestructionIndSpeed": -1.0,
+  "FlapsDestructionIndSpeedP1": [
+   0.1,
+   620.4
+  ],
+  "FlapsDestructionIndSpeedP2": [
+   1.0,
+   371.0
+  ],
+  "Parts": {
+   "tank1_capacity": 386.0,
+   "tank1_system": 0,
+   "tank1_external": false,
+   "tank1_priority": 3,
+   "tank2_capacity": 365.0,
+   "tank2_system": 0,
+   "tank2_external": false,
+   "tank2_priority": 4,
+   "tank6_capacity": 350.0,
+   "tank6_system": 0,
+   "tank6_external": false,
+   "tank6_priority": 5,
+   "tank3_capacity": 333.0,
+   "tank3_system": 0,
+   "tank3_external": false,
+   "tank3_priority": 4,
+   "tank4_capacity": 334.0,
+   "tank4_system": 0,
+   "tank4_external": false,
+   "tank4_priority": 1,
+   "tank5_capacity": 333.0,
+   "tank5_system": 0,
+   "tank5_external": false,
+   "tank5_priority": 2,
+   "tank7_system": 0,
+   "tank7_external": false,
+   "tank7_capacity": 210.0,
+   "tank7_priority": 1,
+   "tank8_system": 0,
+   "tank8_external": false,
+   "tank8_capacity": 210.0,
+   "tank8_priority": 1,
+   "engine1_dm": 192.0,
+   "engine2_dm": 192.0
+  },
+  "PartsWithSurface": {
+   "pilot_dm": 32.6744,
+   "tailcontrol_dm": 28.6066,
+   "wingcontrol_l_dm": 10.1833,
+   "fin_dm": 112.029,
+   "fuse_dm": 213.742,
+   "tail_dm": 317.189,
+   "wing_l_dm": 315.062,
+   "spar_l_dm": 55.231,
+   "oil2_dm": 3.53805,
+   "oil1_dm": 3.53805,
+   "armor2_dm": 45.8549,
+   "armor4_dm": 10.044,
+   "armor3_dm": 24.3066,
+   "armor1_dm": 7.63325,
+   "cover1_dm": 81.3618,
+   "cannon1_dm": 37.4109,
+   "cannon2_dm": 37.4109,
+   "spar2_l_dm": 15.0854,
+   "spar1_l_dm": 45.5852,
+   "stab_dm": 121.675,
+   "wing2_r_dm": 49.8562,
+   "gear_l_dm": 39.4741,
+   "gear_r_dm": 39.2642,
+   "wingcontrol_r_dm": 10.448,
+   "wing2_l_dm": 49.8562,
+   "wing1_l_dm": 266.053,
+   "wing_r_dm": 316.006,
+   "wing1_r_dm": 263.574,
+   "spar_r_dm": 55.1696,
+   "spar1_r_dm": 46.194,
+   "spar2_r_dm": 15.0854,
+   "gear_c_dm": 16.9395,
+   "elevator0_dm": 22.4317,
+   "elevator1_dm": 22.9997,
+   "rudder_dm": 36.8687,
+   "aileron_l_dm": 72.3942,
+   "flap_l_dm": 66.939,
+   "flap_r_dm": 66.9391,
+   "aileron_r_dm": 75.1072,
+   "fuse1_dm": 506.592
+  },
+  "MaxFuelMass": 2520.0,
+  "pilots_mass": 90
+ },
+ "engine_count": 2,
+ "Modif": {
+  "CdMin_Fuse": {
+   "tier": 1,
+   "modClass": "lth"
+  },
+  "structure_str": {
+   "prevModification": "CdMin_Fuse",
+   "tier": 2,
+   "modClass": "lth"
+  },
+  "cd_98": {
+   "prevModification": "structure_str",
+   "tier": 3,
+   "modClass": "lth"
+  },
+  "new_cover": {
+   "prevModification": "cd_98",
+   "tier": 4,
+   "modClass": "lth"
+  },
+  "new_compressor_jet": {
+   "tier": 1,
+   "modClass": "lth"
+  },
+  "hydravlic_power": {
+   "tier": 2,
+   "modClass": "lth",
+   "prevModification": "new_compressor_jet",
+   "effects": {
+    "aileronBooster": 0.9,
+    "elevatorBooster": 0.9
+   }
+  },
+  "hp_105_jet": {
+   "tier": 4,
+   "modClass": "lth",
+   "prevModification": "hydravlic_power"
+  }
+ },
+ "Guns": {
+  "cannonDEFA552.blk": {
+   "ammo_count": 250,
+   "gun_count": 2,
+   "shell_mass": 0.275
+  },
+  "all_ammo_mass": 68
+ },
+ "engines_are_same": true
+}

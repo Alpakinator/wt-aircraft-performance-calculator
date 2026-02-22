@@ -3,17 +3,16 @@ authors = [
     {name = "Alpakinator"},
 ]
 license = {text = "Apache 2.0"}
-requires-python = "<4.0,>=3.12"
+requires-python = ">=3.12,<3.14"
 dependencies = [
     "pandas<3.0.0,>=2.2.2",
-    "pyarrow<17.0.0,>=16.1.0",
     "plotly<6.0.0,>=5.22.0",
     "regex<2025.0.0,>=2024.5.15",
     "requests<3.0.0,>=2.31.0",
     "fsspec<2025.0.0,>=2024.5.0",
     "gitdb<5.0.0,>=4.0.11",
     "GitPython<4.0.0,>=3.1.43",
-    "pillow<11.0.0,>=10.3.0",
+    "pillow<12.0.0,>=11.0.0",
     "pyparsing<4.0.0,>=3.2.0",
     "matplotlib<4.0.0,>=3.9.2",
     "scipy<2.0.0,>=1.14.1",

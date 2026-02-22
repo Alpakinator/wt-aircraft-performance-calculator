@@ -5,7 +5,7 @@
 <h1>War Thunder Aircraft<br>Performance Calculator (data)</h1>
 </div>
 
-Flight model files of all aircraft in War Thunder used to calculate aircraft performance and make graphs of it, at [**wtapc.org**][1]. Files made based on [the public datamine][2], but in an unified format (`output_files/out_fm/`).<br>
+Flight model files of all aircraft in War Thunder that will be used to calculate aircraft performance and make graphs of it, at [**wtapc.org**][1]. Files made based on [the public datamine][2], but in an unified format (`output_files/out_fm/`).<br>
 
 
 ### Related:
@@ -14,15 +14,15 @@ Flight model files of all aircraft in War Thunder used to calculate aircraft per
 
 
 Also:
-* [Legacy] pre-made engine power files of all piston engine aircraft in War Thunder from -4km to 20km altitude(military power and WEP) in `output_files/plane_power_files/`. wtapc.org used to use them.
-* [Legacy] Empty mass, fuel mass and armament mass file of all piston engine aircraft ()`output_files/plane_mass_files/`). wtapc.org used to use them.
+* Pre-made engine power files of all piston engine aircraft in War Thunder from -4km to 20km altitude(military power and WEP) in `output_files/plane_power_files/`. wtapc.org uses them.
+* Empty mass, fuel mass and armament mass file of all piston engine aircraft ()`output_files/plane_mass_files/`). wtapc.org uses them.
 * Names of flight-model files and ingame names of all aircraft (`output_files/plane_name_files/`).
 * **All the scripts used to make these files (`performance_calculators/`).**
 
 Accuracy vs ingame engine power is within 99%-101% for vast majority of planes and 95%-105% for the rest.
 
 ### Guide on using scripts:
-1. First - install newest [Python][3] if you don't have it.<br>
+1. First - install [Python][3] 3.12 or 3.13 if you don't have it.<br>
 2. Then clone this repository into your empty project.<br>
 3. This repo uses [uv][11] for virtual environment and package management. Follow its [setup guide][14].
 
@@ -34,7 +34,7 @@ If you want to recalculate engine power files, mass file, flight model files bas
 
 If you want to compare calcuated engine power with actual engine power data from War Thunder:
 
-1. Climb in a plane of your choice in War Thunder test flight, at a constant IAS or TAS speed while logging engine power and altitude with [WTRTI][5].<br>
+1. Climb in a plane of your choice in War Thunder test flight, at a constant IAS or TAS speed while logging engine power and altitude with [WTRTI][4].<br>
 2. Put the log .csv file in 'ingame_power_log_files' folder.<br>
 3. Open `local_power_graph_script.py` and put the name of the log into `TEST_file_dir`.
 4. Choose the same plane in `fm_files`, same speed and speed type.
@@ -43,7 +43,7 @@ If you want to compare calcuated engine power with actual engine power data from
 <img width="80%" src="readme_assets/calc_vs_test.png">
 </div>
 
-If you want to learn how engine power is calculated in War Thunder, study `plane_power_calculator.py`, the most important file in the repository. But it's very complicated (long and not coded very well). It took over a year to make via trial and error.
+If you want to learn how engine power is calculated in War Thunder, study [**GitHub repository of WTAPC website**][5] as it is has updated, currently used calculation methods. Alternatively read though `plane_power_calculator.py`, the original, older version, but it's very complicated (long and not coded very well). It took over a year to make via trial and error.
 
 If you want to compare performace of different planes visit [**wtapc.org**][1], it's more user friendly.
 
@@ -83,6 +83,6 @@ The reason engine power starts at -4km is to account for ram air effect. When a 
 [9]: https://docs.google.com/document/d/1fp7rpu-Bqh7uFjMg7sCQlMZgf6pIoJ_qfRzihc6iIB4/edit
 [10]: https://www.youtube.com/@AdamTheEnginerd
 [11]: https://github.com/astral-sh/uv
-[12]: https://github.com/HypheX
+[12]: https://github.com/LFS6502
 [13]: https://discord.gg/6F7ZRk3zJG
 [14]: https://docs.astral.sh/uv/getting-started/

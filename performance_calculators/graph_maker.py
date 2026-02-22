@@ -34,7 +34,7 @@ def plotter(MODEL_TEST_dataf, highest_alt, alt_unit, speed, speed_type, speed_un
     # print(MODEL_TEST_dataf)
     # power_columns = MODEL_TEST_dataf.columns.values.tolist()[1:] # fastest, doesn't work with premade files
     power_columns = [col for col in MODEL_TEST_dataf.columns if any(x in col for x in ('(mil)', '(WEP)'))]
-    # Find the highest power + 100, to use for x-axis
+
     colour_set = [
 		'#E41A1C',
 		'#006fa1',
@@ -84,7 +84,7 @@ def plotter(MODEL_TEST_dataf, highest_alt, alt_unit, speed, speed_type, speed_un
     ###PLOTLY###
     if axis_layout == True:
         final_plot = px.scatter(data_frame=MODEL_TEST_dataf, x=power_columns, y="Altitude [" + alt_unit + "]",
-                                title=title, ).update_traces(mode="lines+markers", line={'width': 4},marker_size=3)
+                                title=title, color_discrete_sequence=px.colors.qualitative.G10).update_traces(mode="lines", line={'width': 2})
         final_plot.update_xaxes(range=[lowest_power, highest_power])
         final_plot.update_yaxes(range=[0, highest_alt])
         final_plot.update_layout(xaxis=dict(tickmode='linear', tick0=0, dtick=response_axis_tick, tickfont=dict(size=14)),
@@ -99,14 +99,14 @@ def plotter(MODEL_TEST_dataf, highest_alt, alt_unit, speed, speed_type, speed_un
         
     else:
         final_plot = px.scatter(data_frame=MODEL_TEST_dataf, y=power_columns, x="Altitude [" + alt_unit + "]",
-                                title=title, ).update_traces(mode="lines+markers", line={'width': 4},marker_size=3)
+                                title=title, color_discrete_sequence=px.colors.qualitative.G10).update_traces(mode="lines", line={'width': 2})
         final_plot.update_yaxes(range=[lowest_power, highest_power])
         final_plot.update_xaxes(range=[0, highest_alt])
         final_plot.update_layout(yaxis=dict(tickmode='linear', tick0=0, dtick=response_axis_tick, tickfont=dict(size=14)),
                                  yaxis_title=dict(text=response_axis_title, font=dict(size=18)),
                                  xaxis=dict(tickmode='linear', tick0=0, dtick=explanatory_axis_tick, tickfont = dict(size=14)),
                                  xaxis_title=dict(text=explanatory_axis_title, font=dict(size=18)))
-        # Addon for testing purposes. Adds curves from testflight
+        # Addon for testing purposes. Adds curves from testflight files
         for column in MODEL_TEST_dataf:
             if "TestPower" in column:
                 final_plot.add_scatter(name=column, x=MODEL_TEST_dataf["Altitude, m" + re.findall(r'\d+',column)[0]],

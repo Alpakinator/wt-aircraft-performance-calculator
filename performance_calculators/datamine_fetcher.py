@@ -53,7 +53,17 @@ def newest_repo_getter():
     # 1. Clone repo
     print("Cloning latest wt datamine repository...")
     repo = Repo.clone_from(repo_url, temp_dir, branch = "master")
-
+    if os.path.exists(temp_dir):
+    # Close any open Git objects
+        if os.path.exists(os.path.join(temp_dir, '.git')):
+            repo.close()
+    return 
+def repo_processor():
+    temp_dir = "input_files/temp_repo"
+    datamines_dir = "input_files/datamines"
+    plane_names_dir = "input_files/vehicle_names"
+    plane_br_dir = "input_files/vehicle_br"
+    plane_images_dir = "input_files/vehicle_images"
     # 2. Remove existing latest folders
     print("Removing an old 'latest' folder...")
     for item in Path(datamines_dir).glob("*latest*"):
@@ -62,9 +72,14 @@ def newest_repo_getter():
 
     # 3. Get version and move aces folder
     print("Moving aces.vromfs folder...")
-    version_file = Path(temp_dir) / "aces.vromfs.bin_u" / "version"
-    with open(version_file, 'r') as f:
-        version = f.read().strip()
+    version_file = Path(temp_dir) / "version"
+    old_version_file = Path(temp_dir) / "aces.vromfs.bin_u" / "version"
+    if version_file.exists():
+        with open(version_file, 'r') as f:
+            version = f.read().strip()
+    elif old_version_file.exists():
+        with open(old_version_file, 'r') as f:
+            version = f.read().strip()
     
     source_aces = Path(temp_dir) / "aces.vromfs.bin_u"
     dest_aces = Path(datamines_dir) / f"aces_{version}_latest"
@@ -109,9 +124,6 @@ def newest_repo_getter():
             os.unlink(path)
 
         if os.path.exists(temp_dir):
-            # Close any open Git objects
-            if os.path.exists(os.path.join(temp_dir, '.git')):
-                repo.close()
             # Remove with error handler
             shutil.rmtree(temp_dir, onexc=on_rm_error)
 
