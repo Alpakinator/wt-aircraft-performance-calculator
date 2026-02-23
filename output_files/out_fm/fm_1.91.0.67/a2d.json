@@ -231,7 +231,17 @@
     "ConsumptionMult": 1.0,
     "TorqueMult": 1.2,
     "TurbineTimeConstantMult": 0.5
-   }
+   },
+   "WEP_rpm": 14300.0,
+   "Mil_rpm": 14300.0,
+   "default_RPM": 14300.0,
+   "default_mil_RPM_EffectOnSupercharger": 1.0,
+   "WEP_mil_RPM_EffectOnSupercharger": 1.0,
+   "Octane_mp": 1,
+   "WEP_mp": 1,
+   "Mil_mp": 4.0,
+   "Power0": 2517.0,
+   "Deck_Altitude0": 0
   },
   "AutoThrottle": {
    "HasContorller": false,
@@ -364,7 +374,12 @@
    "TurboChargerRPMMin": 0.0,
    "TurboChargerRPMMaxAllowed": 16000.0,
    "TurboChargerRPMMax": 15000.0,
-   "TurboChargerTimeConst": 10.0
+   "TurboChargerTimeConst": 10.0,
+   "Old_Power0": 5034.0,
+   "Old_Power_new_RPM0": 5034.0,
+   "Old_Altitude0": 1000.0,
+   "Old_Ceiling0": 6100.0,
+   "Old_PowerConstRPM0": 5034.0
   },
   "Mixer": {
    "IsControllable": false,
@@ -646,7 +661,17 @@
     "ConsumptionMult": 1.0,
     "TorqueMult": 1.2,
     "TurbineTimeConstantMult": 0.5
-   }
+   },
+   "WEP_rpm": 14300.0,
+   "Mil_rpm": 14300.0,
+   "default_RPM": 14300.0,
+   "default_mil_RPM_EffectOnSupercharger": 1.0,
+   "WEP_mil_RPM_EffectOnSupercharger": 1.0,
+   "Octane_mp": 1,
+   "WEP_mp": 1,
+   "Mil_mp": 4.0,
+   "Power0": 2517.0,
+   "Deck_Altitude0": 0
   },
   "AutoThrottle": {
    "HasContorller": false,
@@ -779,7 +804,12 @@
    "TurboChargerRPMMin": 0.0,
    "TurboChargerRPMMaxAllowed": 16000.0,
    "TurboChargerRPMMax": 15000.0,
-   "TurboChargerTimeConst": 10.0
+   "TurboChargerTimeConst": 10.0,
+   "Old_Power0": 5034.0,
+   "Old_Power_new_RPM0": 5034.0,
+   "Old_Altitude0": 1000.0,
+   "Old_Ceiling0": 6100.0,
+   "Old_PowerConstRPM0": 5034.0
   },
   "Mixer": {
    "IsControllable": false,

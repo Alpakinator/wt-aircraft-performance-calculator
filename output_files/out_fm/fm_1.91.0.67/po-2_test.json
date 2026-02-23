@@ -62,9 +62,9 @@
    "WEP_mil_RPM_EffectOnSupercharger": 1.0,
    "Octane_mp": 1,
    "WEP_mp": 1,
-   "Mil_mp": 1,
-   "crit_supercharger_strength0": 1.087253309646701,
-   "deck_supercharger_strength0": 1.0,
+   "Mil_mp": 0.61,
+   "crit_supercharger_strength0": 0.6632245188844876,
+   "deck_supercharger_strength0": 0.61,
    "Deck_Altitude0": 0.0,
    "Power0": 119.59112039819684
   },

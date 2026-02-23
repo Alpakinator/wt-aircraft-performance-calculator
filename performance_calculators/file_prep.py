@@ -85,7 +85,7 @@ def fileprepper(central_dict, fm_dict, plane_gun_ammo_mass_dict):
     for engine in engine_keys:
         Engine, Compressor, Main, Afterburner, Propeller = engine_shortcuter(fm_dict, engine)
         "Prepping parameters in fm_dict for calculation"
-        if Main["Type"] == "Inline" or Main["Type"] == "Radial":
+        if Main["Type"] == "Inline" or Main["Type"] == "Radial" or Main["Type"] == "TurboProp":
             old_type_fm_detector(Compressor, Main)
             exception_fixer(Compressor)
             rpm_er(Main, Propeller)

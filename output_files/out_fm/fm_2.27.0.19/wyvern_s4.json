@@ -258,7 +258,19 @@
     "TorqueMultMaxRpm": 1.0,
     "ConsumptionMult": 1.3,
     "TurbineTimeConstantMult": 0.3
-   }
+   },
+   "WEP_rpm": 8000.0,
+   "Mil_rpm": 7800.0,
+   "default_RPM": 7998.0,
+   "default_mil_RPM_EffectOnSupercharger": 1.0177692307692308,
+   "WEP_mil_RPM_EffectOnSupercharger": 1.0179487179487179,
+   "Octane_mp": 1,
+   "WEP_mp": 1,
+   "Mil_mp": 1.86,
+   "crit_supercharger_strength0": 3.9247604880957634,
+   "deck_supercharger_strength0": 1.8275262640767895,
+   "Deck_Altitude0": -148.8079015097059,
+   "Power0": 4147.034559087514
   },
   "AutoThrottle": {
    "HasContorller": false,
@@ -377,13 +389,13 @@
    "ExactAltitudes": false,
    "CompressorOmegaFactorSq": 0.0,
    "CompressorPressureAtRPM0": 0.3,
-   "Altitude0": 6000.0,
+   "Altitude0": 5871,
    "AfterburnerBoostMul0": 1.0,
-   "Power0": 906.04,
+   "Power0": 953.121474755736,
    "AltitudeConstRPM0": 18300.0,
-   "PowerConstRPM0": 1132.55,
+   "PowerConstRPM0": 1130.5020527677925,
    "PowerConstRPMCurvature0": 0.5,
-   "Ceiling0": 6100.0,
+   "Ceiling0": 5972,
    "PowerAtCeiling0": 188.758,
    "AfterburnerManifoldPressure": 1.87829,
    "SpeedManifoldMultiplier": 0.8,
@@ -391,7 +403,13 @@
    "TurboChargerRPMMin": 0.0,
    "TurboChargerRPMMaxAllowed": 11000.0,
    "TurboChargerRPMMax": 10000.0,
-   "TurboChargerTimeConst": 2.0
+   "TurboChargerTimeConst": 2.0,
+   "Old_Power0": 906.04,
+   "Old_Power_new_RPM0": 904.4016422142339,
+   "Old_Altitude0": 6000.0,
+   "Old_Ceiling0": 6100.0,
+   "Old_PowerConstRPM0": 1132.55,
+   "Old_PowerAtCeiling0": 188.758
   },
   "Mixer": {
    "IsControllable": false,

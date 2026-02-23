@@ -167,34 +167,18 @@ def wep_mp_er(Engine, Compressor, Main, Afterburner):
     """
     Calculates MP ratio and RPM ratio between WEP and military power, for accurate WEP prediction.
     """
-    mode_manifolds = {}
-    non_wep_manifolds = {}
     Main["Octane_mp"] = 1
     Main["WEP_mp"] = 1
     Main["Mil_mp"] = 1
 
-    for key_T, value_T in Engine["Temperature"].items():
-        if key_T[:-1] == "Mode":
-            mode_manifolds[key_T] = value_T["ManifoldPressure"]
-            mode_manifolds = dict(sorted(mode_manifolds.items(), key=lambda item: item[1]))
+    non_wep_manifolds = [value_A for key_A, value_A in Compressor.items() if key_A[:-1] == "ATA"]
+    if not non_wep_manifolds:
+        return
 
-    for key_A, value_A in Compressor.items():
-        if key_A[:-1] == "ATA":
-            non_wep_manifolds[key_A] = value_A
-            non_wep_manifolds = dict(sorted(non_wep_manifolds.items(), key=lambda item: item[1]))
+    Main["Mil_mp"] = max(non_wep_manifolds)
 
     if Afterburner:
-        Main["Mil_mp"] = list(non_wep_manifolds.values())[-1]
-        if list(mode_manifolds.values())[-1] - Compressor["AfterburnerManifoldPressure"] > 0.02:
-            Main["WEP_mp"] = Compressor["AfterburnerManifoldPressure"]
-        else:
-            Main["WEP_mp"] = Compressor["AfterburnerManifoldPressure"]
-    elif not Afterburner:
-        if ma.isclose(list(mode_manifolds.values())[-1], Compressor["AfterburnerManifoldPressure"], abs_tol=0.011):
-            Main["Mil_mp"] = list(non_wep_manifolds.values())[-1]
-            Main["Mil_mp"] = list(non_wep_manifolds.values())[-1]
-        elif list(mode_manifolds.values())[-1] - Compressor["AfterburnerManifoldPressure"] < -0.02:
-            Main["Mil_mp"] = list(non_wep_manifolds.values())[-1]
+        Main["WEP_mp"] = Compressor["AfterburnerManifoldPressure"]
     return
 
 def wep_rpm_ratioer(Main, Compressor, Propeller):

@@ -59,7 +59,7 @@
    "WEP_mil_RPM_EffectOnSupercharger": 1.0,
    "Octane_mp": 1,
    "WEP_mp": 1,
-   "Mil_mp": 1,
+   "Mil_mp": 1.158,
    "Power0": 860.0,
    "Deck_Altitude0": 0
   },
@@ -386,7 +386,7 @@
    "WEP_mil_RPM_EffectOnSupercharger": 1.0,
    "Octane_mp": 1,
    "WEP_mp": 1,
-   "Mil_mp": 1,
+   "Mil_mp": 1.158,
    "Power0": 860.0,
    "Deck_Altitude0": 0
   },
