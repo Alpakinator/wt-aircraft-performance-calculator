@@ -232,8 +232,8 @@
     "all_ammo_mass": 38
   },
   "avenger_mk1": {
-    "EmptyMass": 5272,
-    "max_fuel_mass": 906,
+    "EmptyMass": 4890,
+    "max_fuel_mass": 819,
     "nitro_mass": 0,
     "oil_mass": 57,
     "pilot_mass": 360,
@@ -495,6 +495,14 @@
     "pilot_mass": 90,
     "all_ammo_mass": 23
   },
+  "ba_65_a80": {
+    "EmptyMass": 2038,
+    "max_fuel_mass": 508,
+    "nitro_mass": 0,
+    "oil_mass": 43,
+    "pilot_mass": 90,
+    "all_ammo_mass": 34
+  },
   "ba_65_k14_l": {
     "EmptyMass": 2305,
     "max_fuel_mass": 508,
@@ -517,7 +525,7 @@
     "nitro_mass": 0,
     "oil_mass": 304,
     "pilot_mass": 720,
-    "all_ammo_mass": 208
+    "all_ammo_mass": 228
   },
   "beaufighter_mk1_40mm": {
     "EmptyMass": 7113,
@@ -921,11 +929,11 @@
   },
   "bv-138c-1": {
     "EmptyMass": 12843,
-    "max_fuel_mass": 1850,
+    "max_fuel_mass": 1849,
     "nitro_mass": 0,
     "oil_mass": 530,
     "pilot_mass": 450,
-    "all_ammo_mass": 268
+    "all_ammo_mass": 164
   },
   "bv-155b-1": {
     "EmptyMass": 5440,
@@ -1013,7 +1021,7 @@
     "nitro_mass": 0,
     "oil_mass": 47,
     "pilot_mass": 180,
-    "all_ammo_mass": 26
+    "all_ammo_mass": 15
   },
   "d4y1": {
     "EmptyMass": 2326,
@@ -1541,7 +1549,7 @@
     "nitro_mass": 45,
     "oil_mass": 68,
     "pilot_mass": 90,
-    "all_ammo_mass": 130
+    "all_ammo_mass": 122
   },
   "f4u-7": {
     "EmptyMass": 4961,
@@ -1549,7 +1557,7 @@
     "nitro_mass": 45,
     "oil_mass": 68,
     "pilot_mass": 90,
-    "all_ammo_mass": 130
+    "all_ammo_mass": 122
   },
   "f6f-3": {
     "EmptyMass": 4648,
@@ -1983,6 +1991,14 @@
     "pilot_mass": 90,
     "all_ammo_mass": 84
   },
+  "fw_189c_0": {
+    "EmptyMass": 3450,
+    "max_fuel_mass": 324,
+    "nitro_mass": 0,
+    "oil_mass": 34,
+    "pilot_mass": 180,
+    "all_ammo_mass": 46
+  },
   "fw_190a_5_u14": {
     "EmptyMass": 3285,
     "max_fuel_mass": 410,
@@ -1990,6 +2006,14 @@
     "oil_mass": 40,
     "pilot_mass": 90,
     "all_ammo_mass": 58
+  },
+  "fw_190f_8_hungary": {
+    "EmptyMass": 3457,
+    "max_fuel_mass": 410,
+    "nitro_mass": 0,
+    "oil_mass": 50,
+    "pilot_mass": 90,
+    "all_ammo_mass": 84
   },
   "fw_200c_1": {
     "EmptyMass": 11429,
@@ -2629,7 +2653,7 @@
     "nitro_mass": 0,
     "oil_mass": 31,
     "pilot_mass": 90,
-    "all_ammo_mass": 26
+    "all_ammo_mass": 25
   },
   "hurricane_mk1_late": {
     "EmptyMass": 2619,
@@ -2637,7 +2661,7 @@
     "nitro_mass": 0,
     "oil_mass": 31,
     "pilot_mass": 90,
-    "all_ammo_mass": 26
+    "all_ammo_mass": 25
   },
   "hurricane_mk1_late_ep": {
     "EmptyMass": 2619,
@@ -2645,7 +2669,7 @@
     "nitro_mass": 0,
     "oil_mass": 31,
     "pilot_mass": 90,
-    "all_ammo_mass": 26
+    "all_ammo_mass": 25
   },
   "hurricane_mk1_late_finland": {
     "EmptyMass": 2619,
@@ -2653,7 +2677,7 @@
     "nitro_mass": 0,
     "oil_mass": 31,
     "pilot_mass": 90,
-    "all_ammo_mass": 26
+    "all_ammo_mass": 25
   },
   "hurricane_mk1b": {
     "EmptyMass": 2899,
@@ -2661,7 +2685,7 @@
     "nitro_mass": 0,
     "oil_mass": 31,
     "pilot_mass": 90,
-    "all_ammo_mass": 26
+    "all_ammo_mass": 25
   },
   "hurricane_mk1c": {
     "EmptyMass": 2949,
@@ -2669,7 +2693,7 @@
     "nitro_mass": 0,
     "oil_mass": 31,
     "pilot_mass": 90,
-    "all_ammo_mass": 65
+    "all_ammo_mass": 46
   },
   "hurricane_mk4": {
     "EmptyMass": 2873,
@@ -2677,7 +2701,7 @@
     "nitro_mass": 0,
     "oil_mass": 31,
     "pilot_mass": 90,
-    "all_ammo_mass": 6
+    "all_ammo_mass": 11
   },
   "hurricanemkii": {
     "EmptyMass": 2881,
@@ -2685,7 +2709,7 @@
     "nitro_mass": 0,
     "oil_mass": 31,
     "pilot_mass": 90,
-    "all_ammo_mass": 39
+    "all_ammo_mass": 37
   },
   "hurricanemkii_ussr": {
     "EmptyMass": 2731,
@@ -2728,8 +2752,8 @@
     "all_ammo_mass": 27
   },
   "i-15_1934": {
-    "EmptyMass": 1079,
-    "max_fuel_mass": 232,
+    "EmptyMass": 1071,
+    "max_fuel_mass": 160,
     "nitro_mass": 0,
     "oil_mass": 17,
     "pilot_mass": 90,
@@ -3145,7 +3169,7 @@
   },
   "ju-188a-2": {
     "EmptyMass": 10408,
-    "max_fuel_mass": 1935,
+    "max_fuel_mass": 1220,
     "nitro_mass": 0,
     "oil_mass": 100,
     "pilot_mass": 450,
@@ -3588,7 +3612,7 @@
     "max_fuel_mass": 1431,
     "nitro_mass": 0,
     "oil_mass": 45,
-    "pilot_mass": 450,
+    "pilot_mass": 270,
     "all_ammo_mass": 18
   },
   "ki_48_2_otsu_event": {
@@ -3596,7 +3620,7 @@
     "max_fuel_mass": 1431,
     "nitro_mass": 0,
     "oil_mass": 45,
-    "pilot_mass": 450,
+    "pilot_mass": 270,
     "all_ammo_mass": 18
   },
   "ki_61_1a_hei": {
@@ -4017,7 +4041,7 @@
   },
   "martin_139wc": {
     "EmptyMass": 4931,
-    "max_fuel_mass": 1354,
+    "max_fuel_mass": 1214,
     "nitro_mass": 0,
     "oil_mass": 100,
     "pilot_mass": 360,
@@ -4246,6 +4270,38 @@
     "oil_mass": 75,
     "pilot_mass": 180,
     "all_ammo_mass": 190
+  },
+  "me_210_v22_japan": {
+    "EmptyMass": 7639,
+    "max_fuel_mass": 1679,
+    "nitro_mass": 0,
+    "oil_mass": 75,
+    "pilot_mass": 180,
+    "all_ammo_mass": 134
+  },
+  "me_210a_1": {
+    "EmptyMass": 7639,
+    "max_fuel_mass": 1679,
+    "nitro_mass": 0,
+    "oil_mass": 75,
+    "pilot_mass": 180,
+    "all_ammo_mass": 134
+  },
+  "me_210ca_1_40_mm_hungary": {
+    "EmptyMass": 7820,
+    "max_fuel_mass": 1679,
+    "nitro_mass": 0,
+    "oil_mass": 75,
+    "pilot_mass": 180,
+    "all_ammo_mass": 167
+  },
+  "me_210ca_1_hungary": {
+    "EmptyMass": 7639,
+    "max_fuel_mass": 1679,
+    "nitro_mass": 0,
+    "oil_mass": 75,
+    "pilot_mass": 180,
+    "all_ammo_mass": 134
   },
   "me_264": {
     "EmptyMass": 21150,
@@ -5229,7 +5285,7 @@
     "nitro_mass": 0,
     "oil_mass": 449,
     "pilot_mass": 720,
-    "all_ammo_mass": 225
+    "all_ammo_mass": 300
   },
   "pb4y-2_china": {
     "EmptyMass": 18338,
@@ -5237,7 +5293,7 @@
     "nitro_mass": 0,
     "oil_mass": 449,
     "pilot_mass": 720,
-    "all_ammo_mass": 225
+    "all_ammo_mass": 300
   },
   "pb4y-2_france": {
     "EmptyMass": 18338,
@@ -5245,7 +5301,7 @@
     "nitro_mass": 0,
     "oil_mass": 449,
     "pilot_mass": 720,
-    "all_ammo_mass": 225
+    "all_ammo_mass": 300
   },
   "pbj_1h": {
     "EmptyMass": 10565,
@@ -5527,19 +5583,35 @@
     "pilot_mass": 90,
     "all_ammo_mass": 21
   },
+  "re_2000_heja_1": {
+    "EmptyMass": 2237,
+    "max_fuel_mass": 460,
+    "nitro_mass": 0,
+    "oil_mass": 30,
+    "pilot_mass": 90,
+    "all_ammo_mass": 21
+  },
+  "re_2000_heja_2": {
+    "EmptyMass": 2070,
+    "max_fuel_mass": 400,
+    "nitro_mass": 0,
+    "oil_mass": 30,
+    "pilot_mass": 90,
+    "all_ammo_mass": 21
+  },
   "re_2000_int": {
-    "EmptyMass": 2073,
+    "EmptyMass": 2237,
     "max_fuel_mass": 260,
     "nitro_mass": 0,
-    "oil_mass": 25,
+    "oil_mass": 30,
     "pilot_mass": 90,
     "all_ammo_mass": 21
   },
   "re_2000_j20": {
-    "EmptyMass": 2073,
+    "EmptyMass": 2237,
     "max_fuel_mass": 260,
     "nitro_mass": 0,
-    "oil_mass": 25,
+    "oil_mass": 30,
     "pilot_mass": 90,
     "all_ammo_mass": 21
   },
@@ -6175,6 +6247,14 @@
     "pilot_mass": 90,
     "all_ammo_mass": 44
   },
+  "spitfire_lf_mk9c_cw_greece": {
+    "EmptyMass": 2960,
+    "max_fuel_mass": 289,
+    "nitro_mass": 0,
+    "oil_mass": 22,
+    "pilot_mass": 90,
+    "all_ammo_mass": 44
+  },
   "spitfire_lf_mk9e_iaf": {
     "EmptyMass": 2960,
     "max_fuel_mass": 289,
@@ -6225,6 +6305,14 @@
   },
   "spitfire_mk5b": {
     "EmptyMass": 2610,
+    "max_fuel_mass": 289,
+    "nitro_mass": 0,
+    "oil_mass": 22,
+    "pilot_mass": 90,
+    "all_ammo_mass": 28
+  },
+  "spitfire_mk5b_float": {
+    "EmptyMass": 2950,
     "max_fuel_mass": 289,
     "nitro_mass": 0,
     "oil_mass": 22,
@@ -6496,8 +6584,8 @@
     "all_ammo_mass": 27
   },
   "tbf-1c": {
-    "EmptyMass": 5272,
-    "max_fuel_mass": 906,
+    "EmptyMass": 4890,
+    "max_fuel_mass": 819,
     "nitro_mass": 0,
     "oil_mass": 57,
     "pilot_mass": 360,
@@ -6775,6 +6863,22 @@
     "pilot_mass": 270,
     "all_ammo_mass": 9
   },
+  "washington_b1": {
+    "EmptyMass": 32867,
+    "max_fuel_mass": 17958,
+    "nitro_mass": 0,
+    "oil_mass": 1158,
+    "pilot_mass": 630,
+    "all_ammo_mass": 475
+  },
+  "welkin_fmk1": {
+    "EmptyMass": 6814,
+    "max_fuel_mass": 1891,
+    "nitro_mass": 0,
+    "oil_mass": 102,
+    "pilot_mass": 90,
+    "all_ammo_mass": 73
+  },
   "wellington_mk10": {
     "EmptyMass": 11095,
     "max_fuel_mass": 2454,
@@ -6838,6 +6942,22 @@
     "oil_mass": 35,
     "pilot_mass": 180,
     "all_ammo_mass": 15
+  },
+  "wm_21": {
+    "EmptyMass": 2536,
+    "max_fuel_mass": 320,
+    "nitro_mass": 0,
+    "oil_mass": 42,
+    "pilot_mass": 180,
+    "all_ammo_mass": 22
+  },
+  "wm_23": {
+    "EmptyMass": 2133,
+    "max_fuel_mass": 300,
+    "nitro_mass": 0,
+    "oil_mass": 44,
+    "pilot_mass": 90,
+    "all_ammo_mass": 33
   },
   "xa_38": {
     "EmptyMass": 11722,

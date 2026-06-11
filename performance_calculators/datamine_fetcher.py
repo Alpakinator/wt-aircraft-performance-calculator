@@ -52,7 +52,10 @@ def newest_repo_getter():
 
     # 1. Clone repo
     print("Cloning latest wt datamine repository...")
-    repo = Repo.clone_from(repo_url, temp_dir, branch = "master")
+    if os.path.exists(temp_dir):
+        shutil.rmtree(temp_dir)
+
+    repo = Repo.clone_from(repo_url, temp_dir, branch="master", multi_options=["--config http.version=HTTP/1.1", "--config http.postBuffer=524288000"])
     if os.path.exists(temp_dir):
     # Close any open Git objects
         if os.path.exists(os.path.join(temp_dir, '.git')):
